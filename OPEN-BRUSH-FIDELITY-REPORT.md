@@ -1,6 +1,6 @@
 # Open Brush parity plan and brush fidelity review
 
-Current planning audit: 2026-10-21, application baseline `4d1f736`.
+Current planning audit: 2026-10-22, application baseline `1b965a2`.
 
 Original review: 2026-08-31, application baseline `4579dbb`.
 
@@ -36,7 +36,7 @@ every intervening upstream change.
 | Target inventory | Generated metadata contains 48 standard and 47 non-broken experimental catalog brushes; [brush-catalog.ts](src/brushes/brush-catalog.ts) derives the required set. | Keep compatibility-only imports distinct from the 95-brush painting target. |
 | Geometry | [brush-geometry.ts](src/brushes/brush-geometry.ts) delegates to `three-tiltloader`. The [fresh native run](docs/evidence/brush-fidelity/native-2026-10-21/README.md) matches 95/95 required live meshes against current package pins, under family-specific rules. | The fresh native revision is `5591ff1`, distinct from the declared reference pin. Cover incremental rebuilds, animated deformation, and export paths separately; reconcile reference provenance explicitly. |
 | Materials | Shared maintained assets and [render-pass helpers](src/brushes/brush-render-material.ts) are wired into the app; late material upgrades are registered. The [browser image collector](scripts/browser-brush-image-comparison.mjs) captures all 95 required brushes with per-GUID metrics. | The first image run is diagnostic with unmatched/unverified reference inputs; calibrated Unity image parity, loaded-environment context, audio analysis, and physical-Quest validation remain open. |
-| Labels and evidence | [Inventory labels](src/brushes/brush-inventory.ts) derive `supported` and `likely-mostly-correct` from implementation eligibility. [Shader evidence](src/brushes/brush-shader-compatibility.ts) persists asset/browser/immersive-XR/visual contexts locally. | Join eligibility with revisioned mesh/image/device evidence; a selectable brush or a local `ready` record is not a parity verdict. |
+| Labels and evidence | [Inventory](src/brushes/brush-inventory.ts) separates renderer support from unverified visual parity. The [ledger](docs/evidence/brush-fidelity/ledger-2026-10-22/README.md) joins revisioned per-GUID observations. [Shader evidence](src/brushes/brush-shader-compatibility.ts) also persists contexts locally. | Gather missing compile/image/device evidence and reconcile native provenance; a selectable brush or a local `ready` record is not a parity verdict. |
 | Production batching | [StrokeBatchRenderSystem](src/systems/stroke-batch-render-system.ts) is registered in [src/index.ts](src/index.ts); [batching is default-on](src/brushes/stroke-batch-feature.ts), with `?strokeBatches=0` or `false` as the opt-out. | Follow the [batching validation ledger](docs/stroke-batching-validation.md): broader brush/view coverage, context loss, latency/capacity budgets, and physical-headset evidence remain open. |
 | File handling | Local [tilt-file.ts](src/sketch/tilt-file.ts) and [sketch-memory.ts](src/sketch/sketch-memory.ts) still implement archive and stroke serialization; gallery imports use the local reader. | Shared geometry migration is complete in the adapter; parser consolidation and native Open Brush round-trip compatibility are separate unfinished work. |
 
@@ -138,6 +138,15 @@ every intervening upstream change.
     eligibility and all 95 required selections remain available. See the
     [label evidence](docs/evidence/brush-fidelity/confidence-labels-2026-10-22/README.md).
     No geometry or structural check is promoted to a visual-parity claim.
+12. The [per-GUID evidence ledger](docs/evidence/brush-fidelity/ledger-2026-10-22/README.md)
+    now joins all 95 required GUIDs across native live meshes, isolated export
+    accessors, post-loader inspection, corrected browser captures and buffer
+    capacities. It binds source revisions/hashes and rejects duplicate/missing
+    identities, fixture/image drift, dependency-lock/inventory drift and
+    incomplete browser runs. Unverified asset/compile audits, actual XR,
+    hardware/performance, animation and visual parity are explicit per GUID.
+    These are joined historical observations under their recorded revisions,
+    not new current-app rendering or native-image parity passes.
 
 ## Executive assessment
 
@@ -819,8 +828,13 @@ actual scope; incomplete items remain open.
    Keep missing, failed, and passed evidence distinct. Replace or qualify
    eligibility-derived confidence labels. The inventory/picker now explicitly
    mark visual parity unverified independently of painting eligibility; the
-   supported-path-derived confidence claim has been removed. Still join and
-   publish the per-GUID evidence. Exit: every one of the 95 GUIDs has
+   supported-path-derived confidence claim has been removed. The
+   [ledger](docs/evidence/brush-fidelity/ledger-2026-10-22/README.md) now publishes
+   all 95 identities with source-specific observations and explicit unverified
+   asset/compile, XR/device, performance, animation and visual-parity states.
+   Still gather those missing observations and reconcile the native reference
+   revisions/capture settings; joining evidence does not establish new passes.
+   Exit: every one of the 95 GUIDs has
    attributable evidence or an explicit unverified state; connectivity and
    nonempty-render checks cannot count as conformance passes.
 3. **Automate the existing visual comparison path.** Implemented: the collector

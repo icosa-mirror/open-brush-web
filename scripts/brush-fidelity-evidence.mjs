@@ -1,0 +1,80 @@
+export function indexGuidRows(rows, key, label) {
+  if (!Array.isArray(rows)) throw new Error(`Missing ${label} rows.`);
+  const result = new Map();
+  for (const row of rows) {
+    if (!row || typeof row[key] !== "string") throw new Error(`Invalid ${label} GUID.`);
+    const guid = row[key].toLowerCase();
+    if (!/^[0-9a-f]{8}-(?:[0-9a-f]{4}-){3}[0-9a-f]{12}$/.test(guid)) throw new Error(`Invalid ${label} GUID.`);
+    if (result.has(guid)) throw new Error(`Duplicate ${label} GUID ${guid}.`);
+    result.set(guid, row);
+  }
+  return result;
+}
+
+export function requireMatchingHash(actual, expected, label) {
+  if (!/^[0-9a-f]{64}$/.test(actual) || actual !== expected) throw new Error(`${label} hash differs or is missing.`);
+}
+
+export function joinBrushFidelityEvidence(required, data) {
+  const maps = {
+    native: indexGuidRows(data.generation.artifacts, "brushGuid", "native generation"),
+    mesh: indexGuidRows(data.mesh.brushes, "brushGuid", "live mesh"),
+    meshInputs: indexGuidRows(data.mesh.evidence.inputs, "guid", "live mesh input"),
+    exports: indexGuidRows(data.exports.brushes, "guid", "export accessor"),
+    captures: indexGuidRows(data.captures.results, "guid", "browser capture"),
+    layout: indexGuidRows(data.layout.brushes, "guid", "vertex layout"),
+    images: indexGuidRows(data.images.images, "guid", "native image"),
+  };
+  const take = (stage, guid) => {
+    const row = maps[stage].get(guid);
+    if (!row) throw new Error(`Missing ${stage} evidence for ${guid}.`);
+    return row;
+  };
+  if (!Array.isArray(data.postLoader.results)) throw new Error("Missing post-loader rows.");
+  const post = new Map();
+  for (const row of data.postLoader.results) {
+    if (post.has(row.name)) throw new Error(`Duplicate post-loader file ${row.name}.`);
+    post.set(row.name, row);
+  }
+  const normalExports = data.postLoader.results.filter((row) => row.generator?.includes("Open Brush UnityGLTF Exporter"));
+  return required.map(({ guid, name, catalogSection }) => {
+    const native = take("native", guid), mesh = take("mesh", guid), exported = take("exports", guid);
+    const capture = take("captures", guid), layout = take("layout", guid), image = take("images", guid);
+    requireMatchingHash(take("meshInputs", guid).sha256, native.mesh.sha256, `${guid} live-mesh input`);
+    requireMatchingHash(exported.meshSha256, native.mesh.sha256, `${guid} post-baker input`);
+    requireMatchingHash(layout.sha256, native.mesh.sha256, `${guid} layout input`);
+    requireMatchingHash(exported.glbSha256, native.glb.sha256, `${guid} exported GLB`);
+    requireMatchingHash(capture.referenceSha256, image.sha256, `${guid} reference image`);
+    const loaded = post.get(exported.glbFile);
+    if (!loaded) throw new Error(`Missing post-loader fixture for ${guid}.`);
+    requireMatchingHash(loaded.sha256, exported.glbSha256, `${guid} post-loader GLB`);
+    const normalMeshes = normalExports.flatMap((file) => (file.meshes ?? []).filter((item) => item.before.materials.some((material) => material.name === `ob-${name}`)).map((item) => ({
+      file: file.name, fileSha256: file.sha256, mesh: item.name, inspectionStatus: file.status,
+      exporterFlags: item.after.materials.map((material) => material.newExporterFlag),
+    })));
+    const shaderMeshes = loaded.meshes.filter((item) => item.after.materials.some((material) => material.newExporterFlag !== null)).length;
+    return {
+      guid, name, catalogSection,
+      liveMesh: { source: "mesh", status: mesh.status, criteria: "recorded finalized-live-mesh rules; includes family-specific hull criteria", inputSha256: native.mesh.sha256 },
+      exportAccessors: { source: "exports", status: exported.status, colorSpaceModel: data.exports.nativeColorSpaceModel,
+        glbSha256: exported.glbSha256, droppedUvComponents: exported.droppedComponents.map(({ attribute, component }) => ({ attribute, component })),
+        bakerMappingFound: exported.bakerMappingFound, semanticEquivalence: "unverified" },
+      fixturePostLoader: { source: "postLoader", status: loaded.status, shaderMeshes,
+        pbrMeshes: loaded.meshes.length - shaderMeshes, generator: loaded.generator,
+        colorChecks: loaded.meshes.map((item) => item.colorConversion.status), semanticEquivalence: "unverified" },
+      normalExportPostLoader: { source: "postLoader", status: normalMeshes.length ? "observed-by-material-name" : "unverified",
+        identity: "name-derived join; original stroke GUID provenance unverified", meshes: normalMeshes,
+        producingUnityRevision: "unverified", fullPluginPath: "unverified", visualParity: "unverified" },
+      browserCapture: { source: "captures", status: capture.status, coverageSmoke: capture.renderStatus,
+        generatedUv0Size: capture.generatedUv0Size, shaderUv0Size: capture.shaderUv0Size,
+        browserImageSha256: capture.browserSha256, referenceImageSha256: capture.referenceSha256,
+        consoleErrors: capture.consoleErrorCount, pageErrors: capture.pageErrorCount,
+        inputProfile: capture.inputProfile, nativeContextAlignment: "unverified", visualParity: "unverified" },
+      bufferLayout: { source: "layout", status: layout.status, generatedStates: layout.checks, layouts: layout.layouts,
+        nativeIncrementalMeshEquivalence: "unverified" },
+      assetLoadAudit: "unverified", browserShaderCompileAudit: "unverified", actualXrShaderCompile: "unverified",
+      physicalQuestInteraction: "unverified", devicePerformanceBudget: "unverified", animationParity: "unverified",
+      visualParity: "unverified",
+    };
+  });
+}
