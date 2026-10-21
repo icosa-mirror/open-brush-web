@@ -9,9 +9,8 @@ import {
 } from "three-tiltloader";
 
 export type BrushSupportStatus = "supported" | "fallback" | "unsupported";
-export type BrushFidelityConfidence =
-  | "likely-mostly-correct"
-  | "unverified-or-likely-substantially-wrong";
+/** Renderer availability does not establish visual agreement with Unity. */
+export type BrushFidelityConfidence = "unverified";
 export type BrushPressureSizeRange = TiltBrushPressureSizeRange;
 export type BrushPressureOpacityRange = TiltBrushPressureOpacityRange;
 export type BrushGeometryFamily = TiltBrushGeometryFamily;
@@ -336,10 +335,7 @@ export function buildBrushInventoryFromExportManifest(
     const assetRecord = assetRecords?.[guid];
     const geometryDefaults = getOpenBrushGeometryDefaults(guid);
     const support = resolveBrushSupport(brush, assetRecord, geometryDefaults);
-    const fidelityConfidence: BrushFidelityConfidence =
-      support.supportStatus === "supported"
-        ? "likely-mostly-correct"
-        : "unverified-or-likely-substantially-wrong";
+    const fidelityConfidence: BrushFidelityConfidence = "unverified";
     const tags = assetRecord?.tags ?? [];
     const portRequired =
       assetRecord?.catalogSection !== undefined &&
@@ -385,7 +381,7 @@ export function buildBrushInventoryFromExportManifest(
       // Fidelity status is deliberately independent: incomplete brushes use
       // the existing fallback geometry/material instead of disappearing.
       pickerVisible: portRequired && assetRecord?.catalogSection === "standard",
-      pickerEnabled: fidelityConfidence === "likely-mostly-correct",
+      pickerEnabled: support.supportStatus === "supported",
       portRequired,
     };
   });

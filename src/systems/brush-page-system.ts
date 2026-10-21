@@ -238,10 +238,7 @@ export class BrushPageSystem extends createSystem({
         "brush-active-confidence",
       ) as UIKitStyleElement | null;
       confidenceElement?.setProperties({
-        text:
-          activeEntry?.fidelityConfidence === "likely-mostly-correct"
-            ? "Likely mostly correct"
-            : "Unverified or likely substantially wrong",
+        text: activeEntry ? "Visual parity unverified" : "",
       });
     }
     if (this.page !== this.appliedMarkPage) {

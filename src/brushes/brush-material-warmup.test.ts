@@ -97,7 +97,7 @@ function createBrush(
     colorParams: overrides.colorParams,
     supportStatus: overrides.supportStatus ?? "supported",
     fidelityConfidence:
-      overrides.fidelityConfidence ?? "likely-mostly-correct",
+      overrides.fidelityConfidence ?? "unverified",
     pickerVisible: overrides.pickerVisible ?? true,
     pickerEnabled: overrides.pickerEnabled ?? true,
     portRequired: overrides.portRequired ?? true,

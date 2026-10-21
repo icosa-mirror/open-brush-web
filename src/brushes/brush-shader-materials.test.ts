@@ -51,7 +51,7 @@ describe("brush shader asset inventory", () => {
     expect(template.length).toBe(49);
   });
 
-  it("shows all 48 standard brushes but enables only likely-mostly-correct entries", () => {
+  it("shows all 48 standard brushes with implemented renderer paths", () => {
     expect(visibleOpenBrushes.length).toBe(48);
     expect(selectableOpenBrushes.length).toBe(48);
     for (const entry of selectableOpenBrushes) {

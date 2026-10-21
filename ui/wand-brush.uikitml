@@ -237,7 +237,7 @@
     </button>
     <div class="brush-labels">
       <span id="brush-active-name" class="brush-name">Brush</span>
-      <span id="brush-active-confidence" class="brush-confidence">Likely mostly correct</span>
+      <span id="brush-active-confidence" class="brush-confidence">Visual parity unverified</span>
     </div>
     <button id="brush-page-next" class="page-button">
       <ChevronRightIcon class="page-button-icon"></ChevronRightIcon>

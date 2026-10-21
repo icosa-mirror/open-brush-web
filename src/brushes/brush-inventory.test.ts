@@ -45,7 +45,7 @@ describe("Open Brush brush inventory", () => {
       materialFamily: "unlit",
       pickerVisible: true,
       pickerEnabled: true,
-      fidelityConfidence: "likely-mostly-correct",
+      fidelityConfidence: "unverified",
       brushSizeRange: [0.05, 3],
       pressureSizeRange: [0.1, 1],
       pressureOpacityRange: [1, 1],
@@ -58,7 +58,7 @@ describe("Open Brush brush inventory", () => {
       geometryFamily: "hull",
       pickerVisible: true,
       pickerEnabled: true,
-      fidelityConfidence: "likely-mostly-correct",
+      fidelityConfidence: "unverified",
     });
     expect(
       findBrushByGuid(inventory, "d3f3b18a-da03-f694-b838-28ba8e749a98"),
@@ -67,7 +67,7 @@ describe("Open Brush brush inventory", () => {
       supportStatus: "supported",
       geometryFamily: "print3d",
       pickerEnabled: true,
-      fidelityConfidence: "likely-mostly-correct",
+      fidelityConfidence: "unverified",
     });
     expect(
       findBrushByGuid(inventory, "2d35bcf0-e4d8-452c-97b1-3311be063130"),

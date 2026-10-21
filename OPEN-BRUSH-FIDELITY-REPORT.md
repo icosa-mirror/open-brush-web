@@ -132,6 +132,12 @@ every intervening upstream change.
     append rejects incompatible UV layouts. This is structural validation,
     not a scan of vertex values or native incremental-mesh equivalence. Full
     semantic shader contracts and actual browser/XR authoring remain unverified.
+11. Brush availability is now independent of visual confidence. The previous
+    supported-path-derived `likely-mostly-correct` claim has been replaced by
+    `unverified`; the picker says **Visual parity unverified**. Existing painting
+    eligibility and all 95 required selections remain available. See the
+    [label evidence](docs/evidence/brush-fidelity/confidence-labels-2026-10-22/README.md).
+    No geometry or structural check is promoted to a visual-parity claim.
 
 ## Executive assessment
 
@@ -811,7 +817,10 @@ actual scope; incomplete items remain open.
    asset-load, browser compile, actual-XR compile, Unity-image differences, and
    performance/device observations, keyed by app/package/asset/Unity revisions.
    Keep missing, failed, and passed evidence distinct. Replace or qualify
-   eligibility-derived confidence labels. Exit: every one of the 95 GUIDs has
+   eligibility-derived confidence labels. The inventory/picker now explicitly
+   mark visual parity unverified independently of painting eligibility; the
+   supported-path-derived confidence claim has been removed. Still join and
+   publish the per-GUID evidence. Exit: every one of the 95 GUIDs has
    attributable evidence or an explicit unverified state; connectivity and
    nonempty-render checks cannot count as conformance passes.
 3. **Automate the existing visual comparison path.** Implemented: the collector

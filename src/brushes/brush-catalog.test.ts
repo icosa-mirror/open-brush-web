@@ -13,7 +13,7 @@ import {
 } from "./brush-catalog.js";
 
 describe("Open Brush brush catalog", () => {
-  it("keeps the full catalog visible while enabling only likely-mostly-correct brushes", () => {
+  it("keeps supported brushes selectable without claiming visual parity", () => {
     setExperimentalBrushesEnabled(false);
     expect(visibleOpenBrushes).toHaveLength(48);
     expect(selectableOpenBrushes).toHaveLength(48);
@@ -26,6 +26,7 @@ describe("Open Brush brush catalog", () => {
         .every((entry) => entry.catalogSection === "experimental"),
     ).toBe(true);
     expect(selectableOpenBrushes.every((entry) => entry.pickerEnabled)).toBe(true);
+    expect(selectableOpenBrushes.every((entry) => entry.fidelityConfidence === "unverified")).toBe(true);
     setExperimentalBrushesEnabled(false);
   });
 
