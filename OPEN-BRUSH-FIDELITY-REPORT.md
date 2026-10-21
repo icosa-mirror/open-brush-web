@@ -124,6 +124,14 @@ every intervening upstream change.
    linear-to-sRGB byte conversion; no nonfinite values were found. `beforeRoot`,
    active shader inputs, actual app import integration and rendering remain
    unverified. Producing revisions/settings of those existing exports are unknown.
+10. `npm run check:brush-vertex-layouts` exercises the app's generated-buffer
+    capacity contract across native-input prefixes and finalization. The
+    [layout run](docs/evidence/brush-fidelity/vertex-layout-2026-10-22/README.md)
+    covers all 95 required brushes and 3,705 generated states. Live rebinding
+    and batch copies now reject unsupported/missing/short channels, and batch
+    append rejects incompatible UV layouts. This is structural validation,
+    not a scan of vertex values or native incremental-mesh equivalence. Full
+    semantic shader contracts and actual browser/XR authoring remain unverified.
 
 ## Executive assessment
 
@@ -838,7 +846,12 @@ actual scope; incomplete items remain open.
    live-mesh and export-path reports; an export pass cannot replace a live pass.
 5. **Harden vertex contracts and incremental authoring.** Define the shared
    typed vertex-layout contract and fail explicitly for missing required
-   attributes. Check adjacent-knot rebuilds, restarts, preview/finalization,
+   attributes. An app-side layout/capacity boundary is now shared by live
+   rebinding and batch copies, with all 95 brushes exercised across 3,705
+   generated prefix/finalization states; see the
+   [structural evidence](docs/evidence/brush-fidelity/vertex-layout-2026-10-22/README.md).
+   Still establish semantic shader requirements and upstream shared contracts.
+   Check adjacent-knot rebuilds, restarts, preview/finalization,
    pressure/twist and break handling against the native reference. Make reusable
    generator changes upstream in a separately located checkout; do not patch
    installed packages. Exit: deterministic semantic fixtures plus native/browser

@@ -15,6 +15,12 @@
  */
 
 import type { BrushGeometryArrays } from "./brush-geometry.js";
+import {
+  assertBrushGeometryArrays,
+  assertBrushVertexLayout,
+  brushUv0Array,
+  type BrushVertexLayout,
+} from "./brush-vertex-layout.js";
 
 /**
  * Vertex-count ceiling for a single batch.
@@ -30,10 +36,7 @@ import type { BrushGeometryArrays } from "./brush-geometry.js";
 export const MAX_BATCH_VERTICES = 65534;
 
 /** Attribute widths that must agree for strokes to share one batch. */
-export interface BatchVertexLayout {
-  uv0Size: 2 | 3 | 4;
-  uv1Size: 0 | 3 | 4;
-}
+export type BatchVertexLayout = BrushVertexLayout;
 
 /** Axis-aligned bounds of a subset, in the batch's (canvas) space. */
 export interface SubsetBounds {
@@ -139,6 +142,7 @@ export class StrokeBatch {
   topologyDirty = false;
 
   constructor(layout: BatchVertexLayout) {
+    assertBrushVertexLayout(layout, "batch");
     this.layout = { ...layout };
     this.uvs = new Float32Array(INITIAL_VERTEX_CAPACITY * layout.uv0Size);
     this.uv1s = new Float32Array(
@@ -171,6 +175,10 @@ export class StrokeBatch {
    * onto the batch's vertex range as they are copied (`AppendTriangleData`).
    */
   addSubset(strokeGuid: string, arrays: BrushGeometryArrays): BatchSubset {
+    assertBrushGeometryArrays(arrays, strokeGuid);
+    if (!this.acceptsLayout(arrays)) {
+      throw new Error(`Brush vertex layout (${strokeGuid}): generated UV widths differ from the batch.`);
+    }
     const { vertexCount, indexCount } = arrays;
     const startVertex = this.vertexCount;
     const startIndex = this.indexCount;
@@ -201,7 +209,7 @@ export class StrokeBatch {
 
     const uv0Size = this.layout.uv0Size;
     this.uvs.set(
-      selectUvSource(arrays, uv0Size).subarray(0, vertexCount * uv0Size),
+      brushUv0Array(arrays).subarray(0, vertexCount * uv0Size),
       startVertex * uv0Size,
     );
     if (this.layout.uv1Size > 0) {
@@ -356,20 +364,6 @@ export class StrokeBatch {
   private ensureIndexCapacity(indexCount: number): void {
     this.indices = growUint32(this.indices, indexCount);
   }
-}
-
-/** Picks the source UV array matching the batch's texcoord0 width. */
-function selectUvSource(
-  arrays: BrushGeometryArrays,
-  uv0Size: 2 | 3 | 4,
-): Float32Array {
-  if (uv0Size === 2) {
-    return arrays.uvs;
-  }
-  if (uv0Size === 3) {
-    return arrays.packedUvs;
-  }
-  return arrays.particleUvs;
 }
 
 function boundsFromArrays(arrays: BrushGeometryArrays): SubsetBounds {

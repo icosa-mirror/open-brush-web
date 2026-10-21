@@ -51,6 +51,10 @@ import {
   type BrushGeometryArrays,
 } from "../brushes/brush-geometry.js";
 import {
+  assertBrushGeometryArrays,
+  brushUv0Array,
+} from "../brushes/brush-vertex-layout.js";
+import {
   createBrushMaterialSpec,
   type BrushMaterialSpec,
 } from "../brushes/brush-materials.js";
@@ -1393,23 +1397,24 @@ export class StrokeAuthoringSystem extends createSystem({
 
     // Rebuilds run every sampled frame while drawing: reuse the GPU-bound
     // attributes and rebind only when storage grows or the UV layout changes.
+    // Check standard UV1: Leaky Pen supplies a supplemental shader alias even
+    // when its generated layout has no UV1 store.
     const currentShaderUv = stroke.geometry.getAttribute("a_texcoord0");
     if (
       reallocated ||
       !stroke.geometry.getAttribute("position") ||
-      currentShaderUv?.itemSize !== arrays.uv0Size
+      currentShaderUv?.itemSize !== arrays.uv0Size ||
+      (stroke.geometry.getAttribute("uv1")?.itemSize ?? 0) !== arrays.uv1Size
     ) {
+      assertBrushGeometryArrays(arrays, stroke.strokeData.brushGuid);
       const position = new BufferAttribute(arrays.positions, 3);
       const normal = new BufferAttribute(arrays.normals, 3);
       const tangent = new BufferAttribute(arrays.tangents, 4);
       const color = new BufferAttribute(arrays.colors, 4);
       const uv = new BufferAttribute(arrays.uvs, 2);
-      const shaderUv =
-        arrays.uv0Size === 3
-          ? new BufferAttribute(arrays.packedUvs, 3)
-          : arrays.uv0Size === 4
-            ? new BufferAttribute(arrays.particleUvs, 4)
-            : uv;
+      const shaderUv = arrays.uv0Size === 2
+        ? uv
+        : new BufferAttribute(brushUv0Array(arrays), arrays.uv0Size);
       const shaderUv1 =
         arrays.uv1Size === 3
           ? new BufferAttribute(arrays.vectorUvs, 3)

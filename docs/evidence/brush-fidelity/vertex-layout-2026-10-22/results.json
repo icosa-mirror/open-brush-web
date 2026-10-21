@@ -1,0 +1,1157 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-21T23:10:45.430Z",
+  "scope": "generated buffer capacities/layouts across native-input control-point prefixes and finalization; not incremental native mesh or image equivalence",
+  "appRevision": "789658e07df90798669c42c7b12ec731329fddc8",
+  "runnerSha256": "b4f74c8fdd5218ce797cf053e9507f7073c1275135d4f22fec6cb5db2c6faedc",
+  "contractSha256": "15cf52992814af1a02a670b1aacb2777aefa7bb725cbb478c90aba54611d6db3",
+  "inventorySha256": "cefbbe1379b3844ba8e5938d32abd1e299807999e37bfdfb654cf7f01210a9c2",
+  "lockfileSha256": "f994e07d2de98eabdcd30394cd9be512ac6db3b62254301c8a130302ee4a1e04",
+  "brushes": [
+    {
+      "guid": "02ffb866-7fb2-4d15-b761-1012cefb1360",
+      "file": "brush-Embers.mesh.json",
+      "sha256": "0d26a0fa517f91e7991b3a85c7f09ccf0839fa3515318a93a20ff8c1b15c5c05",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "4/3"
+      ],
+      "finalVertexCount": 408,
+      "finalIndexCount": 612
+    },
+    {
+      "guid": "03a529e1-f519-3dd4-582d-2d5cd92c3f4f",
+      "file": "brush-Rain.mesh.json",
+      "sha256": "2af20d8c2b867527d56db1fe6bedbae0863fd3e4531ca02f3556f79b089ee543",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "3/0"
+      ],
+      "finalVertexCount": 420,
+      "finalIndexCount": 1224
+    },
+    {
+      "guid": "0d3889f3-3ede-470c-8af4-de4813306126",
+      "file": "brush-DoubleTaperedMarker.mesh.json",
+      "sha256": "5d8f03cbe9bc139f7c53d9b4e9ffceb440d47e1d3aaa79006c6051e80b178f15",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/3"
+      ],
+      "finalVertexCount": 140,
+      "finalIndexCount": 408
+    },
+    {
+      "guid": "0d3889f3-3ede-470c-8af4-f44813306126",
+      "file": "brush-DoubleTaperedFlat.mesh.json",
+      "sha256": "bd2d3c7720cea5e556c400d0e9d7e08f289a7314de87eb78579ad9d9f0d4138f",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/3"
+      ],
+      "finalVertexCount": 140,
+      "finalIndexCount": 408
+    },
+    {
+      "guid": "0eb4db27-3f82-408d-b5a1-19ebd7d5b711",
+      "file": "brush-Stars.mesh.json",
+      "sha256": "c47aec8ac3d34f56d03f89bfb2c06332a4c06c938be2dc0c39b7967cfd78ac89",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "4/3"
+      ],
+      "finalVertexCount": 348,
+      "finalIndexCount": 522
+    },
+    {
+      "guid": "0f0ff7b2-a677-45eb-a7d6-0cd7206f4816",
+      "file": "brush-ChromaticWave.mesh.json",
+      "sha256": "b5fabc6af6454b9ab97fedb82f0a52dc808cf3c01923a2e92b4f9c02f95ceed7",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "3/0"
+      ],
+      "finalVertexCount": 331,
+      "finalIndexCount": 1680
+    },
+    {
+      "guid": "0f5820df-cb6b-4a6c-960e-56e4c8000eda",
+      "file": "brush-WaveformTube.mesh.json",
+      "sha256": "960e69996731df3decfbc44f7956572df2c690e4f1c4ad2911e3b8f416ec473b",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "3/0"
+      ],
+      "finalVertexCount": 331,
+      "finalIndexCount": 1680
+    },
+    {
+      "guid": "10201aa3-ebc2-42d8-84b7-2e63f6eeb8ab",
+      "file": "brush-Waveform.mesh.json",
+      "sha256": "8a1c2057d87e23589e03dc5bf034e5d26accdbfa6d4d94961959ba1eedff5410",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 408,
+      "finalIndexCount": 408
+    },
+    {
+      "guid": "1161af82-50cf-47db-9706-0c3576d43c43",
+      "file": "brush-CoarseBristles.mesh.json",
+      "sha256": "5945b6de375f3ec95e072165b65aab9e50f7f45ed08f83da35314a2208e4a9d7",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 1176,
+      "finalIndexCount": 1764
+    },
+    {
+      "guid": "1a26b8c0-8a07-4f8a-9fac-d2ef36e0cad0",
+      "file": "brush-TaperedMarker_Flat.mesh.json",
+      "sha256": "25f353bc44d7f5feb5a4cb765dbd3a40af61d973529eeae96c1a00b926d3de3b",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 140,
+      "finalIndexCount": 408
+    },
+    {
+      "guid": "1b897b7e-9b76-425a-b031-a867c48df409",
+      "file": "brush-Gouache.mesh.json",
+      "sha256": "87598282793c951be3e617656f32450c40826d86015295462b4b1c212b52844a",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 408,
+      "finalIndexCount": 408
+    },
+    {
+      "guid": "1caa6d7d-f015-3f54-3a4b-8b5354d39f81",
+      "file": "brush-Comet.mesh.json",
+      "sha256": "157f830eb006e4308363933c64cb8481d7d819f0d39840b601fc1c792a19706b",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "3/0"
+      ],
+      "finalVertexCount": 331,
+      "finalIndexCount": 1680
+    },
+    {
+      "guid": "1cf94f63-f57a-4a1a-ad14-295af4f5ab5c",
+      "file": "brush-Lacewing.mesh.json",
+      "sha256": "dbe5213c0f4836eb114ed96a1a4a9e180bf14ea000fab6ff76a21af5c4cf57fe",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 408,
+      "finalIndexCount": 408
+    },
+    {
+      "guid": "2241cd32-8ba2-48a5-9ee7-2caef7e9ed62",
+      "file": "brush-Light.mesh.json",
+      "sha256": "c849c68f0bfd73bfb4fe171351cc8e8df9d08e7ad858da08600fb194913351e6",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 408,
+      "finalIndexCount": 408
+    },
+    {
+      "guid": "2c1a6a63-6552-4d23-86d7-58f6fba8581b",
+      "file": "brush-Wireframe.mesh.json",
+      "sha256": "596f93df86c53e679108b26f2771ed2638edc88b11cfe936c94bb4d01a0d9e07",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 408,
+      "finalIndexCount": 408
+    },
+    {
+      "guid": "2d35bcf0-e4d8-452c-97b1-3311be063130",
+      "file": "brush-Flat.mesh.json",
+      "sha256": "09918795e9d23d9ac2fa23ac7e8bd1f4e8b8c02557e57f5834ceb13b9b9c76b8",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 408,
+      "finalIndexCount": 408
+    },
+    {
+      "guid": "2e03b1bf-3ebd-4609-9d7e-f4cafadc4dfa",
+      "file": "brush-SquarePaper.mesh.json",
+      "sha256": "a6a37a8488d2ece5994f9716d23b195b6fcbc97e9835940f7d9ad59bb7711d16",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 264,
+      "finalIndexCount": 732
+    },
+    {
+      "guid": "2f212815-f4d3-c1a4-681a-feeaf9c6dc37",
+      "file": "brush-Icing.mesh.json",
+      "sha256": "9e89aa2c5d49e7fd401d26c6f8c04ddfd91e4c01276b7c1435b613c38ce447b9",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "3/0"
+      ],
+      "finalVertexCount": 331,
+      "finalIndexCount": 1680
+    },
+    {
+      "guid": "30cb9af6-be41-4872-8f3e-cbff63fe3db8",
+      "file": "brush-Digital.mesh.json",
+      "sha256": "08ca713fb93db3656c44ae6060b9724438cdf1ea62f674ea7ee2a81608453d39",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 70,
+      "finalIndexCount": 204
+    },
+    {
+      "guid": "355b3579-bf1d-4ff5-a200-704437fe684b",
+      "file": "brush-SmoothHull.mesh.json",
+      "sha256": "6377a8ba6ddadb5b390d0df095fa0d2265928eaed20c669a0d57ff898e2c5cb4",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "3/0"
+      ],
+      "finalVertexCount": 76,
+      "finalIndexCount": 444
+    },
+    {
+      "guid": "39ee7377-7a9e-47a7-a0f8-0c77712f75d3",
+      "file": "brush-ThickGeometry.mesh.json",
+      "sha256": "1ef6ac52307f7799d0db96ff848aa286ea7af9472c2fed6d516b2ec6fefd3593",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 198,
+      "finalIndexCount": 672
+    },
+    {
+      "guid": "3d9755da-56c7-7294-9b1d-5ec349975f52",
+      "file": "brush-TaperedHueShift.mesh.json",
+      "sha256": "d8b7f53e34b12cba05917bf51e7e1a796d1b864b69fd72cc5f526a444776230f",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 408,
+      "finalIndexCount": 408
+    },
+    {
+      "guid": "429ed64a-4e97-4466-84d3-145a861ef684",
+      "file": "brush-Marker.mesh.json",
+      "sha256": "94a349dcd040b6563db3d76bfc0e1ac3357882358ee3f6bbf7f998eac2960a65",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 408,
+      "finalIndexCount": 408
+    },
+    {
+      "guid": "4391385a-cf83-4396-9e33-31e4e4930b27",
+      "file": "brush-Wire.mesh.json",
+      "sha256": "5f1ccfce345d29745aa9c4c57d31b2e94eeaec8a4401b06305adbd9d208178e8",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "3/0"
+      ],
+      "finalVertexCount": 331,
+      "finalIndexCount": 1680
+    },
+    {
+      "guid": "4391385a-df73-4396-9e33-31e4e4930b27",
+      "file": "brush-Toon.mesh.json",
+      "sha256": "d6b33f6a444fae6461f0ac81167d013662a91c41ce7297ad14e6e314964c5b1d",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "3/0"
+      ],
+      "finalVertexCount": 331,
+      "finalIndexCount": 1680
+    },
+    {
+      "guid": "4391aaaa-df73-4396-9e33-31e4e4930b27",
+      "file": "brush-Disco.mesh.json",
+      "sha256": "951a006a95b2b75c1377873f4111a9dfa5b48f04bf4bea001f1e9e64dc291241",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "3/0"
+      ],
+      "finalVertexCount": 331,
+      "finalIndexCount": 1680
+    },
+    {
+      "guid": "4391aaaa-df81-4396-9e33-31e4e4930b27",
+      "file": "brush-LightWire.mesh.json",
+      "sha256": "9c84f5c02ec8a42d5582fc0c513e48edf0ff41efb464f598a8545afe5dbc277f",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "3/0"
+      ],
+      "finalVertexCount": 331,
+      "finalIndexCount": 1680
+    },
+    {
+      "guid": "4391ffaa-df73-4396-9e33-31e4e4930b27",
+      "file": "brush-FacetedTube.mesh.json",
+      "sha256": "1bd4fdc29f498b4cfccbb6a4f2085eace8c0b8a272cc58a9371d9f769307b747",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "3/0"
+      ],
+      "finalVertexCount": 331,
+      "finalIndexCount": 1680
+    },
+    {
+      "guid": "44bb800a-fbc3-4592-8426-94ecb05ddec3",
+      "file": "brush-Streamers.mesh.json",
+      "sha256": "f69222ed108d908e02b18e42ea6522e309f5484b0f7e0db35023b22a35fca600",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 408,
+      "finalIndexCount": 408
+    },
+    {
+      "guid": "492b36ff-b337-436a-ba5f-1e87ee86747e",
+      "file": "brush-Drafting.mesh.json",
+      "sha256": "02f0b837cab58dd6da8875b41bc497d88fbef29ccc239094dfb6d2fe81bfdcfa",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 408,
+      "finalIndexCount": 408
+    },
+    {
+      "guid": "50e99447-3861-05f4-697d-a1b96e771b98",
+      "file": "brush-Sparks.mesh.json",
+      "sha256": "661364e81eab6bc834d8a051cc5d132aa5ac22f7f1c81a92a111d47eae438752",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "3/0"
+      ],
+      "finalVertexCount": 331,
+      "finalIndexCount": 1680
+    },
+    {
+      "guid": "5347acf0-a8e2-47b6-8346-30c70719d763",
+      "file": "brush-WigglyGraphite.mesh.json",
+      "sha256": "6f5ed1def71cd796542f8551c7e8c1ad7e0ec3971f5ac2ac0a0894bbaef38dd6",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 408,
+      "finalIndexCount": 408
+    },
+    {
+      "guid": "53d753ef-083c-45e1-98e7-4459b4471219",
+      "file": "brush-Fire2.mesh.json",
+      "sha256": "87d9adedb28e32ad47064f04c048c5edaa5988f86242ee54e1b2ec24601e033f",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 408,
+      "finalIndexCount": 408
+    },
+    {
+      "guid": "62fef968-e842-3224-4a0e-1fdb7cfb745c",
+      "file": "brush-Wire (Lit).mesh.json",
+      "sha256": "017bf5267b34aa340a0ded1b99b52b51867ba10f87834049aab8989b848ac4fd",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "3/0"
+      ],
+      "finalVertexCount": 331,
+      "finalIndexCount": 1680
+    },
+    {
+      "guid": "6a1cf9f9-032c-45ec-311e-a6680bee32e9",
+      "file": "brush-DanceFloor.mesh.json",
+      "sha256": "d33c596a41404d510ab771273c6010eaa70d9416450f024a98d0e51c074ceea4",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/4"
+      ],
+      "finalVertexCount": 104,
+      "finalIndexCount": 156
+    },
+    {
+      "guid": "6a1cf9f9-032c-45ec-9b1d-a6680bee30f7",
+      "file": "brush-Dots.mesh.json",
+      "sha256": "66e3adee457c575640282ed4dd6d3c6ce3a5fc8e45fa978bc6035739bfd14089",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "4/3"
+      ],
+      "finalVertexCount": 116,
+      "finalIndexCount": 174
+    },
+    {
+      "guid": "6a1cf9f9-032c-45ec-9b6e-a6680bee30f7",
+      "file": "brush-WaveformParticles.mesh.json",
+      "sha256": "6799abb1dd4af39545ae062627a21cbd8e2ad15c1b38b5f6c627ff802463a968",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/4"
+      ],
+      "finalVertexCount": 1896,
+      "finalIndexCount": 2844
+    },
+    {
+      "guid": "6a1cf9f9-032c-45ec-9b6e-a6680bee32e9",
+      "file": "brush-HyperGrid.mesh.json",
+      "sha256": "33e439d9ace5e30a4e7d4bdbb25ac5cc0bcb3188438074157ea5f6cbce096f3f",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/4"
+      ],
+      "finalVertexCount": 204,
+      "finalIndexCount": 306
+    },
+    {
+      "guid": "700f3aa8-9a7c-2384-8b8a-ea028905dd8c",
+      "file": "brush-CelVinyl.mesh.json",
+      "sha256": "8f72848c1d4b4b7da405b04e55af5d9b80ee9b7425cb80b50692104434a96611",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 408,
+      "finalIndexCount": 408
+    },
+    {
+      "guid": "70d79cca-b159-4f35-990c-f02193947fe8",
+      "file": "brush-Smoke.mesh.json",
+      "sha256": "f2c9b95fe53ab62ae7e2a21916a10ea03cbc2576073dcd570d78525631f16602",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "4/3"
+      ],
+      "finalVertexCount": 60,
+      "finalIndexCount": 90
+    },
+    {
+      "guid": "7136a729-1aab-bd24-f8b2-ca88b6adfb67",
+      "file": "brush-Wind.mesh.json",
+      "sha256": "31a3868900f2df28361dc7b4fdec5e204d09eccfd198c0c91a8b53c563f7ae4d",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 408,
+      "finalIndexCount": 408
+    },
+    {
+      "guid": "7259cce5-41c1-ec74-c885-78af28a31d95",
+      "file": "brush-Leaves2.mesh.json",
+      "sha256": "3f4c8a29a2636d7f24d0f9328796239f865a4c6350114c7f8479c31ca6b2d790",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 160,
+      "finalIndexCount": 240
+    },
+    {
+      "guid": "725f4c6a-6427-6524-29ab-da371924adab",
+      "file": "brush-DryBrush.mesh.json",
+      "sha256": "541b82b2408526794a48dc11b941edaa6eaa30e1bd593a6495860d67d6bb7e56",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 408,
+      "finalIndexCount": 408
+    },
+    {
+      "guid": "75b32cf0-fdd6-4d89-a64b-e2a00b247b0f",
+      "file": "brush-ThickPaint.mesh.json",
+      "sha256": "9c287d24b1b14f44c397619b7397a2c1e27150e2fa30f5c754aba9aa8abb1515",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 408,
+      "finalIndexCount": 408
+    },
+    {
+      "guid": "79348357-432d-4746-8e29-0e25c112e3aa",
+      "file": "brush-MatteHull.mesh.json",
+      "sha256": "41c5c67a0214f103775dcbb5bd8bc56f60da834de8cae5ac5f9f76ba4b5f0c82",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "3/0"
+      ],
+      "finalVertexCount": 444,
+      "finalIndexCount": 444
+    },
+    {
+      "guid": "7ae1f880-a517-44a0-99f9-1cab654498c6",
+      "file": "brush-ConcaveHull.mesh.json",
+      "sha256": "a93844d5234bb89288bc000ca733f735fbc6ce91cb1e83e9c0f788d7b53a1b42",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 1542,
+      "finalIndexCount": 1542
+    },
+    {
+      "guid": "7c972c27-d3c2-8af4-7bf8-5d9db8f0b7bb",
+      "file": "brush-InkGeometry.mesh.json",
+      "sha256": "29d33f1a243a7e6edbcbb571b4af8afa9747c88370c7c5cc440c01542462ad98",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 140,
+      "finalIndexCount": 408
+    },
+    {
+      "guid": "84d5bbb2-6634-8434-f8a7-681b576b4664",
+      "file": "brush-DuctTapeGeometry.mesh.json",
+      "sha256": "36944c4e956fe165819cb3455b7cf31141c8732c7797ab4f021ca3899332afcd",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 140,
+      "finalIndexCount": 408
+    },
+    {
+      "guid": "89d104cd-d012-426b-b5b3-bbaee63ac43c",
+      "file": "brush-Bubbles.mesh.json",
+      "sha256": "0e9f512ab5375a1df8d944d98a63920c2c7a5024a9a847ef71977c99a99f2184",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "4/3"
+      ],
+      "finalVertexCount": 176,
+      "finalIndexCount": 264
+    },
+    {
+      "guid": "8dc4a70c-d558-4efd-a5ed-d4e860f40dc3",
+      "file": "brush-Splatter.mesh.json",
+      "sha256": "2b9fc05bf08056d29a12ad08192d82089bd3c30562a600d7c47f9b74dd8f1fc9",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 2336,
+      "finalIndexCount": 3504
+    },
+    {
+      "guid": "8e58ceea-7830-49b4-aba9-6215104ab52a",
+      "file": "brush-MylarTube.mesh.json",
+      "sha256": "23d64283e5379dd71603ae8e2198be3e22443a7e5a3b7789557154d8732fd9cb",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "3/0"
+      ],
+      "finalVertexCount": 331,
+      "finalIndexCount": 1680
+    },
+    {
+      "guid": "9568870f-8594-60f4-1b20-dfbc8a5eac0e",
+      "file": "brush-TaperedWire.mesh.json",
+      "sha256": "6d2192ce7560e8d70a259dacc6a30d10bc82f208701761de06e08062aa0b5948",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "3/0"
+      ],
+      "finalVertexCount": 331,
+      "finalIndexCount": 1680
+    },
+    {
+      "guid": "9871385a-df73-4396-9e33-31e4e4930b27",
+      "file": "brush-TubeToonInverted.mesh.json",
+      "sha256": "c89ade761126559aa31714d95ae677160c6a88e8100d64d1dea67c71d176aa68",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "3/0"
+      ],
+      "finalVertexCount": 331,
+      "finalIndexCount": 1680
+    },
+    {
+      "guid": "99aafe96-1645-44cd-99bd-979bc6ef37c5",
+      "file": "brush-Guts.mesh.json",
+      "sha256": "d7addf11164d72dc9b2a507b0e49c6dc02ecffb95b8f0b1d927eb9977af029b3",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "3/0"
+      ],
+      "finalVertexCount": 331,
+      "finalIndexCount": 1680
+    },
+    {
+      "guid": "a555b809-2017-46cb-ac26-e63173d8f45e",
+      "file": "brush-Feather.mesh.json",
+      "sha256": "e581f5919dcb9ed6b05d8cde5c9af34a8cc81921428be9eec53cf8ea71a5e1b2",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 408,
+      "finalIndexCount": 408
+    },
+    {
+      "guid": "a8147ce1-005e-abe4-88e8-09a1eaadcc89",
+      "file": "brush-Rising Bubbles.mesh.json",
+      "sha256": "6b4f17bb2f7197f2840b8e8da70ce5ac3c4aef6093c5b7432cde726c47b6a102",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "4/3"
+      ],
+      "finalVertexCount": 408,
+      "finalIndexCount": 612
+    },
+    {
+      "guid": "a8fea537-da7c-4d4b-817f-24f074725d6d",
+      "file": "brush-UnlitHull.mesh.json",
+      "sha256": "3368abba1dce397eedf38cfd8beb36855db5180465e01f051187de561f7d650d",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "3/0"
+      ],
+      "finalVertexCount": 444,
+      "finalIndexCount": 444
+    },
+    {
+      "guid": "abfbb2aa-70b4-4a5c-8126-8eedda2b3628",
+      "file": "brush-Race.mesh.json",
+      "sha256": "882e0b7e7156b24177299ef2979c8a13dddc91d110343ca1cceaf5815a934535",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 70,
+      "finalIndexCount": 204
+    },
+    {
+      "guid": "accb32f5-4509-454f-93f8-1df3fd31df1b",
+      "file": "brush-SoftHighlighter.mesh.json",
+      "sha256": "e9588b1d1b85a29507de2232f41fb4c018c2f1f2f1a4b36b873aa9cd9af7cb9d",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 408,
+      "finalIndexCount": 408
+    },
+    {
+      "guid": "ad1ad437-76e2-450d-a23a-e17f8310b960",
+      "file": "brush-Rainbow.mesh.json",
+      "sha256": "5e466c88d71d771df75753d2b1119a28c0dee71c69816530ecfc4e1d7e5d9aef",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 408,
+      "finalIndexCount": 408
+    },
+    {
+      "guid": "b2ffef01-eaaa-4ab5-aa64-95a2c4f5dbc6",
+      "file": "brush-NeonPulse.mesh.json",
+      "sha256": "00403789663f5bad2703ce645dc8ef4b33ce76caf893778035317cc726fa9734",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "3/0"
+      ],
+      "finalVertexCount": 331,
+      "finalIndexCount": 1680
+    },
+    {
+      "guid": "b468c1fb-f254-41ed-8ec9-57030bc5660c",
+      "file": "brush-TaperedFlat.mesh.json",
+      "sha256": "fb11f84fd795ef51b2d9d14f5a2a3229cd3ccef6f0382b8bb8a4b45faa04082c",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 408,
+      "finalIndexCount": 408
+    },
+    {
+      "guid": "b67c0e81-ce6d-40a8-aeb0-ef036b081aa3",
+      "file": "brush-WetPaint.mesh.json",
+      "sha256": "662bdac61d0cf0e137031327a65df0da5e85a4b4d9f0499caef298af7020c8ea",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 408,
+      "finalIndexCount": 408
+    },
+    {
+      "guid": "bdf65db2-1fb7-4202-b5e0-c6b5e3ea851e",
+      "file": "brush-Space.mesh.json",
+      "sha256": "21c5a6ed73c1fd27c672f72f1527731e6ce510d7fee1518e0de6e3ed00fb4126",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 408,
+      "finalIndexCount": 408
+    },
+    {
+      "guid": "c1c9b26d-673a-4dc6-b373-51715654ab96",
+      "file": "brush-TubeAdditive.mesh.json",
+      "sha256": "4f0f6d870f53075a1cbaef4d35a521c433a9afd0ed5a86b20edf7707f55accf5",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "3/0"
+      ],
+      "finalVertexCount": 331,
+      "finalIndexCount": 1680
+    },
+    {
+      "guid": "c33714d1-b2f9-412e-bd50-1884c9d46336",
+      "file": "brush-Plasma.mesh.json",
+      "sha256": "f3fc29a463b15a67ade1cf79e3b6587c093e4c5cfbf84009bf99521445ec2967",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 396,
+      "finalIndexCount": 396
+    },
+    {
+      "guid": "c5da2e70-a6e4-63a4-898c-5cfedef09c97",
+      "file": "brush-Lofted (Hue Shift).mesh.json",
+      "sha256": "abbe1f5da2bded85b28feadeda286bace213fd0685536cee3e56197532634f97",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "3/0"
+      ],
+      "finalVertexCount": 331,
+      "finalIndexCount": 1680
+    },
+    {
+      "guid": "c8313697-2563-47fc-832e-290f4c04b901",
+      "file": "brush-DiamondHull.mesh.json",
+      "sha256": "3a3686edfcd0e4c432d096dec480b349b016b56083b039b3ee89ee26e33dc3c6",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "3/0"
+      ],
+      "finalVertexCount": 888,
+      "finalIndexCount": 888
+    },
+    {
+      "guid": "c86c058d-1bda-2e94-08db-f3d6a96ac4a1",
+      "file": "brush-Marbled Rainbow.mesh.json",
+      "sha256": "c7b97fe92434418ca4ce7f32f9e71b5f38a5fa4198a712bfdec12ed796e39990",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 408,
+      "finalIndexCount": 408
+    },
+    {
+      "guid": "cb92b597-94ca-4255-b017-0e3f42f12f9e",
+      "file": "brush-Fire.mesh.json",
+      "sha256": "24ba0850ed1cfded6b22411fe26674fb14f5f055d29204d85886514d7018337e",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 408,
+      "finalIndexCount": 408
+    },
+    {
+      "guid": "cf019139-d41c-4eb0-a1d0-5cf54b0a42f3",
+      "file": "brush-Highlighter.mesh.json",
+      "sha256": "d4e710f737516a06a27607eb122dc8301e3a3b52eea09a62e29818df2d90bb64",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 408,
+      "finalIndexCount": 408
+    },
+    {
+      "guid": "cf7f0059-7aeb-53a4-2b67-c83d863a9ffa",
+      "file": "brush-Spikes.mesh.json",
+      "sha256": "caf4b2fb7cc698ef9f53552ecd59587ea45e9ee7c4c156fc82e73e6dca6e5cd4",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "3/0"
+      ],
+      "finalVertexCount": 216,
+      "finalIndexCount": 630
+    },
+    {
+      "guid": "d0262945-853c-4481-9cbd-88586bed93cb",
+      "file": "brush-DuctTape.mesh.json",
+      "sha256": "fab95258411e6bdd81d8b409e59a29d062d4b654f717a8e96420aaf25ff14dab",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 408,
+      "finalIndexCount": 408
+    },
+    {
+      "guid": "d120944d-772f-4062-99c6-46a6f219eeaf",
+      "file": "brush-WaveformFFT.mesh.json",
+      "sha256": "e2c31a206acb9f013874ce8e79b31e209fe9645ddbbb33f89999b4c944e17594",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 408,
+      "finalIndexCount": 408
+    },
+    {
+      "guid": "d1d991f2-e7a0-4cf1-b328-f57e915e6260",
+      "file": "brush-DotMarker.mesh.json",
+      "sha256": "df2763f2478f226b03fd9d69140953e9e93daa10bd0bce0b8861a7dc55f140d9",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 1416,
+      "finalIndexCount": 2124
+    },
+    {
+      "guid": "d229d335-c334-495a-a801-660ac8a87360",
+      "file": "brush-VelvetInk.mesh.json",
+      "sha256": "b1236706035dcb2d71980502959ea7cfd9cda151a3f864ade575ffae6a5f9f2a",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 408,
+      "finalIndexCount": 408
+    },
+    {
+      "guid": "d381e0f5-3def-4a0d-8853-31e9200bcbda",
+      "file": "brush-Lofted.mesh.json",
+      "sha256": "9db4468e1c920b19ee7ddd0af3adf4f29a94f1577204c807611a874bd9620e87",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "3/0"
+      ],
+      "finalVertexCount": 280,
+      "finalIndexCount": 816
+    },
+    {
+      "guid": "d3f3b18a-da03-f694-b838-28ba8e749a98",
+      "file": "brush-3D Printing Brush.mesh.json",
+      "sha256": "f187a88aae762dbc92ae9e36b799db174c894d9b6bb56c69ca5e7e7c8613bd23",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 344,
+      "finalIndexCount": 1860
+    },
+    {
+      "guid": "d902ed8b-d0d1-476c-a8de-878a79e3a34c",
+      "file": "brush-Snow.mesh.json",
+      "sha256": "2551b294940be39ca3d615445a9e035362abacbe290a9c88c06c683026832f63",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "4/3"
+      ],
+      "finalVertexCount": 408,
+      "finalIndexCount": 612
+    },
+    {
+      "guid": "d90c6ad8-af0f-4b54-b422-e0f92abe1b3c",
+      "file": "brush-TaperedMarker.mesh.json",
+      "sha256": "f8e386e7dc3d3bdefab489d2b406527a1166f8c3263c8055c2fd56ae17300bd1",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 408,
+      "finalIndexCount": 408
+    },
+    {
+      "guid": "d9cc5e99-ace1-4d12-96e0-4a7c18c99cfc",
+      "file": "brush-Fairy.mesh.json",
+      "sha256": "98adb796bf4f7f46a94f6e1860251cd0d144095ed6b8c145c948201e2d51b4cc",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 408,
+      "finalIndexCount": 408
+    },
+    {
+      "guid": "dce872c2-7b49-4684-b59b-c45387949c5c",
+      "file": "brush-Hypercolor.mesh.json",
+      "sha256": "c0422d35d7a9bbed25608bbe28118299c79540743777d89a347758f26f368322",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "3/0"
+      ],
+      "finalVertexCount": 408,
+      "finalIndexCount": 408
+    },
+    {
+      "guid": "ddda8745-4bb5-ac54-88b6-d1480370583e",
+      "file": "brush-LeakyPen.mesh.json",
+      "sha256": "f5b03aafde44bdc8c053d07e4baeb5fe15e6d174bb094ef6da6d1f3a927f4559",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 408,
+      "finalIndexCount": 408
+    },
+    {
+      "guid": "e0abbc80-0f80-e854-4970-8924a0863dcc",
+      "file": "brush-Petal.mesh.json",
+      "sha256": "a033edd26d35ff44f55f7874ad450539ed12b7255f4f595b950414c2fbba1478",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "3/0"
+      ],
+      "finalVertexCount": 350,
+      "finalIndexCount": 1020
+    },
+    {
+      "guid": "eba3f993-f9a1-4d35-b84e-bb08f48981a4",
+      "file": "brush-BubbleWand.mesh.json",
+      "sha256": "2682dbf1fdd598aec0ac1a42d092b63ae7a655b627f5369ce813ff9f1252f3fb",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "3/0"
+      ],
+      "finalVertexCount": 331,
+      "finalIndexCount": 1680
+    },
+    {
+      "guid": "f0a2298a-be80-432c-9fee-a86dcc06f4f9",
+      "file": "brush-SingleSided.mesh.json",
+      "sha256": "c5d680045fbac5f2fbb6b0fdb723137f6d3f83d0d2e78285bf154b38684802ac",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 70,
+      "finalIndexCount": 204
+    },
+    {
+      "guid": "f1114e2e-eb8d-4fde-915a-6e653b54e9f5",
+      "file": "brush-Paper.mesh.json",
+      "sha256": "72887a8e5bb06a91466fccf10de766d9d03dec2cd1f0b526c30fc1e2b85fd7f3",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 408,
+      "finalIndexCount": 408
+    },
+    {
+      "guid": "f28c395c-a57d-464b-8f0b-558c59478fa3",
+      "file": "brush-Muscle.mesh.json",
+      "sha256": "a20e62243ad97029f7b61d9ce0ba6534b04f0129c54bf920d7374ea72efbdafa",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "3/0"
+      ],
+      "finalVertexCount": 331,
+      "finalIndexCount": 1680
+    },
+    {
+      "guid": "f4a0550c-332a-4e1a-9793-b71508f4a454",
+      "file": "brush-DoubleFlat.mesh.json",
+      "sha256": "0c055182eab50d07d143ec01c9c212d1f1e8aa123e12775f6f3c1adcbcf8acad",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 408,
+      "finalIndexCount": 408
+    },
+    {
+      "guid": "f5c336cf-5108-4b40-ade9-c687504385ab",
+      "file": "brush-Ink.mesh.json",
+      "sha256": "17e09dd9990a3adf476ea92ef2729e37b005d1d04ba2f4138975d53dfe3ab25a",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 408,
+      "finalIndexCount": 408
+    },
+    {
+      "guid": "f6e85de3-6dcc-4e7f-87fd-cee8c3d25d51",
+      "file": "brush-Electricity.mesh.json",
+      "sha256": "0e01bbcad0daad251e8608977e917a5829091ce72b71f99ddd1d3bad8a38a130",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/3"
+      ],
+      "finalVertexCount": 140,
+      "finalIndexCount": 408
+    },
+    {
+      "guid": "f72ec0e7-a844-4e38-82e3-140c44772699",
+      "file": "brush-OilPaint.mesh.json",
+      "sha256": "cc1c7e2206b174eaebf8e592daed73771c2b137869586032b72fa16747f7b913",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 408,
+      "finalIndexCount": 408
+    },
+    {
+      "guid": "f8ba3d18-01fc-4d7b-b2d9-b99d10b8e7cf",
+      "file": "brush-KeijiroTube.mesh.json",
+      "sha256": "c440d6789fdff2e86b6f271628b1734ae4b18bdb2f1fa9e3d616acb2491552d0",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "3/0"
+      ],
+      "finalVertexCount": 331,
+      "finalIndexCount": 1680
+    },
+    {
+      "guid": "faaa4d44-fcfb-4177-96be-753ac0421ba3",
+      "file": "brush-ShinyHull.mesh.json",
+      "sha256": "ccd934d7c83f3ede6d37148c760bc91a003a42b1744d00bae9b52d0c2ac9eb95",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "3/0"
+      ],
+      "finalVertexCount": 444,
+      "finalIndexCount": 444
+    },
+    {
+      "guid": "fde6e778-0f7a-e584-38d6-89d44cee59f6",
+      "file": "brush-Charcoal.mesh.json",
+      "sha256": "97582b170e165387c01c45aab7128e25a6e6dcd60f5090822def106d828aed7f",
+      "checks": 39,
+      "status": "layout-capacity-match",
+      "layouts": [
+        "2/0"
+      ],
+      "finalVertexCount": 408,
+      "finalIndexCount": 408
+    }
+  ],
+  "counts": {
+    "brushes": 95,
+    "passed": 95,
+    "checks": 3705
+  }
+}
