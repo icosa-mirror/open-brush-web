@@ -10,12 +10,12 @@ Open Brush mesh-fixture generator: `b05324dbd` on `feature/brush-fixtures`
 
 ## Current planning baseline
 
-This update reconciles the report with the current application source and the
-recorded batching validation. It does not rerun Unity, package conformance,
-browser-image comparisons, or headset tests. The detailed brush-family notes
-retain earlier investigation and fixture results; they are not fresh passes
-against the revisions below. Use this baseline and the immediate backlog to
-choose new work rather than treating every historical imperative as unfinished.
+The planning update reconciled the report with application source and recorded
+batching validation. A subsequent fresh Unity mesh-fixture run on 2026-10-21 now
+provides the live-mesh evidence linked below. Browser-image comparisons and
+headset tests have not been rerun by that work. Detailed brush-family notes also
+retain earlier investigation; do not treat every historical imperative as
+unfinished or expand a live-mesh result into other kinds of parity.
 
 | Input | Current configured revision | Authority |
 | --- | --- | --- |
@@ -32,7 +32,7 @@ every intervening upstream change.
 | Area | Current implementation/evidence | Remaining parity requirement |
 | --- | --- | --- |
 | Target inventory | Generated metadata contains 48 standard and 47 non-broken experimental catalog brushes; [brush-catalog.ts](src/brushes/brush-catalog.ts) derives the required set. | Keep compatibility-only imports distinct from the 95-brush painting target. |
-| Geometry | [brush-geometry.ts](src/brushes/brush-geometry.ts) delegates to `three-tiltloader`. Earlier live-mesh results report 95/95 under family-specific rules. | Reproduce the live-mesh gate for current pins; cover incremental rebuilds, animated deformation, and export paths separately. |
+| Geometry | [brush-geometry.ts](src/brushes/brush-geometry.ts) delegates to `three-tiltloader`. The [fresh native run](docs/evidence/brush-fidelity/native-2026-10-21/README.md) matches 95/95 required live meshes against current package pins, under family-specific rules. | The fresh native revision is `5591ff1`, distinct from the declared reference pin. Cover incremental rebuilds, animated deformation, and export paths separately; reconcile reference provenance explicitly. |
 | Materials | Shared maintained assets and [render-pass helpers](src/brushes/brush-render-material.ts) are wired into the app; late material upgrades are registered. | Unity-reference image comparisons, loaded-environment context, audio analysis, and physical-Quest validation remain open. |
 | Labels and evidence | [Inventory labels](src/brushes/brush-inventory.ts) derive `supported` and `likely-mostly-correct` from implementation eligibility. [Shader evidence](src/brushes/brush-shader-compatibility.ts) persists asset/browser/immersive-XR/visual contexts locally. | Join eligibility with revisioned mesh/image/device evidence; a selectable brush or a local `ready` record is not a parity verdict. |
 | Production batching | [StrokeBatchRenderSystem](src/systems/stroke-batch-render-system.ts) is registered in [src/index.ts](src/index.ts); [batching is default-on](src/brushes/stroke-batch-feature.ts), with `?strokeBatches=0` or `false` as the opt-out. | Follow the [batching validation ledger](docs/stroke-batching-validation.md): broader brush/view coverage, context loss, latency/capacity budgets, and physical-headset evidence remain open. |
@@ -51,9 +51,16 @@ every intervening upstream change.
    connectivity and, for XR, an active session. Their names must not be read as
    automated interaction, image-conformance, or physical-headset suites; see
    [runtime-check.mjs](scripts/runtime-check.mjs).
-4. The package contains `compare:open-brush-fixtures`, but it requires caller-
-   supplied Unity dumps. The earlier 95/95 claim remains recorded evidence until
-   the exact inputs, revisions, command, and output are reproduced or linked.
+4. `npm run compare:unity-meshes -- --fixtures <directory> --output <report.json>`
+   wraps the installed package comparator with required-GUID coverage checks,
+   immutable input snapshots and revision/hash evidence. The fresh native run
+   regenerated 100 JSON/GLB pairs at
+   `C:\Users\andyb\Documents\open-brush-fast\Support\BrushFixtures`; all 95 current
+   required GUIDs match. Five additional native brushes are reported outside the
+   current target. See [run evidence](docs/evidence/brush-fidelity/native-2026-10-21/README.md).
+   The native revision was `5591ff1aad5288903e718752c522d54420ae6d1e`, not the
+   report's `4786d55` reference pin. Generation also produced post-BrushBaker
+   stages and GLBs; those stages were not compared by this live-mesh run.
 5. The user supplied the existing Unity image corpus at
    `C:\Users\andyb\Documents\open-brush-fast\Support\Screenshots\brushes-postfx-disabled`.
    All 95 PNG filenames match the required brush names; every image is
@@ -66,6 +73,11 @@ every intervening upstream change.
    provides metrics, not an automated current 95-brush Unity/browser comparison.
    The adjacent `brush-ssim-current.txt` records 95 pairs, but identifies neither
    input set in its header; it is not attributable browser-parity evidence yet.
+   An [image inventory](docs/evidence/brush-fidelity/native-2026-10-21/image-corpus-inventory.json)
+   now binds all 95 existing PNGs to hashes and dimensions without attributing
+   unverified capture settings or a producing revision. The current native
+   `UiScreenshotter` explicitly requests 2048x2048, 1x supersampling and 1x MSAA
+   for post-effects-disabled material captures; the pinned source differs.
 6. The batching ledger records desktop and emulated-stereo observations,
    including connected peers, delayed material arrival, selection/history,
    save/reload, and ten cleanup cycles. Those observations do not prove physical
@@ -99,9 +111,10 @@ The 123 asset records contain 74 handcrafted and 49 template shaders, and report
 There is no measured overall parity percentage. The earlier percentage estimates
 have been withdrawn from the active plan: catalog coverage, fixture matches,
 material appearance, and application behavior have different denominators and
-cannot be combined into a credible product score. The earlier deterministic
-live-mesh result is 95/95 under family-specific criteria; it is recorded evidence,
-not a fresh run against current pins or a visual-parity result.
+cannot be combined into a credible product score. The fresh deterministic
+live-mesh result is 95/95 against current package pins and the native source
+revision identified above, under family-specific criteria. It is not a
+visual-parity result or proof against every Open Brush revision.
 
 ## What maps well
 
@@ -736,7 +749,10 @@ update.
    Record producing Unity revision, fixture/path/seed, environment, shader time,
    camera, color pipeline, antialiasing and capture size. Resolve the observed
    2048x2048 corpus versus 1024x1024 pinned/browser generator mismatch explicitly.
-   Locate the Unity live-mesh dump set used for the earlier 95/95 result. Exit:
+   Located and regenerated the native mesh/GLB fixture set at `Support/BrushFixtures`;
+   its hashes, source revision and 95/95 comparison are now recorded in the
+   [fresh-run evidence](docs/evidence/brush-fidelity/native-2026-10-21/README.md).
+   Existing PNG hashes/dimensions are recorded separately with provenance open. Exit:
    immutable input manifest and reproducible commands; no newly invented baseline.
 2. **Publish current per-GUID evidence.** Join required inventory with mesh,
    asset-load, browser compile, actual-XR compile, Unity-image differences, and
@@ -753,11 +769,13 @@ update.
    LightWire, Oil Paint, Electricity, Toon, and Tube Toon Inverted; run all 95 for
    the report. Exit: reproducible captures and ranked differences, with agreed
    tolerances rather than an unsupported aggregate parity score.
-4. **Reproduce mesh evidence and cover export contracts.** Run the shared
-   package comparator against the located Unity dumps using current pins. Keep
+4. **Reproduce mesh evidence and cover export contracts.** Current package pins
+   now match all 95 required fresh native dumps; the newer native catalog's five
+   extras are explicitly excluded from that target. Keep
    family-specific comparison rules explicit, especially hull/ConcaveHull.
-   Add post-BrushBaker meshes, exported GLB attributes, and post-`three-icosa`
-   fixtures, including the 20 recorded BrushBaker mappings. Exit: distinct
+   Native post-BrushBaker meshes and actual exported GLBs are already generated;
+   add comparison of those stages and post-`three-icosa` attributes, including the
+   20 recorded BrushBaker mappings. Exit: distinct
    live-mesh and export-path reports; an export pass cannot replace a live pass.
 5. **Harden vertex contracts and incremental authoring.** Define the shared
    typed vertex-layout contract and fail explicitly for missing required

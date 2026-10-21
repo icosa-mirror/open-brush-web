@@ -1,0 +1,2136 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-21T21:36:52.156190+00:00",
+  "appBaseline": "7b054fe8507b3d796dae55e54c114f39bd4e54e3",
+  "nativeProject": "C:\\Users\\andyb\\Documents\\open-brush-fast",
+  "nativeRevision": "5591ff1aad5288903e718752c522d54420ae6d1e",
+  "unityVersion": "6000.6.0f1",
+  "generationStartedAt": "2026-10-21T21:33:46.757931+00:00",
+  "generationMethod": "Open Brush/Screenshots/Generate Brush Mesh Fixtures, invoked via Unity Editor Pipeline in Main scene Play mode",
+  "logMarker": "OBWEB_FIXTURES_20261021_FRESH",
+  "nativeSourceSha256": {
+    "Assets/Editor/UiScreenshotter.cs": "8ef84444cad3193c27c6d01b714be6c7f9c0055ea788e116c0939dec60ff9a6e",
+    "Assets/Editor/BrushMeshFixtureWriter.cs": "bb3d1b0d55ead25ef3079083b40b5009f18bf707fb360ad1c7ffe9741fb1716f",
+    "ProjectSettings/ProjectVersion.txt": "39584c3e6c1e571d53a79ef2dd6ea91c0568ac086792cc435e86401a0ba824ed"
+  },
+  "trackedNativeChangesBeforeLaunch": [],
+  "trackedNativeChangesAfterGeneration": [
+    " M \"Assets/Fonts/NotoSansCJK-Light SDF.asset\"",
+    " M ProjectSettings/AndroidXRSettingsManager.asset",
+    " M ProjectSettings/ProjectSettings.asset"
+  ],
+  "currentPackages": {
+    "three-icosa": "https://github.com/icosa-foundation/three-icosa/archive/25fe4ca1f7e52174e7d9dca90c811e307216ba1f.tar.gz",
+    "three-tiltloader": "https://github.com/icosa-foundation/three-tiltloader/archive/6c92f0035911e8e61755fec3270beb7604d5dc81.tar.gz"
+  },
+  "comparisonCounts": {
+    "total": 95,
+    "match": 95,
+    "mismatch": 0,
+    "configurationError": 0,
+    "fixtureError": 0
+  },
+  "comparisonScope": "Finalized live meshes only; post-BrushBaker stages and GLBs were generated but not compared.",
+  "artifacts": [
+    {
+      "brushGuid": "d3f3b18a-da03-f694-b838-28ba8e749a98",
+      "name": "3D Printing Brush",
+      "required": true,
+      "mesh": {
+        "file": "brush-3D Printing Brush.mesh.json",
+        "bytes": 190196,
+        "sha256": "f187a88aae762dbc92ae9e36b799db174c894d9b6bb56c69ca5e7e7c8613bd23"
+      },
+      "glb": {
+        "file": "brush-3D Printing Brush.glb",
+        "bytes": 14588,
+        "sha256": "1584518fa6838fa1bf95b7621a35514cae774354dc338807db9c8d0b13eb5c3c"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "89d104cd-d012-426b-b5b3-bbaee63ac43c",
+      "name": "Bubbles",
+      "required": true,
+      "mesh": {
+        "file": "brush-Bubbles.mesh.json",
+        "bytes": 172085,
+        "sha256": "0e9f512ab5375a1df8d944d98a63920c2c7a5024a9a847ef71977c99a99f2184"
+      },
+      "glb": {
+        "file": "brush-Bubbles.glb",
+        "bytes": 185468,
+        "sha256": "040fe18a3262078eaa33f2880116038efd1063d0e659cab72c00d1b857ca6aa0"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "eba3f993-f9a1-4d35-b84e-bb08f48981a4",
+      "name": "BubbleWand",
+      "required": true,
+      "mesh": {
+        "file": "brush-BubbleWand.mesh.json",
+        "bytes": 383494,
+        "sha256": "2682dbf1fdd598aec0ac1a42d092b63ae7a655b627f5369ce813ff9f1252f3fb"
+      },
+      "glb": {
+        "file": "brush-BubbleWand.glb",
+        "bytes": 29324,
+        "sha256": "48d256e29842ca023a4a639570e7b95a871b00238a9435f55325e2ba88ce04a5"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "700f3aa8-9a7c-2384-8b8a-ea028905dd8c",
+      "name": "CelVinyl",
+      "required": true,
+      "mesh": {
+        "file": "brush-CelVinyl.mesh.json",
+        "bytes": 356979,
+        "sha256": "8f72848c1d4b4b7da405b04e55af5d9b80ee9b7425cb80b50692104434a96611"
+      },
+      "glb": {
+        "file": "brush-CelVinyl.glb",
+        "bytes": 44956,
+        "sha256": "5352fdf2aa1099f2ec223372d4bcf1e489d220868dfef0a68421e1b0db85b591"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "fde6e778-0f7a-e584-38d6-89d44cee59f6",
+      "name": "Charcoal",
+      "required": true,
+      "mesh": {
+        "file": "brush-Charcoal.mesh.json",
+        "bytes": 356864,
+        "sha256": "97582b170e165387c01c45aab7128e25a6e6dcd60f5090822def106d828aed7f"
+      },
+      "glb": {
+        "file": "brush-Charcoal.glb",
+        "bytes": 28856,
+        "sha256": "1f3d984debe4f6f44841f44a607136e5cc089e772d58def63330dfe7a100cdeb"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "0f0ff7b2-a677-45eb-a7d6-0cd7206f4816",
+      "name": "ChromaticWave",
+      "required": true,
+      "mesh": {
+        "file": "brush-ChromaticWave.mesh.json",
+        "bytes": 354366,
+        "sha256": "b5fabc6af6454b9ab97fedb82f0a52dc808cf3c01923a2e92b4f9c02f95ceed7"
+      },
+      "glb": {
+        "file": "brush-ChromaticWave.glb",
+        "bytes": 26588,
+        "sha256": "46a99a07a33aa5e282d53b6cae9588d80374874751c6682156531b91f2630b00"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "1161af82-50cf-47db-9706-0c3576d43c43",
+      "name": "CoarseBristles",
+      "required": true,
+      "mesh": {
+        "file": "brush-CoarseBristles.mesh.json",
+        "bytes": 996771,
+        "sha256": "5945b6de375f3ec95e072165b65aab9e50f7f45ed08f83da35314a2208e4a9d7"
+      },
+      "glb": {
+        "file": "brush-CoarseBristles.glb",
+        "bytes": 80744,
+        "sha256": "2704b85233930fc404368aa7414474bddcbb25049490610e5160acb6e9c3b422"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "1caa6d7d-f015-3f54-3a4b-8b5354d39f81",
+      "name": "Comet",
+      "required": true,
+      "mesh": {
+        "file": "brush-Comet.mesh.json",
+        "bytes": 354079,
+        "sha256": "157f830eb006e4308363933c64cb8481d7d819f0d39840b601fc1c792a19706b"
+      },
+      "glb": {
+        "file": "brush-Comet.glb",
+        "bytes": 104408,
+        "sha256": "87e811fafb977f921e32c21352fd9d3c3c85d019232f94ad4ee8489ee96c843a"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "7ae1f880-a517-44a0-99f9-1cab654498c6",
+      "name": "ConcaveHull",
+      "required": true,
+      "mesh": {
+        "file": "brush-ConcaveHull.mesh.json",
+        "bytes": 1003087,
+        "sha256": "a93844d5234bb89288bc000ca733f735fbc6ce91cb1e83e9c0f788d7b53a1b42"
+      },
+      "glb": {
+        "file": "brush-ConcaveHull.glb",
+        "bytes": 63440,
+        "sha256": "12aea71873ccc37aebf2bd1ffbea04bd1920c337b3421b432f9448f019f8f8ec"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "6a1cf9f9-032c-45ec-311e-a6680bee32e9",
+      "name": "DanceFloor",
+      "required": true,
+      "mesh": {
+        "file": "brush-DanceFloor.mesh.json",
+        "bytes": 124485,
+        "sha256": "d33c596a41404d510ab771273c6010eaa70d9416450f024a98d0e51c074ceea4"
+      },
+      "glb": {
+        "file": "brush-DanceFloor.glb",
+        "bytes": 33552,
+        "sha256": "524e25226f7e7eb9b69a0b30e59acfa00f38fcb32a3d30518313b81712706a65"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "61820308-bae0-48d4-8288-a7d4e6734d2f",
+      "name": "Dark",
+      "required": false,
+      "mesh": {
+        "file": "brush-Dark.mesh.json",
+        "bytes": 357063,
+        "sha256": "d1f6974419dbc3607e8ace6ef5b569d87f09653b430579c67d2adcd2645e00ef"
+      },
+      "glb": {
+        "file": "brush-Dark.glb",
+        "bytes": 28836,
+        "sha256": "669a701a57049de3241314ed7e2ebb4e3d58bc3ea564717dfe70daf2a4d6218e"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "c8313697-2563-47fc-832e-290f4c04b901",
+      "name": "DiamondHull",
+      "required": true,
+      "mesh": {
+        "file": "brush-DiamondHull.mesh.json",
+        "bytes": 692417,
+        "sha256": "3a3686edfcd0e4c432d096dec480b349b016b56083b039b3ee89ee26e33dc3c6"
+      },
+      "glb": {
+        "file": "brush-DiamondHull.glb",
+        "bytes": 46032,
+        "sha256": "90bddda684dec14b8c3705ac431cb707b635937fda2f8adf924acc6d2759fedf"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "4f070b71-da25-48c4-9322-e9216d921562",
+      "name": "DiamondMembrane",
+      "required": false,
+      "mesh": {
+        "file": "brush-DiamondMembrane.mesh.json",
+        "bytes": 1630854,
+        "sha256": "60d2a1c424663af5330e99ed887e77b4a337948f86e333adc78893b45fa3da3a"
+      },
+      "glb": {
+        "file": "brush-DiamondMembrane.glb",
+        "bytes": 117860,
+        "sha256": "84f7bb7de6652f9d07575e323eccb25fcf8b10331632ccd2bb8dc4a425c01a33"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "30cb9af6-be41-4872-8f3e-cbff63fe3db8",
+      "name": "Digital",
+      "required": true,
+      "mesh": {
+        "file": "brush-Digital.mesh.json",
+        "bytes": 80663,
+        "sha256": "08ca713fb93db3656c44ae6060b9724438cdf1ea62f674ea7ee2a81608453d39"
+      },
+      "glb": {
+        "file": "brush-Digital.glb",
+        "bytes": 6656,
+        "sha256": "a2d6bde2bc6be696833fe2861cb83fd4f7779b89ac515b49345d0fc9ac18139a"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "4391aaaa-df73-4396-9e33-31e4e4930b27",
+      "name": "Disco",
+      "required": true,
+      "mesh": {
+        "file": "brush-Disco.mesh.json",
+        "bytes": 383244,
+        "sha256": "951a006a95b2b75c1377873f4111a9dfa5b48f04bf4bea001f1e9e64dc291241"
+      },
+      "glb": {
+        "file": "brush-Disco.glb",
+        "bytes": 29296,
+        "sha256": "313793a61313bd13ab39dcdd4104613225b370815ccc17192ea470b8f0dc01d8"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "d1d991f2-e7a0-4cf1-b328-f57e915e6260",
+      "name": "DotMarker",
+      "required": true,
+      "mesh": {
+        "file": "brush-DotMarker.mesh.json",
+        "bytes": 1197300,
+        "sha256": "df2763f2478f226b03fd9d69140953e9e93daa10bd0bce0b8861a7dc55f140d9"
+      },
+      "glb": {
+        "file": "brush-DotMarker.glb",
+        "bytes": 99804,
+        "sha256": "81412670ecd519cf9ee501d51d52256962d388e56c82a2719c598f24040f988a"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "6a1cf9f9-032c-45ec-9b1d-a6680bee30f7",
+      "name": "Dots",
+      "required": true,
+      "mesh": {
+        "file": "brush-Dots.mesh.json",
+        "bytes": 119428,
+        "sha256": "66e3adee457c575640282ed4dd6d3c6ce3a5fc8e45fa978bc6035739bfd14089"
+      },
+      "glb": {
+        "file": "brush-Dots.glb",
+        "bytes": 117812,
+        "sha256": "ade2001d6d86ea6786334785e2ab706a765b7270daf1150db5fc73599234bc1f"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "f4a0550c-332a-4e1a-9793-b71508f4a454",
+      "name": "DoubleFlat",
+      "required": true,
+      "mesh": {
+        "file": "brush-DoubleFlat.mesh.json",
+        "bytes": 356882,
+        "sha256": "0c055182eab50d07d143ec01c9c212d1f1e8aa123e12775f6f3c1adcbcf8acad"
+      },
+      "glb": {
+        "file": "brush-DoubleFlat.glb",
+        "bytes": 28852,
+        "sha256": "b1888139ee9422f5a5588fba3cc9c5d5870b994b5d57bf966b21db3140d770a1"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "0d3889f3-3ede-470c-8af4-f44813306126",
+      "name": "DoubleTaperedFlat",
+      "required": true,
+      "mesh": {
+        "file": "brush-DoubleTaperedFlat.mesh.json",
+        "bytes": 167719,
+        "sha256": "bd2d3c7720cea5e556c400d0e9d7e08f289a7314de87eb78579ad9d9f0d4138f"
+      },
+      "glb": {
+        "file": "brush-DoubleTaperedFlat.glb",
+        "bytes": 12644,
+        "sha256": "d16a99f746d1fa5aff90b9fb59bcd6cb0be1eb4f821a20278724c9d30cb1ef2b"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "0d3889f3-3ede-470c-8af4-de4813306126",
+      "name": "DoubleTaperedMarker",
+      "required": true,
+      "mesh": {
+        "file": "brush-DoubleTaperedMarker.mesh.json",
+        "bytes": 167686,
+        "sha256": "5d8f03cbe9bc139f7c53d9b4e9ffceb440d47e1d3aaa79006c6051e80b178f15"
+      },
+      "glb": {
+        "file": "brush-DoubleTaperedMarker.glb",
+        "bytes": 12660,
+        "sha256": "8d8cf1c91d3694c84ce69aa72596a2787a29178c661f383c88114a96b31bbc28"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "492b36ff-b337-436a-ba5f-1e87ee86747e",
+      "name": "Drafting",
+      "required": true,
+      "mesh": {
+        "file": "brush-Drafting.mesh.json",
+        "bytes": 357052,
+        "sha256": "02f0b837cab58dd6da8875b41bc497d88fbef29ccc239094dfb6d2fe81bfdcfa"
+      },
+      "glb": {
+        "file": "brush-Drafting.glb",
+        "bytes": 91496,
+        "sha256": "a28c19be59fe0c26f14ce11dd968c0b14a6091837afb3570f0fb552e87e1eb6e"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "725f4c6a-6427-6524-29ab-da371924adab",
+      "name": "DryBrush",
+      "required": true,
+      "mesh": {
+        "file": "brush-DryBrush.mesh.json",
+        "bytes": 357932,
+        "sha256": "541b82b2408526794a48dc11b941edaa6eaa30e1bd593a6495860d67d6bb7e56"
+      },
+      "glb": {
+        "file": "brush-DryBrush.glb",
+        "bytes": 28844,
+        "sha256": "60f66c3fb10b2406fc46b5e6d4de74fbb8cda6f6ad92beb8423d67f39b9e3f9e"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "d0262945-853c-4481-9cbd-88586bed93cb",
+      "name": "DuctTape",
+      "required": true,
+      "mesh": {
+        "file": "brush-DuctTape.mesh.json",
+        "bytes": 356240,
+        "sha256": "fab95258411e6bdd81d8b409e59a29d062d4b654f717a8e96420aaf25ff14dab"
+      },
+      "glb": {
+        "file": "brush-DuctTape.glb",
+        "bytes": 28856,
+        "sha256": "aae77246c856358158ef7a60fec1c248a1e971bcdfbd0671fd6d8e3b63d5b8e7"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "84d5bbb2-6634-8434-f8a7-681b576b4664",
+      "name": "DuctTapeGeometry",
+      "required": true,
+      "mesh": {
+        "file": "brush-DuctTapeGeometry.mesh.json",
+        "bytes": 142607,
+        "sha256": "36944c4e956fe165819cb3455b7cf31141c8732c7797ab4f021ca3899332afcd"
+      },
+      "glb": {
+        "file": "brush-DuctTapeGeometry.glb",
+        "bytes": 11336,
+        "sha256": "a54ee7f6f680ad3170d3e6653c7472bee3f1e26415be79e22459b5da4d188396"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "f6e85de3-6dcc-4e7f-87fd-cee8c3d25d51",
+      "name": "Electricity",
+      "required": true,
+      "mesh": {
+        "file": "brush-Electricity.mesh.json",
+        "bytes": 177305,
+        "sha256": "0e01bbcad0daad251e8608977e917a5829091ce72b71f99ddd1d3bad8a38a130"
+      },
+      "glb": {
+        "file": "brush-Electricity.glb",
+        "bytes": 14036,
+        "sha256": "0f579b39ec208f36e773790d54e402c5e6449e6ca8b49d7778ce170f6dde1c6d"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "02ffb866-7fb2-4d15-b761-1012cefb1360",
+      "name": "Embers",
+      "required": true,
+      "mesh": {
+        "file": "brush-Embers.mesh.json",
+        "bytes": 374381,
+        "sha256": "0d26a0fa517f91e7991b3a85c7f09ccf0839fa3515318a93a20ff8c1b15c5c05"
+      },
+      "glb": {
+        "file": "brush-Embers.glb",
+        "bytes": 36132,
+        "sha256": "61c5f16cc61e51d688b8dd8b6b23c079577d71ae546150fb37129b8d5bfa921d"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "4391ffaa-df73-4396-9e33-31e4e4930b27",
+      "name": "FacetedTube",
+      "required": true,
+      "mesh": {
+        "file": "brush-FacetedTube.mesh.json",
+        "bytes": 354077,
+        "sha256": "1bd4fdc29f498b4cfccbb6a4f2085eace8c0b8a272cc58a9371d9f769307b747"
+      },
+      "glb": {
+        "file": "brush-FacetedTube.glb",
+        "bytes": 26472,
+        "sha256": "db06e49ed06659713c898ef1a7a472877523cb38a20de22f7c1f90ffb4281e03"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "d9cc5e99-ace1-4d12-96e0-4a7c18c99cfc",
+      "name": "Fairy",
+      "required": true,
+      "mesh": {
+        "file": "brush-Fairy.mesh.json",
+        "bytes": 356721,
+        "sha256": "98adb796bf4f7f46a94f6e1860251cd0d144095ed6b8c145c948201e2d51b4cc"
+      },
+      "glb": {
+        "file": "brush-Fairy.glb",
+        "bytes": 28924,
+        "sha256": "56d0436f3cee7710f157435f9f24ea0802a6400d256f90aaf69bff4573ae0257"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "a555b809-2017-46cb-ac26-e63173d8f45e",
+      "name": "Feather",
+      "required": true,
+      "mesh": {
+        "file": "brush-Feather.mesh.json",
+        "bytes": 362262,
+        "sha256": "e581f5919dcb9ed6b05d8cde5c9af34a8cc81921428be9eec53cf8ea71a5e1b2"
+      },
+      "glb": {
+        "file": "brush-Feather.glb",
+        "bytes": 600716,
+        "sha256": "a285ca7249eec9178b16439886084da0e0bbf4b6217254e0a21cdc632eb0b0be"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "cb92b597-94ca-4255-b017-0e3f42f12f9e",
+      "name": "Fire",
+      "required": true,
+      "mesh": {
+        "file": "brush-Fire.mesh.json",
+        "bytes": 356974,
+        "sha256": "24ba0850ed1cfded6b22411fe26674fb14f5f055d29204d85886514d7018337e"
+      },
+      "glb": {
+        "file": "brush-Fire.glb",
+        "bytes": 138536,
+        "sha256": "a9a98658f1a270128e1faa5f23435d5c79106a1ba9c09841dacbc7bd862f035b"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "53d753ef-083c-45e1-98e7-4459b4471219",
+      "name": "Fire2",
+      "required": true,
+      "mesh": {
+        "file": "brush-Fire2.mesh.json",
+        "bytes": 356978,
+        "sha256": "87d9adedb28e32ad47064f04c048c5edaa5988f86242ee54e1b2ec24601e033f"
+      },
+      "glb": {
+        "file": "brush-Fire2.glb",
+        "bytes": 138212,
+        "sha256": "05d93ed3cd8c61a21f8a7e1244edbb77898afd0f4f3ad17bc1533f3057207a13"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "2d35bcf0-e4d8-452c-97b1-3311be063130",
+      "name": "Flat",
+      "required": true,
+      "mesh": {
+        "file": "brush-Flat.mesh.json",
+        "bytes": 356379,
+        "sha256": "09918795e9d23d9ac2fa23ac7e8bd1f4e8b8c02557e57f5834ceb13b9b9c76b8"
+      },
+      "glb": {
+        "file": "brush-Flat.glb",
+        "bytes": 28824,
+        "sha256": "b3b99e274ddf7f9ca995a4f5add0ffde524f9577cd8397cbefe012b54cf7050b"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "1b897b7e-9b76-425a-b031-a867c48df409",
+      "name": "Gouache",
+      "required": true,
+      "mesh": {
+        "file": "brush-Gouache.mesh.json",
+        "bytes": 357057,
+        "sha256": "87598282793c951be3e617656f32450c40826d86015295462b4b1c212b52844a"
+      },
+      "glb": {
+        "file": "brush-Gouache.glb",
+        "bytes": 28852,
+        "sha256": "0ee35085b267e0fe784e6e9325b197be14663615b5609fc272b183258667ee85"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "99aafe96-1645-44cd-99bd-979bc6ef37c5",
+      "name": "Guts",
+      "required": true,
+      "mesh": {
+        "file": "brush-Guts.mesh.json",
+        "bytes": 355547,
+        "sha256": "d7addf11164d72dc9b2a507b0e49c6dc02ecffb95b8f0b1d927eb9977af029b3"
+      },
+      "glb": {
+        "file": "brush-Guts.glb",
+        "bytes": 26476,
+        "sha256": "22eda78e98add03ab6c4bde7aef5c89f4f7363028184f498c755d2383b928691"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "cf019139-d41c-4eb0-a1d0-5cf54b0a42f3",
+      "name": "Highlighter",
+      "required": true,
+      "mesh": {
+        "file": "brush-Highlighter.mesh.json",
+        "bytes": 356304,
+        "sha256": "d4e710f737516a06a27607eb122dc8301e3a3b52eea09a62e29818df2d90bb64"
+      },
+      "glb": {
+        "file": "brush-Highlighter.glb",
+        "bytes": 29596,
+        "sha256": "53b2e77569cba5b460dfa0b5062dcdd4d436ebb162bf6af3f4bae774f6c1aa89"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "dce872c2-7b49-4684-b59b-c45387949c5c",
+      "name": "Hypercolor",
+      "required": true,
+      "mesh": {
+        "file": "brush-Hypercolor.mesh.json",
+        "bytes": 380150,
+        "sha256": "c0422d35d7a9bbed25608bbe28118299c79540743777d89a347758f26f368322"
+      },
+      "glb": {
+        "file": "brush-Hypercolor.glb",
+        "bytes": 28848,
+        "sha256": "d075f0197cb0db2e43af373d13c6871c35912098ddb27ab80ea583ce3136907d"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "6a1cf9f9-032c-45ec-9b6e-a6680bee32e9",
+      "name": "HyperGrid",
+      "required": true,
+      "mesh": {
+        "file": "brush-HyperGrid.mesh.json",
+        "bytes": 231369,
+        "sha256": "33e439d9ace5e30a4e7d4bdbb25ac5cc0bcb3188438074157ea5f6cbce096f3f"
+      },
+      "glb": {
+        "file": "brush-HyperGrid.glb",
+        "bytes": 22780,
+        "sha256": "55001063313bbcce4184f3c4acf308e37bdd29c2e3a5493b41ef051a37014339"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "2f212815-f4d3-c1a4-681a-feeaf9c6dc37",
+      "name": "Icing",
+      "required": true,
+      "mesh": {
+        "file": "brush-Icing.mesh.json",
+        "bytes": 354112,
+        "sha256": "9e89aa2c5d49e7fd401d26c6f8c04ddfd91e4c01276b7c1435b613c38ce447b9"
+      },
+      "glb": {
+        "file": "brush-Icing.glb",
+        "bytes": 26480,
+        "sha256": "53c38cd8071bf61979026ad0a0604f6488f47392c5a2b11a918fb2666efee6e9"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "f5c336cf-5108-4b40-ade9-c687504385ab",
+      "name": "Ink",
+      "required": true,
+      "mesh": {
+        "file": "brush-Ink.mesh.json",
+        "bytes": 357713,
+        "sha256": "17e09dd9990a3adf476ea92ef2729e37b005d1d04ba2f4138975d53dfe3ab25a"
+      },
+      "glb": {
+        "file": "brush-Ink.glb",
+        "bytes": 28820,
+        "sha256": "8d6a8db6cd0f146ca6781c27553f78e4bcd953c7486fb98bb6f9a5fe1b03b407"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "7c972c27-d3c2-8af4-7bf8-5d9db8f0b7bb",
+      "name": "InkGeometry",
+      "required": true,
+      "mesh": {
+        "file": "brush-InkGeometry.mesh.json",
+        "bytes": 142678,
+        "sha256": "29d33f1a243a7e6edbcbb571b4af8afa9747c88370c7c5cc440c01542462ad98"
+      },
+      "glb": {
+        "file": "brush-InkGeometry.glb",
+        "bytes": 11288,
+        "sha256": "44a5c816a979d75283bc00d72a67c0dacafcbdd8f4e63be93c63b144e419ec21"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "f8ba3d18-01fc-4d7b-b2d9-b99d10b8e7cf",
+      "name": "KeijiroTube",
+      "required": true,
+      "mesh": {
+        "file": "brush-KeijiroTube.mesh.json",
+        "bytes": 383512,
+        "sha256": "c440d6789fdff2e86b6f271628b1734ae4b18bdb2f1fa9e3d616acb2491552d0"
+      },
+      "glb": {
+        "file": "brush-KeijiroTube.glb",
+        "bytes": 29340,
+        "sha256": "560a395369eb555def2276948557e162565f1e4dd3eb168eef87ff1077a329ce"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "1cf94f63-f57a-4a1a-ad14-295af4f5ab5c",
+      "name": "Lacewing",
+      "required": true,
+      "mesh": {
+        "file": "brush-Lacewing.mesh.json",
+        "bytes": 356853,
+        "sha256": "dbe5213c0f4836eb114ed96a1a4a9e180bf14ea000fab6ff76a21af5c4cf57fe"
+      },
+      "glb": {
+        "file": "brush-Lacewing.glb",
+        "bytes": 28856,
+        "sha256": "be335db976f127bcd4a7827a9c68549ff3aad046db245d087e5920e70a5287f0"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "ddda8745-4bb5-ac54-88b6-d1480370583e",
+      "name": "LeakyPen",
+      "required": true,
+      "mesh": {
+        "file": "brush-LeakyPen.mesh.json",
+        "bytes": 356901,
+        "sha256": "f5b03aafde44bdc8c053d07e4baeb5fe15e6d174bb094ef6da6d1f3a927f4559"
+      },
+      "glb": {
+        "file": "brush-LeakyPen.glb",
+        "bytes": 28860,
+        "sha256": "f223196d43a4410a3f4a346ba1e34579e642c0b33f38a4bc1113cce3fe687dd1"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "7259cce5-41c1-ec74-c885-78af28a31d95",
+      "name": "Leaves2",
+      "required": true,
+      "mesh": {
+        "file": "brush-Leaves2.mesh.json",
+        "bytes": 151782,
+        "sha256": "3f4c8a29a2636d7f24d0f9328796239f865a4c6350114c7f8479c31ca6b2d790"
+      },
+      "glb": {
+        "file": "brush-Leaves2.glb",
+        "bytes": 12380,
+        "sha256": "bbf01bdbb99c90abfa11c286cf9e79cffe09200886115a260aab9aa62cc4ec98"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "2241cd32-8ba2-48a5-9ee7-2caef7e9ed62",
+      "name": "Light",
+      "required": true,
+      "mesh": {
+        "file": "brush-Light.mesh.json",
+        "bytes": 362801,
+        "sha256": "c849c68f0bfd73bfb4fe171351cc8e8df9d08e7ad858da08600fb194913351e6"
+      },
+      "glb": {
+        "file": "brush-Light.glb",
+        "bytes": 91580,
+        "sha256": "e1b67694c76b0e0e18800d0b75bb12444682b3d7d0e30d58c659f434da93fc2b"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "4391aaaa-df81-4396-9e33-31e4e4930b27",
+      "name": "LightWire",
+      "required": true,
+      "mesh": {
+        "file": "brush-LightWire.mesh.json",
+        "bytes": 350079,
+        "sha256": "9c84f5c02ec8a42d5582fc0c513e48edf0ff41efb464f598a8545afe5dbc277f"
+      },
+      "glb": {
+        "file": "brush-LightWire.glb",
+        "bytes": 26472,
+        "sha256": "0e7c9719a55bb43421fb853ba3f75b9b4c4a0f636dca258a3ba39c759f0771ff"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "c5da2e70-a6e4-63a4-898c-5cfedef09c97",
+      "name": "Lofted (Hue Shift)",
+      "required": true,
+      "mesh": {
+        "file": "brush-Lofted (Hue Shift).mesh.json",
+        "bytes": 354130,
+        "sha256": "abbe1f5da2bded85b28feadeda286bace213fd0685536cee3e56197532634f97"
+      },
+      "glb": {
+        "file": "brush-Lofted (Hue Shift).glb",
+        "bytes": 26496,
+        "sha256": "e764a907b95972e23c7ecc458f78d52abb84793c90cb6f61a6fb6d2a4f925478"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "d381e0f5-3def-4a0d-8853-31e9200bcbda",
+      "name": "Lofted",
+      "required": true,
+      "mesh": {
+        "file": "brush-Lofted.mesh.json",
+        "bytes": 283360,
+        "sha256": "9db4468e1c920b19ee7ddd0af3adf4f29a94f1577204c807611a874bd9620e87"
+      },
+      "glb": {
+        "file": "brush-Lofted.glb",
+        "bytes": 21452,
+        "sha256": "73ced7581fa3108b84412be6c377f51acb99a433066ad6b8108184219a6ab945"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "c86c058d-1bda-2e94-08db-f3d6a96ac4a1",
+      "name": "Marbled Rainbow",
+      "required": true,
+      "mesh": {
+        "file": "brush-Marbled Rainbow.mesh.json",
+        "bytes": 356784,
+        "sha256": "c7b97fe92434418ca4ce7f32f9e71b5f38a5fa4198a712bfdec12ed796e39990"
+      },
+      "glb": {
+        "file": "brush-Marbled Rainbow.glb",
+        "bytes": 28884,
+        "sha256": "3c40092aa4eb490afe96a951860b4e205f856ce4b96cdb0519417cc170d9f532"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "429ed64a-4e97-4466-84d3-145a861ef684",
+      "name": "Marker",
+      "required": true,
+      "mesh": {
+        "file": "brush-Marker.mesh.json",
+        "bytes": 356913,
+        "sha256": "94a349dcd040b6563db3d76bfc0e1ac3357882358ee3f6bbf7f998eac2960a65"
+      },
+      "glb": {
+        "file": "brush-Marker.glb",
+        "bytes": 41096,
+        "sha256": "84b5f368f922e52dccbc5670fdf6a092427073c7d226f67ddf09f8a0694e82a4"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "79348357-432d-4746-8e29-0e25c112e3aa",
+      "name": "MatteHull",
+      "required": true,
+      "mesh": {
+        "file": "brush-MatteHull.mesh.json",
+        "bytes": 401936,
+        "sha256": "41c5c67a0214f103775dcbb5bd8bc56f60da834de8cae5ac5f9f76ba4b5f0c82"
+      },
+      "glb": {
+        "file": "brush-MatteHull.glb",
+        "bytes": 23800,
+        "sha256": "7285009607e90d243f1be33f2da25d4dccb07c9b039822caea2d5fbc71dd36c1"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "528fc9e8-5b95-48f3-b3f0-67ac5236f010",
+      "name": "MatteMembrane",
+      "required": false,
+      "mesh": {
+        "file": "brush-MatteMembrane.mesh.json",
+        "bytes": 1630851,
+        "sha256": "c128ee86688ac7c3d1999db09fa257f762ea90cad34f793ed63aae6e102d75b6"
+      },
+      "glb": {
+        "file": "brush-MatteMembrane.glb",
+        "bytes": 117832,
+        "sha256": "0176c672321baaf3bfd33bf6264b950e521c195195ff8ccc73ccd9a5063b19b8"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "f28c395c-a57d-464b-8f0b-558c59478fa3",
+      "name": "Muscle",
+      "required": true,
+      "mesh": {
+        "file": "brush-Muscle.mesh.json",
+        "bytes": 355311,
+        "sha256": "a20e62243ad97029f7b61d9ce0ba6534b04f0129c54bf920d7374ea72efbdafa"
+      },
+      "glb": {
+        "file": "brush-Muscle.glb",
+        "bytes": 26468,
+        "sha256": "3a31e3b93410a3cb4d25f236891242a89c79aa9f4bd18727b5bc3c2060dc9dba"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "8e58ceea-7830-49b4-aba9-6215104ab52a",
+      "name": "MylarTube",
+      "required": true,
+      "mesh": {
+        "file": "brush-MylarTube.mesh.json",
+        "bytes": 354277,
+        "sha256": "23d64283e5379dd71603ae8e2198be3e22443a7e5a3b7789557154d8732fd9cb"
+      },
+      "glb": {
+        "file": "brush-MylarTube.glb",
+        "bytes": 26460,
+        "sha256": "9d76a8ba969eff411a1a870b4cb664c5dd7df5c4800df9fed4079df7d0319741"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "b2ffef01-eaaa-4ab5-aa64-95a2c4f5dbc6",
+      "name": "NeonPulse",
+      "required": true,
+      "mesh": {
+        "file": "brush-NeonPulse.mesh.json",
+        "bytes": 354674,
+        "sha256": "00403789663f5bad2703ce645dc8ef4b33ce76caf893778035317cc726fa9734"
+      },
+      "glb": {
+        "file": "brush-NeonPulse.glb",
+        "bytes": 26492,
+        "sha256": "0487948e70a3476195ce90471e040f1f266528e279527e3896eb135efc633539"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "f72ec0e7-a844-4e38-82e3-140c44772699",
+      "name": "OilPaint",
+      "required": true,
+      "mesh": {
+        "file": "brush-OilPaint.mesh.json",
+        "bytes": 357728,
+        "sha256": "cc1c7e2206b174eaebf8e592daed73771c2b137869586032b72fa16747f7b913"
+      },
+      "glb": {
+        "file": "brush-OilPaint.glb",
+        "bytes": 28840,
+        "sha256": "4ccb7b462ee24a1b97c98df79f6df51c12b7788da48f294eccf90902fb62631b"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "6d76574c-9f97-4705-b127-f5cc19c80fe3",
+      "name": "OutlinedMembrane",
+      "required": false,
+      "mesh": {
+        "file": "brush-OutlinedMembrane.mesh.json",
+        "bytes": 6368617,
+        "sha256": "84ba02f8402b38b4170d5dc4eef7aa244f16377479b1065f9c048ab87c02b34e"
+      },
+      "glb": {
+        "file": "brush-OutlinedMembrane.glb",
+        "bytes": 450404,
+        "sha256": "0b617412bccd1d5434a42e7008f6496da98308538f46c3bfab9c7e7f2eb34ddf"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "f1114e2e-eb8d-4fde-915a-6e653b54e9f5",
+      "name": "Paper",
+      "required": true,
+      "mesh": {
+        "file": "brush-Paper.mesh.json",
+        "bytes": 356975,
+        "sha256": "72887a8e5bb06a91466fccf10de766d9d03dec2cd1f0b526c30fc1e2b85fd7f3"
+      },
+      "glb": {
+        "file": "brush-Paper.glb",
+        "bytes": 28844,
+        "sha256": "1d3bc247e03aad05740f08551bc7822a88822d2b4c28409bf710cf5e75856858"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "e0abbc80-0f80-e854-4970-8924a0863dcc",
+      "name": "Petal",
+      "required": true,
+      "mesh": {
+        "file": "brush-Petal.mesh.json",
+        "bytes": 346534,
+        "sha256": "a033edd26d35ff44f55f7874ad450539ed12b7255f4f595b950414c2fbba1478"
+      },
+      "glb": {
+        "file": "brush-Petal.glb",
+        "bytes": 26332,
+        "sha256": "f62fbd033dafbee0ac20d0d2a9b9dacc03466f9a8b1a83d1e468f8d03ecec912"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "c33714d1-b2f9-412e-bd50-1884c9d46336",
+      "name": "Plasma",
+      "required": true,
+      "mesh": {
+        "file": "brush-Plasma.mesh.json",
+        "bytes": 347268,
+        "sha256": "f3fc29a463b15a67ade1cf79e3b6587c093e4c5cfbf84009bf99521445ec2967"
+      },
+      "glb": {
+        "file": "brush-Plasma.glb",
+        "bytes": 41316,
+        "sha256": "83aeb337cd0b4cf8049c9579c022077cf4a3654f29a3cb396658e0e37f2c748e"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "abfbb2aa-70b4-4a5c-8126-8eedda2b3628",
+      "name": "Race",
+      "required": true,
+      "mesh": {
+        "file": "brush-Race.mesh.json",
+        "bytes": 80651,
+        "sha256": "882e0b7e7156b24177299ef2979c8a13dddc91d110343ca1cceaf5815a934535"
+      },
+      "glb": {
+        "file": "brush-Race.glb",
+        "bytes": 6644,
+        "sha256": "3cb45efd9fc80b7557c0ae44a0244ecda93ad7ffeed3e29253cba7ca048fddc1"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "03a529e1-f519-3dd4-582d-2d5cd92c3f4f",
+      "name": "Rain",
+      "required": true,
+      "mesh": {
+        "file": "brush-Rain.mesh.json",
+        "bytes": 419443,
+        "sha256": "2af20d8c2b867527d56db1fe6bedbae0863fd3e4531ca02f3556f79b089ee543"
+      },
+      "glb": {
+        "file": "brush-Rain.glb",
+        "bytes": 34812,
+        "sha256": "3939362967b20174d2e7d79d7ff0dc3bc408ca1f9ed5b56674c289d49f528bd8"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "ad1ad437-76e2-450d-a23a-e17f8310b960",
+      "name": "Rainbow",
+      "required": true,
+      "mesh": {
+        "file": "brush-Rainbow.mesh.json",
+        "bytes": 356766,
+        "sha256": "5e466c88d71d771df75753d2b1119a28c0dee71c69816530ecfc4e1d7e5d9aef"
+      },
+      "glb": {
+        "file": "brush-Rainbow.glb",
+        "bytes": 28932,
+        "sha256": "5aa3f4c094da18871752cd18002862e6cd9b40ed943107c33e1dd5e179589fdf"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "a8147ce1-005e-abe4-88e8-09a1eaadcc89",
+      "name": "Rising Bubbles",
+      "required": true,
+      "mesh": {
+        "file": "brush-Rising Bubbles.mesh.json",
+        "bytes": 374343,
+        "sha256": "6b4f17bb2f7197f2840b8e8da70ce5ac3c4aef6093c5b7432cde726c47b6a102"
+      },
+      "glb": {
+        "file": "brush-Rising Bubbles.glb",
+        "bytes": 199432,
+        "sha256": "7d4616be84df1b36517664c9be42449640fcc22c64f1eee63a569360ac9d66bc"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "faaa4d44-fcfb-4177-96be-753ac0421ba3",
+      "name": "ShinyHull",
+      "required": true,
+      "mesh": {
+        "file": "brush-ShinyHull.mesh.json",
+        "bytes": 401909,
+        "sha256": "ccd934d7c83f3ede6d37148c760bc91a003a42b1744d00bae9b52d0c2ac9eb95"
+      },
+      "glb": {
+        "file": "brush-ShinyHull.glb",
+        "bytes": 23800,
+        "sha256": "30fc0ef839d4dece6f379541c6236ac1ae8a0a90289bb15fd28d135f8eded263"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "63b09da0-a6a6-4f86-a48a-28cc53fd64de",
+      "name": "ShinyMembrane",
+      "required": false,
+      "mesh": {
+        "file": "brush-ShinyMembrane.mesh.json",
+        "bytes": 1630824,
+        "sha256": "d872833bd5e3e7d08c48ba8952964f7d9bdfad99e89ea4d0a4a578baf637104b"
+      },
+      "glb": {
+        "file": "brush-ShinyMembrane.glb",
+        "bytes": 117832,
+        "sha256": "b4831853f15811dcc78026eb79366aaba706047ce4c38c84e152521c6a884cd7"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "f0a2298a-be80-432c-9fee-a86dcc06f4f9",
+      "name": "SingleSided",
+      "required": true,
+      "mesh": {
+        "file": "brush-SingleSided.mesh.json",
+        "bytes": 80592,
+        "sha256": "c5d680045fbac5f2fbb6b0fdb723137f6d3f83d0d2e78285bf154b38684802ac"
+      },
+      "glb": {
+        "file": "brush-SingleSided.glb",
+        "bytes": 6600,
+        "sha256": "4b369ccb318f7b064980e6ead5688813c642242f073b2f4ad5e6ced1d9ce0465"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "70d79cca-b159-4f35-990c-f02193947fe8",
+      "name": "Smoke",
+      "required": true,
+      "mesh": {
+        "file": "brush-Smoke.mesh.json",
+        "bytes": 72260,
+        "sha256": "f2c9b95fe53ab62ae7e2a21916a10ea03cbc2576073dcd570d78525631f16602"
+      },
+      "glb": {
+        "file": "brush-Smoke.glb",
+        "bytes": 101028,
+        "sha256": "91d480fade256658557380ab3d950782249d2854d85d92a5f2dbeedd7471647a"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "355b3579-bf1d-4ff5-a200-704437fe684b",
+      "name": "SmoothHull",
+      "required": true,
+      "mesh": {
+        "file": "brush-SmoothHull.mesh.json",
+        "bytes": 172363,
+        "sha256": "6377a8ba6ddadb5b390d0df095fa0d2265928eaed20c669a0d57ff898e2c5cb4"
+      },
+      "glb": {
+        "file": "brush-SmoothHull.glb",
+        "bytes": 5696,
+        "sha256": "3d18466fe8d4d79883e2f248408ae13c5dd053399edffdb1f7189292d64fe824"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "d902ed8b-d0d1-476c-a8de-878a79e3a34c",
+      "name": "Snow",
+      "required": true,
+      "mesh": {
+        "file": "brush-Snow.mesh.json",
+        "bytes": 374505,
+        "sha256": "2551b294940be39ca3d615445a9e035362abacbe290a9c88c06c683026832f63"
+      },
+      "glb": {
+        "file": "brush-Snow.glb",
+        "bytes": 70764,
+        "sha256": "e800c7fb3ce25237c39d05d993b823faf4269b4701f0882e80af3ba6e520cfea"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "accb32f5-4509-454f-93f8-1df3fd31df1b",
+      "name": "SoftHighlighter",
+      "required": true,
+      "mesh": {
+        "file": "brush-SoftHighlighter.mesh.json",
+        "bytes": 357150,
+        "sha256": "e9588b1d1b85a29507de2232f41fb4c018c2f1f2f1a4b36b873aa9cd9af7cb9d"
+      },
+      "glb": {
+        "file": "brush-SoftHighlighter.glb",
+        "bytes": 84432,
+        "sha256": "801d233fdea074a5b144ac171753cc27860faee9345fff163a0e2a75a6e9dee5"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "bdf65db2-1fb7-4202-b5e0-c6b5e3ea851e",
+      "name": "Space",
+      "required": true,
+      "mesh": {
+        "file": "brush-Space.mesh.json",
+        "bytes": 356721,
+        "sha256": "21c5a6ed73c1fd27c672f72f1527731e6ce510d7fee1518e0de6e3ed00fb4126"
+      },
+      "glb": {
+        "file": "brush-Space.glb",
+        "bytes": 28924,
+        "sha256": "97be52fdda79da1ee89a2937f2d1b41ee0f93805f3be524f47973a3fe667bf63"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "50e99447-3861-05f4-697d-a1b96e771b98",
+      "name": "Sparks",
+      "required": true,
+      "mesh": {
+        "file": "brush-Sparks.mesh.json",
+        "bytes": 351553,
+        "sha256": "661364e81eab6bc834d8a051cc5d132aa5ac22f7f1c81a92a111d47eae438752"
+      },
+      "glb": {
+        "file": "brush-Sparks.glb",
+        "bytes": 29396,
+        "sha256": "4e6689596abbce51ac16ebeda4dc600082dd2a8d3ba9cffc4e1921dd32556ccd"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "cf7f0059-7aeb-53a4-2b67-c83d863a9ffa",
+      "name": "Spikes",
+      "required": true,
+      "mesh": {
+        "file": "brush-Spikes.mesh.json",
+        "bytes": 224260,
+        "sha256": "caf4b2fb7cc698ef9f53552ecd59587ea45e9ee7c4c156fc82e73e6dca6e5cd4"
+      },
+      "glb": {
+        "file": "brush-Spikes.glb",
+        "bytes": 16340,
+        "sha256": "b0dc1ce98c3d7feb730e7453bdd2c34a462f49e69a11908e8b2da0a659401b59"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "8dc4a70c-d558-4efd-a5ed-d4e860f40dc3",
+      "name": "Splatter",
+      "required": true,
+      "mesh": {
+        "file": "brush-Splatter.mesh.json",
+        "bytes": 1964960,
+        "sha256": "2b9fc05bf08056d29a12ad08192d82089bd3c30562a600d7c47f9b74dd8f1fc9"
+      },
+      "glb": {
+        "file": "brush-Splatter.glb",
+        "bytes": 158440,
+        "sha256": "e70a3a68064ea1ef806bfa43d5e8400843b865240b41915d13315d55960db7ba"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "2e03b1bf-3ebd-4609-9d7e-f4cafadc4dfa",
+      "name": "SquarePaper",
+      "required": true,
+      "mesh": {
+        "file": "brush-SquarePaper.mesh.json",
+        "bytes": 193970,
+        "sha256": "a6a37a8488d2ece5994f9716d23b195b6fcbc97e9835940f7d9ad59bb7711d16"
+      },
+      "glb": {
+        "file": "brush-SquarePaper.glb",
+        "bytes": 15768,
+        "sha256": "1347ce3776559bb4ec322d3afa23a9e5ba3f7f24a725f58732deaa188a55c7d9"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "0eb4db27-3f82-408d-b5a1-19ebd7d5b711",
+      "name": "Stars",
+      "required": true,
+      "mesh": {
+        "file": "brush-Stars.mesh.json",
+        "bytes": 322131,
+        "sha256": "c47aec8ac3d34f56d03f89bfb2c06332a4c06c938be2dc0c39b7967cfd78ac89"
+      },
+      "glb": {
+        "file": "brush-Stars.glb",
+        "bytes": 64076,
+        "sha256": "d28cdfaad426f6d7d2ee24d827c68aa0ff03fa92b164e710a8648bfc24cb8ae5"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "44bb800a-fbc3-4592-8426-94ecb05ddec3",
+      "name": "Streamers",
+      "required": true,
+      "mesh": {
+        "file": "brush-Streamers.mesh.json",
+        "bytes": 356437,
+        "sha256": "f69222ed108d908e02b18e42ea6522e309f5484b0f7e0db35023b22a35fca600"
+      },
+      "glb": {
+        "file": "brush-Streamers.glb",
+        "bytes": 32020,
+        "sha256": "96c3d59818da0c3760f739fa4d54e0b15a24e7ff3c1e055a0c77e37bdf5f5dd3"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "b468c1fb-f254-41ed-8ec9-57030bc5660c",
+      "name": "TaperedFlat",
+      "required": true,
+      "mesh": {
+        "file": "brush-TaperedFlat.mesh.json",
+        "bytes": 356882,
+        "sha256": "fb11f84fd795ef51b2d9d14f5a2a3229cd3ccef6f0382b8bb8a4b45faa04082c"
+      },
+      "glb": {
+        "file": "brush-TaperedFlat.glb",
+        "bytes": 28856,
+        "sha256": "d48d790144faf4153c6a7f4a3fb4ad14ca12224a7a7f8e62edf3f61d0e113218"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "3d9755da-56c7-7294-9b1d-5ec349975f52",
+      "name": "TaperedHueShift",
+      "required": true,
+      "mesh": {
+        "file": "brush-TaperedHueShift.mesh.json",
+        "bytes": 357183,
+        "sha256": "d8b7f53e34b12cba05917bf51e7e1a796d1b864b69fd72cc5f526a444776230f"
+      },
+      "glb": {
+        "file": "brush-TaperedHueShift.glb",
+        "bytes": 39272,
+        "sha256": "4973ac0a81fee8261ca5c66004198d8fe36cf2a316ffaa08c10b243ab689b5e6"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "d90c6ad8-af0f-4b54-b422-e0f92abe1b3c",
+      "name": "TaperedMarker",
+      "required": true,
+      "mesh": {
+        "file": "brush-TaperedMarker.mesh.json",
+        "bytes": 357222,
+        "sha256": "f8e386e7dc3d3bdefab489d2b406527a1166f8c3263c8055c2fd56ae17300bd1"
+      },
+      "glb": {
+        "file": "brush-TaperedMarker.glb",
+        "bytes": 38216,
+        "sha256": "d4e47f969768f9d02a052ab8e41f0edd0915c98e14313af5c05ffeadc3bf8ea0"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "1a26b8c0-8a07-4f8a-9fac-d2ef36e0cad0",
+      "name": "TaperedMarker_Flat",
+      "required": true,
+      "mesh": {
+        "file": "brush-TaperedMarker_Flat.mesh.json",
+        "bytes": 142666,
+        "sha256": "25f353bc44d7f5feb5a4cb765dbd3a40af61d973529eeae96c1a00b926d3de3b"
+      },
+      "glb": {
+        "file": "brush-TaperedMarker_Flat.glb",
+        "bytes": 11312,
+        "sha256": "4a37ab5d1545eae5415f8c3ebe0a2b43dff573dfbc25557df850d8dafb8bfcde"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "9568870f-8594-60f4-1b20-dfbc8a5eac0e",
+      "name": "TaperedWire",
+      "required": true,
+      "mesh": {
+        "file": "brush-TaperedWire.mesh.json",
+        "bytes": 351642,
+        "sha256": "6d2192ce7560e8d70a259dacc6a30d10bc82f208701761de06e08062aa0b5948"
+      },
+      "glb": {
+        "file": "brush-TaperedWire.glb",
+        "bytes": 26476,
+        "sha256": "3a9e05a069accc15aa1b0d08a28beb7f71b2e33851a2f20be3151cf5e2b65126"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "39ee7377-7a9e-47a7-a0f8-0c77712f75d3",
+      "name": "ThickGeometry",
+      "required": true,
+      "mesh": {
+        "file": "brush-ThickGeometry.mesh.json",
+        "bytes": 197233,
+        "sha256": "1ef6ac52307f7799d0db96ff848aa286ea7af9472c2fed6d516b2ec6fefd3593"
+      },
+      "glb": {
+        "file": "brush-ThickGeometry.glb",
+        "bytes": 15332,
+        "sha256": "4321c2dadf34dae5e5b90f04cb68d97768d91d79b8835ad74db813c695ac64af"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "75b32cf0-fdd6-4d89-a64b-e2a00b247b0f",
+      "name": "ThickPaint",
+      "required": true,
+      "mesh": {
+        "file": "brush-ThickPaint.mesh.json",
+        "bytes": 356870,
+        "sha256": "9c287d24b1b14f44c397619b7397a2c1e27150e2fa30f5c754aba9aa8abb1515"
+      },
+      "glb": {
+        "file": "brush-ThickPaint.glb",
+        "bytes": 28864,
+        "sha256": "eb4c86abd712c9a56b09bd18e38e7df43c78c93d2e9557230bbb526e6b7c29dc"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "4391385a-df73-4396-9e33-31e4e4930b27",
+      "name": "Toon",
+      "required": true,
+      "mesh": {
+        "file": "brush-Toon.mesh.json",
+        "bytes": 353923,
+        "sha256": "d6b33f6a444fae6461f0ac81167d013662a91c41ce7297ad14e6e314964c5b1d"
+      },
+      "glb": {
+        "file": "brush-Toon.glb",
+        "bytes": 26464,
+        "sha256": "593748432f64f8886ae71085dc5ac71fed8554c8e32adb334dca9d9167aab8f3"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "c1c9b26d-673a-4dc6-b373-51715654ab96",
+      "name": "TubeAdditive",
+      "required": true,
+      "mesh": {
+        "file": "brush-TubeAdditive.mesh.json",
+        "bytes": 354127,
+        "sha256": "4f0f6d870f53075a1cbaef4d35a521c433a9afd0ed5a86b20edf7707f55accf5"
+      },
+      "glb": {
+        "file": "brush-TubeAdditive.glb",
+        "bytes": 26560,
+        "sha256": "a371c809d999ba365cee58eabafb5bb11afbc49253dd17659e591b2e11cacd39"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "9871385a-df73-4396-9e33-31e4e4930b27",
+      "name": "TubeToonInverted",
+      "required": true,
+      "mesh": {
+        "file": "brush-TubeToonInverted.mesh.json",
+        "bytes": 354329,
+        "sha256": "c89ade761126559aa31714d95ae677160c6a88e8100d64d1dea67c71d176aa68"
+      },
+      "glb": {
+        "file": "brush-TubeToonInverted.glb",
+        "bytes": 26492,
+        "sha256": "18b1ad880b62fc0d933995452e2213f64116767c4bd84b5299c2ef28d271f451"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "a8fea537-da7c-4d4b-817f-24f074725d6d",
+      "name": "UnlitHull",
+      "required": true,
+      "mesh": {
+        "file": "brush-UnlitHull.mesh.json",
+        "bytes": 401914,
+        "sha256": "3368abba1dce397eedf38cfd8beb36855db5180465e01f051187de561f7d650d"
+      },
+      "glb": {
+        "file": "brush-UnlitHull.glb",
+        "bytes": 23952,
+        "sha256": "946f783fd830a085fbc06f0df665c16ca3cf0e8104026d070a01b0905f60bb3c"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "d229d335-c334-495a-a801-660ac8a87360",
+      "name": "VelvetInk",
+      "required": true,
+      "mesh": {
+        "file": "brush-VelvetInk.mesh.json",
+        "bytes": 357465,
+        "sha256": "b1236706035dcb2d71980502959ea7cfd9cda151a3f864ade575ffae6a5f9f2a"
+      },
+      "glb": {
+        "file": "brush-VelvetInk.glb",
+        "bytes": 122604,
+        "sha256": "161d5c654c6ea72d9afa1eabd507b0b860fabc2d7f7a6ec6d33951c7cd3adb28"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "10201aa3-ebc2-42d8-84b7-2e63f6eeb8ab",
+      "name": "Waveform",
+      "required": true,
+      "mesh": {
+        "file": "brush-Waveform.mesh.json",
+        "bytes": 357397,
+        "sha256": "8a1c2057d87e23589e03dc5bf034e5d26accdbfa6d4d94961959ba1eedff5410"
+      },
+      "glb": {
+        "file": "brush-Waveform.glb",
+        "bytes": 30240,
+        "sha256": "1346b5b13a347371e4b98461ec3f1a3655d6d813d7c67223d810dfa2e02c5c68"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "d120944d-772f-4062-99c6-46a6f219eeaf",
+      "name": "WaveformFFT",
+      "required": true,
+      "mesh": {
+        "file": "brush-WaveformFFT.mesh.json",
+        "bytes": 357409,
+        "sha256": "e2c31a206acb9f013874ce8e79b31e209fe9645ddbbb33f89999b4c944e17594"
+      },
+      "glb": {
+        "file": "brush-WaveformFFT.glb",
+        "bytes": 30252,
+        "sha256": "ca1076b959ef52429d4f6e1cbaf58034044b50b7b26783cea09356bf9cb6d0dc"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "6a1cf9f9-032c-45ec-9b6e-a6680bee30f7",
+      "name": "WaveformParticles",
+      "required": true,
+      "mesh": {
+        "file": "brush-WaveformParticles.mesh.json",
+        "bytes": 1998084,
+        "sha256": "6799abb1dd4af39545ae062627a21cbd8e2ad15c1b38b5f6c627ff802463a968"
+      },
+      "glb": {
+        "file": "brush-WaveformParticles.glb",
+        "bytes": 147996,
+        "sha256": "361767ca5a33d2baa9b7e59cf3a22a88781c69a2acb74accaa53d1ee24f1c67e"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "0f5820df-cb6b-4a6c-960e-56e4c8000eda",
+      "name": "WaveformTube",
+      "required": true,
+      "mesh": {
+        "file": "brush-WaveformTube.mesh.json",
+        "bytes": 351392,
+        "sha256": "960e69996731df3decfbc44f7956572df2c690e4f1c4ad2911e3b8f416ec473b"
+      },
+      "glb": {
+        "file": "brush-WaveformTube.glb",
+        "bytes": 27836,
+        "sha256": "3b6c38bc3f0d64c79bb137cd5e6a750415877c6f2babd48ddf5b97b9f8aaaa0c"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "b67c0e81-ce6d-40a8-aeb0-ef036b081aa3",
+      "name": "WetPaint",
+      "required": true,
+      "mesh": {
+        "file": "brush-WetPaint.mesh.json",
+        "bytes": 361196,
+        "sha256": "662bdac61d0cf0e137031327a65df0da5e85a4b4d9f0499caef298af7020c8ea"
+      },
+      "glb": {
+        "file": "brush-WetPaint.glb",
+        "bytes": 28840,
+        "sha256": "60c793d1d2e6d4219044220541bae0db180dcad6748b204e698e825cae1d1144"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "5347acf0-a8e2-47b6-8346-30c70719d763",
+      "name": "WigglyGraphite",
+      "required": true,
+      "mesh": {
+        "file": "brush-WigglyGraphite.mesh.json",
+        "bytes": 357045,
+        "sha256": "6f5ed1def71cd796542f8551c7e8c1ad7e0ec3971f5ac2ac0a0894bbaef38dd6"
+      },
+      "glb": {
+        "file": "brush-WigglyGraphite.glb",
+        "bytes": 28884,
+        "sha256": "0f012b5c89cf2c7f5c4811f20f968585ca9224ab7457517182596082b5be393d"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "7136a729-1aab-bd24-f8b2-ca88b6adfb67",
+      "name": "Wind",
+      "required": true,
+      "mesh": {
+        "file": "brush-Wind.mesh.json",
+        "bytes": 356622,
+        "sha256": "31a3868900f2df28361dc7b4fdec5e204d09eccfd198c0c91a8b53c563f7ae4d"
+      },
+      "glb": {
+        "file": "brush-Wind.glb",
+        "bytes": 51480,
+        "sha256": "b80682e70d3193cc1ca1789751644beb75b39b54516c43a4315c3d9862bf4491"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "62fef968-e842-3224-4a0e-1fdb7cfb745c",
+      "name": "Wire (Lit)",
+      "required": true,
+      "mesh": {
+        "file": "brush-Wire (Lit).mesh.json",
+        "bytes": 354451,
+        "sha256": "017bf5267b34aa340a0ded1b99b52b51867ba10f87834049aab8989b848ac4fd"
+      },
+      "glb": {
+        "file": "brush-Wire (Lit).glb",
+        "bytes": 26500,
+        "sha256": "b99ec18b0889af46085ab4c4982fb4ce9c253f425760f52b13c8796b56629ac3"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "4391385a-cf83-4396-9e33-31e4e4930b27",
+      "name": "Wire",
+      "required": true,
+      "mesh": {
+        "file": "brush-Wire.mesh.json",
+        "bytes": 353957,
+        "sha256": "5f1ccfce345d29745aa9c4c57d31b2e94eeaec8a4401b06305adbd9d208178e8"
+      },
+      "glb": {
+        "file": "brush-Wire.glb",
+        "bytes": 26600,
+        "sha256": "9ac1d3242a81fa97cdb6a5c522f46ecd89ec4479f97bc2d42101ce3b4e16064c"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    },
+    {
+      "brushGuid": "2c1a6a63-6552-4d23-86d7-58f6fba8581b",
+      "name": "Wireframe",
+      "required": true,
+      "mesh": {
+        "file": "brush-Wireframe.mesh.json",
+        "bytes": 351354,
+        "sha256": "596f93df86c53e679108b26f2771ed2638edc88b11cfe936c94bb4d01a0d9e07"
+      },
+      "glb": {
+        "file": "brush-Wireframe.glb",
+        "bytes": 28856,
+        "sha256": "008108a25f77755d079c151b30f93a2c260b2d7ed9d6498eaea53ea308e860c2"
+      },
+      "fixedShaderTimeSeconds": 0.5,
+      "stages": [
+        "live",
+        "postBrushBaker",
+        "exportedGlb"
+      ]
+    }
+  ]
+}
