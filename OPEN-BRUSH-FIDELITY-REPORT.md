@@ -1,12 +1,75 @@
-# Open Brush brush fidelity review
+# Open Brush parity plan and brush fidelity review
 
-Date: 2026-08-31
+Current planning audit: 2026-10-21, application baseline `4d1f736`.
 
-Open Brush web baseline: `4579dbb`
+Original review: 2026-08-31, application baseline `4579dbb`.
 
 Open Brush: [`4786d55ad398bfc957d8e8eb26438920026aeaf6`](https://github.com/icosa-foundation/open-brush/tree/4786d55ad398bfc957d8e8eb26438920026aeaf6)
 
 Open Brush mesh-fixture generator: `b05324dbd` on `feature/brush-fixtures`
+
+## Current planning baseline
+
+This update reconciles the report with the current application source and the
+recorded batching validation. It does not rerun Unity, package conformance,
+browser-image comparisons, or headset tests. The detailed brush-family notes
+retain earlier investigation and fixture results; they are not fresh passes
+against the revisions below. Use this baseline and the immediate backlog to
+choose new work rather than treating every historical imperative as unfinished.
+
+| Input | Current configured revision | Authority |
+| --- | --- | --- |
+| Open Brush reference | `4786d55ad398bfc957d8e8eb26438920026aeaf6` | [open-brush-reference.json](open-brush-reference.json); local `reference/` HEAD matches |
+| `three-tiltloader` | `6c92f0035911e8e61755fec3270beb7604d5dc81` | [package.json](package.json), [package-lock.json](package-lock.json) |
+| `three-icosa` | `25fe4ca1f7e52174e7d9dca90c811e307216ba1f` | [package.json](package.json), [package-lock.json](package-lock.json) |
+| `icosa-sketch-assets` | `df593c972751f7f28bc8d47bc4f4fd8cfad45fe5` | [brush-asset-base-url.ts](src/brushes/brush-asset-base-url.ts); immutable default URL, explicit environment override/mirror |
+
+The older dependency hashes in the recovery history describe earlier reviewed
+revisions, not today's installed pins. Pin alignment is checked by
+`npm run check:pins`; alignment alone does not establish conformance or approve
+every intervening upstream change.
+
+| Area | Current implementation/evidence | Remaining parity requirement |
+| --- | --- | --- |
+| Target inventory | Generated metadata contains 48 standard and 47 non-broken experimental catalog brushes; [brush-catalog.ts](src/brushes/brush-catalog.ts) derives the required set. | Keep compatibility-only imports distinct from the 95-brush painting target. |
+| Geometry | [brush-geometry.ts](src/brushes/brush-geometry.ts) delegates to `three-tiltloader`. Earlier live-mesh results report 95/95 under family-specific rules. | Reproduce the live-mesh gate for current pins; cover incremental rebuilds, animated deformation, and export paths separately. |
+| Materials | Shared maintained assets and [render-pass helpers](src/brushes/brush-render-material.ts) are wired into the app; late material upgrades are registered. | Unity-reference image comparisons, loaded-environment context, audio analysis, and physical-Quest validation remain open. |
+| Labels and evidence | [Inventory labels](src/brushes/brush-inventory.ts) derive `supported` and `likely-mostly-correct` from implementation eligibility. [Shader evidence](src/brushes/brush-shader-compatibility.ts) persists asset/browser/immersive-XR/visual contexts locally. | Join eligibility with revisioned mesh/image/device evidence; a selectable brush or a local `ready` record is not a parity verdict. |
+| Production batching | [StrokeBatchRenderSystem](src/systems/stroke-batch-render-system.ts) is registered in [src/index.ts](src/index.ts); [batching is default-on](src/brushes/stroke-batch-feature.ts), with `?strokeBatches=0` or `false` as the opt-out. | Follow the [batching validation ledger](docs/stroke-batching-validation.md): broader brush/view coverage, context loss, latency/capacity budgets, and physical-headset evidence remain open. |
+| File handling | Local [tilt-file.ts](src/sketch/tilt-file.ts) and [sketch-memory.ts](src/sketch/sketch-memory.ts) still implement archive and stroke serialization; gallery imports use the local reader. | Shared geometry migration is complete in the adapter; parser consolidation and native Open Brush round-trip compatibility are separate unfinished work. |
+
+## Validation boundaries
+
+1. `npm run check` runs pin alignment, TypeScript, import/feature checks, image
+   metric unit tests, and Vitest. Its success is not a Unity image or live-mesh
+   comparison. This document update does not require rerunning those checks.
+2. `npm run test:browser:materials` exercises installed Chrome with the material
+   readiness/compile checks, Oil Paint A/B and real-stroke coverage, and focused
+   Electricity/Toon rendering. Nonempty output and bump/control differences do
+   not prove agreement with Unity's pixels.
+3. `npm run test:browser` and `npm run test:xr` currently check runtime
+   connectivity and, for XR, an active session. Their names must not be read as
+   automated interaction, image-conformance, or physical-headset suites; see
+   [runtime-check.mjs](scripts/runtime-check.mjs).
+4. The package contains `compare:open-brush-fixtures`, but it requires caller-
+   supplied Unity dumps. The earlier 95/95 claim remains recorded evidence until
+   the exact inputs, revisions, command, and output are reproduced or linked.
+5. The user supplied the existing Unity image corpus at
+   `C:\Users\andyb\Documents\open-brush-fast\Support\Screenshots\brushes-postfx-disabled`.
+   All 95 PNG filenames match the required brush names; every image is
+   **2048x2048**. These files are untracked in that checkout, whose current HEAD
+   is `5591ff1aad5288903e718752c522d54420ae6d1e`; that HEAD does not establish
+   which revision produced the images. The pinned screenshot generator and
+   browser conformance route target 1024x1024. Establish capture provenance and
+   explicitly match resolution/render settings before comparing; do not silently
+   resize or replace this corpus. [compare-brush-images.mjs](scripts/compare-brush-images.mjs)
+   provides metrics, not an automated current 95-brush Unity/browser comparison.
+   The adjacent `brush-ssim-current.txt` records 95 pairs, but identifies neither
+   input set in its header; it is not attributable browser-parity evidence yet.
+6. The batching ledger records desktop and emulated-stereo observations,
+   including connected peers, delayed material arrival, selection/history,
+   save/reload, and ten cleanup cycles. Those observations do not prove physical
+   Quest interaction, GPU memory budgets, or all-brush behavior.
 
 ## Executive assessment
 
@@ -33,15 +96,12 @@ continues to apply to unsupported compatibility-only records.
 
 The 123 asset records contain 74 handcrafted and 49 template shaders, and report 112 resolved texture bindings with none missing. Those are asset-pipeline coverage figures, not fidelity figures.
 
-Estimated current fidelity:
-
-- Catalog and static assets: high, about 90%+.
-- Ordinary `.tilt` stroke fields: moderate to high, about 65-80%.
-- Deterministic live-mesh fixtures: 95/95 required brushes pass the current family-specific criteria.
-- Materials: moderate across supported ribbon, tube, and particle families; low for Unity-only effects.
-- Overall Open Brush product parity: about 20-30%.
-
-These are engineering estimates, not conformance scores. Open Brush web is best described as a purpose-built web reimplementation with partial asset and format compatibility.
+There is no measured overall parity percentage. The earlier percentage estimates
+have been withdrawn from the active plan: catalog coverage, fixture matches,
+material appearance, and application behavior have different denominators and
+cannot be combined into a credible product score. The earlier deterministic
+live-mesh result is 95/95 under family-specific criteria; it is recorded evidence,
+not a fresh run against current pins or a visual-parity result.
 
 ## What maps well
 
@@ -300,6 +360,9 @@ Open Brush web should not own private copies of reusable Open Brush parsing, geo
 
 ### Dependency recovery boundary
 
+This subsection records the earlier recovery decisions. Its short hashes are
+historical; the full current revisions are listed in the planning baseline.
+
 The Open Brush web-driven dependency series have been preserved for reference on
 archived integration branches and removed from the dependencies' default
 branches. They are not approved pins.
@@ -337,8 +400,10 @@ branches. They are not approved pins.
   must continue to reproduce Open Brush contracts rather than require shaders
   to understand a Open Brush web-only layout.
 
-Open Brush web pins those approved revisions directly and uses
-`three-tiltloader@075dcea` for shared geometry generation.
+That checkpoint pinned those revisions directly and used
+`three-tiltloader@075dcea` for shared geometry generation. Current package and
+asset pins have since advanced; do not copy the historical pins into a new change
+without reviewing the intervening fixes.
 The quarantined integration branches remain diagnostic references only.
 
 This migration does not make the shaders equivalent to the Unity runtime shaders. The maintained web shaders remain ports of Open Brush behavior, and exact fidelity still depends on correct generated vertex contracts, render context, animation inputs, and brush-specific multiple material passes.
@@ -461,7 +526,10 @@ generated additive shaders for unresolved emission macros.
 
 ## Required fidelity harness
 
-Current unit tests validate array shapes, simple frames, pressure multipliers, inventory decisions, and material descriptors; they do not establish visual parity. Build a conformance harness that:
+Unit tests cover geometry/comparison utilities, inventory, materials, batching,
+and editing/persistence logic; they do not establish Unity visual parity. The
+fixture-generation/comparison and browser render pieces described below exist
+in part. Complete the connected, revisioned conformance harness so that it:
 
 1. Feeds identical deterministic strokes into Unity and the browser: line, arc, helix, sharp corner, reversal, pressure ramp, twist, dot, long stroke, and segment break.
 2. Dumps finalized Unity positions, indices, normals, tangents, colors, UV0-UVn, bounds, and material state for every GUID.
@@ -471,15 +539,19 @@ Current unit tests validate array shapes, simple frames, pressure multipliers, i
 6. Publishes per-GUID results for mesh contract, browser/XR compile, image error, animation, ordering, and performance.
 
 Do not create a second synthetic visual baseline. The pinned Open Brush checkout
-already contains the authoritative brush fixture generator at
-`Assets/Editor/UiScreenshotter.cs` and material reference images under
-`Support/Screenshots/postfx-disabled/` (for example `brush-OilPaint.png` and
-`brush-DuctTape.png`). `Generate Brush Screenshots` draws the same deterministic
+contains the authoritative brush fixture generator at
+`Assets/Editor/UiScreenshotter.cs`. The existing image corpus is in the
+user-supplied `open-brush-fast/Support/Screenshots/brushes-postfx-disabled`
+directory listed in the current baseline (for example `brush-OilPaint.png` and
+`brush-DuctTape.png`), not the originally reported local reference path.
+`Generate Brush Screenshots` draws the same deterministic
 path for every catalog brush, uses the black environment
 `580b4529-ac50-4fe9-b8d2-635765a14893`, fixes shader time at 0.5 seconds, disables
 post-processing, renders at 2x supersampling with 4x MSAA, and downsamples to
-1024x1024. Browser reference renders should reproduce that path, framing,
-environment, time, resolution, and post-processing state before image comparison.
+1024x1024 in the pinned source. The supplied PNGs are 2048x2048, so their capture
+settings need establishing. Browser reference renders must reproduce the chosen
+corpus's path, framing, environment, time, resolution, antialiasing, and
+post-processing state before image comparison.
 
 Use IWSDK's live runtime inspection for browser verification. Locate the actual
 `BrushStroke` entity by brush GUID, inspect its ECS fields, scene transform,
@@ -499,24 +571,22 @@ Suggested gates:
 
 ## Improvement plan
 
-### Phase 0: trustworthy baseline (1-2 engineer-weeks)
+### Phase 0: trustworthy baseline (partially implemented)
 
-1. Resolve the `9e7f3a5` indexed-particle audit, construct an approved
-   `icosa-sketch-assets` revision from the safe baseline plus the independently
-   retained Digital/Race and legacy-directory cleanup changes, and advance
-   `three-icosa` only through separately reviewed backward-compatible changes.
-   Retain quarantined revisions only as diagnostic
-   references. Record the exact dependency and asset URL revisions used by CI
-   and production.
-2. Replace the source-tree asset submodule/copy assumption with a configurable
-   asset base URL. Load the pinned known URLs directly by default; optionally
-   mirror the same revision during deployment when a self-hosted/offline copy is
-   required. Verify mirrored files byte-for-byte and do not commit generated
-   copies.
+1. Configured: immutable dependency/asset pins and a pin-alignment check. The
+   older `9e7f3a5` recovery discussion is historical. Still bind every fresh
+   conformance artifact to the exact app, package, asset, and Unity revisions;
+   review upstream deltas instead of treating pin alignment as approval.
+2. Implemented: configurable immutable asset URL and explicit mirror commands;
+   generated mirrors are ignored. Preserve byte verification and offline/mirror
+   coverage when advancing the asset revision.
 3. Implemented: `open-brush-reference.json` pins the audited upstream commit,
    and asset extraction rejects a checkout at any other revision.
-4. Fix extraction output and regenerate through a temporary-directory byte comparison in CI.
-5. Extract every required prefab field, vertex layout, texture importer setting, render state, keyword, and environment dependency.
+4. Open: gate extraction regeneration with a temporary-directory byte comparison
+   in CI. Existing generated-asset/interface tests do not perform that round trip.
+5. Partial: descriptor and texture-importer metadata are extracted. Still audit
+   required vertex layouts, keywords, render state, and environment/audio inputs
+   against their consumers; presence in JSON is not proof of implementation.
 6. Partially implemented: deterministic fixtures now compare Open Brush live
    meshes with `three-tiltloader` output for all 95 required brushes. Still add
    post-BrushBaker meshes, UnityGLTF attributes, post-`three-icosa` shader
@@ -552,7 +622,7 @@ and configured modifiers. Required tube brushes pass the live-mesh fixture gate.
 Browser/image validation of deformation and culling, including Disco and
 LightWire, remains open.
 
-### Phase 3: materials and shader context (3-6 engineer-weeks, overlaps 1-2)
+### Phase 3: materials and shader context (partially implemented)
 
 1. Implemented: repin the three dependencies to the reviewed revisions and load
    all 111 configured materials without modifying maintained shader source.
@@ -561,15 +631,21 @@ LightWire, remains open.
    preserves the existing default `RawShaderMaterial` and adds an explicit
    opt-in factory.
 3. Define a typed vertex-layout registry shared by `three-tiltloader` geometry and the Open Brush web/`three-icosa` binding adapter.
-4. Preserve the authoritative texture color/sampler metadata.
-5. Complete render-state mapping without introducing transparency behavior absent from Open Brush.
-6. Drive lights, fog, time origin, canvas transform, and other globals from the loaded sketch/environment.
-7. Implement multiple material-pass composition in Open Brush web when the maintained assets
-   already expose the required pass. If they do not, classify the pass as an
-   upstream asset limitation instead of rewriting the shader during integration.
+4. Implemented in the maintained loader and fallback path: texture
+   color/sampler metadata and transforms. Compression, platform overrides, and
+   full importer semantics remain separate gaps.
+5. Partial: blend/depth/culling defaults are mapped; complete render-state parity
+   still needs per-brush reference validation. Do not add speculative alpha
+   transparency sorting absent from the Open Brush contract.
+6. Open: derive lights, fog, time origin, canvas transform, and other globals
+   from the loaded sketch/environment rather than one Standard rig.
+7. Implemented: shared pass/group helpers are consumed for Electricity and the
+   Toon brushes. Validate their actual-stroke images against Unity. Classify
+   additional passes absent from maintained assets as upstream limitations.
 8. Implement real audio-analysis inputs or classify those variants as non-reactive.
 9. Remove the obsolete extracted shader corpus and duplicated binding tables only after all required brushes resolve through the trusted dependencies.
-10. Add per-GUID diagnostics and late material upgrades.
+10. Partial: per-GUID shader evidence and late material upgrades exist. Still
+    combine them with mesh/image/device evidence and explicit revision provenance.
 11. Validate bloom/tone mapping on desktop and Quest.
 
 ### Phase 4: particles (live-mesh fixtures implemented)
@@ -596,77 +672,127 @@ Compatibility-only Blocks, Plait/Braid, holiday, SVG, PBR, and environment
 cases are explicitly outside the 95-brush target and remain import-only until
 their scope is reconsidered.
 
-### Phase 6: batching and hardening (4-8 engineer-weeks)
+### Phase 6: batching and hardening (production integration implemented)
 
-1. Pool finalized geometry by brush/material/layer.
-2. Keep small dynamic buffers for active local and remote strokes.
-3. Add culling, compaction, erase/undo bookkeeping, and transparent buckets.
-4. Test thousands of strokes, collaboration, context loss, and Quest memory pressure.
+1. Implemented: shared finalized meshes, upstream brush/layer grouping,
+   incremental/provisional stroke handling, selection extraction/reinsertion,
+   visibility, erase/undo, and compaction. Batching is default-on with an explicit
+   opt-out; production connection is no longer an outstanding task.
+2. Recorded: matched gallery renders, reduced draw calls, real connected peers,
+   delayed material arrival, transformed selection/history, IndexedDB reload,
+   and repeated cleanup/retention observations. See the
+   [validation ledger](docs/stroke-batching-validation.md) for each test's scope
+   and the [render contract](docs/stroke-batch-render-contract.md).
+3. Open: transition-frame images, broader brush/deformation/frustum coverage,
+   adverse network timing, context loss/recovery, and load/event-latency and
+   retained-capacity budgets. Alpha-blended families are not covered by an
+   existing transparency-order gate; establish the upstream contract first.
+4. Open: physical-headset interaction, GPU/frame budgets, and memory pressure.
+   Desktop geometry/JS counters and emulated stereo do not establish these.
 
 ## Recommended sequence
 
-Do not treat all 123 extracted records as the fidelity target. The highest-yield order is: conformance tooling; exact geometry for the 48 standard brushes; material/texture semantics for those brushes; batching sufficient for real sketches; then the 47 non-broken experimental brushes. A shader should not be declared complete against an approximate vertex contract.
+Keep the 95-brush target: 48 standard plus 47 non-broken experimental brushes.
+Geometry and production batching already have implementations and recorded
+validation. Next establish reproducible current-revision evidence, then fix the
+measured visual/behavior gaps. Use standard brushes for early iteration, while
+keeping every result visible across all 95; do not postpone known experimental
+regressions simply because the standard subset passes. Follow the immediate
+backlog below rather than restarting completed migration or batching work.
 
-## Effort and full-port appraisal
+## Application parity scope and estimation
 
-Assumptions: senior WebGL/TypeScript and Open Brush/Unity expertise, Quest-capable WebXR, existing application features retained, and automated tests included.
+Brush fidelity is one workstream. The following is an inventory for subsequent
+feature audits, not a claim that every named Open Brush behavior is implemented
+or missing. Code presence proves a starting point; native/web scenario comparisons
+are still needed to decide feature parity.
 
-| Goal | Estimated work |
-| --- | ---: |
-| Harness and extraction metadata | 1-2 engineer-weeks |
-| High-fidelity 48-brush standard set | 12-22 engineer-weeks |
-| All 95 required brush mesh/material families | 24-42 engineer-weeks total |
-| Batching/performance hardening | 4-8 additional engineer-weeks |
-| Broad Open Brush application parity | 18-36 engineer-months total program |
+| Surface | Current source to audit | Completion evidence to collect |
+| --- | --- | --- |
+| Painting and guides | [stroke-authoring-system.ts](src/systems/stroke-authoring-system.ts), [tools.ts](src/tools/tools.ts): free paint, straightedge, mirror, grid, lazy input, tape, and front-plane stencil modes are represented. | Match native controller sampling, pressure, tool transitions, guide placement, and undo under the same inputs; descriptors alone are insufficient. |
+| Selection, erasing, picking, history | [selection-system.ts](src/systems/selection-system.ts), [input-command-system.ts](src/systems/input-command-system.ts), and batching ledger. | Extend the recorded desktop cases to actual controller interaction, brush-edge/overlap cases, transformed canvases, save/load, and native behavior comparisons. |
+| Layers and groups | [layer-canvas-system.ts](src/systems/layer-canvas-system.ts), [layers.ts](src/sketch/layers.ts), document/stroke metadata. | Audit available UI operations, group transforms, visibility, history, persistence, and Open Brush round trips; layer-aware rendering is not a complete layer workflow. |
+| Media | [media-assets.ts](src/sketch/media-assets.ts), [document.ts](src/sketch/document.ts). | Inventory actual import/placement/playback UI and supported formats; stored references do not prove media-tool parity. |
+| Camera and capture | [camera-tool-system.ts](src/systems/camera-tool-system.ts). | Compare snapshot framing and export; separately scope video, paths, and other native camera modes instead of inferring them from the snapshot tool. |
+| Environments and shader context | [standard-environment-system.ts](src/systems/standard-environment-system.ts), [brush-shader-library.ts](src/brushes/brush-shader-library.ts). | Reproduce environment selection/persistence, lights, fog, time/scale, audio analysis, and post-processing in matched captures. |
+| Files and gallery | [tilt-file.ts](src/sketch/tilt-file.ts), [sketch-memory.ts](src/sketch/sketch-memory.ts), [glb-export.ts](src/sketch/glb-export.ts), [sketch-library-system.ts](src/systems/sketch-library-system.ts). | Native-to-web and web-to-native fixtures covering units, layers/groups, metadata/media and unsupported data; export-path visual evidence is separate from live meshes. |
+| Collaboration | [collab-system.ts](src/systems/collab-system.ts) and connected-peer ledger entries. | Prove visual/timing/history equivalence after reconnect, delayed packets/materials, replacements and undo; successful transfer alone is insufficient. |
+| Other native features | Scripting/plugins, platform integrations, remaining panels/settings and native tool modes need a dedicated inventory. | Compare each desired workflow against a pinned native reference and explicitly record web constraints or a user-approved exclusion. No blanket exclusion is established by this report. |
 
-A two-person graphics-focused team could plausibly deliver a validated default set in 2-4 calendar months and broad stock-brush coverage in 6-10 months, assuming no major browser/driver blocker.
-
-"Fully working port" is much larger. The reviewed Open Brush tree has about 786 C# files under `Assets/Scripts` (about 7.35 MB); Open Brush web has 84 non-test TypeScript files (about 23,400 lines). This is not a productivity comparison, but shows the product-surface difference. Open Brush includes mature selection/modification, media, camera/video, environments, guides/snapping, layers/groups, import/export, platform integrations, scripting/plugins, and extensive UI/settings beyond this brush review.
-
-Open Brush web already implements a credible subset—painting, straightedge/tape, erasing, brush/color UI, undo/redo, local persistence, partial `.tilt`, GLB export, collaboration, snapshots, and world grab—but these are adaptations rather than close Unity translations. Upstream changes generally require manual reinterpretation.
-
-Broad parity is therefore a multi-year solo effort or roughly a 9-18 month program for a focused 3-5 person team, depending on which platform-specific features are intentionally omitted.
+The old percentage and calendar estimates are not a current delivery forecast.
+Estimate individual work packages after fixture provenance, acceptance criteria,
+dependency ownership, and device access are established. Brush coverage counts
+must not be used as the denominator for overall application parity.
 
 ## Immediate backlog
 
-1. Implemented: Gallery Viewer pins `three-icosa@6ad0a05` and
-   `three-tiltloader@075dcea`, and builds its deployed module from those exact
-   dependencies. The loader applies required brush material
-   passes automatically. Its visible-Chrome gate verifies Tube Toon Inverted
-   against a focused fixture and verifies Toon plus all 48 shader meshes in the
-   maintained `all_brushes.glb` sketch. The same existing-sketch gate verifies
-   Electricity's three distinct displacement modifiers and groups. Open Brush web
-   consumes the exported pass/group helper for Electricity and both Toon brushes
-   rather than duplicating their material construction. Digital and Race retain
-   dedicated dependency tests.
-2. Implemented: runtime assets use a configurable immutable pinned URL by
-   default, with explicit mirror commands for self-hosted/offline builds.
-3. Implemented: `npm run dev:http` provides a repeatable local HTTP route that
-   never invokes CA installation. `npm run test:browser:materials` runs the
-   111/111 WebGL compile check and deterministic Oil Paint coverage gate in
-   installed Chrome, locally and in CI. The same gate renders Electricity and
-   both Toon brushes and rejects black or empty output.
-4. Live Unity mesh fixtures and `three-tiltloader` comparison are implemented for
-   all 95 required brushes. Add post-BrushBaker, exported GLB, and
-   post-`three-icosa` fixtures for export-path fidelity; these are different
-   contracts and must not replace the live-mesh gate.
-5. Implemented: reproduce that fixture path, camera, seed, and fixed shader time
-   in the browser for per-GUID comparison.
-6. Replace renderer-eligibility labels with persisted mesh/browser/XR/image evidence.
-7. Fail loudly when an extracted required vertex contract is unimplemented.
-8. Live ribbon fixtures pass; incremental adjacent-knot rebuild behavior still
-   needs parity and image validation.
-9. Live tube fixtures pass; validate Disco and LightWire deformation in browser
-   images and XR.
-10. Live particle fixtures pass; validate timing through collaboration,
-    undo/redo, browser images, and XR without adding Open Brush web-specific inputs.
-11. Connect batching to production rendering.
-12. Persist the browser/Quest shader compile matrix.
-13. Implemented: preserve trusted texture transforms, render states, and
-    extracted importer sampler/color-space settings. Guarded normal
-    mapping still requires verification on physical Quest.
-14. Implemented: reusable `.tilt` parsing and required mesh generators live in
-    `three-tiltloader`; Open Brush web consumes them through its thin adapter.
+The order below is the active plan. Each item separates implementation from the
+evidence needed to close it. No new parity implementation is part of this document
+update.
+
+1. **Establish reference inputs and capture provenance.** Use the existing
+   95-image corpus at
+   `C:\Users\andyb\Documents\open-brush-fast\Support\Screenshots\brushes-postfx-disabled`.
+   Record producing Unity revision, fixture/path/seed, environment, shader time,
+   camera, color pipeline, antialiasing and capture size. Resolve the observed
+   2048x2048 corpus versus 1024x1024 pinned/browser generator mismatch explicitly.
+   Locate the Unity live-mesh dump set used for the earlier 95/95 result. Exit:
+   immutable input manifest and reproducible commands; no newly invented baseline.
+2. **Publish current per-GUID evidence.** Join required inventory with mesh,
+   asset-load, browser compile, actual-XR compile, Unity-image differences, and
+   performance/device observations, keyed by app/package/asset/Unity revisions.
+   Keep missing, failed, and passed evidence distinct. Replace or qualify
+   eligibility-derived confidence labels. Exit: every one of the 95 GUIDs has
+   attributable evidence or an explicit unverified state; connectivity and
+   nonempty-render checks cannot count as conformance passes.
+3. **Automate the existing visual comparison path.** Reuse the current
+   `?visual-conformance=brush&brush-guid=...` route, fixture generator, and image
+   metrics. Match the established corpus settings, preserve raw actual/reference
+   images, and publish silhouette/RGB errors per GUID before setting calibrated
+   acceptance thresholds. Start diagnosis with ordinary ribbons plus Disco,
+   LightWire, Oil Paint, Electricity, Toon, and Tube Toon Inverted; run all 95 for
+   the report. Exit: reproducible captures and ranked differences, with agreed
+   tolerances rather than an unsupported aggregate parity score.
+4. **Reproduce mesh evidence and cover export contracts.** Run the shared
+   package comparator against the located Unity dumps using current pins. Keep
+   family-specific comparison rules explicit, especially hull/ConcaveHull.
+   Add post-BrushBaker meshes, exported GLB attributes, and post-`three-icosa`
+   fixtures, including the 20 recorded BrushBaker mappings. Exit: distinct
+   live-mesh and export-path reports; an export pass cannot replace a live pass.
+5. **Harden vertex contracts and incremental authoring.** Define the shared
+   typed vertex-layout contract and fail explicitly for missing required
+   attributes. Check adjacent-knot rebuilds, restarts, preview/finalization,
+   pressure/twist and break handling against the native reference. Make reusable
+   generator changes upstream in a separately located checkout; do not patch
+   installed packages. Exit: deterministic semantic fixtures plus native/browser
+   images for the affected brushes, without app-specific shader workarounds.
+6. **Close shader-context and animation gaps.** Validate Disco/LightWire
+   deformation and particle birth/phase through load, undo/redo and collaboration.
+   Scope loaded-environment inputs, audio analysis, render states, and
+   bloom/tone mapping against native captures. Exit: matched time/scene/operation
+   fixtures; drawing sounds are not evidence of audio-reactive shader inputs.
+7. **Finish production-batching validation.** Extend the existing default-on
+   renderer rather than adding a second integration. Cover transition frames,
+   animated/frustum-edge brushes, adverse network/material timing,
+   context loss/recovery, and explicit latency/retained-capacity budgets. Carry
+   forward the recorded connected-peer, selected-stroke, delayed-material,
+   gallery and ten-cycle cleanup observations at their stated scope. Exit:
+   matched visual/interaction results and resource budgets for realistic sketches.
+8. **Validate on physical Quest.** Exercise guarded normal mapping, the
+   per-GUID shader matrix, actual controller interactions, stereo/multiview,
+   representative heavy sketches and memory pressure. Persist device/browser,
+   revisions, captures, frame/GPU evidence and failures. Exit: hardware results;
+   desktop Chrome, an active session, and emulated stereo are separate evidence.
+9. **Consolidate parsing without losing app metadata.** Audit the shared
+   package API against local `.tilt` archive/stroke readers and writers, including
+   units, layers, media, thumbnails and extensions. Current geometry delegation
+   does not establish parser migration. Exit: native/web round trips and existing
+   persistence/history behavior pass before redundant parsing is removed.
+10. **Turn the application inventory into feature plans.** Compare the workflows
+    in the scope table with native Open Brush, record implementation and evidence
+    gaps, and prioritize the next feature slice with the user. Exit: explicit
+    behavior and acceptance scenarios per feature, without treating brush fidelity
+    as proof of full application parity or making unapproved exclusions.
 
 ## Primary references
 
@@ -682,7 +808,7 @@ Broad parity is therefore a multi-year solo effort or roughly a 9-18 month progr
 - [Export shader sources](https://github.com/icosa-foundation/open-brush/tree/4786d55ad398bfc957d8e8eb26438920026aeaf6/Support/GlTFShaders)
 - [Export manifest](https://github.com/icosa-foundation/open-brush/blob/4786d55ad398bfc957d8e8eb26438920026aeaf6/Support/exportManifest.json)
 - [Brush screenshot generator](https://github.com/icosa-foundation/open-brush/blob/4786d55ad398bfc957d8e8eb26438920026aeaf6/Assets/Editor/UiScreenshotter.cs)
-- Open Brush reference corpus path: `Support/Screenshots/postfx-disabled/`
+- Existing Unity image corpus: `C:\Users\andyb\Documents\open-brush-fast\Support\Screenshots\brushes-postfx-disabled` (95 images, 2048x2048; capture provenance still to establish)
 - [IWSDK](https://iwsdk.dev/) live scene/ECS inspection and browser/XR runtime tools
 - [`icosa-sketch-assets`](https://github.com/icosa-foundation/icosa-sketch-assets) maintained web shader and texture assets
 - [`three-icosa`](https://github.com/icosa-foundation/three-icosa) Three.js Open Brush material extension and bindings
