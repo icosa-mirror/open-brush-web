@@ -46,7 +46,7 @@ export function compareBrushImagePixels(actual, reference, width, height) {
   };
 }
 
-async function compareFiles(actualPath, referencePath) {
+export async function compareBrushImageFiles(actualPath, referencePath) {
   const [actual, reference] = await Promise.all([
     readRgba(actualPath),
     readRgba(referencePath),
@@ -121,7 +121,7 @@ async function main() {
       "Usage: node scripts/compare-brush-images.mjs <actual.png> <reference.png>",
     );
   }
-  console.log(JSON.stringify(await compareFiles(actualPath, referencePath), null, 2));
+  console.log(JSON.stringify(await compareBrushImageFiles(actualPath, referencePath), null, 2));
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1] ?? "").href) {

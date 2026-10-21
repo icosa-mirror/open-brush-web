@@ -11,9 +11,10 @@ Open Brush mesh-fixture generator: `b05324dbd` on `feature/brush-fixtures`
 ## Current planning baseline
 
 The planning update reconciled the report with application source and recorded
-batching validation. A subsequent fresh Unity mesh-fixture run on 2026-10-21 now
-provides the live-mesh evidence linked below. Browser-image comparisons and
-headset tests have not been rerun by that work. Detailed brush-family notes also
+batching validation. Subsequent work on 2026-10-21 provides fresh native live-mesh
+evidence and a 95-brush browser-image diagnostic run linked below. The image run
+does not establish matched native capture inputs/settings or visual parity;
+headset tests have not been rerun. Detailed brush-family notes also
 retain earlier investigation; do not treat every historical imperative as
 unfinished or expand a live-mesh result into other kinds of parity.
 
@@ -33,7 +34,7 @@ every intervening upstream change.
 | --- | --- | --- |
 | Target inventory | Generated metadata contains 48 standard and 47 non-broken experimental catalog brushes; [brush-catalog.ts](src/brushes/brush-catalog.ts) derives the required set. | Keep compatibility-only imports distinct from the 95-brush painting target. |
 | Geometry | [brush-geometry.ts](src/brushes/brush-geometry.ts) delegates to `three-tiltloader`. The [fresh native run](docs/evidence/brush-fidelity/native-2026-10-21/README.md) matches 95/95 required live meshes against current package pins, under family-specific rules. | The fresh native revision is `5591ff1`, distinct from the declared reference pin. Cover incremental rebuilds, animated deformation, and export paths separately; reconcile reference provenance explicitly. |
-| Materials | Shared maintained assets and [render-pass helpers](src/brushes/brush-render-material.ts) are wired into the app; late material upgrades are registered. | Unity-reference image comparisons, loaded-environment context, audio analysis, and physical-Quest validation remain open. |
+| Materials | Shared maintained assets and [render-pass helpers](src/brushes/brush-render-material.ts) are wired into the app; late material upgrades are registered. The [browser image collector](scripts/browser-brush-image-comparison.mjs) captures all 95 required brushes with per-GUID metrics. | The first image run is diagnostic with unmatched/unverified reference inputs; calibrated Unity image parity, loaded-environment context, audio analysis, and physical-Quest validation remain open. |
 | Labels and evidence | [Inventory labels](src/brushes/brush-inventory.ts) derive `supported` and `likely-mostly-correct` from implementation eligibility. [Shader evidence](src/brushes/brush-shader-compatibility.ts) persists asset/browser/immersive-XR/visual contexts locally. | Join eligibility with revisioned mesh/image/device evidence; a selectable brush or a local `ready` record is not a parity verdict. |
 | Production batching | [StrokeBatchRenderSystem](src/systems/stroke-batch-render-system.ts) is registered in [src/index.ts](src/index.ts); [batching is default-on](src/brushes/stroke-batch-feature.ts), with `?strokeBatches=0` or `false` as the opt-out. | Follow the [batching validation ledger](docs/stroke-batching-validation.md): broader brush/view coverage, context loss, latency/capacity budgets, and physical-headset evidence remain open. |
 | File handling | Local [tilt-file.ts](src/sketch/tilt-file.ts) and [sketch-memory.ts](src/sketch/sketch-memory.ts) still implement archive and stroke serialization; gallery imports use the local reader. | Shared geometry migration is complete in the adapter; parser consolidation and native Open Brush round-trip compatibility are separate unfinished work. |
@@ -67,7 +68,8 @@ every intervening upstream change.
    **2048x2048**. These files are untracked in that checkout, whose current HEAD
    is `5591ff1aad5288903e718752c522d54420ae6d1e`; that HEAD does not establish
    which revision produced the images. The pinned screenshot generator and
-   browser conformance route target 1024x1024. Establish capture provenance and
+   browser conformance route default to 1024x1024; the browser now also accepts
+   explicit 2048x2048 captures without resizing references. Establish provenance and
    explicitly match resolution/render settings before comparing; do not silently
    resize or replace this corpus. [compare-brush-images.mjs](scripts/compare-brush-images.mjs)
    provides metrics, not an automated current 95-brush Unity/browser comparison.
@@ -82,6 +84,15 @@ every intervening upstream change.
    including connected peers, delayed material arrival, selection/history,
    save/reload, and ten cleanup cycles. Those observations do not prove physical
    Quest interaction, GPU memory budgets, or all-brush behavior.
+7. `npm run compare:brush-images` now preserves actual/reference PNG pairs,
+   checks readback-to-PNG coverage and emits per-GUID metrics. The
+   [first complete run](docs/evidence/brush-fidelity/browser-images-2026-10-21/README.md)
+   captured 95/95 at 2048x2048; 94 passed coverage and the legacy planar
+   ConcaveHull case was empty. A native-input ConcaveHull adapter smoke rendered
+   nonempty with the fresh 36-point input. Those results do not assign image
+   parity passes. An experimental paired native capture subsequently crashed the
+   Editor after seven frames; its inputs/images were rejected, and the original
+   reference corpus and earlier successful live-mesh evidence remain separate.
 
 ## Executive assessment
 
@@ -610,11 +621,14 @@ Suggested gates:
    results. CI also checks active vertex/fragment varying links across all 95
    required authoritative shader pairs. The source live-mesh fixture gate is
    95/95; browser-image automation and a complete XR matrix remain open.
-8. Partially implemented: the browser route now reproduces the existing Open
-   Brush `UiScreenshotter` path, perspective framing, fixed shader time, and
-   stroke seed without generator-specific control-point mutations. Deterministic
-   Unity live-mesh dumping is implemented; automated image comparison remains open;
-   do not replace the existing screenshot corpus with a new visual target.
+8. Partial: deterministic native mesh dumping and a full browser-image collector
+   are implemented. The browser's default fixture is an older planar path and
+   includes a SingleSided orientation override; it is not the current native
+   36-point pressure/rotation fixture. An optional native-input adapter now
+   preserves the captured path/seed/pressure/rotation and camera without those
+   mutations. Reliable paired native image generation and render-context
+   calibration remain open; do not replace the supplied corpus with unverified
+   captures or interpret the first diagnostic metrics as parity scores.
 
 Exit: CI explains exactly why every GUID passes or fails.
 
@@ -740,8 +754,8 @@ must not be used as the denominator for overall application parity.
 ## Immediate backlog
 
 The order below is the active plan. Each item separates implementation from the
-evidence needed to close it. No new parity implementation is part of this document
-update.
+evidence needed to close it. Implementation/evidence updates are linked at their
+actual scope; incomplete items remain open.
 
 1. **Establish reference inputs and capture provenance.** Use the existing
    95-image corpus at
@@ -761,11 +775,14 @@ update.
    eligibility-derived confidence labels. Exit: every one of the 95 GUIDs has
    attributable evidence or an explicit unverified state; connectivity and
    nonempty-render checks cannot count as conformance passes.
-3. **Automate the existing visual comparison path.** Reuse the current
-   `?visual-conformance=brush&brush-guid=...` route, fixture generator, and image
-   metrics. Match the established corpus settings, preserve raw actual/reference
-   images, and publish silhouette/RGB errors per GUID before setting calibrated
-   acceptance thresholds. Start diagnosis with ordinary ribbons plus Disco,
+3. **Automate the existing visual comparison path.** Implemented: the collector
+   uses `?visual-conformance=brush&brush-guid=...`, captures at the unchanged
+   reference dimensions and preserves raw actual/reference images with per-GUID
+   metrics. The first run captured all 95; input/render-context alignment is still
+   unverified. Optional native stroke/camera profiles and failed-reference-set
+   rejection are implemented. Still establish reliable paired native captures,
+   match rendering context, then calibrate acceptance thresholds. Start diagnosis
+   with ordinary ribbons plus Disco,
    LightWire, Oil Paint, Electricity, Toon, and Tube Toon Inverted; run all 95 for
    the report. Exit: reproducible captures and ranked differences, with agreed
    tolerances rather than an unsupported aggregate parity score.

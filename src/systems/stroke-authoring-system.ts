@@ -62,12 +62,12 @@ import {
 import {
   BRUSH_VISUAL_CONFORMANCE_PREFIX,
   createOpenBrushScreenshotCamera,
-  OPEN_BRUSH_SCREENSHOT_SIZE,
   runBumpVisualConformance,
   runBrushGeometryVisualConformance,
   showBumpVisualConformance,
   showBrushGeometryVisualConformance,
 } from "../brushes/brush-visual-conformance.js";
+import { readUnityVisualCapture, resolveBrushCaptureSize } from "../brushes/brush-visual-capture-input.js";
 import {
   createOpenBrushScreenshotControlPoints,
   OPEN_BRUSH_SCREENSHOT_SHADER_TIME_SECONDS,
@@ -436,11 +436,17 @@ export class StrokeAuthoringSystem extends createSystem({
       mode === "thick-paint" ||
       mode === "wet-paint"
     ) {
-      this.runGeometryVisualConformance(mode);
+      void this.runGeometryVisualConformance(mode).catch((error) => {
+        console.error(`${BRUSH_VISUAL_CONFORMANCE_PREFIX} Capture failed:`, error);
+        document.documentElement.dataset.brushVisualConformance = "fail";
+      });
       return;
     }
     if (mode === "brush") {
-      this.runGeometryVisualConformance("brush");
+      void this.runGeometryVisualConformance("brush").catch((error) => {
+        console.error(`${BRUSH_VISUAL_CONFORMANCE_PREFIX} Capture failed:`, error);
+        document.documentElement.dataset.brushVisualConformance = "fail";
+      });
       return;
     }
     if (mode !== "bump") {
@@ -474,7 +480,7 @@ export class StrokeAuthoringSystem extends createSystem({
     );
   }
 
-  private runGeometryVisualConformance(
+  private async runGeometryVisualConformance(
     mode:
       | "particle"
       | "spray"
@@ -497,7 +503,7 @@ export class StrokeAuthoringSystem extends createSystem({
       | "thick-paint"
       | "wet-paint"
       | "brush",
-  ): void {
+  ): Promise<void> {
     const requestedBrushGuid = new URLSearchParams(window.location.search).get(
       "brush-guid",
     );
@@ -561,7 +567,7 @@ export class StrokeAuthoringSystem extends createSystem({
           ? "pass"
           : "fail";
     }
-    const stroke = createEmptyStrokeData({
+    let stroke = createEmptyStrokeData({
       guid: "brush-visual-conformance-smoke",
       brushGuid,
       brushSize:
@@ -678,6 +684,20 @@ export class StrokeAuthoringSystem extends createSystem({
         },
       );
     }
+    const captureParams = new URLSearchParams(window.location.search);
+    const inputPath = mode === "brush" ? captureParams.get("conformance-input") : null;
+    let nativeCapture: ReturnType<typeof readUnityVisualCapture> | undefined;
+    if (inputPath) {
+      const inputUrl = new URL(inputPath, window.location.href);
+      if (inputUrl.origin !== window.location.origin) throw new Error("Capture inputs must be same-origin.");
+      const response = await fetch(inputUrl, { credentials: "omit" });
+      if (!response.ok) throw new Error(`Native capture input returned HTTP ${response.status}.`);
+      nativeCapture = readUnityVisualCapture(await response.json(), brushGuid);
+      stroke = nativeCapture.stroke;
+      if (captureParams.has("conformance-size") && resolveBrushCaptureSize(captureParams.get("conformance-size")) !== nativeCapture.size) {
+        throw new Error("Requested capture dimensions differ from native metadata.");
+      }
+    }
     const geometry = generateBrushGeometry(stroke, entry.geometryFamily, {
       pressureSizeRange: entry.pressureSizeRange,
       pressureOpacityRange: entry.pressureOpacityRange,
@@ -686,8 +706,17 @@ export class StrokeAuthoringSystem extends createSystem({
     });
     const conformanceCamera =
       mode === "brush" ? createOpenBrushScreenshotCamera() : this.camera;
+    if (nativeCapture) {
+      conformanceCamera.position.set(...nativeCapture.camera.position);
+      conformanceCamera.quaternion.set(...nativeCapture.camera.rotation);
+      conformanceCamera.fov = nativeCapture.camera.fieldOfView;
+      conformanceCamera.near = nativeCapture.camera.near;
+      conformanceCamera.far = nativeCapture.camera.far;
+      conformanceCamera.updateProjectionMatrix();
+      conformanceCamera.updateMatrixWorld(true);
+    }
     openBrushShaderLibrary.updateFrame(
-      mode === "brush" ? OPEN_BRUSH_SCREENSHOT_SHADER_TIME_SECONDS : 1,
+      nativeCapture?.shaderTimeSeconds ?? (mode === "brush" ? OPEN_BRUSH_SCREENSHOT_SHADER_TIME_SECONDS : 1),
       conformanceCamera,
     );
     const result = runBrushGeometryVisualConformance(
@@ -719,7 +748,7 @@ export class StrokeAuthoringSystem extends createSystem({
         : "particle",
       mode === "brush" ? conformanceCamera : undefined,
       mode === "brush" ? 0.001 : 0.005,
-      mode === "brush" ? OPEN_BRUSH_SCREENSHOT_SIZE : undefined,
+      mode === "brush" ? (nativeCapture?.size ?? resolveBrushCaptureSize(captureParams.get("conformance-size"))) : undefined,
     );
     openBrushShaderCompatibility.record({
       guid: brushGuid,
@@ -729,6 +758,8 @@ export class StrokeAuthoringSystem extends createSystem({
       message: `${mode} coverage=${(result.coveredPixelRatio * 100).toFixed(2)}%`,
     });
     showBrushGeometryVisualConformance(result);
+    const captureRoot = document.getElementById("brush-visual-conformance");
+    if (captureRoot) captureRoot.dataset.inputProfile = nativeCapture ? "native-capture" : "legacy-screenshot-fixture";
     document.documentElement.dataset.brushVisualConformance = result.passed
       ? "pass"
       : "fail";

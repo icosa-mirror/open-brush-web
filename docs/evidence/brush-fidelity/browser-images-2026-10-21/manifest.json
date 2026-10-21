@@ -1,0 +1,15 @@
+{
+  "appBaseline": "257ea9a4ac13e65fa0c1e182394b13283ef7c0ed",
+  "workingTreeSourceSha256": {
+    "scripts\\browser-brush-image-comparison.mjs": "68d876f4a7cc89b1bc676fed2512163563d7b89dbba3dbb4f0a34ec4d11bbc01",
+    "scripts\\compare-brush-images.mjs": "e81baa494dee2a6b184e2a6f1761f002a909441cec79138eb84fe6643a30f78b",
+    "src\\brushes\\brush-visual-conformance.ts": "20ed83747d490c366e266c28f30182ed20151bd1923e20a8b96025c241c42141",
+    "src\\brushes\\brush-visual-capture-input.ts": "59b93af23d7a1fb6a163e1f9886e5a3e3c579097195915f5f7b02f6452f9a90c",
+    "src\\systems\\stroke-authoring-system.ts": "3bffdd24bd878112c6d1e2193ef2cfe05890d19a492879a9fa63fe215436a4b2"
+  },
+  "rawArtifactsDirectory": "C:\\Users\\andyb\\Documents\\brushspace\\.tmp\\brush-images-all-2026-10-21",
+  "configuredAssetRevision": "df593c972751f7f28bc8d47bc4f4fd8cfad45fe5",
+  "scope": "diagnostic images only; source capture profile alignment unverified; source changes were uncommitted during the run and are hashed here",
+  "consoleErrorCount": 0,
+  "pageErrorCount": 0
+}

@@ -1,0 +1,56 @@
+{
+  "state": "failed",
+  "count": 7,
+  "detail": "Unity Editor process exited with native crash; first capture blank and URP UniversalCameraData exceptions observed. Images rejected as reference evidence.",
+  "kind": "rejected experimental native paired-capture attempt; not the completed standard mesh-fixture menu run",
+  "source": {
+    "nativeRevision": "5591ff1aad5288903e718752c522d54420ae6d1e",
+    "helperSha256": "739e0f90a5d11c45f9719a36f6b2aad86bad5a7073d0d348c6d845005880af95",
+    "nativeSources": {
+      "Assets/Editor/UiScreenshotter.cs": "8ef84444cad3193c27c6d01b714be6c7f9c0055ea788e116c0939dec60ff9a6e",
+      "Assets/Editor/BrushMeshFixtureWriter.cs": "bb3d1b0d55ead25ef3079083b40b5009f18bf707fb360ad1c7ffe9741fb1716f"
+    }
+  },
+  "observedFirstCapture": {
+    "brushGuid": "f72ec0e7-a844-4e38-82e3-140c44772699",
+    "fixture": "brush-OilPaint.mesh.json",
+    "image": "brush-OilPaint.png",
+    "width": 2048,
+    "height": 2048,
+    "supersampling": 1,
+    "msaaSamples": 1,
+    "postProcessing": false,
+    "fixedShaderTimeSeconds": 0.5,
+    "colorSpace": "Gamma",
+    "pipeline": "UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset",
+    "camera": {
+      "position": [
+        0.522663,
+        9.039194,
+        -1.14035976
+      ],
+      "rotation": [
+        -0.444137841,
+        -0.5909782,
+        0.497282684,
+        -0.45408836
+      ],
+      "fieldOfView": 100.243912,
+      "nearClip": 0.5,
+      "farClip": 10000.0,
+      "aspect": 1
+    },
+    "ambientColor": [
+      0.392156869,
+      0.392156869,
+      0.392156869
+    ],
+    "fog": true,
+    "fogDensity": 0.0
+  },
+  "observedErrors": [
+    "InvalidOperationException: Type UnityEngine.Rendering.Universal.UniversalCameraData has already been created.",
+    "Native crash: UnityEditor.EditorGUIUtility.RenderPlayModeViewCamerasInternal_Injected / UnityEditor.GameView.OnGUI"
+  ],
+  "cause": "unproven; neither the standard screenshot menu nor a particular GPU/render-pipeline defect is established as the cause"
+}

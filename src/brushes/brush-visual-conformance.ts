@@ -14,6 +14,7 @@ import {
 } from "@iwsdk/core";
 import type { Camera } from "@iwsdk/core";
 import type { GeneratedBrushGeometry } from "./brush-geometry.js";
+import { DEFAULT_BRUSH_CAPTURE_SIZE, opaqueCapturePixels } from "./brush-visual-capture-input.js";
 
 import {
   applyBrushShaderAttributeAliases,
@@ -35,7 +36,7 @@ import {
 
 export const BRUSH_VISUAL_CONFORMANCE_PREFIX = "[BrushVisualConformance]";
 export const BRUSH_VISUAL_CONFORMANCE_SIZE = 256;
-export const OPEN_BRUSH_SCREENSHOT_SIZE = 1024;
+export const OPEN_BRUSH_SCREENSHOT_SIZE = DEFAULT_BRUSH_CAPTURE_SIZE;
 
 export interface BrushVisualConformanceResult extends PixelDifference {
   passed: boolean;
@@ -192,6 +193,7 @@ export function showBrushGeometryVisualConformance(
     ),
   );
   root.dataset.result = result.passed ? "pass" : "fail";
+  root.dataset.coveredPixelRatio = String(result.coveredPixelRatio);
   document.body.append(root);
 }
 
@@ -382,13 +384,7 @@ function createPixelFigure(
   canvas.style.cssText = `width:${size}px;max-width:100%;image-rendering:auto;background:#000`;
   const context = canvas.getContext("2d");
   if (context) {
-    const flipped = new Uint8ClampedArray(pixels.length);
-    const rowBytes = size * 4;
-    for (let y = 0; y < size; y += 1) {
-      const sourceOffset = y * rowBytes;
-      const targetOffset = (size - y - 1) * rowBytes;
-      flipped.set(pixels.subarray(sourceOffset, sourceOffset + rowBytes), targetOffset);
-    }
+    const flipped = opaqueCapturePixels(pixels, size);
     context.putImageData(
       new ImageData(flipped, size, size),
       0,

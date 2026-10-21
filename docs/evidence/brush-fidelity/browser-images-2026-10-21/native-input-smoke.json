@@ -1,0 +1,61 @@
+{
+  "kind": "adapter smoke only; controlled camera, not a native image comparison",
+  "observations": [
+    {
+      "name": "OilPaint",
+      "guid": "f72ec0e7-a844-4e38-82e3-140c44772699",
+      "fixtureSha256": "cc1c7e2206b174eaebf8e592daed73771c2b137869586032b72fa16747f7b913",
+      "controlPoints": 38,
+      "controlledCamera": {
+        "position": [
+          0,
+          100,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "fieldOfView": 60,
+        "nearClip": 0.5,
+        "farClip": 10000,
+        "aspect": 1
+      },
+      "status": "pass",
+      "profile": "native-capture",
+      "width": 2048,
+      "coverage": 0.0073277950286865234,
+      "errors": []
+    },
+    {
+      "name": "ConcaveHull",
+      "guid": "7ae1f880-a517-44a0-99f9-1cab654498c6",
+      "fixtureSha256": "a93844d5234bb89288bc000ca733f735fbc6ce91cb1e83e9c0f788d7b53a1b42",
+      "controlPoints": 38,
+      "controlledCamera": {
+        "position": [
+          0,
+          100,
+          0
+        ],
+        "rotation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "fieldOfView": 60,
+        "nearClip": 0.5,
+        "farClip": 10000,
+        "aspect": 1
+      },
+      "status": "pass",
+      "profile": "native-capture",
+      "width": 2048,
+      "coverage": 0.027199745178222656,
+      "errors": []
+    }
+  ]
+}
