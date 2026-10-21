@@ -100,9 +100,9 @@ systems in `src/systems/` glue them to IWSDK.
 
 The app is named **Open Brush**; "for the web" describes this browser port.
 Run `node scripts/generate-branding.mjs` to regenerate the wordmark, banner,
-share image, gallery thumbnail, and app icons. The source logo in
-`public/branding/open-brush-logo.png` comes from Open Brush's
-`Assets/Resources/DefaultImages/OpenBrushLogo.png` (see [NOTICE](NOTICE)).
+share image, gallery thumbnail, and app icons. The source wordmark (`public/branding/open-brush-logo.svg`) and icon
+(`public/branding/open-brush-icon.png`) are the supplied project branding
+assets, copied from `Logo.svg` and `icon.png` (see [NOTICE](NOTICE)).
 
 The existing hosting URL, Git repository URL, and Cloudflare worker deployment
 name retain their original identifiers until those external services are

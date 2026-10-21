@@ -1,21 +1,13 @@
-// Render the web branding from Open Brush's upstream logo and SVG typography.
-// Source logo: reference/Assets/Resources/DefaultImages/OpenBrushLogo.png
+// Render branding from the supplied Open Brush logo and icon.
+// Sources: Logo.svg and icon.png from the project branding folder.
 // Copyright the Open Brush contributors / Icosa Foundation, Apache-2.0.
 import fs from "node:fs/promises";
 import sharp from "sharp";
 
-const logo = await fs.readFile(new URL("../public/branding/open-brush-logo.png", import.meta.url));
-const logoUrl = `data:image/png;base64,${logo.toString("base64")}`;
-const wordmark = `<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="360" viewBox="0 0 1600 360">
-  <image href="${logoUrl}" x="10" y="10" width="340" height="340"/>
-  <g fill="#ffffff" font-family="Arial, Helvetica, sans-serif">
-    <text x="405" y="205" font-size="172" font-weight="700">Open Brush</text>
-    <text x="414" y="285" font-size="54" letter-spacing="8">FOR THE WEB</text>
-  </g>
-</svg>`;
-const svg = Buffer.from(wordmark);
+const logo = await fs.readFile(new URL("../public/branding/open-brush-icon.png", import.meta.url));
+const svg = await fs.readFile(new URL("../public/branding/open-brush-logo.svg", import.meta.url));
 const root = new URL("../", import.meta.url);
-await fs.writeFile(new URL("public/openbrush/intro/wordmark.png", root), await sharp(svg).png().toBuffer());
+await fs.writeFile(new URL("public/openbrush/intro/wordmark.png", root), await sharp(svg).resize({ width: 1600 }).png().toBuffer());
 
 async function card(path, width, height) {
   const mark = await sharp(svg).resize(Math.round(width * 0.86)).png().toBuffer();

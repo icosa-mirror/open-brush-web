@@ -30,8 +30,8 @@ const INTRO_SCALE = 0.1;
 // signage. Local units are decimeters (parented under the intro root).
 const WORDMARK_URL = assetUrl("/openbrush/intro/wordmark.png");
 const WORDMARK_WIDTH_DM = 50;
-// 1600x360 px source.
-const WORDMARK_HEIGHT_DM = (WORDMARK_WIDTH_DM * 360) / 1600;
+// 1600x396 px source.
+const WORDMARK_HEIGHT_DM = (WORDMARK_WIDTH_DM * 396) / 1600;
 const WORDMARK_POSITION_DM: readonly [number, number, number] = [0, 16, -40];
 
 /**
