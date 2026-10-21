@@ -135,11 +135,13 @@ async function main() {
           const gl = worldCanvas?.getContext("webgl2");
           const debug = gl?.getExtension("WEBGL_debug_renderer_info");
           return { png: canvas.toDataURL("image/png"), width: canvas.width, height: canvas.height,
+            shaderCompileAudit: panel.dataset.shaderCompileAudit ? JSON.parse(panel.dataset.shaderCompileAudit) : null,
             generatedUv0Size: Number(panel.dataset.generatedUv0Size), shaderUv0Size: Number(panel.dataset.shaderUv0Size),
             profile: panel.dataset.inputProfile, coverage: Number(panel.dataset.coveredPixelRatio),
             renderStatus: document.documentElement.dataset.brushVisualConformance,
             renderer: debug ? gl.getParameter(debug.UNMASKED_RENDERER_WEBGL) : null };
         });
+        row.shaderCompileAudit = capture.shaderCompileAudit;
         validateBrushCapture(capture, input.size, Boolean(input.paired));
         const png = Buffer.from(capture.png.split(",")[1], "base64");
         const actualFile = path.join(output, "browser", input.file);

@@ -16,6 +16,20 @@ const data = {
 const required = data.exports.brushes.map((row) => ({ guid: row.guid, name: row.name }));
 
 describe("per-GUID brush fidelity evidence join", () => {
+  it("records complete browser link audits without promoting XR or visual parity", () => {
+    const changed = structuredClone(data);
+    changed.compileCaptures = { results: changed.captures.results.map((row) => ({ ...row,
+      shaderCompileAudit: { status: "linked", context: "nonimmersive", expectedMaterialPasses: 1, observedMaterialPasses: 1,
+        errors: [], programs: [{ materialPass: 0, linked: true, vertexCompiled: true, fragmentCompiled: true }] },
+    })) };
+    const rows = joinBrushFidelityEvidence(required, changed);
+    expect(rows.every((row) => row.browserShaderCompileAudit === "recorded-linked")).toBe(true);
+    expect(rows.every((row) => row.actualXrShaderCompile === "unverified" && row.visualParity === "unverified")).toBe(true);
+    changed.compileCaptures.results[0].shaderCompileAudit.expectedMaterialPasses = 3;
+    expect(() => joinBrushFidelityEvidence(required, changed)).toThrow("status differs");
+    changed.compileCaptures.results[0].shaderCompileAudit.status = "unverified";
+    expect(joinBrushFidelityEvidence(required, changed).find((row) => row.guid === changed.compileCaptures.results[0].guid).browserShaderCompileAudit).toBe("unverified");
+  });
   it("retains 95 recorded matches without promoting capture/coverage to visual parity", () => {
     const rows = joinBrushFidelityEvidence(required, data);
     expect(rows).toHaveLength(95);

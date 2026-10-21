@@ -1,3 +1,5 @@
+import { validateShaderCompileAudit } from "./brush-capture-contract.mjs";
+
 export function indexGuidRows(rows, key, label) {
   if (!Array.isArray(rows)) throw new Error(`Missing ${label} rows.`);
   const result = new Map();
@@ -37,6 +39,7 @@ export function joinBrushFidelityEvidence(required, data) {
     post.set(row.name, row);
   }
   const normalExports = data.postLoader.results.filter((row) => row.generator?.includes("Open Brush UnityGLTF Exporter"));
+  const compileRows = data.compileCaptures ? indexGuidRows(data.compileCaptures.results, "guid", "browser shader compile") : null;
   return required.map(({ guid, name, catalogSection }) => {
     const native = take("native", guid), mesh = take("mesh", guid), exported = take("exports", guid);
     const capture = take("captures", guid), layout = take("layout", guid), image = take("images", guid);
@@ -53,6 +56,17 @@ export function joinBrushFidelityEvidence(required, data) {
       exporterFlags: item.after.materials.map((material) => material.newExporterFlag),
     })));
     const shaderMeshes = loaded.meshes.filter((item) => item.after.materials.some((material) => material.newExporterFlag !== null)).length;
+    const compile = compileRows?.get(guid);
+    if (compileRows && !compile) throw new Error(`Missing browser shader compile evidence for ${guid}.`);
+    let compileStatus = "unverified";
+    if (compile) {
+      requireMatchingHash(compile.referenceSha256, image.sha256, `${guid} compile capture reference`);
+      if (compile.shaderCompileAudit?.status === "failed") compileStatus = "recorded-failed";
+      else {
+        validateShaderCompileAudit(compile.shaderCompileAudit);
+        if (compile.status === "captured" && compile.shaderCompileAudit.status === "linked" && compile.consoleErrorCount === 0 && compile.pageErrorCount === 0) compileStatus = "recorded-linked";
+      }
+    }
     return {
       guid, name, catalogSection,
       liveMesh: { source: "mesh", status: mesh.status, criteria: "recorded finalized-live-mesh rules; includes family-specific hull criteria", inputSha256: native.mesh.sha256 },
@@ -72,7 +86,12 @@ export function joinBrushFidelityEvidence(required, data) {
         inputProfile: capture.inputProfile, nativeContextAlignment: "unverified", visualParity: "unverified" },
       bufferLayout: { source: "layout", status: layout.status, generatedStates: layout.checks, layouts: layout.layouts,
         nativeIncrementalMeshEquivalence: "unverified" },
-      assetLoadAudit: "unverified", browserShaderCompileAudit: "unverified", actualXrShaderCompile: "unverified",
+      assetLoadAudit: "unverified", browserShaderCompileAudit: compileStatus,
+      browserShaderCompileEvidence: compile ? { source: "compileCaptures", captureStatus: compile.status,
+        context: compile.shaderCompileAudit.context, expectedMaterialPasses: compile.shaderCompileAudit.expectedMaterialPasses,
+        observedMaterialPasses: compile.shaderCompileAudit.observedMaterialPasses, boundPrograms: compile.shaderCompileAudit.programs.length,
+        shaderSemantics: "unverified", coverageSmoke: compile.renderStatus } : null,
+      actualXrShaderCompile: "unverified",
       physicalQuestInteraction: "unverified", devicePerformanceBudget: "unverified", animationParity: "unverified",
       visualParity: "unverified",
     };

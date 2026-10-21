@@ -14,6 +14,7 @@ const paths = {
   exports: "export-accessors-2026-10-21/results.json", postLoader: "post-loader-2026-10-21/results.json",
   captures: "browser-images-packed-uv-2026-10-21/results.json", layout: "vertex-layout-2026-10-22/results.json",
   images: "native-2026-10-21/image-corpus-inventory.json",
+  compileCaptures: "browser-shader-compile-2026-10-22/results.json",
 };
 const data = {}, sources = {};
 for (const [key, relative] of Object.entries(paths)) {
@@ -30,10 +31,10 @@ const packageJson = JSON.parse(await readFile("package.json"));
 const assetSource = await readFile("src/brushes/brush-asset-base-url.ts");
 const assetRevision = assetSource.toString().match(/ICOSA_SKETCH_ASSETS_REVISION\s*=\s*"([0-9a-f]{40})"/)?.[1];
 if (!assetRevision) throw new Error("Configured default asset revision is missing.");
-if (!data.captures.completedAt || !data.postLoader.completedAt) throw new Error("Incomplete browser run cannot be published as finished evidence.");
+if (!data.captures.completedAt || !data.postLoader.completedAt || !data.compileCaptures.completedAt) throw new Error("Incomplete browser run cannot be published as finished evidence.");
 const required = Object.entries(inventory.brushes).filter(([, brush]) => brush.catalogSection && !brush.tags?.includes("broken") && (brush.tags?.includes("default") || brush.tags?.includes("experimental"))).map(([guid, brush]) => ({ guid: guid.toLowerCase(), name: manifest.brushes[guid].name, catalogSection: brush.catalogSection }));
 if (!required.length) throw new Error("Required inventory is empty.");
-for (const key of ["mesh", "exports", "captures", "layout"]) {
+for (const key of ["mesh", "exports", "captures", "layout", "compileCaptures"]) {
   const report = data[key].evidence ?? data[key];
   requireMatchingHash(report.inventorySha256, hash(inventoryBytes), `${key} inventory`);
   requireMatchingHash(report.packageLockSha256 ?? report.lockfileSha256, hash(lockBytes), `${key} lockfile`);
@@ -64,12 +65,13 @@ const ledger = {
     browserCaptures: rows.filter((r) => r.browserCapture.status === "captured").length,
     coverageSmokePasses: rows.filter((r) => r.browserCapture.coverageSmoke === "pass").length,
     layoutCapacityMatches: rows.filter((r) => r.bufferLayout.status === "layout-capacity-match").length,
+    browserCompileRecordedLinks: rows.filter((r) => r.browserShaderCompileAudit === "recorded-linked").length,
     visualParityVerified: 0, actualXrCompileVerified: 0, devicePerformanceVerified: 0,
   }, brushes: rows,
 };
-const table = ["# Required brush evidence index", "", "Recorded evidence only. All visual parity, actual XR compile and device performance states remain unverified. JSON entries retain source hashes and revisions. `coverage fail` is a rendering smoke failure, not a Unity visual-parity verdict.", "", "| Brush | GUID | Live mesh | Export accessors | Fixture loader | Normal export | Browser capture | UV0 | Buffer layout |", "| --- | --- | --- | --- | --- | --- | --- | --- | --- |"];
+const table = ["# Required brush evidence index", "", "Recorded evidence only. All visual parity, actual XR compile and device performance states remain unverified. JSON entries retain source hashes and revisions. `coverage fail` is a rendering smoke failure, not a Unity visual-parity verdict.", "", "| Brush | GUID | Live mesh | Export accessors | Fixture loader | Normal export | Browser capture | Browser link | UV0 | Buffer layout |", "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |"];
 const safe = (value) => String(value).replaceAll("|", "\\|");
-for (const row of rows) table.push(`| ${safe(row.name)} | ${row.guid} | ${row.liveMesh.status} | ${row.exportAccessors.status} | ${row.fixturePostLoader.shaderMeshes ? "shader" : "PBR"} | ${row.normalExportPostLoader.meshes.length ? "observed by name" : "unverified"} | ${row.browserCapture.status}; coverage ${row.browserCapture.coverageSmoke} | ${row.browserCapture.generatedUv0Size}/${row.browserCapture.shaderUv0Size} | ${row.bufferLayout.status} |`);
+for (const row of rows) table.push(`| ${safe(row.name)} | ${row.guid} | ${row.liveMesh.status} | ${row.exportAccessors.status} | ${row.fixturePostLoader.shaderMeshes ? "shader" : "PBR"} | ${row.normalExportPostLoader.meshes.length ? "observed by name" : "unverified"} | ${row.browserCapture.status}; coverage ${row.browserCapture.coverageSmoke} | ${row.browserShaderCompileAudit} | ${row.browserCapture.generatedUv0Size}/${row.browserCapture.shaderUv0Size} | ${row.bufferLayout.status} |`);
 await mkdir(values.output, { recursive: true });
 await writeFile(path.join(values.output, "ledger.json"), `${JSON.stringify(ledger, null, 2)}\n`);
 await writeFile(path.join(values.output, "brushes.md"), `${table.join("\n")}\n`);

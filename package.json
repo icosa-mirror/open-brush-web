@@ -33,6 +33,7 @@
     "inspect:brush-exports": "node scripts/browser-export-inspection.mjs",
     "check:brush-vertex-layouts": "node scripts/check-brush-vertex-layouts.mjs",
     "evidence:brush-fidelity": "node scripts/build-brush-fidelity-ledger.mjs",
+    "test:browser:shader-compile": "node scripts/browser-shader-compile-control.mjs",
     "compare:brush-images": "node scripts/browser-brush-image-comparison.mjs",
     "test:browser:materials": "node scripts/browser-material-smoke.mjs",
     "test:browser": "node scripts/runtime-check.mjs browser",

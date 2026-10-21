@@ -15,6 +15,7 @@ import {
 import type { Camera } from "@iwsdk/core";
 import type { GeneratedBrushGeometry } from "./brush-geometry.js";
 import { DEFAULT_BRUSH_CAPTURE_SIZE, opaqueCapturePixels } from "./brush-visual-capture-input.js";
+import { auditBrushShaderCompile, type BrushShaderCompileAudit } from "./brush-shader-compile-audit.js";
 
 import {
   applyBrushShaderAttributeAliases,
@@ -55,6 +56,7 @@ export interface BrushGeometryVisualConformanceResult {
   pixels: Uint8Array;
   generatedUv0Size: number;
   shaderUv0Size: number;
+  shaderCompileAudit: BrushShaderCompileAudit;
 }
 
 export function runBrushGeometryVisualConformance(
@@ -133,9 +135,12 @@ export function runBrushGeometryVisualConformance(
   const previousTarget = renderer.getRenderTarget();
   const previousClearColor = renderer.getClearColor(new Color());
   const previousClearAlpha = renderer.getClearAlpha();
+  let shaderCompileAudit: BrushShaderCompileAudit;
   try {
     renderer.setClearColor(0x000000, 0);
-    renderPixels(renderer, scene, renderCamera, target, pixels, renderSize);
+    shaderCompileAudit = auditBrushShaderCompile(renderer, mesh,
+      Array.isArray(renderMaterial) ? renderMaterial : [renderMaterial],
+      () => renderPixels(renderer, scene, renderCamera, target, pixels, renderSize));
   } finally {
     renderer.setRenderTarget(previousTarget);
     renderer.setClearColor(previousClearColor, previousClearAlpha);
@@ -166,6 +171,7 @@ export function runBrushGeometryVisualConformance(
     pixels,
     generatedUv0Size: generated.uv0Size,
     shaderUv0Size,
+    shaderCompileAudit,
   };
 }
 
@@ -207,6 +213,7 @@ export function showBrushGeometryVisualConformance(
   root.dataset.coveredPixelRatio = String(result.coveredPixelRatio);
   root.dataset.generatedUv0Size = String(result.generatedUv0Size);
   root.dataset.shaderUv0Size = String(result.shaderUv0Size);
+  root.dataset.shaderCompileAudit = JSON.stringify(result.shaderCompileAudit);
   document.body.append(root);
 }
 

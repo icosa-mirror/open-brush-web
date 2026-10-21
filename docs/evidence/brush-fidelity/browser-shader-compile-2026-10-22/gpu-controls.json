@@ -1,0 +1,59 @@
+{
+  "browserVersion": "155.0.8059.85",
+  "results": [
+    {
+      "broken": false,
+      "restored": true,
+      "result": {
+        "status": "linked",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "programs": [
+          {
+            "materialName": "valid-control",
+            "materialPass": 0,
+            "materialSide": 0,
+            "linked": true,
+            "vertexCompiled": true,
+            "fragmentCompiled": true,
+            "activeAttributes": [
+              {
+                "name": "position",
+                "type": 35665,
+                "size": 1,
+                "boundItemSize": 3
+              }
+            ]
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "broken": true,
+      "restored": true,
+      "result": {
+        "status": "failed",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "programs": [
+          {
+            "materialName": "deliberately-invalid-fragment",
+            "materialPass": 0,
+            "materialSide": 0,
+            "linked": false,
+            "vertexCompiled": true,
+            "fragmentCompiled": false,
+            "activeAttributes": []
+          }
+        ],
+        "errors": [
+          "Fragment shader is not compiled.\n"
+        ]
+      }
+    }
+  ],
+  "pageErrors": []
+}

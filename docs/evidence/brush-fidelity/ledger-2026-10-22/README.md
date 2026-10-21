@@ -17,9 +17,10 @@
    Both successful captures and failed coverage remain distinct from visual
    parity, which is unverified for every brush. The 95 structural buffer checks
    likewise do not become native incremental-mesh or visual-equivalence passes.
-4. Every GUID explicitly marks separate asset-load audits, browser shader
-   compile audits, actual XR compilation, physical Quest interaction, device
-   performance budgets and animation parity as unverified. Capture output alone
+4. Every GUID now has a recorded desktop browser compile/link audit for the
+   99 programs bound in the recorded capture context. Separate asset-load audits,
+   actual XR compilation, physical Quest interaction, device performance budgets
+   and animation parity remain unverified. Capture output alone
    does not establish these stronger claims. Source reports retain their own
    bounded observations; the ledger does not overwrite historical evidence.
 5. Generation rejects duplicate/missing GUID rows, mismatched native mesh/GLB
@@ -49,6 +50,7 @@ Source reports:
 | Corrected browser captures | [captures](../browser-images-packed-uv-2026-10-21/results.json) |
 | Prefix/finalization buffer capacities | [checks](../vertex-layout-2026-10-22/results.json) |
 | Existing native image corpus | [inventory](../native-2026-10-21/image-corpus-inventory.json) |
+| Desktop shader compile/link | [audit](../browser-shader-compile-2026-10-22/results.json) |
 
 Rebuild the index from the repository root:
 
@@ -57,5 +59,5 @@ npm run evidence:brush-fidelity -- --output docs/evidence/brush-fidelity/ledger-
 ```
 
 The generator replaces only `ledger.json` and `brushes.md`; this README is
-maintained separately. The ledger's producing application baseline is `1b965a2`;
+maintained separately. The ledger's producing application baseline is `f086d11`;
 runner/joiner hashes identify the generator in this change.

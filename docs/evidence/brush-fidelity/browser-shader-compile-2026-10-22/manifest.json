@@ -1,0 +1,1032 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-21T23:45:15.289Z",
+  "baseline": "f086d11e54ab0b9f7c035516d26866254d21b42d",
+  "scope": "Fresh-program desktop nonimmersive shader compile/link audit; active inputs are observations, not semantic/visual/XR proof",
+  "sourceHashes": {
+    "src/brushes/brush-shader-compile-audit.ts": "669ff98f9b73ff1f6c57e231e9f1b9fd99017c7eb6bd83d1f433f3f08de6ade5",
+    "src/brushes/brush-shader-compile-control.ts": "b0e0ec60226aeb622fc8fcb4403102d29e51be5b82925e428598627ae9da24c2",
+    "src/brushes/brush-visual-conformance.ts": "6d8b44eaa45c196995504cea8d326528a8a003b9bbbd06adc492e69723e46e34",
+    "scripts/browser-brush-image-comparison.mjs": "cbe033452a68160f8502b28d7f416c95b54238fe282cc0fe30a8dee6cbbec8e0",
+    "scripts/browser-shader-compile-control.mjs": "cea862a98f6d96cd4d9ec4a3778622473b691ba17eb80a2576f9123713340f8b",
+    "scripts/brush-capture-contract.mjs": "d470b08ff4f200ee9e27a2020d3f57adb0364f014d0e61b34d4c2b4ea7904643",
+    "package-lock.json": "f994e07d2de98eabdcd30394cd9be512ac6db3b62254301c8a130302ee4a1e04"
+  },
+  "bundles": {
+    "HavokPhysics_es-CV3-LB9r.js": "1077361d1183946f63506aedaf3c4a8292e4df06a192b0d16b8012037e31be52",
+    "index-Bbj9sYRf.js": "8cfea9c7322d48a781bee4b2a310acc12584ee9eaa7df9e60f23e99592998d8e",
+    "index-CCJ8Yb4x.js": "22e2717bece33aba2faf8bbe8f31e8448cb8be5f880e2a45931ce016f5ff5ff5",
+    "inter-BNVRAYFH.js": "9159b2ed54dfb23ebadd61a9b91deb26fc652b0a6b1748784e9c4b4315f1da31",
+    "worker-DNzgnIPb.js": "52fb5831a58dd8774e4636e6c31475992b31c7540eb7474fa0de8a1181d87777",
+    "worker-_Lh8Vt-i.js": "430e4c9e12f79a4c6c5fb3c410bcd85d4661151d098080713b5df3ac8b275001",
+    "world-initializer-Dt9cSqdT.js": "62fc250887155f6e255561db1ce20811bb9a96f340bcba637fbd35cb9bcebd9b"
+  },
+  "buildIndexSha256": "f19aefbf750457b2bb74052f50a4b27ab83e6636f4fb7db79f00d39e40899cbe",
+  "counts": {
+    "brushes": 95,
+    "linked": 95,
+    "programs": 99,
+    "materialPasses": 99,
+    "coveragePasses": 94,
+    "consoleErrors": 0,
+    "builtinAttributesWithoutGeometry": 8,
+    "unboundUserAttributeObservations": 6
+  },
+  "unboundUserAttributes": [
+    {
+      "guid": "f6e85de3-6dcc-4e7f-87fd-cee8c3d25d51",
+      "name": "Electricity",
+      "materialPass": 0,
+      "attribute": "a_texcoord2",
+      "type": 35664
+    },
+    {
+      "guid": "f6e85de3-6dcc-4e7f-87fd-cee8c3d25d51",
+      "name": "Electricity",
+      "materialPass": 1,
+      "attribute": "a_texcoord2",
+      "type": 35664
+    },
+    {
+      "guid": "f6e85de3-6dcc-4e7f-87fd-cee8c3d25d51",
+      "name": "Electricity",
+      "materialPass": 2,
+      "attribute": "a_texcoord2",
+      "type": 35664
+    },
+    {
+      "guid": "4391aaaa-df73-4396-9e33-31e4e4930b27",
+      "name": "Disco",
+      "materialPass": 0,
+      "attribute": "a_texcoord1",
+      "type": 35666
+    },
+    {
+      "guid": "eba3f993-f9a1-4d35-b84e-bb08f48981a4",
+      "name": "BubbleWand",
+      "materialPass": 0,
+      "attribute": "a_texcoord1",
+      "type": 35666
+    },
+    {
+      "guid": "f8ba3d18-01fc-4d7b-b2d9-b99d10b8e7cf",
+      "name": "KeijiroTube",
+      "materialPass": 0,
+      "attribute": "a_texcoord1",
+      "type": 35666
+    }
+  ],
+  "brushes": [
+    {
+      "guid": "f72ec0e7-a844-4e38-82e3-140c44772699",
+      "name": "OilPaint",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "b744b14a63c8ab9aa58972159aa11ca0d08a77c11dcc9558b99eae293a8bc2f6",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "f5c336cf-5108-4b40-ade9-c687504385ab",
+      "name": "Ink",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "b4e855c8b339f22196f0e095cce063ad1930b21b5b7b1d2222e5b5369a7e5120",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "75b32cf0-fdd6-4d89-a64b-e2a00b247b0f",
+      "name": "ThickPaint",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "c60d91466f705309295f54d89bba7896ee66f60daeb400400df86d45eb1de359",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "b67c0e81-ce6d-40a8-aeb0-ef036b081aa3",
+      "name": "WetPaint",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "ab39e413138a90e8686d1512d277bd04755dc3c13239c948b73da6a006e21dc1",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "429ed64a-4e97-4466-84d3-145a861ef684",
+      "name": "Marker",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "cef8819f7bb22ba93c547c9e18e6817e4ab32f44ae5080ae60d21cd574d20e7e",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "d90c6ad8-af0f-4b54-b422-e0f92abe1b3c",
+      "name": "TaperedMarker",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "9368ab7e5ff7da6ce393439ecbe8410146fb224a16734d0d179a14a28107fc3f",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "1a26b8c0-8a07-4f8a-9fac-d2ef36e0cad0",
+      "name": "TaperedMarker_Flat",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "19d254cdc40638765ec3307f4b0fe8a4e1f0a0fc6b08519ff6a28b09ee1c086a",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "0d3889f3-3ede-470c-8af4-de4813306126",
+      "name": "DoubleTaperedMarker",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "2cda77ef3a3a3433906f6c5618d8c8d664fd6bf958609aeae8968f04fe20b264",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "cf019139-d41c-4eb0-a1d0-5cf54b0a42f3",
+      "name": "Highlighter",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "62c3881c346a6d4599d502075257f32362c8c8b00b401286a72473e2fc93079e",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "2d35bcf0-e4d8-452c-97b1-3311be063130",
+      "name": "Flat",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "41fde91cb2e510be353779147bdd8ea22a55776c6c6f4fa48332cea7d6ec949d",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "b468c1fb-f254-41ed-8ec9-57030bc5660c",
+      "name": "TaperedFlat",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "9368ab7e5ff7da6ce393439ecbe8410146fb224a16734d0d179a14a28107fc3f",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "0d3889f3-3ede-470c-8af4-f44813306126",
+      "name": "DoubleTaperedFlat",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "2cda77ef3a3a3433906f6c5618d8c8d664fd6bf958609aeae8968f04fe20b264",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "accb32f5-4509-454f-93f8-1df3fd31df1b",
+      "name": "SoftHighlighter",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "9f4931bd5278fc36f7ff6b09534712155e2a82b980edfb048975eb45d3c33e08",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "2241cd32-8ba2-48a5-9ee7-2caef7e9ed62",
+      "name": "Light",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "9368ab7e5ff7da6ce393439ecbe8410146fb224a16734d0d179a14a28107fc3f",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "cb92b597-94ca-4255-b017-0e3f42f12f9e",
+      "name": "Fire",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "5fd5ad1a790a611dff935e9840045cd99bd51e9856317d90f7949423a1e9c09c",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "02ffb866-7fb2-4d15-b761-1012cefb1360",
+      "name": "Embers",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "45920b505ede672f268c2d4afec029955a1c669aaaa2518df73e1b39ca64980a",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "70d79cca-b159-4f35-990c-f02193947fe8",
+      "name": "Smoke",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "07458436bebaf6b0c009aa2671fc3c0d65b067b490b7ff5dd8fc03edf7140b20",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "d902ed8b-d0d1-476c-a8de-878a79e3a34c",
+      "name": "Snow",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "e79788ae658b52ef8c4e2d1b07df6e093eff56f58e883644c9674a8bbe903301",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "ad1ad437-76e2-450d-a23a-e17f8310b960",
+      "name": "Rainbow",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "192c929d85fa0e0d222540970ba93eb98dd629f3bcc4152db72aa01610a1e296",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "0eb4db27-3f82-408d-b5a1-19ebd7d5b711",
+      "name": "Stars",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "1fa5bef2a4040ca6cab62583b451f9d25b6457bcc81252dc3a806520c0b6074a",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "d229d335-c334-495a-a801-660ac8a87360",
+      "name": "VelvetInk",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "7bffec282a4d6ff31f571db92a64873eebba8bb1fe85486520042b3333798f6f",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "10201aa3-ebc2-42d8-84b7-2e63f6eeb8ab",
+      "name": "Waveform",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "60bdfe2b98f0f3ff79cd867472639ce89f7e596d55957f5d0ca3af97aec11ba7",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "8dc4a70c-d558-4efd-a5ed-d4e860f40dc3",
+      "name": "Splatter",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "c84685c68464bbd0c1e46e273b47fe678c293ec9b80f4cd8fcec06fc9af706f3",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "d0262945-853c-4481-9cbd-88586bed93cb",
+      "name": "DuctTape",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "31562772d8e04972c6f9abd23c6530abee4e4e2942b495850fafc0c5357d4b88",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "f1114e2e-eb8d-4fde-915a-6e653b54e9f5",
+      "name": "Paper",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "114835fdf8fe06c98a9a8acc6955bcba27fc562e3035b6d0354d4c1d4d8a354c",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "1161af82-50cf-47db-9706-0c3576d43c43",
+      "name": "CoarseBristles",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "d7f04f6999701c66acba6ed13bbd5eb74a84d7aae81e50b2575e09a63da06903",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "5347acf0-a8e2-47b6-8346-30c70719d763",
+      "name": "WigglyGraphite",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "90bfd028f248587dbe7883c7e65b006726802d36af2dca17ad7e41a34f3a04e7",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "f6e85de3-6dcc-4e7f-87fd-cee8c3d25d51",
+      "name": "Electricity",
+      "status": "linked",
+      "programs": 3,
+      "materialPasses": 3,
+      "logSha256": "5a52f77b11b6ab22595d2c1fd1a9d738b0cf92ff51c50ee0cded5a129764606c",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "44bb800a-fbc3-4592-8426-94ecb05ddec3",
+      "name": "Streamers",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "c2feef0120af31b52a3d70ca00864744a0c7e8855322022824458ea0d45b1c3c",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "dce872c2-7b49-4684-b59b-c45387949c5c",
+      "name": "Hypercolor",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "f511c3f13c509103a6edeaf488076afcd5b3d00f0c15d97afeb3ef8bb86a7b44",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "89d104cd-d012-426b-b5b3-bbaee63ac43c",
+      "name": "Bubbles",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "4db431a0cccaa5b19b80203b0ed6935a430a2d5b46fa19f024478cedf81b89fe",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "b2ffef01-eaaa-4ab5-aa64-95a2c4f5dbc6",
+      "name": "NeonPulse",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "41fde91cb2e510be353779147bdd8ea22a55776c6c6f4fa48332cea7d6ec949d",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "700f3aa8-9a7c-2384-8b8a-ea028905dd8c",
+      "name": "CelVinyl",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "c33faed8c15f0691db1b3c28d453df9338c600648390ac1a1bfc24fcb8251134",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "6a1cf9f9-032c-45ec-9b6e-a6680bee32e9",
+      "name": "HyperGrid",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "5fc305751810258eed2c5b02daa9c0bac775a15315ad9cae53cdc1fdd92892a0",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "4391aaaa-df81-4396-9e33-31e4e4930b27",
+      "name": "LightWire",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "d3e644813723e18fef5d06e67e4cb2911f03d67d076a8b829d911dc4363ef37f",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "0f0ff7b2-a677-45eb-a7d6-0cd7206f4816",
+      "name": "ChromaticWave",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "3ee6036f0b94543ead7b7814bed54201a9f5ac7bf3d2a7da68702930294a4203",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "6a1cf9f9-032c-45ec-9b1d-a6680bee30f7",
+      "name": "Dots",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "bb89b014e462412c6203de082c1380c8858fc0b53858ab74a1b35b0d5d5e6d00",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "e0abbc80-0f80-e854-4970-8924a0863dcc",
+      "name": "Petal",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "9deaa8b026fd45b0991f27170f48524a8bb304de8f5480909d74fda4045c7a54",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "2f212815-f4d3-c1a4-681a-feeaf9c6dc37",
+      "name": "Icing",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "e66fcb6bca928d16cf0572ad36f1408dd0a535247b250a422fcf874c44c6b4ca",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "4391385a-df73-4396-9e33-31e4e4930b27",
+      "name": "Toon",
+      "status": "linked",
+      "programs": 2,
+      "materialPasses": 2,
+      "logSha256": "a12580ef7f6828647c23292dc9ad4fde60706ef95396d6b6197bebdc2214d550",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "4391385a-cf83-4396-9e33-31e4e4930b27",
+      "name": "Wire",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "a12580ef7f6828647c23292dc9ad4fde60706ef95396d6b6197bebdc2214d550",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "cf7f0059-7aeb-53a4-2b67-c83d863a9ffa",
+      "name": "Spikes",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "669ecf47511d35cc366c69aac2723cb54fc4e93c6218d8b98d7010d64b805eae",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "d381e0f5-3def-4a0d-8853-31e9200bcbda",
+      "name": "Lofted",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "ad171ed0844d8bbdf0da8e2e4ea9b88842094df8cdfd986d547d549d366b5ec0",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "4391aaaa-df73-4396-9e33-31e4e4930b27",
+      "name": "Disco",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "eb8a790d46cc11f00a81e636bfe3c311f87111189067089cedea73fe860a90c8",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "1caa6d7d-f015-3f54-3a4b-8b5354d39f81",
+      "name": "Comet",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "5e38e77ad4744636e4e7b66f749718ac1e74deb2d78f156e954f79eef682c38f",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "faaa4d44-fcfb-4177-96be-753ac0421ba3",
+      "name": "ShinyHull",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "e389bb503772675397db3cfe6bf910c9cc2512325ca6577d2efc8c5ab28fcc09",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "79348357-432d-4746-8e29-0e25c112e3aa",
+      "name": "MatteHull",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "e389bb503772675397db3cfe6bf910c9cc2512325ca6577d2efc8c5ab28fcc09",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "a8fea537-da7c-4d4b-817f-24f074725d6d",
+      "name": "UnlitHull",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "e389bb503772675397db3cfe6bf910c9cc2512325ca6577d2efc8c5ab28fcc09",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "c8313697-2563-47fc-832e-290f4c04b901",
+      "name": "DiamondHull",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "e389bb503772675397db3cfe6bf910c9cc2512325ca6577d2efc8c5ab28fcc09",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "d1d991f2-e7a0-4cf1-b328-f57e915e6260",
+      "name": "DotMarker",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "379622a9c98d6e0012c356ee6fa5244f8e67c7ff8b709226e51b060861340412",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "c33714d1-b2f9-412e-bd50-1884c9d46336",
+      "name": "Plasma",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "08b205453105a4e9e042d413160c7da8ca8fd660d51bee056566fb3ad228fc28",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "1b897b7e-9b76-425a-b031-a867c48df409",
+      "name": "Gouache",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "96fe5fd1472b6d59f2d3b4b632d6ccafd3098d7473f520192ff36ac8c5b7b159",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "8e58ceea-7830-49b4-aba9-6215104ab52a",
+      "name": "MylarTube",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "76860d85ebfc1cd2746ed7fb6da80879c26df4a74d29b663dc0bb7318bd01337",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "03a529e1-f519-3dd4-582d-2d5cd92c3f4f",
+      "name": "Rain",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "64bcfcd1f67d4c4a9fd224b050544dbcf208a72e46340cd89aa346eb4a914b64",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "725f4c6a-6427-6524-29ab-da371924adab",
+      "name": "DryBrush",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "8b17508f0245a3762a42287ed61625108d689bd5d78aff393934b513214f1daf",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "ddda8745-4bb5-ac54-88b6-d1480370583e",
+      "name": "LeakyPen",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "fba4a5d99de22358fd63cb6c712870968d37bb9d282ec4e3ded34e7ab5d48d4d",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "50e99447-3861-05f4-697d-a1b96e771b98",
+      "name": "Sparks",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "029eee7f6bdaacd2a9a49820c47e539a56d05d78ec11108509d61b16d181ea4d",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "7136a729-1aab-bd24-f8b2-ca88b6adfb67",
+      "name": "Wind",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "d95b0b23514ab8c8543f677204339b2171962b7c5b6779d4c9969b8a6cf1fac5",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "a8147ce1-005e-abe4-88e8-09a1eaadcc89",
+      "name": "Rising Bubbles",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "a28a93175ac380d0d80d31250897ae6b267c35414c48be024aed17beacbfee34",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "9568870f-8594-60f4-1b20-dfbc8a5eac0e",
+      "name": "TaperedWire",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "26b01f2fe9febbf988c76bd87b34a5b982b8b7ccc655209a8db5623d5a32ee2f",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "2e03b1bf-3ebd-4609-9d7e-f4cafadc4dfa",
+      "name": "SquarePaper",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "bd0b42107a4322d05663ccfd495d57eb34d8d51b1749ab8b7f7883c503eecd81",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "39ee7377-7a9e-47a7-a0f8-0c77712f75d3",
+      "name": "ThickGeometry",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "64cad906c3a2be234daaadc178b8297dcd416ba8fd4e87ede275dd119d3411a3",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "2c1a6a63-6552-4d23-86d7-58f6fba8581b",
+      "name": "Wireframe",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "42cff4abe98ed6df5975c25716fd6450d1d05c13140954d95b2f9f02f7677418",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "f28c395c-a57d-464b-8f0b-558c59478fa3",
+      "name": "Muscle",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "ad21608abf8e2cced7983d3b8cc117be9eb83ca551ff675a7736574bca8ac34b",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "99aafe96-1645-44cd-99bd-979bc6ef37c5",
+      "name": "Guts",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "e66fcb6bca928d16cf0572ad36f1408dd0a535247b250a422fcf874c44c6b4ca",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "53d753ef-083c-45e1-98e7-4459b4471219",
+      "name": "Fire2",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "e7760f7663c8f423d30ff57b41e6012669d1cb6a254fbc3a0f638290c8c2eefb",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "9871385a-df73-4396-9e33-31e4e4930b27",
+      "name": "TubeToonInverted",
+      "status": "linked",
+      "programs": 2,
+      "materialPasses": 2,
+      "logSha256": "d30a91cdd8fc641e6bc088b987b96697a3b1463d415b787fbbd367e01f36aa61",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "4391ffaa-df73-4396-9e33-31e4e4930b27",
+      "name": "FacetedTube",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "2574d95ebcea13bbf6797caf2ebec4601cf16e14cad6953a4f08e65601238743",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "6a1cf9f9-032c-45ec-9b6e-a6680bee30f7",
+      "name": "WaveformParticles",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "14a487f4f31d7615759d38c256646614d1608e7f0d29058792608046ece561dd",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "eba3f993-f9a1-4d35-b84e-bb08f48981a4",
+      "name": "BubbleWand",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "7ec62b1e9d175159e78b967d4a1ff452e64c3b1b2035d79f00d5cc5b060a5dab",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "6a1cf9f9-032c-45ec-311e-a6680bee32e9",
+      "name": "DanceFloor",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "b3b69c2c6e64593fb159d685c4be4ba45f1814f89a94a6b97f2ab2eb56a9dcf2",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "0f5820df-cb6b-4a6c-960e-56e4c8000eda",
+      "name": "WaveformTube",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "47624f77df22c544ffdc00c0cc95b814c3e9f0b5add9b2bb813c6750709775b4",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "492b36ff-b337-436a-ba5f-1e87ee86747e",
+      "name": "Drafting",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "68c6d7e177ae3d33cbbb0951f0996e7ee93476e90d10f7a28bd294cdc4657e34",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "f0a2298a-be80-432c-9fee-a86dcc06f4f9",
+      "name": "SingleSided",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "41fde91cb2e510be353779147bdd8ea22a55776c6c6f4fa48332cea7d6ec949d",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "f4a0550c-332a-4e1a-9793-b71508f4a454",
+      "name": "DoubleFlat",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "41fde91cb2e510be353779147bdd8ea22a55776c6c6f4fa48332cea7d6ec949d",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "c1c9b26d-673a-4dc6-b373-51715654ab96",
+      "name": "TubeAdditive",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "e66fcb6bca928d16cf0572ad36f1408dd0a535247b250a422fcf874c44c6b4ca",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "a555b809-2017-46cb-ac26-e63173d8f45e",
+      "name": "Feather",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "c6872c2a87daa37814b6f6e2dcb29bb6e42d5e3faa9300caf78fa02a85daa656",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "84d5bbb2-6634-8434-f8a7-681b576b4664",
+      "name": "DuctTapeGeometry",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "379d5c0f0931ab9b0d6d91deae9d118d5f4a801d95e073fb4eda3bfc3fe7318a",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "3d9755da-56c7-7294-9b1d-5ec349975f52",
+      "name": "TaperedHueShift",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "8ea717f1a8fdd5028c3e074681c448463d1a0eca9713fe05200dd390350030c2",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "1cf94f63-f57a-4a1a-ad14-295af4f5ab5c",
+      "name": "Lacewing",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "3eef41551d6b58551b9aa2a92b899857fe95cc12539f8b452ce1f5c0fcc05eff",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "c86c058d-1bda-2e94-08db-f3d6a96ac4a1",
+      "name": "Marbled Rainbow",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "e0fc45809b72acb706befe65c749635dcf2ffe5f41d1b6768fb779d62fc0ff36",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "fde6e778-0f7a-e584-38d6-89d44cee59f6",
+      "name": "Charcoal",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "075f876dd8598308395c7a208d96724dc2210ccf15a7367073d20ecbe72670bf",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "f8ba3d18-01fc-4d7b-b2d9-b99d10b8e7cf",
+      "name": "KeijiroTube",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "1ac71cdf577361867a5f37991081ab7f270688607e772ad188e5ee431b8a8794",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "c5da2e70-a6e4-63a4-898c-5cfedef09c97",
+      "name": "Lofted (Hue Shift)",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "3bc915969aa9741bcbcd5ed64b61340b9903e979303299d3674341c8c78d0bcf",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "62fef968-e842-3224-4a0e-1fdb7cfb745c",
+      "name": "Wire (Lit)",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "e66fcb6bca928d16cf0572ad36f1408dd0a535247b250a422fcf874c44c6b4ca",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "d120944d-772f-4062-99c6-46a6f219eeaf",
+      "name": "WaveformFFT",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "60bdfe2b98f0f3ff79cd867472639ce89f7e596d55957f5d0ca3af97aec11ba7",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "d9cc5e99-ace1-4d12-96e0-4a7c18c99cfc",
+      "name": "Fairy",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "ae7fdd0ddcaa9e103c1422c1bca038bbcd5555ae4e004264c23e701e820e4297",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "bdf65db2-1fb7-4202-b5e0-c6b5e3ea851e",
+      "name": "Space",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "e6e9fadc9dda52f27c0aefd4bc53f8a8edc2a41c01eb0052181f402dd5b5a3b4",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "30cb9af6-be41-4872-8f3e-cbff63fe3db8",
+      "name": "Digital",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "1ac71cdf577361867a5f37991081ab7f270688607e772ad188e5ee431b8a8794",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "abfbb2aa-70b4-4a5c-8126-8eedda2b3628",
+      "name": "Race",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "9b4fb3f991fd35708963820454baf9d2c0c99d45b3e2adaa3e421a35a6a2b104",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "355b3579-bf1d-4ff5-a200-704437fe684b",
+      "name": "SmoothHull",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "e389bb503772675397db3cfe6bf910c9cc2512325ca6577d2efc8c5ab28fcc09",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "7259cce5-41c1-ec74-c885-78af28a31d95",
+      "name": "Leaves2",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "4d333ef1340d82b22ddfe695676a9df20cfd904ef6fe0e6cf29a22f03c8f083a",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "7c972c27-d3c2-8af4-7bf8-5d9db8f0b7bb",
+      "name": "InkGeometry",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "b4e855c8b339f22196f0e095cce063ad1930b21b5b7b1d2222e5b5369a7e5120",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "7ae1f880-a517-44a0-99f9-1cab654498c6",
+      "name": "ConcaveHull",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "1d575a012ccef11b03cef94cd773262965681cb137eb48ff78407c6b03978c2e",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "d3f3b18a-da03-f694-b838-28ba8e749a98",
+      "name": "3D Printing Brush",
+      "status": "linked",
+      "programs": 1,
+      "materialPasses": 1,
+      "logSha256": "4725149f55588d9dab189d61f43c9cffd7bd538e66df827da039cf7f96ece340",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    }
+  ],
+  "negativeGpuControl": "Valid control followed by invalid fragment in same context; both hook restorations checked. Expected shader failure is not a passing compile."
+}

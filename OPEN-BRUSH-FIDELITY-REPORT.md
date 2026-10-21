@@ -1,6 +1,6 @@
 # Open Brush parity plan and brush fidelity review
 
-Current planning audit: 2026-10-22, application baseline `1b965a2`.
+Current planning audit: 2026-10-22, application baseline `f086d11`.
 
 Original review: 2026-08-31, application baseline `4579dbb`.
 
@@ -143,10 +143,19 @@ every intervening upstream change.
     accessors, post-loader inspection, corrected browser captures and buffer
     capacities. It binds source revisions/hashes and rejects duplicate/missing
     identities, fixture/image drift, dependency-lock/inventory drift and
-    incomplete browser runs. Unverified asset/compile audits, actual XR,
+    incomplete browser runs. Unverified asset-load audits, actual XR,
     hardware/performance, animation and visual parity are explicit per GUID.
     These are joined historical observations under their recorded revisions,
     not new current-app rendering or native-image parity passes.
+13. The [desktop compile/link audit](docs/evidence/brush-fidelity/browser-shader-compile-2026-10-22/README.md)
+    now records fresh programs for all 95 brushes: 99 observed material
+    passes/programs have successful vertex/fragment compile and link statuses
+    in the recorded nonimmersive capture context. A valid/invalid real-GPU
+    control checks failure detection and restoration. The ledger now distinguishes
+    these recorded desktop links from unverified actual-XR compilation and
+    visual parity. Six unbound user-attribute observations remain for semantic
+    branch review; eight unbound `gl_VertexID` observations are built-ins.
+    Coverage remains 94/95 and is not promoted to image parity.
 
 ## Executive assessment
 
@@ -831,7 +840,9 @@ actual scope; incomplete items remain open.
    supported-path-derived confidence claim has been removed. The
    [ledger](docs/evidence/brush-fidelity/ledger-2026-10-22/README.md) now publishes
    all 95 identities with source-specific observations and explicit unverified
-   asset/compile, XR/device, performance, animation and visual-parity states.
+   asset-load, XR/device, performance, animation and visual-parity states.
+   Desktop compile/link now has recorded observations for all 95 in the tested
+   context; runtime-variant breadth and actual XR compilation remain open.
    Still gather those missing observations and reconcile the native reference
    revisions/capture settings; joining evidence does not establish new passes.
    Exit: every one of the 95 GUIDs has

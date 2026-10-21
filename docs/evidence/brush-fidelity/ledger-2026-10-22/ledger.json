@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "recordedAt": "2026-10-21T23:27:30.015Z",
+  "recordedAt": "2026-10-21T23:45:15.677Z",
   "scope": "Joined recorded per-GUID evidence under each source revision; no aggregate parity score or new capture/compile/device result",
-  "producerAppRevision": "1b965a26462c4007ee3cac68f499fc347676b8d8",
-  "runnerSha256": "f1b8d86abd4a3de41cebf3527f2f59e4c7ad815b16f9dfce4ba22cb850c8b24a",
-  "joinerSha256": "a96924ae0572aead0a10ee3bcd44ad1a70967b35ab86810fa6b53a7a006f98b4",
+  "producerAppRevision": "f086d11e54ab0b9f7c035516d26866254d21b42d",
+  "runnerSha256": "a959e4056be2beece04c882634c65af45f7e331b9aa97921331efad11e302f05",
+  "joinerSha256": "c04cadd915e8e4c62c49558c9903c764fa0c25d99b553e7e863faef8c0cbbab9",
   "inventorySha256": "cefbbe1379b3844ba8e5938d32abd1e299807999e37bfdfb654cf7f01210a9c2",
   "lockfileSha256": "f994e07d2de98eabdcd30394cd9be512ac6db3b62254301c8a130302ee4a1e04",
   "packagePins": {
@@ -73,6 +73,14 @@
       "appRevisionMeaning": "recorded revision; see source evidence for producing changes and source hashes",
       "nativeRevision": null,
       "scope": "existing-image-corpus-inventory"
+    },
+    "compileCaptures": {
+      "file": "docs/evidence/brush-fidelity/browser-shader-compile-2026-10-22/results.json",
+      "sha256": "ccef1d75e01f6343289920368f973e26b4066dd9ddc4dbb1f03acc5d5c73614c",
+      "appRevision": "f086d11e54ab0b9f7c035516d26866254d21b42d",
+      "appRevisionMeaning": "recorded revision; see source evidence for producing changes and source hashes",
+      "nativeRevision": null,
+      "scope": "legacy-fixture image diagnostics; reference capture provenance and fixture alignment unverified"
     }
   },
   "requiredCount": 95,
@@ -85,6 +93,7 @@
     "browserCaptures": 95,
     "coverageSmokePasses": 94,
     "layoutCapacityMatches": 95,
+    "browserCompileRecordedLinks": 95,
     "visualParityVerified": 0,
     "actualXrCompileVerified": 0,
     "devicePerformanceVerified": 0
@@ -163,7 +172,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -270,7 +289,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -350,7 +379,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -430,7 +469,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -510,7 +559,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -590,7 +649,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -670,7 +739,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -755,7 +834,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -835,7 +924,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -915,7 +1014,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -995,7 +1104,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -1080,7 +1199,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -1160,7 +1289,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -1267,7 +1406,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -1347,7 +1496,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -1440,7 +1599,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -1537,7 +1706,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -1630,7 +1809,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -1710,7 +1899,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -1803,7 +2002,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -1883,7 +2092,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -1963,7 +2182,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -2043,7 +2272,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -2123,7 +2362,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -2221,7 +2470,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -2301,7 +2560,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -2381,7 +2650,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -2472,7 +2751,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 3,
+        "observedMaterialPasses": 3,
+        "boundPrograms": 3,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -2552,7 +2841,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -2637,7 +2936,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -2730,7 +3039,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -2815,7 +3134,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -2895,7 +3224,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -2984,7 +3323,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -3069,7 +3418,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -3154,7 +3513,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -3247,7 +3616,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -3332,7 +3711,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -3417,7 +3806,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -3503,7 +3902,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 2,
+        "observedMaterialPasses": 2,
+        "boundPrograms": 2,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -3588,7 +3997,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -3673,7 +4092,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -3758,7 +4187,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -3851,7 +4290,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -3936,7 +4385,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -4021,7 +4480,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -4124,7 +4593,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -4209,7 +4688,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -4294,7 +4783,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -4374,7 +4873,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -4454,7 +4963,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -4534,7 +5053,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -4619,7 +5148,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -4704,7 +5243,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -4784,7 +5333,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -4864,7 +5423,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -4949,7 +5518,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -5029,7 +5608,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -5122,7 +5711,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -5207,7 +5806,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -5287,7 +5896,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -5376,7 +5995,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -5456,7 +6085,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -5541,7 +6180,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -5626,7 +6275,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -5706,7 +6365,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -5792,7 +6461,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 2,
+        "observedMaterialPasses": 2,
+        "boundPrograms": 2,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -5877,7 +6556,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -5956,7 +6645,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -6049,7 +6748,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -6138,7 +6847,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -6223,7 +6942,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -6293,7 +7022,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -6373,7 +7112,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -6453,7 +7202,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -6538,7 +7297,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -6618,7 +7387,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -6688,7 +7467,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -6768,7 +7557,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -6848,7 +7647,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -6928,7 +7737,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -7008,7 +7827,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -7101,7 +7930,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -7186,7 +8025,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -7271,7 +8120,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -7351,7 +8210,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -7431,7 +8300,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -7511,7 +8390,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -7581,7 +8470,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -7651,7 +8550,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -7736,7 +8645,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -7816,7 +8735,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -7896,7 +8825,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -7976,7 +8915,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "fail"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
@@ -8056,7 +9005,17 @@
         "nativeIncrementalMeshEquivalence": "unverified"
       },
       "assetLoadAudit": "unverified",
-      "browserShaderCompileAudit": "unverified",
+      "browserShaderCompileAudit": "recorded-linked",
+      "browserShaderCompileEvidence": {
+        "source": "compileCaptures",
+        "captureStatus": "captured",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "boundPrograms": 1,
+        "shaderSemantics": "unverified",
+        "coverageSmoke": "pass"
+      },
       "actualXrShaderCompile": "unverified",
       "physicalQuestInteraction": "unverified",
       "devicePerformanceBudget": "unverified",
