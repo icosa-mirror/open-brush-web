@@ -82,7 +82,7 @@ const CONNECT_FAILED_MESSAGE = "Could not connect - try another network";
 
 /**
  * Two-user peer-to-peer collaboration, scoped to a sketch session. The host
- * claims brushspace-<code> at the PeerJS cloud broker; the guest dials the
+ * claims openbrush-<code> at the PeerJS cloud broker; the guest dials the
  * code. Stroke data travels as a custom protocol (see openbrush/collab.ts)
  * over one reliable JSON data channel. Leaving the sketch (Home / New /
  * Load) tears the connection down; a peer dropping never removes strokes —
@@ -159,7 +159,7 @@ export class CollabSystem extends createSystem({
     // Localhost-only handle so a plain 2D browser tab (no XR input) can
     // exercise the collab path end to end in tests.
     if (globalThis.location?.hostname === "localhost") {
-      (globalThis as Record<string, unknown>).__brushspaceCollab = this;
+      (globalThis as Record<string, unknown>).__openbrushCollab = this;
     }
     const authoring = this.world.getSystem(StrokeAuthoringSystem);
     if (authoring) {
@@ -987,10 +987,10 @@ export class CollabSystem extends createSystem({
         new OctahedronGeometry(0.012),
         new MeshBasicMaterial({ color: 0x63d0ff }),
       );
-      mesh.name = "BrushspacePeerTip";
+      mesh.name = "OpenBrushPeerTip";
       mesh.raycast = () => {};
       const tipEntity = this.world.createTransformEntity(mesh, entity);
-      tipEntity.object3D!.name = "BrushspacePeerTipEntity";
+      tipEntity.object3D!.name = "OpenBrushPeerTipEntity";
       this.tipEntity = tipEntity;
       return;
     }
@@ -1019,7 +1019,7 @@ export class CollabSystem extends createSystem({
     void loadBakedSketchGroup(
       assetUrl("/openbrush/avatar/head.json"),
       assetUrl("/openbrush/avatar/head.bin"),
-      "BrushspacePeerHead",
+      "OpenBrushPeerHead",
     ).then((group) => {
       // The connection may have ended (or restarted the visual) mid-load.
       if (!group || !this.headLoadStarted || this.headEntity) {
@@ -1030,7 +1030,7 @@ export class CollabSystem extends createSystem({
         group.position.copy(this.headTargetPosition);
         group.quaternion.copy(this.headTargetQuaternion);
         const headEntity = this.world.createTransformEntity(group, entity);
-        headEntity.object3D!.name = "BrushspacePeerHeadEntity";
+        headEntity.object3D!.name = "OpenBrushPeerHeadEntity";
         this.headEntity = headEntity;
         return;
       }
@@ -1176,7 +1176,7 @@ export class CollabSystem extends createSystem({
         maxHeight: 0.35,
       })
       .addComponent(RayInteractable);
-    entity.object3D!.name = "BrushspaceJoinKeypad";
+    entity.object3D!.name = "OpenBrushJoinKeypad";
     entity.object3D!.position.set(0, 0.035, -0.13);
     entity.object3D!.quaternion.set(-Math.SQRT1_2, 0, 0, Math.SQRT1_2);
     this.keypadEntity = entity;

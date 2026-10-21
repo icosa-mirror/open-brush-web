@@ -9,7 +9,7 @@ import { prepareBrushShaderSource } from "./brush-shader-materials.js";
  * IWSDK material boundary for three-icosa brush bindings.
  *
  * three-icosa remains responsible for shader selection, uniforms, textures,
- * and render state. Brushspace only selects a non-raw material so super-three
+ * and render state. Open Brush only selects a non-raw material so super-three
  * can apply its XR multiview program rewriting.
  */
 export function createIwsdkTiltMaterial(

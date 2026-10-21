@@ -26,12 +26,12 @@ import {
 // AROUND the viewer at the origin — present it in place, just rescaled.
 const INTRO_SCALE = 0.1;
 
-// Brushspace wordmark: floats above the sketch's "Powered by Tilt Brush"
+// Open Brush wordmark: floats above the sketch's "Powered by Tilt Brush"
 // signage. Local units are decimeters (parented under the intro root).
-const WORDMARK_URL = assetUrl("/openbrush/intro/brushspace.png");
+const WORDMARK_URL = assetUrl("/openbrush/intro/wordmark.png");
 const WORDMARK_WIDTH_DM = 50;
-// 2081x467 px source.
-const WORDMARK_HEIGHT_DM = (WORDMARK_WIDTH_DM * 467) / 2081;
+// 1600x360 px source.
+const WORDMARK_HEIGHT_DM = (WORDMARK_WIDTH_DM * 360) / 1600;
 const WORDMARK_POSITION_DM: readonly [number, number, number] = [0, 16, -40];
 
 /**
@@ -199,7 +199,7 @@ export class IntroSketchSystem extends createSystem({
     }
   }
 
-  /** The Brushspace wordmark, headlining the Tilt Brush signage. */
+  /** The Open Brush wordmark, headlining the Tilt Brush signage. */
   private async createWordmark(): Promise<Mesh> {
     const texture = await AssetManager.loadTexture(WORDMARK_URL);
     initialLoad.complete("intro-wordmark");
@@ -212,7 +212,7 @@ export class IntroSketchSystem extends createSystem({
         depthWrite: false,
       }),
     );
-    mesh.name = "OpenBrushIntro_BrushspaceWordmark";
+    mesh.name = "OpenBrushIntro_OpenBrushWordmark";
     mesh.frustumCulled = false;
     mesh.raycast = () => {};
     mesh.position.set(...WORDMARK_POSITION_DM);

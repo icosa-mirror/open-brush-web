@@ -338,7 +338,7 @@ export class SketchLibrarySystem extends createSystem({
       void downloadRemoteTiltBytes(entry.tiltUrl)
         .then((bytes) => {
           // Native Tilt Brush files are authored in Tilt Brush units
-          // (decimetres); convert to Brushspace metres like Open Brush's canvas
+          // (decimetres); convert to Open Brush metres like Open Brush's canvas
           // does, otherwise the sketch spawns 10x too large and reads as empty.
           const document = convertTiltBrushUnitsToMeters(readTiltFile(bytes));
           this.openDocument(document, "", entry.name);

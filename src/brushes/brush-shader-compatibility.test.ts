@@ -55,7 +55,7 @@ describe("Open Brush shader compatibility registry", () => {
 
   it("ignores malformed persisted evidence", () => {
     const storage = new MemoryStorage();
-    storage.setItem("brushspace.openBrushShaderCompatibility.v1", "[null,{}]");
+    storage.setItem("openbrush.openBrushShaderCompatibility.v1", "[null,{}]");
 
     expect(new BrushShaderCompatibilityRegistry(storage).getAll()).toEqual([]);
   });

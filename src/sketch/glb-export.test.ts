@@ -26,10 +26,10 @@ describe("Open Brush GLB export", () => {
     expect(result.summary.triangleCount).toBeGreaterThan(0);
     expect(parsed.json.asset).toMatchObject({
       version: "2.0",
-      generator: "Brushspace",
+      generator: "Open Brush",
     });
     expect(parsed.json.scenes[0].extras).toMatchObject({
-      TB_Application: "Brushspace",
+      TB_Application: "Open Brush",
       TB_Source: "fixture",
       openBrushLayerCount: 2,
       openBrushStrokeCount: 1,

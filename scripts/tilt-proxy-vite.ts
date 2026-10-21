@@ -4,7 +4,7 @@ import { handleTiltProxy } from "../workers/tilt-proxy/handler";
 /** Run the same restricted proxy locally, with no Cloudflare login needed. */
 export function tiltProxyDev(): Plugin {
   return {
-    name: "brushspace-tilt-proxy",
+    name: "openbrush-tilt-proxy",
     configureServer(server) {
       server.middlewares.use(async (req, res, next) => {
         const url = new URL(req.url ?? "/", "http://localhost");

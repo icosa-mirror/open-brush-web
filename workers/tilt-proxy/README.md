@@ -1,4 +1,4 @@
-# Brushspace archive download proxy
+# Open Brush web archive download proxy
 
 Separate Worker in the Icosa Gallery Ltd account; does not modify the existing
 `cors` or `icosa-proxy` Workers. Only archived Poly `.tilt` downloads are allowed.

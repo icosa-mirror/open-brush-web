@@ -1,17 +1,17 @@
 <p align="center">
-  <img src="docs/banner.png" alt="Brushspace" width="720" />
+  <img src="docs/banner.png" alt="Open Brush for the web" width="720" />
 </p>
 
 <p align="center">
   <strong>Paint in thin air, together.</strong><br />
-  A WebXR 3D painting app partially ported from <a href="https://openbrush.app/">Open Brush</a>
+  Open Brush for the web: a WebXR 3D painting app ported from <a href="https://openbrush.app/">Open Brush</a>
   and adapted for the web, built with the
   <a href="https://github.com/facebook/immersive-web-sdk">Immersive Web SDK</a>
   (<a href="https://iwsdk.dev">iwsdk.dev</a>) — no install required.
 </p>
 
 <p align="center">
-  Live at <a href="https://brushspace.elixr.games">brushspace.elixr.games</a> — open it in a headset browser (Meta Quest) or any desktop browser.
+  Live at <a href="https://brushspace.elixr.games">Open Brush for the web</a> — open it in a headset browser (Meta Quest) or any desktop browser.
 </p>
 
 ---
@@ -96,9 +96,23 @@ scripts/          Asset extraction pipelines (generated output is committed)
 The pure-logic folders are plain TypeScript with vitest coverage; the ECS
 systems in `src/systems/` glue them to IWSDK.
 
+## Branding assets
+
+The app is named **Open Brush**; "for the web" describes this browser port.
+Run `node scripts/generate-branding.mjs` to regenerate the wordmark, banner,
+share image, gallery thumbnail, and app icons. The source logo in
+`public/branding/open-brush-logo.png` comes from Open Brush's
+`Assets/Resources/DefaultImages/OpenBrushLogo.png` (see [NOTICE](NOTICE)).
+
+The existing hosting URL, Git repository URL, and Cloudflare worker deployment
+name retain their original identifiers until those external services are
+renamed. The manifest's `id` also stays stable so existing PWA installations
+receive the new name and icons without becoming a separate installed app.
+Historical journal entries and dependency branch names describe past work.
+
 ## License
 
-[Apache 2.0](LICENSE). Brushspace is partially ported from
+[Apache 2.0](LICENSE). Open Brush web is partially ported from
 [Open Brush](https://openbrush.app/) — the community continuation of Google's
 [Tilt Brush](https://github.com/googlevr/tilt-brush) — and adapted for the
 web; it bundles brushes, shaders, sounds, and the intro sketch derived from

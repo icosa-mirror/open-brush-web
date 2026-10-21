@@ -21,7 +21,7 @@ export const COLLAB_PROTOCOL_VERSION = 2;
 export const STROKE_POINTS_PER_MESSAGE = 50;
 /** Mass erase/undo can carry hundreds of guids; chunk those too. */
 export const VISIBILITY_GUIDS_PER_MESSAGE = 200;
-export const COLLAB_PEER_ID_PREFIX = "brushspace-";
+export const COLLAB_PEER_ID_PREFIX = "openbrush-";
 export const COLLAB_CODE_LENGTH = 6;
 
 /** Six digits: easy to speak aloud and to enter on the VR keypad. */

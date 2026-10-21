@@ -9,7 +9,7 @@ it("serves successful downloads from cache without hitting the archive", async (
   const download = vi.fn();
   const response = await handleCachedTiltProxy(request(), cache, () => {}, download);
   expect(await response.text()).toBe("tilt");
-  expect(response.headers.get("X-Brushspace-Cache")).toBe("HIT");
+  expect(response.headers.get("X-OpenBrush-Cache")).toBe("HIT");
   expect(download).not.toHaveBeenCalled();
 });
 it("stores successful files under a canonical key", async () => {
@@ -22,14 +22,14 @@ it("stores successful files under a canonical key", async () => {
 });
 it("honors a cached rate-limit cooldown without another upstream request", async () => {
   const cache = { match: vi.fn().mockResolvedValue(new Response("rate limited", { status: 429, headers: {
-    "X-Brushspace-Retry-At": String(Date.now() + 60_000), "Cache-Control": "public, max-age=60",
+    "X-OpenBrush-Retry-At": String(Date.now() + 60_000), "Cache-Control": "public, max-age=60",
   } })), put: vi.fn() };
   const download = vi.fn();
   const response = await handleCachedTiltProxy(request(), cache, () => {}, download);
   expect(response.status).toBe(429);
   expect(response.headers.get("Cache-Control")).toBe("no-store");
   expect(Number(response.headers.get("Retry-After"))).toBeGreaterThan(0);
-  expect(response.headers.has("X-Brushspace-Retry-At")).toBe(false);
+  expect(response.headers.has("X-OpenBrush-Retry-At")).toBe(false);
   expect(download).not.toHaveBeenCalled();
 });
 it("caches upstream 429 responses briefly, not as successful downloads", async () => {
@@ -47,7 +47,7 @@ it("does not cache other errors", async () => {
 
 it("retries upstream after a cached cooldown expires", async () => {
   const cache = { match: vi.fn().mockResolvedValue(new Response("rate limited", { status: 429, headers: {
-    "X-Brushspace-Retry-At": String(Date.now() - 1000),
+    "X-OpenBrush-Retry-At": String(Date.now() - 1000),
   } })), put: vi.fn().mockResolvedValue(undefined) };
   const download = vi.fn().mockResolvedValue(new Response("tilt"));
   expect((await handleCachedTiltProxy(request(), cache, () => {}, download)).status).toBe(200);

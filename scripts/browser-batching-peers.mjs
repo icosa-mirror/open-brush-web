@@ -19,15 +19,15 @@ try {
       url.searchParams.set("batch-validation", "delayed");
       url.searchParams.set("strokeBatches", enabled ? "1" : "0");
       await page.goto(url.href, { waitUntil: "domcontentloaded" });
-      await page.waitForFunction(() => window.strokeBatchPersistence && window.__brushspaceCollab, undefined, { timeout: 120000 });
+      await page.waitForFunction(() => window.strokeBatchPersistence && window.__openbrushCollab, undefined, { timeout: 120000 });
       const counts = (await ready).text().match(/ready: (\d+)\/(\d+)/);
       check(counts && counts[1] === counts[2], "Incomplete materials");
-      await page.evaluate(() => { window.__brushspaceCollab.debugEnterSketch(); window.inspectStrokeBatchHistory(true); });
+      await page.evaluate(() => { window.__openbrushCollab.debugEnterSketch(); window.inspectStrokeBatchHistory(true); });
       return page;
     };
     const host = await setup();
     const guest = await setup();
-    const observe = (page) => page.evaluate(() => ({ state: window.inspectStrokeBatchHistory(), network: window.__brushspaceCollab.debugState(), data: window.strokeBatchPersistence.snapshot() }));
+    const observe = (page) => page.evaluate(() => ({ state: window.inspectStrokeBatchHistory(), network: window.__openbrushCollab.debugState(), data: window.strokeBatchPersistence.snapshot() }));
     const stages = [];
     const save = async (stage) => {
       const state = { stage, host: await observe(host), guest: await observe(guest) };
@@ -35,11 +35,11 @@ try {
       await writeFile(path.join(output, enabled ? "batched.json" : "reference.json"), JSON.stringify({ enabled, browser: browser.version(), errors, stages }, null, 2));
       return state;
     };
-    const initialGuid = await host.evaluate(() => window.__brushspaceCollab.debugCommitTestStroke());
-    await host.evaluate(() => window.__brushspaceCollab.toggleHosting());
+    const initialGuid = await host.evaluate(() => window.__openbrushCollab.debugCommitTestStroke());
+    await host.evaluate(() => window.__openbrushCollab.toggleHosting());
     await host.waitForFunction(() => window.inspectStrokeBatchHistory().collab.status === "hosting", undefined, { timeout: 45000 });
     const code = await host.evaluate(() => window.inspectStrokeBatchHistory().collab.code);
-    await guest.evaluate((code) => window.__brushspaceCollab.joinWithCode(code), code);
+    await guest.evaluate((code) => window.__openbrushCollab.joinWithCode(code), code);
     await guest.waitForFunction(() => window.inspectStrokeBatchHistory().collab.status === "connected", undefined, { timeout: 60000 });
     await host.waitForFunction(() => window.inspectStrokeBatchHistory().collab.status === "connected", undefined, { timeout: 60000 });
     await guest.waitForFunction((guid) => window.inspectStrokeBatchHistory().strokes.some((stroke) => stroke.guid === guid && stroke.finalized), initialGuid);

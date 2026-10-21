@@ -254,7 +254,7 @@ World.create(document.getElementById("scene-container") as HTMLDivElement, {
       .catch((error) => console.error("[StrokeBatchGalleryValidation]", error));
   }
 
-  // Share links: brushspace.example/?join=123456 joins straight into the
+  // Share links: example.com/?join=123456 joins straight into the
   // peer's sketch (the in-VR path uses the keypad on the tools panel).
   const joinCode = new URLSearchParams(window.location.search).get("join");
   if (joinCode) {

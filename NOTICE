@@ -1,4 +1,4 @@
-Brushspace
+Open Brush
 Copyright 2026 Felix Zhang
 
 This product is a WebXR port of Open Brush and includes assets and logic
@@ -11,7 +11,8 @@ derived from:
 
 Derived material includes the brush shaders, brush textures and geometry
 parameters, brush audio, the intro sketch geometry, and sound effects found
-under public/openbrush/ and src/brushes/generated/.
+under public/openbrush/ and src/brushes/generated/, and the Open Brush logo
+in public/branding/ and the web branding images generated from it.
 
-Brushspace is not affiliated with, sponsored by, or endorsed by Google LLC
+This web port is not affiliated with, sponsored by, or endorsed by Google LLC
 or the Icosa Foundation. "Tilt Brush" is a trademark of Google LLC.

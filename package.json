@@ -1,7 +1,7 @@
 {
-  "name": "brushspace",
+  "name": "open-brush-web",
   "version": "0.1.0",
-  "description": "A WebXR 3D painting app partially ported from Open Brush and adapted for the web, built with the Immersive Web SDK",
+  "description": "Open Brush for the web, built with the Immersive Web SDK",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",

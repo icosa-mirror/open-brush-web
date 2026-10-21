@@ -39,7 +39,7 @@ interface PatchableWorld {
   componentManager: { entityCapacity: number };
 }
 
-const PATCH_FLAG = "__brushspaceEntityCapacity";
+const PATCH_FLAG = "__openbrushEntityCapacity";
 
 type PatchedPrototype = {
   registerComponent: (typeof EcsWorld.prototype)["registerComponent"];

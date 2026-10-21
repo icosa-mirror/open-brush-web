@@ -2,7 +2,7 @@
 
 Date: 2026-08-31
 
-Brushspace baseline: `4579dbb`
+Open Brush web baseline: `4579dbb`
 
 Open Brush: [`4786d55ad398bfc957d8e8eb26438920026aeaf6`](https://github.com/icosa-foundation/open-brush/tree/4786d55ad398bfc957d8e8eb26438920026aeaf6)
 
@@ -10,7 +10,7 @@ Open Brush mesh-fixture generator: `b05324dbd` on `feature/brush-fixtures`
 
 ## Executive assessment
 
-Brushspace is a functional WebXR painting application derived from Open Brush concepts and assets. It is not currently a faithful port of Open Brush's brush runtime.
+Open Brush web is a functional WebXR painting application derived from Open Brush concepts and assets. It is not currently a faithful port of Open Brush's brush runtime.
 
 The strongest mapping is the data and live-mesh layer: all 123 extracted GUIDs are present, shader and texture assets have been extracted, and the main `.tilt` stroke fields are represented. The required fidelity target matches Open Brush's authored picker catalogs: 48 standard brushes plus 47 experimental brushes. Four additional experimental entries are tagged `broken`, and 24 uncatalogued compatibility records remain loadable for old sketches but are not port requirements. All 95 required brushes now have shared geometry paths in `three-tiltloader` and pass the current deterministic Open Brush live-mesh fixture criteria. That result covers the fixture strokes and attributes described below; it does not establish post-BrushBaker, exported GLB, browser-image, incremental-authoring, or XR parity.
 
@@ -41,12 +41,12 @@ Estimated current fidelity:
 - Materials: moderate across supported ribbon, tube, and particle families; low for Unity-only effects.
 - Overall Open Brush product parity: about 20-30%.
 
-These are engineering estimates, not conformance scores. Brushspace is best described as a purpose-built web reimplementation with partial asset and format compatibility.
+These are engineering estimates, not conformance scores. Open Brush web is best described as a purpose-built web reimplementation with partial asset and format compatibility.
 
 ## What maps well
 
 1. Brush GUIDs, manifest values, shader parameters, textures, descriptor tags, pressure ranges, and several geometry settings are data-driven.
-2. All 95 required brushes currently resolve materials through pinned `icosa-sketch-assets` and `three-icosa` revisions, and `three-tiltloader` supplies the reusable mesh generators. The current Brushspace pins use the reviewed dependency revisions described below; quarantined integration branches are excluded. The intended local material adapter is limited to IWSDK-compatible material construction, frame uniforms, diagnostics, and compatibility-only fallbacks.
+2. All 95 required brushes currently resolve materials through pinned `icosa-sketch-assets` and `three-icosa` revisions, and `three-tiltloader` supplies the reusable mesh generators. The current Open Brush web pins use the reviewed dependency revisions described below; quarantined integration branches are excluded. The intended local material adapter is limited to IWSDK-compatible material construction, frame uniforms, diagnostics, and compatibility-only fallbacks.
 3. Color, brush GUID, size, scale, flags, seed, group, layer, pose, pressure, and timestamp are represented.
 4. Authoring includes keeper/trailing-point sampling and a pressure-dependent spawn interval.
 5. Non-raw `ShaderMaterial` is a sensible WebXR adaptation because it permits super-three's GLSL3 and multiview rewriting.
@@ -56,7 +56,7 @@ These are engineering estimates, not conformance scores. Brushspace is best desc
 
 ### Generator coverage
 
-Open Brush has 32 C# files under `Assets/Scripts/Brushes`. Brushspace currently maps:
+Open Brush has 32 C# files under `Assets/Scripts/Brushes`. Open Brush web currently maps:
 
 - Four quad-strip/flat classes to one `ribbon` generator.
 - `TubeBrush` and several derived contracts to a parameterized `tube` generator.
@@ -104,7 +104,7 @@ sections below were implemented on quarantined `icosa-sketch-assets` and
 `three-icosa` integration branches. They remain useful diagnostic evidence, but
 they are not accepted upstream progress and must not be retained by modifying the
 verified shader corpus. Re-establish each result by correcting generated vertex
-data, bindings, uniforms, render state, or Brushspace render composition against
+data, bindings, uniforms, render state, or Open Brush web render composition against
 the trusted dependencies. Geometry work in `three-tiltloader` remains the primary
 reusable implementation path.
 
@@ -288,19 +288,19 @@ culling bounds, and erase/undo compaction.
 
 ## Shared dependency architecture
 
-Brushspace should not own private copies of reusable Open Brush parsing, geometry, shader assets, or material bindings. The intended source-of-truth split is:
+Open Brush web should not own private copies of reusable Open Brush parsing, geometry, shader assets, or material bindings. The intended source-of-truth split is:
 
 - [`three-tiltloader`](https://github.com/icosa-foundation/three-tiltloader) owns `.tilt` archive/binary parsing, the stroke and control-point data model, brush-manifest interpretation, and reusable static and incremental mesh generators. Its lowest geometry layer should return typed arrays plus attribute/index descriptions without depending on Three.js; an optional adapter can construct `BufferGeometry`.
-- [`icosa-sketch-assets`](https://github.com/icosa-foundation/icosa-sketch-assets) supplies the maintained Three.js-compatible GLSL and brush textures. Consume those assets without Brushspace-specific shader edits. Production and CI must use a pinned revision, but the files need not be vendored or committed to Brushspace: the browser may load them from stable known URLs, or CI may mirror that revision into a deployment when self-hosting is desired. The asset base URL must be configurable.
+- [`icosa-sketch-assets`](https://github.com/icosa-foundation/icosa-sketch-assets) supplies the maintained Three.js-compatible GLSL and brush textures. Consume those assets without Open Brush web-specific shader edits. Production and CI must use a pinned revision, but the files need not be vendored or committed to Open Brush web: the browser may load them from stable known URLs, or CI may mirror that revision into a deployment when self-hosting is desired. The asset base URL must be configurable.
 - [`three-icosa`](https://github.com/icosa-foundation/three-icosa) supplies brush GUID/name lookup, texture and uniform setup, vertex-attribute binding, render-state selection, and per-frame camera, lighting, fog, and time integration. Use its glTF extension directly for imported glTF sketches.
-- Brushspace owns IWSDK entities/systems, controller sampling, interactive painting, sketch lifecycle, UI, undo/erase, collaboration, and a thin IWSDK/XR adapter. That adapter may select `ShaderMaterial` instead of `RawShaderMaterial` and connect IWSDK/super-three XR multiview state, but it should not duplicate parsing, generators, brush bindings, or shader logic.
-- Binding changes that are generally useful should be contributed to `three-icosa` only as backward-compatible, separately reviewed changes. The optional material-factory change is the model: existing construction continues to return `RawShaderMaterial`, while IWSDK can explicitly request a non-raw material. Until that isolated change is restored and downstream-tested, Brushspace can subclass or wrap `TiltShaderLoader.parse()` locally to adapt the loaded material without changing shader selection, uniforms, textures, or default behavior.
+- Open Brush web owns IWSDK entities/systems, controller sampling, interactive painting, sketch lifecycle, UI, undo/erase, collaboration, and a thin IWSDK/XR adapter. That adapter may select `ShaderMaterial` instead of `RawShaderMaterial` and connect IWSDK/super-three XR multiview state, but it should not duplicate parsing, generators, brush bindings, or shader logic.
+- Binding changes that are generally useful should be contributed to `three-icosa` only as backward-compatible, separately reviewed changes. The optional material-factory change is the model: existing construction continues to return `RawShaderMaterial`, while IWSDK can explicitly request a non-raw material. Until that isolated change is restored and downstream-tested, Open Brush web can subclass or wrap `TiltShaderLoader.parse()` locally to adapt the loaded material without changing shader selection, uniforms, textures, or default behavior.
 - Parser and generator changes that are generally useful should be contributed to `three-tiltloader`. Its existing incomplete generic-ribbon implementation is prior art, not a compatibility constraint; replace it behind a new API rather than preserving incorrect behavior.
-- Dependency updates must be deliberate: record pinned revisions, build distributable assets reproducibly, and run the representative mesh and browser/XR image gates before advancing any pin. Never push Brushspace integration series directly to a dependency's `main`. Test `gallery-viewer` against the actual modified `three-icosa` checkout, not a neighbouring stale checkout; a successful package build alone is not runtime or visual compatibility evidence.
+- Dependency updates must be deliberate: record pinned revisions, build distributable assets reproducibly, and run the representative mesh and browser/XR image gates before advancing any pin. Never push Open Brush web integration series directly to a dependency's `main`. Test `gallery-viewer` against the actual modified `three-icosa` checkout, not a neighbouring stale checkout; a successful package build alone is not runtime or visual compatibility evidence.
 
 ### Dependency recovery boundary
 
-The Brushspace-driven dependency series have been preserved for reference on
+The Open Brush web-driven dependency series have been preserved for reference on
 `codex/brushspace-integration` and removed from the dependencies' default
 branches. They are not approved pins.
 
@@ -320,7 +320,7 @@ branches. They are not approved pins.
   bindings. It applies generated authoritative color-space and sampler metadata
   by default for every known brush texture; an optional texture configurator
   runs afterward as an override, not as the source of correct defaults. Package
-  tests and Gallery Viewer browser rendering pass; Brushspace's check suite and
+  tests and Gallery Viewer browser rendering pass; Open Brush web's check suite and
   production build pass against the updated pins. It also handles the maintained
   Electricity export variants. The earlier exact
   `three-icosa@ab2cd19` distributable was also built into `gallery-viewer` and
@@ -335,15 +335,15 @@ branches. They are not approved pins.
   Its deterministic comparator reports 95/95 required Open Brush fixtures as
   matches under the family-specific criteria documented below. Changes there
   must continue to reproduce Open Brush contracts rather than require shaders
-  to understand a Brushspace-only layout.
+  to understand a Open Brush web-only layout.
 
-Brushspace pins those approved revisions directly and uses
+Open Brush web pins those approved revisions directly and uses
 `three-tiltloader@075dcea` for shared geometry generation.
 The quarantined integration branches remain diagnostic references only.
 
 This migration does not make the shaders equivalent to the Unity runtime shaders. The maintained web shaders remain ports of Open Brush behavior, and exact fidelity still depends on correct generated vertex contracts, render context, animation inputs, and brush-specific multiple material passes.
 
-Move the implementation upstream incrementally: establish the neutral stroke/geometry result interfaces; move one generator family and its tests; switch Brushspace to the package; repeat for the remaining families; then move `.tilt` parsing once the shared output model is stable. Delete each Brushspace copy only after its upstream replacement passes the existing fixtures.
+Move the implementation upstream incrementally: establish the neutral stroke/geometry result interfaces; move one generator family and its tests; switch Open Brush web to the package; repeat for the remaining families; then move `.tilt` parsing once the shared output model is stable. Delete each Open Brush web copy only after its upstream replacement passes the existing fixtures.
 
 ## Material and shader gaps
 
@@ -351,7 +351,7 @@ Move the implementation upstream incrementally: establish the neutral stroke/geo
 
 `Support/GlTFShaders` contains Open Brush's export/viewer shaders. They are primary-source approximations, but not translations of every Unity runtime pass, keyword, or render state. Forty-nine local shaders are produced from official templates. UI and reports should distinguish handcrafted export shaders, export templates, web fallbacks, and validated Unity-runtime ports rather than calling all of them the "real shader."
 
-All required material lookups use the maintained dependency path. Brushspace
+All required material lookups use the maintained dependency path. Open Brush web
 pins `icosa-sketch-assets@1c06159`, `three-icosa@6ad0a05`, and
 `three-tiltloader@075dcea`. Browser smoke testing reports 111/111 materials
 loaded with no shader compile errors; Oil Paint links with its 1024x1024 normal
@@ -428,7 +428,7 @@ mipmap generation, and anisotropy, and runtime `_TexelSize` uniforms now use the
 actual loaded image dimensions. The trusted `three-icosa` path supplies authored
 texture scale/offset uniforms and applies generated Unity color-space, wrapping,
 mipmap, filter, and anisotropy settings as loader defaults for all consumers.
-Brushspace applies the same extracted metadata only on its non-authoritative
+Open Brush web applies the same extracted metadata only on its non-authoritative
 fallback material path. Compression/transcoding, platform overrides, mip bias, and
 full Unity alpha/import semantics remain unported.
 The exported derivative bump branch made lit brushes render entirely black on
@@ -538,7 +538,7 @@ Exit: CI explains exactly why every GUID passes or fails.
 ### Phase 1: ribbons (live-mesh fixtures implemented)
 
 The typed-array ribbon generators and tests live in `three-tiltloader` and are
-consumed by Brushspace. The current source fixtures cover QuadStrip/Flat frames,
+consumed by Open Brush web. The current source fixtures cover QuadStrip/Flat frames,
 breaks, UV modes, physical-length UVs, atlas selection, backfaces, normals,
 tangents, color, and pressure behavior. Required ribbon brushes pass the live-mesh
 gate. Incremental adjacent-knot rebuild behavior and browser/image validation for
@@ -560,11 +560,11 @@ LightWire, remains open.
    the exact pinned checkout: the optional `three-icosa` material factory
    preserves the existing default `RawShaderMaterial` and adds an explicit
    opt-in factory.
-3. Define a typed vertex-layout registry shared by `three-tiltloader` geometry and the Brushspace/`three-icosa` binding adapter.
+3. Define a typed vertex-layout registry shared by `three-tiltloader` geometry and the Open Brush web/`three-icosa` binding adapter.
 4. Preserve the authoritative texture color/sampler metadata.
 5. Complete render-state mapping without introducing transparency behavior absent from Open Brush.
 6. Drive lights, fog, time origin, canvas transform, and other globals from the loaded sketch/environment.
-7. Implement multiple material-pass composition in Brushspace when the maintained assets
+7. Implement multiple material-pass composition in Open Brush web when the maintained assets
    already expose the required pass. If they do not, classify the pass as an
    upstream asset limitation instead of rewriting the shader during integration.
 8. Implement real audio-analysis inputs or classify those variants as non-reactive.
@@ -574,7 +574,7 @@ LightWire, remains open.
 
 ### Phase 4: particles (live-mesh fixtures implemented)
 
-The particle generators and tests live in `three-tiltloader` and Brushspace uses
+The particle generators and tests live in `three-tiltloader` and Open Brush web uses
 the shared API. Deterministic RNG/salts, distance spawning, generator-specific
 placement, source frame vectors, packed UVs, and birth data are represented in
 the current live-mesh fixtures; package tests cover preview behavior and
@@ -621,9 +621,9 @@ Assumptions: senior WebGL/TypeScript and Open Brush/Unity expertise, Quest-capab
 
 A two-person graphics-focused team could plausibly deliver a validated default set in 2-4 calendar months and broad stock-brush coverage in 6-10 months, assuming no major browser/driver blocker.
 
-"Fully working port" is much larger. The reviewed Open Brush tree has about 786 C# files under `Assets/Scripts` (about 7.35 MB); Brushspace has 84 non-test TypeScript files (about 23,400 lines). This is not a productivity comparison, but shows the product-surface difference. Open Brush includes mature selection/modification, media, camera/video, environments, guides/snapping, layers/groups, import/export, platform integrations, scripting/plugins, and extensive UI/settings beyond this brush review.
+"Fully working port" is much larger. The reviewed Open Brush tree has about 786 C# files under `Assets/Scripts` (about 7.35 MB); Open Brush web has 84 non-test TypeScript files (about 23,400 lines). This is not a productivity comparison, but shows the product-surface difference. Open Brush includes mature selection/modification, media, camera/video, environments, guides/snapping, layers/groups, import/export, platform integrations, scripting/plugins, and extensive UI/settings beyond this brush review.
 
-Brushspace already implements a credible subset—painting, straightedge/tape, erasing, brush/color UI, undo/redo, local persistence, partial `.tilt`, GLB export, collaboration, snapshots, and world grab—but these are adaptations rather than close Unity translations. Upstream changes generally require manual reinterpretation.
+Open Brush web already implements a credible subset—painting, straightedge/tape, erasing, brush/color UI, undo/redo, local persistence, partial `.tilt`, GLB export, collaboration, snapshots, and world grab—but these are adaptations rather than close Unity translations. Upstream changes generally require manual reinterpretation.
 
 Broad parity is therefore a multi-year solo effort or roughly a 9-18 month program for a focused 3-5 person team, depending on which platform-specific features are intentionally omitted.
 
@@ -635,7 +635,7 @@ Broad parity is therefore a multi-year solo effort or roughly a 9-18 month progr
    passes automatically. Its visible-Chrome gate verifies Tube Toon Inverted
    against a focused fixture and verifies Toon plus all 48 shader meshes in the
    maintained `all_brushes.glb` sketch. The same existing-sketch gate verifies
-   Electricity's three distinct displacement modifiers and groups. Brushspace
+   Electricity's three distinct displacement modifiers and groups. Open Brush web
    consumes the exported pass/group helper for Electricity and both Toon brushes
    rather than duplicating their material construction. Digital and Race retain
    dedicated dependency tests.
@@ -659,14 +659,14 @@ Broad parity is therefore a multi-year solo effort or roughly a 9-18 month progr
 9. Live tube fixtures pass; validate Disco and LightWire deformation in browser
    images and XR.
 10. Live particle fixtures pass; validate timing through collaboration,
-    undo/redo, browser images, and XR without adding Brushspace-specific inputs.
+    undo/redo, browser images, and XR without adding Open Brush web-specific inputs.
 11. Connect batching to production rendering.
 12. Persist the browser/Quest shader compile matrix.
 13. Implemented: preserve trusted texture transforms, render states, and
     extracted importer sampler/color-space settings. Guarded normal
     mapping still requires verification on physical Quest.
 14. Implemented: reusable `.tilt` parsing and required mesh generators live in
-    `three-tiltloader`; Brushspace consumes them through its thin adapter.
+    `three-tiltloader`; Open Brush web consumes them through its thin adapter.
 
 ## Primary references
 

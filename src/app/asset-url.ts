@@ -1,4 +1,4 @@
-// GitHub Pages serves the app from a subpath (e.g. /brushspace/), so
+// GitHub Pages serves the app from a subpath (e.g. /app/), so
 // runtime-fetched assets can't hardcode a leading slash. Vite injects the
 // deploy base as import.meta.env.BASE_URL ("/" in dev).
 const BASE_URL = (

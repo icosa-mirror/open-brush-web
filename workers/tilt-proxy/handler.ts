@@ -51,7 +51,7 @@ export async function handleTiltProxy(
         const diagnosticReader = upstream.body?.getReader();
         const diagnostic = await diagnosticReader?.read();
         await diagnosticReader?.cancel();
-        console.warn("[BrushspaceTiltProxy] upstream failure", JSON.stringify({
+        console.warn("[OpenBrushTiltProxy] upstream failure", JSON.stringify({
           status: upstream.status,
           retryAfter: upstream.headers.get("Retry-After"),
           server: upstream.headers.get("Server"),

@@ -16,7 +16,7 @@ describe("Open Brush conformance .tilt corpus", () => {
     ]);
 
     const document = readTiltFile(bytes);
-    expect(document.metadata.appName).toBe("Brushspace Conformance Corpus");
+    expect(document.metadata.appName).toBe("Open Brush Conformance Corpus");
     expect(document.strokes).toHaveLength(11);
     expect(
       document.strokes.every((stroke) => stroke.brushGuid === TARGET_BRUSH_GUID),

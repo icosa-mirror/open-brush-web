@@ -86,7 +86,7 @@ each stroke to an entity carrying a `BrushStroke` component with its own
 
 - A fixed entity budget — the bug documented above. Raised, not removed.
 - One draw call per stroke. Open Brush renders a 2804-stroke sketch in a
-  handful of draw calls; Brushspace issues 2804. This, not entity capacity,
+  handful of draw calls; Open Brush web issues 2804. This, not entity capacity,
   is the real scaling ceiling now, especially in-headset.
 - Per-entity storage across ~40 registered components for every stroke.
 

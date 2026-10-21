@@ -1,4 +1,4 @@
-name: Deploy Brushspace tilt proxy
+name: Deploy Open Brush tilt proxy
 on:
   workflow_dispatch:
   push:

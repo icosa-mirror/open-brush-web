@@ -15,7 +15,7 @@ export function writeBrushConformanceTilt(brushGuid: string): Uint8Array {
   return writeTiltFile(
     createSketchDocument({
       metadata: {
-        appName: "Brushspace Conformance Corpus",
+        appName: "Open Brush Conformance Corpus",
         source: "fixture",
       },
       layers: [createSketchLayer({ id: 0, name: "Conformance" })],

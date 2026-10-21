@@ -3,7 +3,7 @@
  *
  * Lists sketches from the public Icosa Gallery API
  * (https://api.icosa.gallery/v1) and downloads their `.tilt` files so they can
- * be opened in Brushspace. The default lister returns curated sketches ordered
+ * be opened in Open Brush. The default lister returns curated sketches ordered
  * by "best".
  *
  * CORS notes for the browser:
@@ -14,7 +14,7 @@
  *   and a mirror on web.archive.org that sends no CORS headers. We prefer the
  *   B2 copy (see `selectTiltUrl`) so the browser can download it directly. For
  *   assets that only have the non-CORS mirror, the default download path uses
- *   Brushspace's restricted archive proxy. Callers can override `tiltProxy`.
+ *   Open Brush's restricted archive proxy. Callers can override `tiltProxy`.
  */
 
 import type { SketchDocument } from "./document.js";
@@ -82,7 +82,7 @@ export interface IcosaFetchOptions {
   signal?: AbortSignal;
   /**
    * Rewrites a `.tilt` download URL before it is fetched — e.g. to prepend a
-   * same-origin CORS proxy. Defaults to Brushspace's archive-only proxy.
+   * same-origin CORS proxy. Defaults to Open Brush's archive-only proxy.
    */
   tiltProxy?: (url: string) => string;
 }

@@ -110,7 +110,7 @@ export function readTiltFile(bytes: Uint8Array): SketchDocument {
   return createSketchDocument({
     metadata: {
       appName:
-        metadata.OpenBrushIwSdk?.appName ?? "Brushspace",
+        metadata.OpenBrushIwSdk?.appName ?? "Open Brush",
       schemaVersion: metadata.OpenBrushIwSdk?.schemaVersion ?? 1,
       source: "tilt",
     },

@@ -20,14 +20,14 @@ export async function handleCachedTiltProxy(
   try { hit = await cache.match(key); } catch { /* Cache failure must not break downloads. */ }
   if (hit) {
     const response = new Response(hit.body, hit);
-    const retryAt = response.headers.get("X-Brushspace-Retry-At");
+    const retryAt = response.headers.get("X-OpenBrush-Retry-At");
     if (!retryAt || Number(retryAt) > Date.now()) {
       if (retryAt) {
         response.headers.set("Retry-After", String(Math.max(1, Math.ceil((Number(retryAt) - Date.now()) / 1000))));
         response.headers.set("Cache-Control", "no-store");
-        response.headers.delete("X-Brushspace-Retry-At");
+        response.headers.delete("X-OpenBrush-Retry-At");
       }
-      response.headers.set("X-Brushspace-Cache", "HIT");
+      response.headers.set("X-OpenBrush-Cache", "HIT");
       return response;
     }
     await response.body?.cancel();
@@ -40,12 +40,12 @@ export async function handleCachedTiltProxy(
       const seconds = /^\d+$/.test(value) ? Number(value) : (Date.parse(value) - Date.now()) / 1000;
       const cooldown = Math.max(15, Math.min(600, Number.isFinite(seconds) ? seconds : 60));
       cached.headers.set("Cache-Control", `public, max-age=${Math.ceil(cooldown)}`);
-      cached.headers.set("X-Brushspace-Retry-At", String(Date.now() + cooldown * 1000));
+      cached.headers.set("X-OpenBrush-Retry-At", String(Date.now() + cooldown * 1000));
     }
     waitUntil(cache.put(key, cached).catch(() => {
-      console.warn("[BrushspaceTiltProxy] cache write failed");
+      console.warn("[OpenBrushTiltProxy] cache write failed");
     }));
   }
-  response.headers.set("X-Brushspace-Cache", "MISS");
+  response.headers.set("X-OpenBrush-Cache", "MISS");
   return response;
 }

@@ -1,7 +1,7 @@
 {
-  "short_name": "Brushspace",
-  "name": "Brushspace",
-  "description": "Paint in thin air, together — a WebXR 3D painting app by EliXR Games",
+  "short_name": "Open Brush",
+  "name": "Open Brush",
+  "description": "Open Brush for the web - paint in 3D, together, in your browser.",
   "icons": [
     {
       "src": "icon-192x192.png",

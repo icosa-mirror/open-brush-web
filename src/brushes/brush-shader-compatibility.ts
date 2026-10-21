@@ -27,7 +27,7 @@ interface CompatibilityStorage {
   setItem(key: string, value: string): void;
 }
 
-const STORAGE_KEY = "brushspace.openBrushShaderCompatibility.v1";
+const STORAGE_KEY = "openbrush.openBrushShaderCompatibility.v1";
 
 export class BrushShaderCompatibilityRegistry {
   private readonly records = new Map<string, BrushShaderCompatibilityRecord>();

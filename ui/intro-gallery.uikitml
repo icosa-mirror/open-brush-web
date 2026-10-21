@@ -171,7 +171,7 @@
   <div class="header-row">
     <div class="heading-lockup">
       <PaintbrushIcon class="heading-icon"></PaintbrushIcon>
-      <span class="heading">Brushspace</span>
+      <span class="heading">Open Brush</span>
     </div>
     <span id="gallery-page-mark" class="page-mark">1 / 1</span>
   </div>

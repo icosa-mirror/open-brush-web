@@ -10,7 +10,7 @@ const electricityGuid = "f6e85de3-6dcc-4e7f-87fd-cee8c3d25d51";
 const toonGuid = "4391385a-df73-4396-9e33-31e4e4930b27";
 const tubeToonInvertedGuid = "9871385a-df73-4396-9e33-31e4e4930b27";
 const compatibilityStorageKey =
-  "brushspace.openBrushShaderCompatibility.v1";
+  "openbrush.openBrushShaderCompatibility.v1";
 
 const server = spawn(
   process.execPath,
@@ -41,7 +41,7 @@ try {
   await waitForServer(`${baseUrl}/`, timeoutMs);
   browser = await chromium.launch({
     channel: "chrome",
-    headless: process.env.BRUSHSPACE_SMOKE_VISIBLE !== "1",
+    headless: process.env.OPENBRUSH_SMOKE_VISIBLE !== "1",
     args: ["--enable-unsafe-swiftshader", "--use-angle=swiftshader"],
   });
   const page = await browser.newPage({ viewport: { width: 1280, height: 720 } });

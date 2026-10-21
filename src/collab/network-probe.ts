@@ -156,7 +156,7 @@ export function probeNetwork(
     };
     Promise.resolve()
       .then(() => {
-        connection.createDataChannel("brushspace-network-probe");
+        connection.createDataChannel("openbrush-network-probe");
         return connection.createOffer();
       })
       .then((offer) => connection.setLocalDescription(offer))

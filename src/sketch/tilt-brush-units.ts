@@ -4,11 +4,11 @@
  * Open Brush / Tilt Brush author sketches in "Tilt Brush units", where one
  * unit is a decimetre — see App.cs: `METERS_TO_UNITS = 10`,
  * `UNITS_TO_METERS = 0.1`. Their engine keeps the whole scene (and the tracked
- * room) in those units, so it reads 1:1 to the artist. Brushspace instead
+ * room) in those units, so it reads 1:1 to the artist. Open Brush instead
  * works in metres (WebXR tracking is metric), which is why the intro sketch
  * and baked geometry apply a 0.1 scale on the way in.
  *
- * Sketches painted inside Brushspace are already captured in metres, but a
+ * Sketches painted inside Open Brush are already captured in metres, but a
  * `.tilt` imported from Tilt Brush / Icosa Gallery arrives in decimetres and
  * must be converted the same way Open Brush's canvas would — a uniform scale
  * of both control-point positions and brush sizes, which leaves orientations
@@ -23,7 +23,7 @@ import type { ControlPoint, StrokeData } from "../types.js";
 export const UNITS_TO_METERS = 0.1;
 
 /**
- * Converts a sketch authored in Tilt Brush units (decimetres) into Brushspace
+ * Converts a sketch authored in Tilt Brush units (decimetres) into Open Brush
  * metres by uniformly scaling positions and brush sizes.
  */
 export function convertTiltBrushUnitsToMeters(

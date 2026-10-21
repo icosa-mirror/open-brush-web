@@ -17,7 +17,7 @@ assert.equal(
     "three-icosa"
   ],
   packageJson.dependencies["three-icosa"],
-  "three-tiltloader and Brushspace must pin the same three-icosa commit",
+  "three-tiltloader and Open Brush must pin the same three-icosa commit",
 );
 
 console.log("Library dependency pins are aligned.");
