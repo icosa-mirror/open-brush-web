@@ -7,6 +7,7 @@ import { spawn, spawnSync } from "node:child_process";
 import { chromium } from "playwright";
 import sharp from "sharp";
 import { compareBrushImageFiles } from "./compare-brush-images.mjs";
+import { validateBrushCapture } from "./brush-capture-contract.mjs";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
 const hash = (data) => createHash("sha256").update(data).digest("hex");
@@ -138,8 +139,7 @@ async function main() {
             renderStatus: document.documentElement.dataset.brushVisualConformance,
             renderer: debug ? gl.getParameter(debug.UNMASKED_RENDERER_WEBGL) : null };
         });
-        if (capture.width !== input.size || capture.height !== input.size) throw new Error("Browser capture dimensions differ from the unmodified reference.");
-        if (input.paired && capture.profile !== "native-capture") throw new Error("Browser did not consume the native stroke/camera profile.");
+        validateBrushCapture(capture, input.size, Boolean(input.paired));
         const png = Buffer.from(capture.png.split(",")[1], "base64");
         const actualFile = path.join(output, "browser", input.file);
         const referenceFile = path.join(output, "reference", input.file);
@@ -154,7 +154,13 @@ async function main() {
         row.status = "captured";
         report.browserBackend ??= capture.renderer;
       } catch (error) { row.status = "capture-failed"; row.error = String(error.message || error); }
-      finally { await page.close(); await writeFile(path.join(output, "logs", `${input.guid}.txt`), `${messages.join("\n")}\n`); }
+      finally {
+        await page.close();
+        row.consoleErrorCount = messages.filter((message) => message.startsWith("[error]")).length;
+        row.pageErrorCount = messages.filter((message) => message.startsWith("[pageerror]")).length;
+        if (row.status === "captured" && (row.consoleErrorCount || row.pageErrorCount)) row.status = "captured-with-errors";
+        await writeFile(path.join(output, "logs", `${input.guid}.txt`), `${messages.join("\n")}\n`);
+      }
       await save();
       if (report.results.length % 5 === 0 || row.status !== "captured") console.log(`Captured ${report.results.length}/${selected.length}; ${input.name}: ${row.status}`);
     }

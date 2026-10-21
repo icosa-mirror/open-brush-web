@@ -11,5 +11,6 @@
   "configuredAssetRevision": "df593c972751f7f28bc8d47bc4f4fd8cfad45fe5",
   "scope": "diagnostic images only; source capture profile alignment unverified; source changes were uncommitted during the run and are hashed here",
   "consoleErrorCount": 0,
-  "pageErrorCount": 0
+  "pageErrorCount": 0,
+  "producingSourceCommit": "62ce66149198030e1aadf9bc5305fa12a148ef4c"
 }

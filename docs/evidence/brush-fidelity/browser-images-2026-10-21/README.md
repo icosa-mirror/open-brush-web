@@ -19,7 +19,9 @@
    errors or page errors were recorded in them. [manifest.json](manifest.json)
    binds the uncommitted-at-capture runtime/tool changes to their source hashes.
    They are versioned with this evidence; the baseline commit alone does not
-   represent the modified capture code.
+   represent the modified capture code. `producingSourceCommit` identifies the
+   exact published collector/runtime source used for the full run; later
+   collector-contract hardening was verified separately.
 
 ## Why the metrics do not establish parity
 
@@ -77,10 +79,18 @@ image-error thresholds. Missing captures or coverage-smoke failures return a
 nonzero exit; an isolated ConcaveHull legacy negative control returned exit 1
 while retaining its diagnostic output.
 
+Subsequent collector hardening rejects missing/nonfinite GPU coverage, unknown
+input profiles, invalid dimensions/status and absent PNG data. Console/page errors
+are surfaced in each row and prevent a clean capture result. This avoids treating
+an older incompatible runtime as trustworthy evidence. A subsequent Oil Paint
+browser smoke passed with that stricter contract; the full 95-image report remains
+bound to its original producing source rather than being relabelled as a new run.
+
 ## Checks and next work
 
-1. Typecheck, import/feature/pin checks, image metric tests and 79 Vitest files
-   passed: 565 tests passed, 4 TODOs. The production build passed.
+1. The capture build passed typecheck, checks, 79 Vitest files (565 tests passed,
+   4 TODOs) and production build. After collector hardening, the complete checks
+   passed with 80 Vitest files, 569 tests passed and 4 TODOs.
 2. Native-input conversion, invalid profiles, bounded capture sizes and opaque
    readback encoding have six focused tests. The native-input browser smoke and
    the failed-native-reference rejection were also exercised.

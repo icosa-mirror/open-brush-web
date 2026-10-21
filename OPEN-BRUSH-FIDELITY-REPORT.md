@@ -85,7 +85,9 @@ every intervening upstream change.
    save/reload, and ten cleanup cycles. Those observations do not prove physical
    Quest interaction, GPU memory budgets, or all-brush behavior.
 7. `npm run compare:brush-images` now preserves actual/reference PNG pairs,
-   checks readback-to-PNG coverage and emits per-GUID metrics. The
+   checks readback-to-PNG coverage and emits per-GUID metrics. Missing or
+   incompatible capture metadata and browser errors cannot count as clean
+   captures. The
    [first complete run](docs/evidence/brush-fidelity/browser-images-2026-10-21/README.md)
    captured 95/95 at 2048x2048; 94 passed coverage and the legacy planar
    ConcaveHull case was empty. A native-input ConcaveHull adapter smoke rendered
