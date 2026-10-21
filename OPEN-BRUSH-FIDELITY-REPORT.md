@@ -12,7 +12,7 @@ Open Brush mesh-fixture generator: `b05324dbd` on `feature/brush-fixtures`
 
 The planning update reconciled the report with application source and recorded
 batching validation. Subsequent work on 2026-10-21 provides fresh native live-mesh
-evidence, an isolated native-export accessor comparison, and a 95-brush
+evidence, isolated native-export and post-loader attribute comparisons, and a 95-brush
 browser-image diagnostic run linked below. The image run
 does not establish matched native capture inputs/settings or visual parity;
 headset tests have not been rerun. Detailed brush-family notes also
@@ -106,6 +106,16 @@ every intervening upstream change.
    does not activate `three-icosa`'s new-exporter branch. This establishes the
    audited accessor conversions, not production export, post-loader or visual
    parity.
+9. `npm run inspect:brush-exports` now records decoded attributes before/after
+   `three-icosa`'s `afterRoot` in an isolated IWSDK world. The
+   [post-loader run](docs/evidence/brush-fidelity/post-loader-2026-10-21/README.md)
+   inspected all 95 fixtures and two existing normal exports without browser
+   errors. Fixture paths split into 45 maintained-shader and 50 retained-PBR
+   cases. Normal exports exercise the actual new-exporter marker with material
+   names mapping to 90 required GUIDs; five remain uncovered. All 146 bound color attributes match expected
+   linear-to-sRGB byte conversion; no nonfinite values were found. `beforeRoot`,
+   active shader inputs, actual app import integration and rendering remain
+   unverified. Producing revisions/settings of those existing exports are unknown.
 
 ## Executive assessment
 
@@ -807,8 +817,13 @@ actual scope; incomplete items remain open.
    now matches post-BrushBaker values to actual GLB accessors for all 95,
    including the 20 recorded mappings, under audited exporter conversions.
    Still check baker semantic equivalence, discarded/repacked UV components,
-   production scene export and post-`three-icosa` attributes. Fixture GLBs do not
-   activate the loader's new-exporter branch. Exit: distinct
+   production scene export and post-`three-icosa` attribute semantics. The
+   [post-loader diagnostic](docs/evidence/brush-fidelity/post-loader-2026-10-21/README.md)
+   records all 95 fixtures plus actual new-exporter observations for 90 required
+   GUIDs from existing exports, with color conversion checks. Still cover the
+   remaining five on production exports, establish their provenance and test
+   the complete plugin/import path. Fixture GLBs alone do not activate the
+   loader's new-exporter branch. Exit: distinct
    live-mesh and export-path reports; an export pass cannot replace a live pass.
 5. **Harden vertex contracts and incremental authoring.** Define the shared
    typed vertex-layout contract and fail explicitly for missing required
