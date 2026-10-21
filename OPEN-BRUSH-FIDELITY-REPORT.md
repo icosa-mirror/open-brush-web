@@ -301,7 +301,7 @@ Open Brush web should not own private copies of reusable Open Brush parsing, geo
 ### Dependency recovery boundary
 
 The Open Brush web-driven dependency series have been preserved for reference on
-`codex/brushspace-integration` and removed from the dependencies' default
+archived integration branches and removed from the dependencies' default
 branches. They are not approved pins.
 
 - Approved `icosa-sketch-assets` revision: `1c06159`. It retains the independently

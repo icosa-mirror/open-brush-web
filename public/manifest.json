@@ -21,7 +21,7 @@
   "background_color": "#0e0f1c",
   "theme_color": "#0e0f1c",
   "display": "standalone",
-  "id": "brushspace-pwa",
+  "id": "open-brush-web-pwa",
   "lang": "en",
   "categories": ["entertainment", "graphics"]
 }

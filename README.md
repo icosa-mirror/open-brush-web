@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  Live at <a href="https://brushspace.elixr.games">Open Brush for the web</a> — open it in a headset browser (Meta Quest) or any desktop browser.
+  Live at <a href="https://icosa-mirror.github.io/open-brush-web">Open Brush for the web</a> — open it in a headset browser (Meta Quest) or any desktop browser.
 </p>
 
 ---
@@ -104,11 +104,9 @@ share image, gallery thumbnail, and app icons. The source wordmark (`public/bran
 (`public/branding/open-brush-icon.png`) are the supplied project branding
 assets, copied from `Logo.svg` and `icon.png` (see [NOTICE](NOTICE)).
 
-The existing hosting URL, Git repository URL, and Cloudflare worker deployment
-name retain their original identifiers until those external services are
-renamed. The manifest's `id` also stays stable so existing PWA installations
-receive the new name and icons without becoming a separate installed app.
-Historical journal entries and dependency branch names describe past work.
+
+The archive download proxy keeps its existing service address; its service
+rename is deferred.
 
 ## License
 
