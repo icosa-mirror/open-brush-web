@@ -29,6 +29,7 @@
     "test": "vitest run",
     "test:brush-images": "node --test scripts/compare-brush-images.node-test.mjs",
     "compare:unity-meshes": "node scripts/compare-unity-mesh-fixtures.mjs",
+    "compare:unity-exports": "node scripts/compare-unity-export-accessors.mjs",
     "compare:brush-images": "node scripts/browser-brush-image-comparison.mjs",
     "test:browser:materials": "node scripts/browser-material-smoke.mjs",
     "test:browser": "node scripts/runtime-check.mjs browser",

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "files": [
+    {
+      "sha256": "bb3d1b0d55ead25ef3079083b40b5009f18bf707fb360ad1c7ffe9741fb1716f",
+      "path": "Assets\\Editor\\BrushMeshFixtureWriter.cs"
+    },
+    {
+      "sha256": "bed8059ac5c0ae698e4badbaad0d40e2c3e50d2bc2fde27270abbca63c1ae3ce",
+      "path": "Assets\\Scripts\\UnityGLTF Plugins\\OpenBrushExportPlugin.cs"
+    },
+    {
+      "sha256": "a822d87c0e2e30f8bfad0733bd87d07103a37a5720d94a46245ebfd8e97a2a72",
+      "path": "ProjectSettings\\ProjectSettings.asset"
+    },
+    {
+      "sha256": "1a9f3d61d9f9b13da8af01ef4b3f9b645c15db82b5f3503cb5b6435afa8f5385",
+      "path": "Library\\PackageCache\\org.khronos.unitygltf@7962840f6911\\Runtime\\Scripts\\SceneExporter\\ExporterMeshes.cs"
+    },
+    {
+      "sha256": "312de79ed834ad5bd4b9c0da5ec4807c9bd70746a3151ea077bccc8c1811de81",
+      "path": "Library\\PackageCache\\org.khronos.unitygltf@7962840f6911\\Runtime\\Plugins\\GLTFSerialization\\Schema\\SchemaExtensions.cs"
+    },
+    {
+      "sha256": "fef44feffe95bdf6ba0ebba8f0387398b05f1a5631b13f3e79d08465fd1081a4",
+      "path": "node_modules/three-icosa/src/loader/GOOGLE_tilt_brush_material.js"
+    }
+  ],
+  "nativeConfiguredColorSpace": "Gamma (m_ActiveColorSpace: 0)",
+  "recordedAt": "2026-10-21T22:38:25.0083407Z",
+  "scope": "Source files inspected for exporter conversion rules and loader marker detection; runtime activeColorSpace was not recorded during generation."
+}

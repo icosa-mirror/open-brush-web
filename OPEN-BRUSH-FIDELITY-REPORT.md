@@ -12,7 +12,8 @@ Open Brush mesh-fixture generator: `b05324dbd` on `feature/brush-fixtures`
 
 The planning update reconciled the report with application source and recorded
 batching validation. Subsequent work on 2026-10-21 provides fresh native live-mesh
-evidence and a 95-brush browser-image diagnostic run linked below. The image run
+evidence, an isolated native-export accessor comparison, and a 95-brush
+browser-image diagnostic run linked below. The image run
 does not establish matched native capture inputs/settings or visual parity;
 headset tests have not been rerun. Detailed brush-family notes also
 retain earlier investigation; do not treat every historical imperative as
@@ -95,6 +96,16 @@ every intervening upstream change.
    parity passes. An experimental paired native capture subsequently crashed the
    Editor after seven frames; its inputs/images were rejected, and the original
    reference corpus and earlier successful live-mesh evidence remain separate.
+8. `npm run compare:unity-exports` compares post-BrushBaker mesh values with
+   isolated UnityGLTF fixture accessors. The
+   [export accessor run](docs/evidence/brush-fidelity/export-accessors-2026-10-21/README.md)
+   matches all 95 required brushes under the explicitly selected Gamma model,
+   including all 20 recorded baker mappings. Forty-four brushes lose UV
+   components beyond XY; equivalence of repacked values remains unverified.
+   Fixture generation bypasses normal scene-export setup and uses a marker that
+   does not activate `three-icosa`'s new-exporter branch. This establishes the
+   audited accessor conversions, not production export, post-loader or visual
+   parity.
 
 ## Executive assessment
 
@@ -792,9 +803,12 @@ actual scope; incomplete items remain open.
    now match all 95 required fresh native dumps; the newer native catalog's five
    extras are explicitly excluded from that target. Keep
    family-specific comparison rules explicit, especially hull/ConcaveHull.
-   Native post-BrushBaker meshes and actual exported GLBs are already generated;
-   add comparison of those stages and post-`three-icosa` attributes, including the
-   20 recorded BrushBaker mappings. Exit: distinct
+   The [isolated export comparison](docs/evidence/brush-fidelity/export-accessors-2026-10-21/README.md)
+   now matches post-BrushBaker values to actual GLB accessors for all 95,
+   including the 20 recorded mappings, under audited exporter conversions.
+   Still check baker semantic equivalence, discarded/repacked UV components,
+   production scene export and post-`three-icosa` attributes. Fixture GLBs do not
+   activate the loader's new-exporter branch. Exit: distinct
    live-mesh and export-path reports; an export pass cannot replace a live pass.
 5. **Harden vertex contracts and incremental authoring.** Define the shared
    typed vertex-layout contract and fail explicitly for missing required
