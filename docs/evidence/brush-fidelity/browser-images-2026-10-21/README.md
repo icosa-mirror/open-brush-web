@@ -1,5 +1,12 @@
 # Browser brush-image diagnostics: 2026-10-21
 
+This is historical diagnostic evidence. A later audit found that the capture
+path replaced generated 3D/4D UV0 attributes with the 2D base-UV alias before
+rendering. Results for packed-UV brushes therefore reflect the wrong input
+layout. The [corrected capture run](../browser-images-packed-uv-2026-10-21/README.md)
+supersedes those results and records generated versus bound UV widths. The old
+files are retained to expose the error rather than silently replacing history.
+
 1. Captured all **95 required brushes at 2048x2048** through the existing
    application `visual-conformance=brush` route. All PNG captures succeeded;
    94 passed its minimum coverage smoke check. ConcaveHull had zero coverage

@@ -96,6 +96,14 @@ every intervening upstream change.
    parity passes. An experimental paired native capture subsequently crashed the
    Editor after seven frames; its inputs/images were rejected, and the original
    reference corpus and earlier successful live-mesh evidence remain separate.
+   A subsequent audit found that this capture path overwrote packed UV0 with
+   the 2D base alias. The
+   [corrected run](docs/evidence/brush-fidelity/browser-images-packed-uv-2026-10-21/README.md)
+   supersedes packed-UV results: all 95 captures succeed with matching generated
+   and bound widths (57 2D, 31 3D, seven 4D), without browser errors. Coverage
+   remains 94/95, with the legacy ConcaveHull case empty. The collector records
+   both widths and rejects missing/mismatched metadata; live drawing already
+   bound these attributes in the correct order. No image-parity pass is assigned.
 8. `npm run compare:unity-exports` compares post-BrushBaker mesh values with
    isolated UnityGLTF fixture accessors. The
    [export accessor run](docs/evidence/brush-fidelity/export-accessors-2026-10-21/README.md)
@@ -801,8 +809,11 @@ actual scope; incomplete items remain open.
 3. **Automate the existing visual comparison path.** Implemented: the collector
    uses `?visual-conformance=brush&brush-guid=...`, captures at the unchanged
    reference dimensions and preserves raw actual/reference images with per-GUID
-   metrics. The first run captured all 95; input/render-context alignment is still
-   unverified. Optional native stroke/camera profiles and failed-reference-set
+   metrics. The corrected run captures all 95 while preserving packed shader
+   UV0; 38 required brushes use 3D/4D layouts. The earlier run's overwritten
+   packed-UV observations are explicitly superseded. Coverage remains 94/95;
+   input/render-context alignment is still unverified. Optional native
+   stroke/camera profiles and failed-reference-set
    rejection are implemented. Still establish reliable paired native captures,
    match rendering context, then calibrate acceptance thresholds. Start diagnosis
    with ordinary ribbons plus Disco,

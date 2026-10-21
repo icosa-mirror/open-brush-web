@@ -1,8 +1,13 @@
 import { describe, expect, it } from "vitest";
 import { validateBrushCapture } from "./brush-capture-contract.mjs";
 
-const sample = () => ({ width: 2048, height: 2048, profile: "legacy-screenshot-fixture", coverage: 0, renderStatus: "fail", png: "data:image/png;base64,AAAA" });
+const sample = () => ({ width: 2048, height: 2048, profile: "legacy-screenshot-fixture", coverage: 0, renderStatus: "fail", png: "data:image/png;base64,AAAA", generatedUv0Size: 2, shaderUv0Size: 2 });
 describe("browser image capture contract", () => {
+  it("accepts 2D/3D/4D UV layouts and rejects packed channels replaced by the 2D alias", () => {
+    for (const width of [2, 3, 4]) expect(() => validateBrushCapture({ ...sample(), generatedUv0Size: width, shaderUv0Size: width }, 2048, false)).not.toThrow();
+    expect(() => validateBrushCapture({ ...sample(), generatedUv0Size: 4, shaderUv0Size: 2 }, 2048, false)).toThrow("UV0 layout");
+    expect(() => validateBrushCapture({ ...sample(), generatedUv0Size: undefined }, 2048, false)).toThrow("UV0 layout");
+  });
   it("retains legitimate empty renders as diagnostic data", () => {
     expect(() => validateBrushCapture(sample(), 2048, false)).not.toThrow();
   });

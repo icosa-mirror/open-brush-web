@@ -135,6 +135,7 @@ async function main() {
           const gl = worldCanvas?.getContext("webgl2");
           const debug = gl?.getExtension("WEBGL_debug_renderer_info");
           return { png: canvas.toDataURL("image/png"), width: canvas.width, height: canvas.height,
+            generatedUv0Size: Number(panel.dataset.generatedUv0Size), shaderUv0Size: Number(panel.dataset.shaderUv0Size),
             profile: panel.dataset.inputProfile, coverage: Number(panel.dataset.coveredPixelRatio),
             renderStatus: document.documentElement.dataset.brushVisualConformance,
             renderer: debug ? gl.getParameter(debug.UNMASKED_RENDERER_WEBGL) : null };
@@ -146,6 +147,8 @@ async function main() {
         await writeFile(actualFile, png); await writeFile(referenceFile, input.bytes);
         row.browserSha256 = hash(png);
         row.inputProfile = capture.profile;
+        row.generatedUv0Size = capture.generatedUv0Size;
+        row.shaderUv0Size = capture.shaderUv0Size;
         row.renderStatus = capture.renderStatus;
         row.gpuReadbackCoverage = capture.coverage;
         row.metrics = await compareBrushImageFiles(actualFile, referenceFile);

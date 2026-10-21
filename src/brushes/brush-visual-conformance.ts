@@ -53,6 +53,8 @@ export interface BrushGeometryVisualConformanceResult {
   coveredPixelRatio: number;
   size: number;
   pixels: Uint8Array;
+  generatedUv0Size: number;
+  shaderUv0Size: number;
 }
 
 export function runBrushGeometryVisualConformance(
@@ -71,6 +73,9 @@ export function runBrushGeometryVisualConformance(
   geometry.setAttribute("tangent", new BufferAttribute(generated.tangents, 4));
   geometry.setAttribute("color", new BufferAttribute(generated.colors, 4));
   geometry.setAttribute("uv", new BufferAttribute(generated.uvs, 2));
+  // Bind standard aliases first, then retain the generator's packed shader UVs.
+  // Reversing this order replaces radius/particle components with the 2D UVs.
+  applyBrushShaderAttributeAliases(geometry);
   if (generated.packedUvs) {
     geometry.setAttribute(
       "a_texcoord0",
@@ -88,7 +93,6 @@ export function runBrushGeometryVisualConformance(
     );
   }
   geometry.setIndex(new BufferAttribute(generated.indices, 1));
-  applyBrushShaderAttributeAliases(geometry);
   applyBrushShaderSupplementalAttributes(
     geometry,
     name === "DanceFloor"
@@ -98,6 +102,11 @@ export function runBrushGeometryVisualConformance(
         : "",
     generated.positions.length / 3,
   );
+  const shaderUv0Size = geometry.getAttribute("a_texcoord0")?.itemSize;
+  if (shaderUv0Size !== generated.uv0Size) {
+    geometry.dispose();
+    throw new Error(`Brush capture UV0 layout mismatch: generated ${generated.uv0Size}, shader ${shaderUv0Size ?? "missing"}.`);
+  }
 
   const material = sourceMaterial.clone();
   const renderMaterial = createBrushRenderMaterial(
@@ -155,6 +164,8 @@ export function runBrushGeometryVisualConformance(
     coveredPixelRatio,
     size: renderSize,
     pixels,
+    generatedUv0Size: generated.uv0Size,
+    shaderUv0Size,
   };
 }
 
@@ -194,6 +205,8 @@ export function showBrushGeometryVisualConformance(
   );
   root.dataset.result = result.passed ? "pass" : "fail";
   root.dataset.coveredPixelRatio = String(result.coveredPixelRatio);
+  root.dataset.generatedUv0Size = String(result.generatedUv0Size);
+  root.dataset.shaderUv0Size = String(result.shaderUv0Size);
   document.body.append(root);
 }
 

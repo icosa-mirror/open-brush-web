@@ -5,5 +5,6 @@ export function validateBrushCapture(capture, size, nativeInput) {
   if (capture.profile !== expected) throw new Error(`Browser capture input profile must be ${expected}; rebuild or use the matching runtime.`);
   if (!Number.isFinite(capture.coverage) || capture.coverage < 0 || capture.coverage > 1) throw new Error("GPU readback coverage is missing or invalid.");
   if (!["pass", "fail"].includes(capture.renderStatus)) throw new Error("Browser capture status is missing or invalid.");
+  if (![2, 3, 4].includes(capture.generatedUv0Size) || capture.shaderUv0Size !== capture.generatedUv0Size) throw new Error("Browser capture UV0 layout is missing or differs from generated geometry.");
   if (typeof capture.png !== "string" || !capture.png.startsWith("data:image/png;base64,")) throw new Error("Browser did not produce a PNG capture.");
 }
