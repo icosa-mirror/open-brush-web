@@ -350,6 +350,7 @@ export class CollabSystem extends createSystem({
     }
     this.refreshNetworkWarning();
     this.hostRetriesLeft = HOST_ID_RETRIES;
+    this.reconnectAttemptsLeft = RECONNECT_ATTEMPTS;
     this.sameCodeRetriesLeft = 0;
     this.startHosting(generateCollabCode());
   }
@@ -385,6 +386,7 @@ export class CollabSystem extends createSystem({
     this.closeJoinPanel();
     this.phase = "joining";
     this.role = "guest";
+    this.reconnectAttemptsLeft = RECONNECT_ATTEMPTS;
     this.code = code;
     this.joinStartedClock = this.clock;
     this.setStatus("joining", `Joining ${code}...`);
