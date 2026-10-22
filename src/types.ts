@@ -44,6 +44,8 @@ export interface StrokeData {
   controlPoints: ControlPoint[];
   flags: StrokeFlags;
   seed: number;
+  /** Native uint32 selection-group tag; zero means no explicit group.
+   * Undo-action continuation is stored separately in flags. */
   groupId: number;
   guid: string;
   layerIndex: number;

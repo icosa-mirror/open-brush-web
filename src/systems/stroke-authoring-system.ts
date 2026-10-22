@@ -136,6 +136,7 @@ import { isOpenBrushPanelFocusable } from "../panels/panel-focus.js";
 import { resolveEffectiveOpenBrushTool } from "../tools/tool-modes.js";
 import {
   createEmptyStrokeData,
+  StrokeFlags,
   type ControlPoint,
   type Rgba,
   type StrokeData,
@@ -1070,7 +1071,9 @@ export class StrokeAuthoringSystem extends createSystem({
 
     this.strokeCounter += 1;
     const guid = `runtime-stroke-${MathUtils.generateUUID()}`;
-    const groupId = this.strokeCounter;
+    // Native selection groups are explicit user groups, independent of the
+    // undo action shared by a source stroke and its symmetry continuations.
+    const groupId = 0;
     // Author in canvas space: sizes and positions divide out the scene pose,
     // like PointerScript converting room space to canvas space.
     const poseEntity = this.getLayerParent(layerIndex);
@@ -2621,7 +2624,7 @@ export class StrokeAuthoringSystem extends createSystem({
       brushGuid: strokeData.brushGuid,
       toolId: "free-paint",
       groupId: strokeData.groupId,
-      groupContinuation: false,
+      groupContinuation: (strokeData.flags & StrokeFlags.IsGroupContinue) !== 0,
       geometryFamily,
       materialFamily: materialSpec.materialFamily,
       renderWarning: materialSpec.warning ?? "",

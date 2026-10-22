@@ -1,6 +1,6 @@
 # Open Brush parity plan and brush fidelity review
 
-Current planning audit: 2026-10-22, application baseline `f8cca75`.
+Current planning audit: 2026-10-22, application baseline `23e56c0`.
 
 Original review: 2026-08-31, application baseline `4579dbb`.
 
@@ -309,6 +309,21 @@ every intervening upstream change.
     checks pass with 618 tests and four TODOs; the mirror build passes. Native
     pixel/animation agreement, connected-peer phase comparison and full playback
     behavior remain open; the correction does not establish those results.
+    [CI for `23e56c0`](https://github.com/icosa-mirror/open-brush-web/actions/runs/39717540506)
+    subsequently succeeded.
+
+
+26. The [native save-group correction](docs/evidence/brush-fidelity/stroke-groups-2026-10-22/README.md)
+    distinguishes explicit selection-group tags from undo-action continuation.
+    New ordinary/symmetry strokes use the native ungrouped tag; imported uint32
+    tags remain exact in ECS. Collection follows the native writer's promotion
+    rules when an erased lead leaves surviving continuations, without mutating
+    runtime flags. Six native-case regressions and an isolated production-system
+    browser run cover symmetry undo/redo, high imported tags, erased-lead save,
+    file reload and restoring original flags, with zero browser errors. Full
+    checks pass: 624 tests and four TODOs; the mirror build passes. Native
+    Editor import/undo, group editing UI and connected-peer group workflows
+    remain separate open checks.
 
 ## Executive assessment
 

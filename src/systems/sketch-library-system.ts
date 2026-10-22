@@ -39,6 +39,7 @@ import {
 } from "../sketch/icosa-gallery.js";
 import { readTiltFile } from "../sketch/tilt-file.js";
 import type { StrokeData } from "../types.js";
+import { visibleStrokeSnapshots } from "../sketch/stroke-groups.js";
 import { createTranslatedStrokeSnapshot } from "../strokes/selection.js";
 import {
   applyUIKitProperties,
@@ -661,11 +662,10 @@ export class SketchLibrarySystem extends createSystem({
 
   private collectStrokeData(): StrokeData[] {
     const batches = this.world.getSystem(StrokeBatchRenderSystem);
-    const strokes: Array<{ data: StrokeData; order: number }> = [];
+    const strokes: Array<{ data: StrokeData; order: number; visible: boolean }> = [];
     for (const entity of this.queries.strokes.entities) {
       if (
-        !entity.getValue(BrushStroke, "finalized") ||
-        !entity.getValue(BrushStroke, "visible")
+        !entity.getValue(BrushStroke, "finalized")
       ) {
         continue;
       }
@@ -673,20 +673,22 @@ export class SketchLibrarySystem extends createSystem({
         | StrokeData
         | undefined;
       if (data) {
+        const visible = Boolean(entity.getValue(BrushStroke, "visible"));
         const position = entity.object3D?.position;
         // Snapshot pending extraction movement without releasing edit geometry.
         // Private fallback meshes carry their full translation separately.
-        const snapshot = position && !entity.hasComponent(BatchedBrushStroke)
+        const snapshot = !visible ? data : position && !entity.hasComponent(BatchedBrushStroke)
           ? createTranslatedStrokeSnapshot(data, [position.x, position.y, position.z])
           : batches?.getStrokeDataSnapshot(entity) ?? data;
         strokes.push({
           data: snapshot,
           order: Number(entity.getValue(BrushStroke, "commandIndex")),
+          visible,
         });
       }
     }
     strokes.sort((a, b) => a.order - b.order);
-    return strokes.map((stroke) => stroke.data);
+    return visibleStrokeSnapshots(strokes);
   }
 
   private setDocumentContext(document = createSketchDocument({ metadata: { source: "runtime" } })): void {

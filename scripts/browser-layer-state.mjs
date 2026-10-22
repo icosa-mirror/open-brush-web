@@ -36,6 +36,7 @@ async function main() {
     const result = await page.evaluate(() => ({ result: window.layerStateResult, error: window.layerStateError }));
     const sourceFiles = ["src/app/layer-state-validation.ts", "src/app/layer-transform-validation.ts", "src/strokes/layer-space.ts", "src/systems/layer-canvas-system.ts", "src/systems/sketch-library-system.ts", "src/systems/stroke-authoring-system.ts", "src/systems/stroke-batch-render-system.ts", "src/systems/selection-system.ts", "src/sketch/tilt-file.ts", "src/components/core.ts", "scripts/layer-state-harness.html", "scripts/layer-transform-harness.html", "scripts/browser-layer-state.mjs", "package-lock.json"];
     if (values.harness === "scripts/particle-replay-harness.html") sourceFiles.push("scripts/particle-replay-harness.html", "src/app/particle-replay-validation.ts", "src/brushes/particle-replay-time.ts");
+    if (values.harness === "scripts/stroke-groups-harness.html") sourceFiles.push("scripts/stroke-groups-harness.html", "src/app/stroke-groups-validation.ts", "src/sketch/stroke-groups.ts", "src/sketch/sketch-memory.ts", "src/types.ts");
     const report = { recordedAt: new Date().toISOString(), browserVersion: browser.version(), ...result,
       consoleErrors: messages.filter(message => message.type === "error").length,
       graphicsWarnings: messages.filter(message => /WebGL.*(?:INVALID_|error)|GL_INVALID|framebuffer.*incomplete/i.test(message.text)).length,

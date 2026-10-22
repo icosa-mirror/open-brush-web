@@ -262,7 +262,8 @@ export const BrushStroke = createComponent("BrushStroke", {
   guid: { type: Types.String, default: "" },
   brushGuid: { type: Types.String, default: "" },
   toolId: { type: Types.String, default: "free-paint" },
-  groupId: { type: Types.Int32, default: 0 },
+  // The pinned ECS has no Uint32 store; Float64 retains the full native tag.
+  groupId: { type: Types.Float64, default: 0 },
   groupContinuation: { type: Types.Boolean, default: false },
   geometryFamily: { type: Types.String, default: "ribbon" },
   materialFamily: { type: Types.String, default: "standard" },
