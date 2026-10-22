@@ -394,12 +394,13 @@ function cloneRecord(record: SketchCatalogRecord): SketchCatalogRecord {
 }
 
 function cloneSketchDocument(document: SketchDocument): SketchDocument {
-  return {
+  return createSketchDocument({
+    ...document,
     metadata: { ...document.metadata },
     layers: document.layers.map(cloneSketchLayer),
     media: document.media.map(cloneSketchMediaReference),
     strokes: document.strokes.map(cloneStrokeData),
-  };
+  });
 }
 
 function cloneSketchLayer(layer: SketchLayer): SketchLayer {

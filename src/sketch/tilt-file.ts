@@ -50,10 +50,13 @@ export function writeTiltFile(
   document: SketchDocument,
   options: TiltFileWriteOptions = {},
 ): Uint8Array {
-  const sketchPayload = writeSketchMemory(document.strokes);
+  const preservedMetadata = structuredClone(document.tiltArchive?.metadata ?? {}) as Partial<TiltFileMetadata>;
+  const sketchPayload = writeSketchMemory(document.strokes, preservedMetadata.BrushIndex);
   const metadata: TiltFileMetadata = {
+    ...preservedMetadata,
     BrushIndex: sketchPayload.brushGuids.map(normalizeGuid),
     OpenBrushIwSdk: {
+      ...preservedMetadata.OpenBrushIwSdk,
       appName: document.metadata.appName,
       schemaVersion: document.metadata.schemaVersion,
       source: document.metadata.source,
@@ -68,19 +71,15 @@ export function writeTiltFile(
       })),
     },
   };
-  const entries: Array<{ name: string; bytes: Uint8Array }> = [
-    { name: TILT_SKETCH_ENTRY, bytes: sketchPayload.bytes },
-    { name: TILT_METADATA_ENTRY, bytes: encodeJson(metadata) },
-    {
-      name: TILT_THUMBNAIL_ENTRY,
-      bytes: options.thumbnailPng ?? DEFAULT_THUMBNAIL_PNG,
-    },
-  ];
+  const entries = new Map(document.tiltArchive?.entries.map(entry => [entry.name, entry.bytes]));
+  entries.set(TILT_SKETCH_ENTRY, sketchPayload.bytes);
+  entries.set(TILT_METADATA_ENTRY, encodeJson(metadata));
+  entries.set(TILT_THUMBNAIL_ENTRY, options.thumbnailPng ?? entries.get(TILT_THUMBNAIL_ENTRY) ?? DEFAULT_THUMBNAIL_PNG);
   if (options.hiresPng) {
-    entries.push({ name: TILT_HIRES_ENTRY, bytes: options.hiresPng });
+    entries.set(TILT_HIRES_ENTRY, options.hiresPng);
   }
 
-  const zipBytes = writeStoredZip(entries);
+  const zipBytes = writeStoredZip(Array.from(entries, ([name, bytes]) => ({ name, bytes })));
   const writer = new BinaryByteWriter();
   writer.writeUint32(TILT_SENTINEL);
   writer.writeUint16(TILT_HEADER_SIZE);
@@ -117,6 +116,11 @@ export function readTiltFile(bytes: Uint8Array): SketchDocument {
     layers,
     media,
     strokes,
+    tiltArchive: {
+      metadata: metadata as unknown as Record<string, unknown>,
+      entries: Array.from(entries, ([name, bytes]) => ({ name, bytes }))
+        .filter(entry => entry.name !== TILT_METADATA_ENTRY && entry.name !== TILT_SKETCH_ENTRY),
+    },
   });
 }
 

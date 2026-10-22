@@ -20,10 +20,14 @@ export interface SketchMemoryPayload {
 
 export function writeSketchMemory(
   strokes: readonly StrokeData[],
+  initialBrushGuids: readonly string[] = [],
 ): SketchMemoryPayload {
   const writer = new OpenBrushBinaryWriter();
-  const brushGuids: string[] = [];
+  const brushGuids: string[] = initialBrushGuids.map(normalizeGuid);
   const brushIndexes = new Map<string, number>();
+  brushGuids.forEach((guid, index) => {
+    if (!brushIndexes.has(guid)) brushIndexes.set(guid, index);
+  });
 
   writer.writeUint32(SKETCH_SENTINEL);
   writer.writeInt32(SKETCH_VERSION);

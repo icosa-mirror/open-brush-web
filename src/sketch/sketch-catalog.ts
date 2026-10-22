@@ -43,7 +43,7 @@ export function createSketchCatalogRecord({
   name,
   document,
   nowMs,
-  thumbnailPng = DEFAULT_CATALOG_THUMBNAIL_PNG,
+  thumbnailPng,
   tiltOptions,
 }: {
   id: string;
@@ -53,6 +53,7 @@ export function createSketchCatalogRecord({
   thumbnailPng?: Uint8Array;
   tiltOptions?: TiltFileWriteOptions;
 }): SketchCatalogRecord {
+  thumbnailPng ??= tiltOptions?.thumbnailPng ?? document.tiltArchive?.entries.find(entry => entry.name === "thumbnail.png")?.bytes ?? DEFAULT_CATALOG_THUMBNAIL_PNG;
   return {
     id,
     name,
@@ -72,7 +73,7 @@ export function createSketchCatalogRecordFromTiltBytes({
   name,
   tiltBytes,
   nowMs,
-  thumbnailPng = DEFAULT_CATALOG_THUMBNAIL_PNG,
+  thumbnailPng,
 }: {
   id: string;
   name: string;
@@ -81,6 +82,7 @@ export function createSketchCatalogRecordFromTiltBytes({
   thumbnailPng?: Uint8Array;
 }): SketchCatalogRecord {
   const document = readTiltFile(tiltBytes);
+  thumbnailPng ??= document.tiltArchive?.entries.find(entry => entry.name === "thumbnail.png")?.bytes ?? DEFAULT_CATALOG_THUMBNAIL_PNG;
   return {
     id,
     name,

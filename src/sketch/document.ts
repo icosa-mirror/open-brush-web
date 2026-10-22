@@ -36,6 +36,20 @@ export interface SketchDocument {
   layers: SketchLayer[];
   strokes: StrokeData[];
   media: SketchMediaReference[];
+  /** Native fields/assets retained for export, without implying runtime support. */
+  tiltArchive?: TiltArchiveData;
+}
+
+export interface TiltArchiveData {
+  metadata: Record<string, unknown>;
+  entries: Array<{ name: string; bytes: Uint8Array }>;
+}
+
+export function cloneTiltArchive(archive: TiltArchiveData): TiltArchiveData {
+  return {
+    metadata: structuredClone(archive.metadata),
+    entries: archive.entries.map(entry => ({ name: entry.name, bytes: entry.bytes.slice() })),
+  };
 }
 
 export interface SketchDocumentSummary {
@@ -50,11 +64,13 @@ export function createSketchDocument({
   layers,
   media,
   strokes,
+  tiltArchive,
 }: {
   metadata?: Partial<SketchMetadata>;
   layers?: SketchLayer[];
   media?: SketchMediaReference[];
   strokes?: StrokeData[];
+  tiltArchive?: TiltArchiveData;
 } = {}): SketchDocument {
   return {
     metadata: {
@@ -66,6 +82,7 @@ export function createSketchDocument({
     layers: layers ?? [createSketchLayer({ id: 0, name: "Layer 1" })],
     media: media?.map(cloneSketchMediaReference) ?? [],
     strokes: strokes ?? [],
+    ...(tiltArchive ? { tiltArchive: cloneTiltArchive(tiltArchive) } : {}),
   };
 }
 

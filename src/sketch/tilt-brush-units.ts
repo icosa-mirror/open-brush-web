@@ -48,5 +48,6 @@ export function convertTiltBrushUnitsToMeters(
     layers: document.layers,
     media: document.media,
     strokes,
+    tiltArchive: document.tiltArchive,
   });
 }

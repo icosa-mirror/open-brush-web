@@ -112,6 +112,7 @@ export class SketchLibrarySystem extends createSystem({
   private blobUrls: string[] = [];
   private transition?: Transition;
   private busy = false;
+  private activeDocumentContext = createSketchDocument({ metadata: { source: "runtime" } });
   private thumbnailTarget?: WebGLRenderTarget;
   private thumbnailCamera?: PerspectiveCamera;
   private thumbnailPixels?: Uint8Array;
@@ -177,7 +178,8 @@ export class SketchLibrarySystem extends createSystem({
       name = `Sketch ${this.entries.length}`;
     }
     const document = createSketchDocument({
-      metadata: { source: "runtime" },
+      ...this.activeDocumentContext,
+      metadata: { ...this.activeDocumentContext.metadata, source: "runtime" },
       layers: this.collectLayers(),
       strokes,
     });
@@ -259,6 +261,7 @@ export class SketchLibrarySystem extends createSystem({
       return;
     }
     this.transition = undefined;
+    this.activeDocumentContext = createSketchDocument({ metadata: { source: "runtime" } });
     this.busy = false;
     this.getIntroSketchSystem()?.setSketchVisible(false, false);
     this.disposeAllStrokes();
@@ -306,6 +309,7 @@ export class SketchLibrarySystem extends createSystem({
     this.busy = true;
     this.transitionOutStrokes(() => {
       this.getIntroSketchSystem()?.setSketchVisible(false);
+      this.activeDocumentContext = createSketchDocument({ metadata: { source: "runtime" } });
       appState.setValue(PersistenceState, "activeSketchId", "");
       appState.setValue(PersistenceState, "activeSketchName", "Untitled Sketch");
       appState.setValue(OpenBrushAppState, "mode", "ready");
@@ -387,6 +391,7 @@ export class SketchLibrarySystem extends createSystem({
     }
     this.transitionOutStrokes(() => {
       this.getIntroSketchSystem()?.setSketchVisible(false);
+      this.activeDocumentContext = createSketchDocument({ ...document, strokes: [] });
       const authoring = this.world.getSystem(StrokeAuthoringSystem);
       const spawned: Entity[] = [];
       const spawnStrokes = () => {

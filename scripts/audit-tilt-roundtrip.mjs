@@ -30,7 +30,8 @@ async function main() {
     const originalMetadata = metadata(originalEntries), newMetadata = metadata(newEntries);
     const droppedMetadataKeys = Object.keys(originalMetadata).filter(key => !(key in newMetadata)).sort();
     const changedMetadataKeys = Object.keys(originalMetadata).filter(key => key in newMetadata && !isDeepStrictEqual(originalMetadata[key], newMetadata[key])).sort();
-    const sourceFiles = ["src/sketch/sketch-memory.ts", "src/sketch/tilt-file.ts", "src/sketch/document.ts", "src/sketch/binary.ts", "node_modules/three-tiltloader/dist/three-tiltloader.module.js", "scripts/audit-tilt-roundtrip.mjs", "package-lock.json"];
+    const changedRetainedEntries = Object.keys(originalEntries).filter(name => name !== "metadata.json" && name !== "data.sketch" && (!newEntries[name] || hash(originalEntries[name]) !== hash(newEntries[name]))).sort();
+    const sourceFiles = ["src/sketch/sketch-memory.ts", "src/sketch/tilt-file.ts", "src/sketch/document.ts", "src/sketch/binary.ts", "src/sketch/sketch-catalog.ts", "src/sketch/sketch-persistence.ts", "src/sketch/tilt-brush-units.ts", "src/systems/sketch-library-system.ts", "node_modules/three-tiltloader/dist/three-tiltloader.module.js", "scripts/audit-tilt-roundtrip.mjs", "package-lock.json"];
     const report = { schemaVersion: 1, recordedAt: new Date().toISOString(),
       scope: "File-format sample audit; app-known values only, no live native Editor import or metadata-equivalence pass",
       sample: path.basename(values.sample), sampleSha256: hash(bytes),
@@ -39,6 +40,8 @@ async function main() {
       brushGuidCount: new Set(document.strokes.map(stroke => stroke.brushGuid)).size,
       knownStrokeValuesSurviveRewrite: true, appLayerAndMediaValuesSurviveRewrite: true,
       originalMetadataKeys: Object.keys(originalMetadata).sort(), droppedMetadataKeys, changedMetadataKeys,
+      originalMetadataValuesPreserved: !droppedMetadataKeys.length && !changedMetadataKeys.length,
+      changedRetainedEntries, retainedArchiveEntryBytesPreserved: changedRetainedEntries.length === 0,
       originalEntries: Object.keys(originalEntries).sort(), droppedEntries: Object.keys(originalEntries).filter(key => !(key in newEntries)).sort(),
       thumbnailBytesPreserved: originalEntries["thumbnail.png"] && newEntries["thumbnail.png"] ? hash(originalEntries["thumbnail.png"]) === hash(newEntries["thumbnail.png"]) : null,
       nativeMetadataEquivalence: "unverified", liveNativeImport: "unverified" };

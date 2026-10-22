@@ -1,6 +1,6 @@
 # Open Brush parity plan and brush fidelity review
 
-Current planning audit: 2026-10-22, application baseline `64de84e`.
+Current planning audit: 2026-10-22, application baseline `02d90e2`.
 
 Original review: 2026-08-31, application baseline `4579dbb`.
 
@@ -38,7 +38,7 @@ every intervening upstream change.
 | Materials | Shared maintained assets and [render-pass helpers](src/brushes/brush-render-material.ts) are wired into the app; late material upgrades are registered. The [browser image collector](scripts/browser-brush-image-comparison.mjs) captures all 95 required brushes with per-GUID metrics. | The first image run is diagnostic with unmatched/unverified reference inputs; calibrated Unity image parity, loaded-environment context, audio analysis, and physical-Quest validation remain open. |
 | Labels and evidence | [Inventory](src/brushes/brush-inventory.ts) separates renderer support from unverified visual parity. The [ledger](docs/evidence/brush-fidelity/ledger-2026-10-22/README.md) joins revisioned per-GUID observations. [Shader evidence](src/brushes/brush-shader-compatibility.ts) also persists contexts locally. | Gather missing compile/image/device evidence and reconcile native provenance; a selectable brush or a local `ready` record is not a parity verdict. |
 | Production batching | [StrokeBatchRenderSystem](src/systems/stroke-batch-render-system.ts) is registered in [src/index.ts](src/index.ts); [batching is default-on](src/brushes/stroke-batch-feature.ts), with `?strokeBatches=0` or `false` as the opt-out. | Follow the [batching validation ledger](docs/stroke-batching-validation.md): broader brush/view coverage, context loss, latency/capacity budgets, and physical-headset evidence remain open. |
-| File handling | [sketch-memory.ts](src/sketch/sketch-memory.ts) delegates persisted stroke reading to the shared package; the app retains its writer and [archive wrapper](src/sketch/tilt-file.ts). The [sample audit](docs/evidence/brush-fidelity/shared-stroke-reader-2026-10-22/README.md) preserves known stroke fields across rewrite. | Native metadata/thumbnail preservation fails in the existing wrapper. Complete that boundary and validate native round trips before removing more local code. |
+| File handling | [sketch-memory.ts](src/sketch/sketch-memory.ts) delegates persisted stroke reading to the shared package; the app retains its writer and [archive wrapper](src/sketch/tilt-file.ts). The [retention audit](docs/evidence/brush-fidelity/native-archive-preservation-2026-10-22/README.md) preserves native metadata/preview bytes and known stroke fields on the recorded sample. | Native field interpretation, coordinate/layer semantics, binary extensions and live native/browser round trips remain open. Opaque retention does not implement those features. |
 
 ## Validation boundaries
 
@@ -200,11 +200,23 @@ every intervening upstream change.
     [file audit](docs/evidence/brush-fidelity/shared-stroke-reader-2026-10-22/README.md)
     compares the previous/shared readers on an existing 557-stroke native sample
     and checks the current reader/writer round trip. All known stroke fields
-    survive across 40,641 points and 91 brush GUIDs. The archive wrapper still
-    drops 15 native metadata keys and replaces the thumbnail by default; those
-    are recorded failures, not hidden by the stroke-level result. Unknown binary
+    survive across 40,641 points and 91 brush GUIDs. That audit identified 15
+    dropped native metadata keys and default thumbnail replacement; the following
+    retention change addresses those losses without rewriting this evidence. Unknown binary
     extensions are skipped rather than retained. Native import, units/transforms,
     metadata interpretation and interactive persistence remain separate checks.
+
+18. The [native archive retention change](docs/evidence/brush-fidelity/native-archive-preservation-2026-10-22/README.md)
+    keeps opaque native JSON and non-stroke archive bytes through document
+    construction, conversion and persistence snapshots. The same café sample
+    now rewrites with zero dropped/changed original metadata keys and preserves
+    its thumbnail. Brush-index slots remain stable; new brush GUIDs append.
+    Explicit preview options override retained images. Gallery saves carry the
+    imported context, and new sketches/collaboration joins clear it. Controller
+    regressions cover import, stroke editing, save-as, reload and export while
+    retaining native fields/assets. This is preservation evidence: native
+    metadata interpretation, coordinate/layer reconciliation, unsupported binary
+    extensions, browser interaction and live native import are still open.
 
 ## Executive assessment
 
@@ -968,10 +980,13 @@ actual scope; incomplete items remain open.
    persistence/history behavior pass before redundant parsing is removed.
    Persisted stroke reading now uses the public shared parser; the existing
    sample's 557 strokes match the previous reader and survive the retained
-   writer. The archive audit identifies 15 dropped native metadata keys and
-   default thumbnail replacement. Preserve these through the document/editing/
-   persistence path next; do not treat the known-stroke result as a native
-   all-fields round-trip pass. The local archive wrapper and writer remain.
+   writer. The earlier archive audit identified 15 dropped native metadata keys
+   and default thumbnail replacement. Opaque retention now preserves all
+   original metadata values and thumbnail bytes on that same sample, with
+   controller coverage through editing/save-as/reload. Still reconcile native
+   coordinate/layer semantics, unsupported extensions and interactive/native
+   import behavior. The local archive wrapper and writer remain; preservation
+   does not establish a native all-fields semantic round-trip pass.
 10. **Turn the application inventory into feature plans.** Compare the workflows
     in the scope table with native Open Brush, record implementation and evidence
     gaps, and prioritize the next feature slice with the user. Exit: explicit
