@@ -7,6 +7,7 @@ import {
   FrontSide,
   Hovered,
   Mesh,
+  MathUtils,
   MeshBasicMaterial,
   NormalBlending,
   PanelUI,
@@ -1057,7 +1058,7 @@ export class StrokeAuthoringSystem extends createSystem({
     const activeTool = this.getActiveTool();
 
     this.strokeCounter += 1;
-    const guid = `runtime-stroke-${this.strokeCounter}`;
+    const guid = `runtime-stroke-${MathUtils.generateUUID()}`;
     const groupId = this.strokeCounter;
     // Author in canvas space: sizes and positions divide out the scene pose,
     // like PointerScript converting room space to canvas space.
@@ -2673,7 +2674,7 @@ export class StrokeAuthoringSystem extends createSystem({
 
   private createMirroredStroke(source: RuntimeStroke): Entity {
     this.strokeCounter += 1;
-    const guid = `runtime-stroke-${this.strokeCounter}`;
+    const guid = `runtime-stroke-${MathUtils.generateUUID()}`;
     const strokeData = createMirroredStrokeDataX(source.strokeData, {
       guid,
       seed: this.strokeCounter,
