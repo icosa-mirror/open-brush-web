@@ -1,6 +1,6 @@
 # Open Brush parity plan and brush fidelity review
 
-Current planning audit: 2026-10-22, application baseline `949236f`.
+Current planning audit: 2026-10-22, application baseline `b84d92f`.
 
 Original review: 2026-08-31, application baseline `4579dbb`.
 
@@ -181,6 +181,19 @@ every intervening upstream change.
     physical-device compilation. This isolated diagnostic world does not prove
     physical input, application/gallery/history lifecycle, hardware layers,
     multiview variants, visual parity or frame/memory budgets.
+
+16. The [native source comparison](docs/evidence/brush-fidelity/native-reference-drift-2026-10-22/README.md)
+    now establishes that the declared `4786d55` reference and fixture-producing
+    `5591ff1` differ in relevant runtime source and resource configuration.
+    Within the selected scope, 1,166 paths differ, including 19 modified, five
+    deleted and four added brush C# files. All 95 required descriptors resolve
+    at both revisions; 48 change material references and 13 change prefab
+    references. Added descriptor fields also change bytes without independently
+    proving rendering differences. BubbleWand has a concrete finalization/UV
+    behavior change. These observations rule out treating the revisions as
+    interchangeable on metadata assumptions. They do not constitute a complete
+    dependency audit or establish which revision produced the original PNGs.
+    The reference pin stays unchanged and runtime equivalence remains unverified.
 
 ## Executive assessment
 
@@ -854,7 +867,11 @@ actual scope; incomplete items remain open.
    Located and regenerated the native mesh/GLB fixture set at `Support/BrushFixtures`;
    its hashes, source revision and 95/95 comparison are now recorded in the
    [fresh-run evidence](docs/evidence/brush-fidelity/native-2026-10-21/README.md).
-   Existing PNG hashes/dimensions are recorded separately with provenance open. Exit:
+   Existing PNG hashes/dimensions are recorded separately with provenance open.
+   The [source comparison](docs/evidence/brush-fidelity/native-reference-drift-2026-10-22/README.md)
+   records actual shared-generator, material-reference and prefab-reference
+   changes between the declared and fixture-producing revisions; a matched
+   declared-revision baseline or an explicit reference decision is still needed. Exit:
    immutable input manifest and reproducible commands; no newly invented baseline.
 2. **Publish current per-GUID evidence.** Join required inventory with mesh,
    asset-load, browser compile, emulated/physical-device XR compile, Unity-image differences, and
