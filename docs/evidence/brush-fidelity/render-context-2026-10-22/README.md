@@ -46,7 +46,9 @@
 This implements custom light/fog overrides and their scene-frame application.
 Other environment presets still use the Standard geometry/rig as fallback
 where overrides are absent. Gradient/skybox/reflection settings remain opaque,
-and collaboration does not yet transfer this context. Native captures,
+and this run did not cover collaboration. Subsequent protocol version 4
+[peer evidence](../collab-render-context-2026-10-22/README.md) verifies transport
+of the supported custom fields. Native captures,
 color-space calibration, transition-frame images, full preset interpretation
 and physical XR remain open. Parsing known fields without issues does not
 imply support for all archived environment settings.

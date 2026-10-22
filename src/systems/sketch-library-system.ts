@@ -41,6 +41,7 @@ import { readTiltFile } from "../sketch/tilt-file.js";
 import type { StrokeData } from "../types.js";
 import { visibleStrokeSnapshots } from "../sketch/stroke-groups.js";
 import { readNativeSketchRenderContext } from "../sketch/render-context.js";
+import { selectSharedRenderMetadata, type SharedRenderMetadata } from "../collab/render-context.js";
 import { openBrushShaderLibrary } from "../brushes/brush-shader-library.js";
 import { createTranslatedStrokeSnapshot } from "../strokes/selection.js";
 import {
@@ -240,11 +241,20 @@ export class SketchLibrarySystem extends createSystem({
   }
 
   collectSharedLayers(): SketchLayer[] { return this.collectLayers(); }
+  collectSharedRenderMetadata(): SharedRenderMetadata { return selectSharedRenderMetadata(this.activeDocumentContext.tiltArchive?.metadata); }
 
-  applySharedLayers(layers: SketchLayer[]): void {
+  applySharedLayers(layers: SketchLayer[], renderMetadata?: SharedRenderMetadata): void {
     const used = [...this.queries.strokes.entities].map(entity => Number(entity.getValue(BrushStroke, "layerIndex")));
     if (!layerPosesCompatible(this.collectLayers(), layers, used)) throw new Error("Shared layer poses differ from existing local strokes.");
-    this.setDocumentContext(createSketchDocument({ ...this.activeDocumentContext, layers, strokes: [] }));
+    let archive = this.activeDocumentContext.tiltArchive;
+    if (renderMetadata !== undefined) {
+      const supported = selectSharedRenderMetadata(renderMetadata);
+      const metadata = { ...archive?.metadata };
+      delete metadata.Environment; delete metadata.Lights; delete metadata.EnvironmentPreset;
+      Object.assign(metadata, supported);
+      archive = { metadata, entries: archive?.entries ?? [] };
+    }
+    this.setDocumentContext(createSketchDocument({ ...this.activeDocumentContext, tiltArchive: archive, layers, strokes: [] }));
   }
 
   /** Entries currently offered on the gallery's visible page. */

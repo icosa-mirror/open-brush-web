@@ -1,5 +1,5 @@
 import type { ControlPoint, Quat, StrokeData, Vec3 } from "../types.js";
-import { LAYER_CONTEXT_CHARS_PER_MESSAGE, type LayerContextChunk } from "./layer-context.js";
+import { SKETCH_CONTEXT_CHARS_PER_MESSAGE, type SketchContextChunk } from "./layer-context.js";
 
 /**
  * Two-user collaboration protocol. Transport is a single reliable PeerJS
@@ -8,12 +8,12 @@ import { LAYER_CONTEXT_CHARS_PER_MESSAGE, type LayerContextChunk } from "./layer
  * are immutable and keyed by author-unique GUIDs, and erase/undo/redo all
  * reduce to an idempotent per-stroke visibility boolean.
  *
- * Stroke data stays layer-local; snapshots establish the shared layer poses
+ * Stroke data stays layer-local; snapshots establish shared layer poses and light/fog settings
  * before strokes. Tip/head poses use the scene frame. Each side's world grab
  * remains local to that side.
  */
 
-export const COLLAB_PROTOCOL_VERSION = 3;
+export const COLLAB_PROTOCOL_VERSION = 4;
 /**
  * PeerJS JSON data channels refuse (and KILL the connection on) any message
  * over util.chunkedMTU (~16 KB), so strokes travel as a begin/points/end
@@ -61,10 +61,10 @@ export interface CollabSnapshotMessage {
   version: number;
   sketchName: string;
   strokeCount: number;
-  layerDataLength: number;
+  contextDataLength: number;
 }
 
-export interface CollabLayerDataMessage extends LayerContextChunk { t: "layer-data" }
+export interface CollabContextDataMessage extends SketchContextChunk { t: "context-data" }
 
 /**
  * Opens an incremental stroke transfer: carries the stroke metadata with an
@@ -140,7 +140,7 @@ export interface CollabByeMessage {
 export type CollabMessage =
   | CollabHelloMessage
   | CollabSnapshotMessage
-  | CollabLayerDataMessage
+  | CollabContextDataMessage
   | CollabStrokeBeginMessage
   | CollabStrokePointsMessage
   | CollabStrokeEndMessage
@@ -153,7 +153,7 @@ export type CollabMessage =
 const MESSAGE_TYPES = new Set([
   "hello",
   "snapshot",
-  "layer-data",
+  "context-data",
   "stroke-begin",
   "stroke-points",
   "stroke-end",
@@ -233,11 +233,11 @@ export function parseCollabMessage(raw: unknown): CollabMessage | undefined {
       return Number.isFinite(message.version) &&
         typeof message.sketchName === "string" &&
         Number.isSafeInteger(message.strokeCount) && message.strokeCount >= 0 &&
-        (message.version !== COLLAB_PROTOCOL_VERSION || (Number.isSafeInteger(message.layerDataLength) && message.layerDataLength > 0))
+        (message.version !== COLLAB_PROTOCOL_VERSION || (Number.isSafeInteger(message.contextDataLength) && message.contextDataLength > 0))
         ? message
         : undefined;
-    case "layer-data":
-      return Number.isSafeInteger(message.from) && message.from >= 0 && typeof message.data === "string" && message.data.length > 0 && message.data.length <= LAYER_CONTEXT_CHARS_PER_MESSAGE ? message : undefined;
+    case "context-data":
+      return Number.isSafeInteger(message.from) && message.from >= 0 && typeof message.data === "string" && message.data.length > 0 && message.data.length <= SKETCH_CONTEXT_CHARS_PER_MESSAGE ? message : undefined;
     case "stroke-begin":
       return isValidStrokeData(message.stroke) &&
         typeof message.live === "boolean"

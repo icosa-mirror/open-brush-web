@@ -1,0 +1,62 @@
+{
+  "recordedAt": "2026-10-22T07:00:49.401Z",
+  "browserVersion": "155.0.8059.85",
+  "result": {
+    "passed": true,
+    "initial": {
+      "shaderDensity": 0.0007000000239599796,
+      "sceneDensity": 0.007000000239599796,
+      "ambient": [
+        0.25098039215686274,
+        0.5019607843137255,
+        1,
+        1
+      ],
+      "light0": [
+        4,
+        2,
+        1,
+        1
+      ],
+      "direction": [
+        0.9999999999999992,
+        0,
+        3.422854333301473e-8
+      ]
+    },
+    "scale4ShaderDensity": 0.00035,
+    "scale4SceneDensity": 0.0035,
+    "zeroFogPreserved": true,
+    "lateMaterialSharesContext": true,
+    "sharedDefaultClearsOverrides": true,
+    "resetRestoresStandard": true,
+    "metadataUnchanged": true,
+    "scope": "Production document context method, shader holders, per-frame scene pose and loaded geometry fog; synthetic native file data, no native pixels, presets/skyboxes or physical XR"
+  },
+  "consoleErrors": 0,
+  "graphicsWarnings": 0,
+  "pageErrors": [],
+  "sourceHashes": {
+    "src/app/layer-state-validation.ts": "03adcfdfbe5867344a98a45c6b0f0218f291fa0037c93979d7c349ab249122fa",
+    "src/app/layer-transform-validation.ts": "a7b3723307e43c0f74b2c953c4bdfc0632bc4b675d3a65dbffbaadb8a13b46b4",
+    "src/strokes/layer-space.ts": "32f02a0733a9d857d3a11a018807a6e022ca134f3c4c4e1a1f76721526877038",
+    "src/systems/layer-canvas-system.ts": "798f8581cd62abe13e1ed40219b3cf46763aacef1dbcab0492ad3a0bbc4593bc",
+    "src/systems/sketch-library-system.ts": "b144b67fada84cbff0d38f1a4cdaa0bf2de577732d06613f08f3dcca670e1254",
+    "src/systems/stroke-authoring-system.ts": "97bf2d456fc85dcde32c267b56d0d7498256022c1a72874e643473a79a3d2c2e",
+    "src/systems/stroke-batch-render-system.ts": "ee38d42c94c080ecb353d4667f29a508806753a6d2bd2cae85a68f142dff4d1a",
+    "src/systems/selection-system.ts": "b9496e66931a422f3fc95776976279944cfcc0091240ad728a085cd5e430c043",
+    "src/sketch/tilt-file.ts": "15f2d75dd6b5bac8ca2774e3c8fd44c9557fe12341a012e1daa7f87766f0204b",
+    "src/components/core.ts": "6e3e31beee0862170e881e09534e604420c2e14bc92f42c6f77ee6c65c3509b5",
+    "scripts/layer-state-harness.html": "5243e9fad61e2af96b69eb7219a8fdebfd86d52c58a7828b6db4c25762fe2702",
+    "scripts/layer-transform-harness.html": "6acce05b2fb6867ad868dc8e03c5a5baba0bc12f3d2fb0ee517ff63b92bfdac7",
+    "scripts/browser-layer-state.mjs": "804ea9e6d2b3273a65ee427f39a016e475356b03a57d820e20b01be63ea0187e",
+    "package-lock.json": "f994e07d2de98eabdcd30394cd9be512ac6db3b62254301c8a130302ee4a1e04",
+    "scripts/render-context-harness.html": "e123daccfd1557038a4589766c631c1787bc2a013a82dace7b6741cbb759aba1",
+    "src/app/render-context-validation.ts": "6169b1d95ea0fb72c31aa80394292fca1100df79fc97d65fce2ec1a4ad240f38",
+    "src/sketch/render-context.ts": "eff3b1bb63ef044d4eda0839f9489953077fe017ac89465853b2e72817ce15e4",
+    "src/collab/render-context.ts": "ba94054d2dbd33bddbc875cc58c8e06bcacb37ab91290760b74e746d4d1f7867",
+    "src/brushes/brush-shader-library.ts": "b77fcce51a42522451210f5dc8444efd9a959f1ad5ca753a16f1308b2e7d6b47",
+    "src/brushes/brush-shader-materials.ts": "b801960b0588a0ed088a77dcfc4945afd2b624015e8cad065ff22f4a216bc76f",
+    "src/systems/standard-environment-system.ts": "c84ea8fe65ef50638d1310e0f5fbc34bd19f98e4e6e7382c2d093e8f1c3c40f9"
+  }
+}

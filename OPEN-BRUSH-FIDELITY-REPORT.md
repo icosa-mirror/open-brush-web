@@ -1,6 +1,6 @@
 # Open Brush parity plan and brush fidelity review
 
-Current planning audit: 2026-10-22, application baseline `7144991`.
+Current planning audit: 2026-10-22, application baseline `2bbfbeb`.
 
 Original review: 2026-08-31, application baseline `4579dbb`.
 
@@ -386,8 +386,21 @@ every intervening upstream change.
     no parse issues; its 557 strokes, 40,641 points, metadata and archive bytes
     still survive rewrite. Full local checks pass: 632 tests, four TODOs and the
     mirror build. Native pixel/color-space agreement, preset geometry/skyboxes,
-    reflection/gradient controls and connected-peer environment transfer remain
-    open; the SDK-blocked selection change is still uncommitted.
+    reflection/gradient controls remain
+    open; supported connected-peer transfer is covered by item 31; the SDK-blocked selection change is still uncommitted.
+
+
+31. [Shared custom lights and fog](docs/evidence/brush-fidelity/collab-render-context-2026-10-22/README.md)
+    use protocol version 4 to transfer supported native metadata atomically with
+    layers before strokes. Two real browser peers verify zero fog, ambient/HDR
+    colors, guest native-file save/reload, reconnects, default reset and host
+    authority. Incompatible existing layer poses reject the join while retaining
+    local work. Version 3 peers are rejected; opaque archive settings/assets are
+    excluded. The isolated production-system reset check also passes, with zero
+    browser errors/warnings in both runs. Full local checks pass: 635 tests,
+    four TODOs and the mirror build. This does not establish native multiplayer,
+    live lighting edits, full environment presets, native pixels or physical XR.
+    The unrelated SDK-blocked selection implementation remains uncommitted.
 
 ## Executive assessment
 
@@ -964,8 +977,9 @@ LightWire, remains open.
    transparency sorting absent from the Open Brush contract.
 6. Partial: native custom light/fog fields now drive shared shader context;
    scene rotation and inverse-scale fog are applied, with explicit reset and
-   zero-fog behavior (validation item 30). Preset rigs/geometry, reflection and
-   gradient inputs, connected-peer context, remaining globals and native image
+   zero-fog behavior (validation item 30). Supported custom fields also transfer
+   between web peers with host authority and default reset (item 31). Preset
+   rigs/geometry, reflection/gradient inputs, remaining globals and native image
    agreement remain open.
 7. Implemented: shared pass/group helpers are consumed for Electricity and the
    Toon brushes. Validate their actual-stroke images against Unity. Classify

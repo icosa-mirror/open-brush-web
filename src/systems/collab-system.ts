@@ -15,7 +15,8 @@ import type { Entity, Object3D } from "@iwsdk/core";
 import { Peer } from "peerjs";
 import type { DataConnection } from "peerjs";
 import type { SketchLayer } from "../sketch/document.js";
-import { encodeLayerContext, LayerContextReceiver, layerPosesCompatible } from "../collab/layer-context.js";
+import { encodeSketchContext, SketchContextReceiver, layerPosesCompatible } from "../collab/layer-context.js";
+import { sameSharedRenderMetadata } from "../collab/render-context.js";
 
 import {
   CollabState,
@@ -129,11 +130,11 @@ export class CollabSystem extends createSystem({
 
   // Snapshot streaming (guest side).
   private snapshotStrokesPending = 0;
-  private readonly layerReceiver = new LayerContextReceiver();
+  private readonly contextReceiver = new SketchContextReceiver();
   private remoteLayers: SketchLayer[] = [];
   private remoteContextReady = false;
   private layerContextReady = true;
-  private hasSharedLayerContext = false;
+  private hasSharedSketchContext = false;
   private incomingSketchName = "Shared Sketch";
   private recvCount = 0;
   private lastRecvClock = 0;
@@ -288,8 +289,8 @@ export class CollabSystem extends createSystem({
     }
     this.world.getSystem(StrokeAuthoringSystem)?.clearRemoteActiveStrokes();
     this.assembling.clear();
-    this.layerReceiver.reset(); this.remoteLayers = []; this.remoteContextReady = false;
-    this.setLayerContextReady(this.role !== "guest" || this.hasSharedLayerContext);
+    this.contextReceiver.reset(); this.remoteLayers = []; this.remoteContextReady = false;
+    this.setLayerContextReady(this.role !== "guest" || this.hasSharedSketchContext);
     if (this.clock - this.connectedAtClock >= RECONNECT_INTERVAL_SECONDS) {
       // A fresh disruption gets a full retry budget; a connection that died
       // within seconds of opening is a recovery that isn't sticking — keep
@@ -494,7 +495,7 @@ export class CollabSystem extends createSystem({
       this.phase = "connected";
       this.lastRecvClock = this.clock;
       this.connectedAtClock = this.clock;
-      this.layerReceiver.reset(); this.remoteLayers = []; this.remoteContextReady = false;
+      this.contextReceiver.reset(); this.remoteLayers = []; this.remoteContextReady = false;
       this.lastProgressGuid = ""; this.lastProgressPointCount = 0;
       this.startKeepalive(conn);
       this.world.getSystem(AudioFeedbackSystem)?.playSound("connect");
@@ -683,8 +684,8 @@ export class CollabSystem extends createSystem({
     this.role = "none";
     this.code = "";
     this.snapshotStrokesPending = 0;
-    this.layerReceiver.reset(); this.remoteLayers = []; this.remoteContextReady = false;
-    this.hasSharedLayerContext = false;
+    this.contextReceiver.reset(); this.remoteLayers = []; this.remoteContextReady = false;
+    this.hasSharedSketchContext = false;
     this.setLayerContextReady(true);
     this.lastProgressGuid = "";
     this.committedGuids.clear();
@@ -716,9 +717,9 @@ export class CollabSystem extends createSystem({
       return;
     }
     const strokes = library.collectVisibleStrokeData();
-    let context: ReturnType<typeof encodeLayerContext>;
-    try { context = encodeLayerContext(library.collectSharedLayers()); }
-    catch { this.teardown("Cannot share invalid layer definitions", "error"); return; }
+    let context: ReturnType<typeof encodeSketchContext>;
+    try { context = encodeSketchContext(library.collectSharedLayers(), library.collectSharedRenderMetadata()); }
+    catch { this.teardown("Cannot share invalid sketch settings", "error"); return; }
     const sketchName = appState
       ? String(appState.getValue(PersistenceState, "activeSketchName"))
       : "Shared Sketch";
@@ -727,9 +728,9 @@ export class CollabSystem extends createSystem({
       version: COLLAB_PROTOCOL_VERSION,
       sketchName,
       strokeCount: strokes.length,
-      layerDataLength: context.length,
+      contextDataLength: context.length,
     });
-    for (const chunk of context.chunks) this.send({ t: "layer-data", ...chunk });
+    for (const chunk of context.chunks) this.send({ t: "context-data", ...chunk });
     for (const stroke of strokes) {
       this.sendCommittedStroke(stroke);
     }
@@ -765,30 +766,32 @@ export class CollabSystem extends createSystem({
         this.snapshotStrokesPending = message.strokeCount;
         this.incomingSketchName = message.sketchName;
         this.remoteContextReady = false; this.remoteLayers = [];
-        try { this.layerReceiver.begin(message.layerDataLength); }
-        catch { this.teardown("Invalid shared layer transfer", "error"); break; }
+        try { this.contextReceiver.begin(message.contextDataLength); }
+        catch { this.teardown("Invalid shared sketch transfer", "error"); break; }
         if (this.role === "guest") this.setLayerContextReady(false);
         this.setStatus("connected", "Connected - syncing sketch");
         break;
       }
-      case "layer-data": {
+      case "context-data": {
         try {
-          const layers = this.layerReceiver.push(message);
-          if (!layers) break;
-          this.remoteLayers = layers;
+          const context = this.contextReceiver.push(message);
+          if (!context) break;
+          this.remoteLayers = context.layers;
           const library = this.world.getSystem(SketchLibrarySystem);
           if (!library) throw new Error("Missing sketch library");
           if (this.role === "guest") {
-            library.applySharedLayers(layers);
+            library.applySharedLayers(context.layers, context.renderMetadata);
             library.adoptCollabSketchName(this.incomingSketchName);
-            this.hasSharedLayerContext = true;
+            this.hasSharedSketchContext = true;
             this.setLayerContextReady(true);
+          } else if (!sameSharedRenderMetadata(library.collectSharedRenderMetadata(), context.renderMetadata)) {
+            throw new Error("Peer changed the host render context");
           }
           this.remoteContextReady = true;
           if (this.role === "guest") this.sendSnapshot();
           this.setStatus("connected", `Connected - code ${this.code}`);
         } catch {
-          this.teardown("Shared layers are invalid or differ from local strokes", "error");
+          this.teardown("Shared sketch settings are invalid or conflict with local strokes", "error");
         }
         break;
       }

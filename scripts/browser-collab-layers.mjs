@@ -54,7 +54,11 @@ async function main() {
       const { BrushStroke } = await import("/src/components/core.ts");
       const collab = window.__openbrushCollab, layers = collab.world.getSystem(LayerCanvasSystem), authoring = collab.world.getSystem(StrokeAuthoringSystem);
       const data = window.strokeBatchPersistence.snapshot();
-      return { network: collab.debugState(), layers: layers ? collab.world.getSystem((await import("/src/systems/sketch-library-system.ts")).SketchLibrarySystem).collectSharedLayers() : [], data,
+      const library = collab.world.getSystem((await import("/src/systems/sketch-library-system.ts")).SketchLibrarySystem);
+      const shader = (await import("/src/brushes/brush-shader-library.ts")).openBrushShaderLibrary;
+      return { network: collab.debugState(), layers: layers ? library.collectSharedLayers() : [], renderMetadata: library.collectSharedRenderMetadata(),
+        shaderContext: { nativeFogDensity: shader.fogDensityNative, shaderFogDensity: shader.frameUniforms.u_fogDensity.value, sceneFogDensity: collab.world.scene.fog?.density,
+          ambient: shader.frameUniforms.u_ambient_light_color.value.toArray(), shadow: shader.frameUniforms.u_SceneLight_0_color.value.toArray() }, data,
         render: [...authoring.queries.strokes.entities].map(entity => ({ guid: String(entity.getValue(BrushStroke, "guid")), layerIndex: Number(entity.getValue(BrushStroke, "layerIndex")), renderVisible: Boolean(entity.getValue(BrushStroke, "renderVisible")), parentName: entity.object3D?.parent?.name })), counter: authoring.strokeCounter };
     });
     const save = async stage => {
@@ -66,6 +70,13 @@ async function main() {
       const { StrokeAuthoringSystem } = await import("/src/systems/stroke-authoring-system.ts");
       const { SketchLibrarySystem } = await import("/src/systems/sketch-library-system.ts");
       const collab = window.__openbrushCollab, layers = collab.world.getSystem(LayerCanvasSystem);
+      const library = collab.world.getSystem(SketchLibrarySystem);
+      const { createSketchDocument } = await import("/src/sketch/document.ts");
+      library.setDocumentContext(createSketchDocument({ tiltArchive: { entries: [], metadata: {
+        PrivateArchiveMarker: "host-only", EnvironmentPreset: "native-preset-fixture",
+        Environment: { FogColor: [31, 31, 78, 255], FogDensity: 0, ReflectionIntensity: 0.4 },
+        Lights: { Ambient: [64, 128, 255, 255], Shadow: { Orientation: [0, 0, 0, -2], Color: [4, 2, 1, 1] }, NoShadow: { Orientation: [0, 0, 0, 1], Color: [0.1, 0.2, 0.3, 1] } },
+      } } }));
       layers.setLayers([
         { id: 0, name: "Shared " + "x".repeat(1400), visible: true, locked: false, transform: { position: [0.3, -0.2, 0.4], rotation: [0.5499787330627441, 0.49989476799964905, 0.1931496560573578, 0.6405637264251709], scale: 1.6 } },
         { id: 4, name: "Hidden locked", visible: false, locked: true, transform: { position: [-0.2, 0, 0.1], rotation: [0, 0, 0, 1], scale: 0.5 } },
@@ -105,6 +116,20 @@ async function main() {
     report.initialRetryBudgets = await Promise.all([retryBudget(host), retryBudget(guest)]);
     check(report.initialRetryBudgets.every(value => value > 0), "First connection has no recovery budget");
     check(isDeepStrictEqual(synced.host.layers, synced.guest.layers), "Peer layer definitions differ");
+    check(isDeepStrictEqual(synced.host.renderMetadata, synced.guest.renderMetadata), "Peer light/fog metadata differ");
+    check(synced.guest.shaderContext.nativeFogDensity === 0 && synced.guest.shaderContext.sceneFogDensity === 0 && isDeepStrictEqual(synced.host.shaderContext.ambient, synced.guest.shaderContext.ambient) && isDeepStrictEqual(synced.host.shaderContext.shadow, synced.guest.shaderContext.shadow), "Guest shader context did not adopt native light/fog values");
+    report.guestFileContext = await guest.evaluate(async () => {
+      const { SketchLibrarySystem } = await import("/src/systems/sketch-library-system.ts");
+      const { createSketchDocument } = await import("/src/sketch/document.ts");
+      const { readTiltFile, writeTiltFile } = await import("/src/sketch/tilt-file.ts");
+      const { selectSharedRenderMetadata } = await import("/src/collab/render-context.ts");
+      const library = window.__openbrushCollab.world.getSystem(SketchLibrarySystem);
+      const loaded = readTiltFile(writeTiltFile(createSketchDocument({ ...library.activeDocumentContext, layers: library.collectSharedLayers(), strokes: library.collectVisibleStrokeData() })));
+      return { renderMetadata: selectSharedRenderMetadata(loaded.tiltArchive.metadata), opaqueMarkerAbsent: loaded.tiltArchive.metadata.PrivateArchiveMarker === undefined,
+        reflectionSettingAbsent: loaded.tiltArchive.metadata.Environment.ReflectionIntensity === undefined };
+    });
+    check(isDeepStrictEqual(report.guestFileContext.renderMetadata, synced.host.renderMetadata) && report.guestFileContext.opaqueMarkerAbsent && report.guestFileContext.reflectionSettingAbsent, "Guest file save changed supported context or copied opaque native metadata");
+    report.lightFogContextTransferred = true;
     check(synced.guest.data.length === 2 && synced.guest.render.find(row => row.guid === initial.hiddenGuid)?.renderVisible === false, "Hidden layer snapshot was lost or rendered");
     check(synced.guest.render.every(row => row.parentName === `OpenBrushLayer_${row.layerIndex}`), "Received stroke did not use its layer parent");
     const compare = (row, guid) => {
@@ -144,17 +169,70 @@ async function main() {
     await host.waitForFunction(guid => window.strokeBatchPersistence.snapshot().some(stroke => stroke.guid === guid), offlineGuid, { timeout: 60000 });
     const reconnected = await save("reconnected-offline-merge"); compare(reconnected, offlineGuid);
     check(isDeepStrictEqual(reconnected.host.layers, reconnected.guest.layers), "Reconnection changed layer context");
+    check(isDeepStrictEqual(reconnected.host.renderMetadata, synced.host.renderMetadata) && isDeepStrictEqual(reconnected.guest.renderMetadata, synced.host.renderMetadata), "Reconnection changed light/fog context");
+    report.reconnectionPreservesRenderContext = true;
     const guestCount = reconnected.guest.data.length;
     await host.evaluate(async () => window.__openbrushCollab.world.getSystem((await import("/src/systems/sketch-library-system.ts")).SketchLibrarySystem).startNewSketch());
     for (const page of [host, guest]) await page.waitForFunction(() => window.__openbrushCollab.debugState().phase === "idle", undefined, { timeout: 15000 });
     check((await observe(guest)).data.length === guestCount, "Leaving shared sketch deleted peer work");
     report.sessionReplacementRetainsPeerWork = true;
-    await host.evaluate(() => window.__openbrushCollab.onMessage({ t: "hello", version: 2 }));
+    await host.evaluate(() => window.__openbrushCollab.onMessage({ t: "hello", version: 3 }));
     check((await host.evaluate(() => window.inspectStrokeBatchHistory().collab.status)) === "error", "Older protocol hello was not explicitly rejected");
     report.olderHelloRejected = true;
+    // Resolve imports first so the readiness poll remains synchronous.
+    await host.evaluate(async () => {
+      const { SketchLibrarySystem } = await import("/src/systems/sketch-library-system.ts");
+      window.collabContextTestLibrary = window.__openbrushCollab.world.getSystem(SketchLibrarySystem);
+    });
+    await host.waitForFunction(() => !window.collabContextTestLibrary.isOpeningSketch() && window.strokeBatchPersistence.snapshot().length === 0 && JSON.stringify(window.collabContextTestLibrary.collectSharedRenderMetadata()) === "{}", undefined, { timeout: 15000 });
+    const defaultGuid = await host.evaluate(() => window.__openbrushCollab.debugCommitTestStroke());
+    await host.waitForFunction(guid => { const strokes = window.strokeBatchPersistence.snapshot(); return strokes.length === 1 && strokes[0].guid === guid; }, defaultGuid, { timeout: 15000 });
+    await host.evaluate(() => window.__openbrushCollab.toggleHosting());
+    await host.waitForFunction(() => window.__openbrushCollab.peer?.open && window.__openbrushCollab.debugState().phase === "hosting", undefined, { timeout: 60000 });
+    const nextCode = await host.evaluate(() => window.__openbrushCollab.debugState().code);
+    await save("before-incompatible-join");
+    await guest.evaluate(code => window.__openbrushCollab.joinWithCode(code), nextCode);
+    await guest.waitForFunction(() => window.__openbrushCollab.debugState().phase === "idle" && window.inspectStrokeBatchHistory().collab.status === "error", undefined, { timeout: 30000 });
+    const retained = await save("incompatible-existing-work-preserved");
+    check(retained.guest.data.length === guestCount && isDeepStrictEqual(retained.guest.renderMetadata, synced.guest.renderMetadata), "Incompatible join discarded local work or changed its context");
+    report.incompatibleJoinRetainsWork = true;
+    await host.waitForFunction(() => window.__openbrushCollab.peer?.open && window.__openbrushCollab.debugState().phase === "hosting", undefined, { timeout: 30000 });
+    await guest.evaluate(code => { window.__openbrushCollab.debugEnterSketch(); window.__openbrushCollab.joinWithCode(code); }, nextCode);
+    for (const page of [host, guest]) await page.waitForFunction(() => { const state = window.__openbrushCollab.debugState(); return state.connected && state.layerContextReady && state.remoteContextReady; }, undefined, { timeout: 60000 });
+    await guest.waitForFunction(guid => window.strokeBatchPersistence.snapshot().some(stroke => stroke.guid === guid), defaultGuid, { timeout: 30000 });
+    const defaults = await save("new-default-session");
+    check(isDeepStrictEqual(defaults.host.renderMetadata, {}) && isDeepStrictEqual(defaults.guest.renderMetadata, {}) && defaults.guest.shaderContext.nativeFogDensity === 0.0025, "Default session retained stale light/fog overrides");
+    report.defaultContextClearsOverrides = true;
+    await guest.evaluate(async () => {
+      const { SketchLibrarySystem } = await import("/src/systems/sketch-library-system.ts");
+      const { encodeSketchContext } = await import("/src/collab/layer-context.ts");
+      const { COLLAB_PROTOCOL_VERSION } = await import("/src/collab/protocol.ts");
+      const collab = window.__openbrushCollab, library = collab.world.getSystem(SketchLibrarySystem);
+      const forged = encodeSketchContext(library.collectSharedLayers(), { Environment: { FogColor: [255, 0, 0, 255], FogDensity: 0.01 } });
+      collab.conn.send({ t: "snapshot", version: COLLAB_PROTOCOL_VERSION, sketchName: "Conflicting fixture", strokeCount: 0, contextDataLength: forged.length });
+      for (const chunk of forged.chunks) collab.conn.send({ t: "context-data", ...chunk });
+    });
+    await host.waitForFunction(() => window.__openbrushCollab.debugState().phase === "idle" && window.inspectStrokeBatchHistory().collab.status === "error", undefined, { timeout: 30000 });
+    await guest.waitForFunction(() => window.__openbrushCollab.debugState().phase === "idle", undefined, { timeout: 30000 });
+    const rejected = await save("conflicting-guest-context-rejected");
+    check(isDeepStrictEqual(rejected.host.renderMetadata, {}) && rejected.host.shaderContext.nativeFogDensity === 0.0025 && rejected.host.data.some(stroke => stroke.guid === defaultGuid) && rejected.guest.data.some(stroke => stroke.guid === defaultGuid), "Conflicting guest context changed host settings or discarded peer work");
+    report.guestCannotOverrideHostContext = true;
     report.completedAt = new Date().toISOString();
-    console.log("Collab layers passed: posed snapshot, blocked early input, unique concurrent strokes, undo/redo, offline replay, session replacement and version rejection.");
-  } catch (error) { report.error = error.stack ?? error.message; throw error; }
+    console.log("Collab sketch context passed: layers, light/fog transfer and guest file save, concurrent strokes, undo/redo, offline replay, defaults and conflicting guest rejection.");
+  } catch (error) {
+    report.error = error.stack ?? error.message;
+    const failureState = page => page?.evaluate(async () => {
+      const collab = window.__openbrushCollab;
+      if (!collab) return undefined;
+      const { SketchLibrarySystem } = await import("/src/systems/sketch-library-system.ts");
+      const library = collab.world.getSystem(SketchLibrarySystem);
+      return { network: collab.debugState(), status: window.inspectStrokeBatchHistory().collab.status,
+        receiver: { length: collab.contextReceiver.length, offset: collab.contextReceiver.offset },
+        strokeCount: window.strokeBatchPersistence.snapshot().length, layers: library.collectSharedLayers(), renderMetadata: library.collectSharedRenderMetadata() };
+    }).catch(() => undefined);
+    report.failurePeers = { host: await failureState(host), guest: await failureState(guest) };
+    throw error;
+  }
   finally {
     if (host) await host.evaluate(() => window.__openbrushCollab?.teardown("Test finished", "ended")).catch(() => undefined);
     if (guest) await guest.evaluate(() => window.__openbrushCollab?.teardown("Test finished", "ended")).catch(() => undefined);
@@ -162,6 +240,7 @@ async function main() {
     report.pageErrors = errors; report.consoleErrors = messages.filter(message => message.type === "error");
     report.graphicsWarnings = messages.filter(message => /WebGL.*(?:INVALID_|error)|GL_INVALID|framebuffer.*incomplete/i.test(message.text));
     const files = ["src/collab/protocol.ts", "src/collab/layer-context.ts", "src/systems/collab-system.ts", "src/systems/sketch-library-system.ts", "src/systems/stroke-authoring-system.ts", "src/systems/layer-canvas-system.ts", "src/sketch/layer-transform.ts", "src/components/core.ts", "scripts/browser-collab-layers.mjs", "package-lock.json"];
+    files.push("src/collab/render-context.ts", "src/sketch/render-context.ts", "src/brushes/brush-shader-library.ts", "src/brushes/brush-shader-materials.ts", "src/systems/standard-environment-system.ts");
     report.sourceHashes = Object.fromEntries(await Promise.all(files.map(async file => [file, createHash("sha256").update(await readFile(file)).digest("hex")])));
     await writeFile(path.join(values.output, "results.json"), JSON.stringify(report, null, 2) + "\n");
     await writeFile(path.join(values.output, "browser-log.json"), JSON.stringify({ messages, errors }, null, 2) + "\n");

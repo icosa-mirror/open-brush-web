@@ -22,7 +22,7 @@ export async function validateRenderContext(container: HTMLDivElement) {
   world.player.position.set(0, 0, 0); world.player.quaternion.identity(); world.camera.position.set(0, 0, 0); world.camera.quaternion.identity();
   const frames = async () => { for (let i = 0; i < 4; i++) await new Promise<void>(resolve => requestAnimationFrame(() => resolve())); };
   await frames();
-  const receiver: { world: typeof world; activeDocumentContext?: SketchDocument } = { world };
+  const receiver = Object.assign(Object.create(SketchLibrarySystem.prototype), { world, queries: { ...world.getSystem(StrokeAuthoringSystem)!.queries, canvases: world.getSystem(LayerCanvasSystem)!.queries.layers } }) as SketchLibrarySystem;
   const apply = (document?: SketchDocument) => (SketchLibrarySystem.prototype as unknown as { setDocumentContext(document?: SketchDocument): void }).setDocumentContext.call(receiver, document);
   const metadata = { Environment: { FogColor: [31, 31, 78, 255], FogDensity: 0.0014 }, Lights: {
     Ambient: [64, 128, 255, 255], Shadow: { Orientation: [0, 0, 0, 1], Color: [4, 2, 1, 1] }, NoShadow: { Orientation: [0, 0, 0, 1], Color: [0.1, 0.2, 0.3, 1] } } };
@@ -42,12 +42,15 @@ export async function validateRenderContext(container: HTMLDivElement) {
   check(Math.abs(uniforms.u_fogDensity.value - 0.00035) < 1e-9 && Math.abs(fog.density - 0.0035) < 1e-9 && close(uniforms.u_SceneLight_0_matrix.value.elements.slice(8, 11), [1, 0, 0]), "Scaling changed fog exponent/light direction");
   apply(readTiltFile(writeTiltFile(createSketchDocument({ tiltArchive: { metadata: { ...metadata, Environment: { ...metadata.Environment, FogDensity: 0 } }, entries: [] } })))); await frames();
   check(uniforms.u_fogDensity.value === 0 && fog.density === 0, "Explicit zero fog fell back to a default");
+  receiver.applySharedLayers(receiver.collectSharedLayers(), {}); await frames();
+  check(openBrushShaderLibrary.fogDensityNative === OPENBRUSH_FOG_DENSITY && JSON.stringify(receiver.collectSharedRenderMetadata()) === "{}", "Default shared context retained stale native overrides");
+  apply(file); await frames();
   apply(); await frames();
   check(openBrushShaderLibrary.fogDensityNative === OPENBRUSH_FOG_DENSITY && Math.abs(uniforms.u_fogDensity.value - 0.0025 / 4) < 1e-9 && close(uniforms.u_ambient_light_color.value.toArray(), OPENBRUSH_AMBIENT_LIGHT_COLOR), "New document retained prior custom context");
   check(JSON.stringify(metadata) === original && JSON.stringify(file.tiltArchive!.metadata.Environment) === JSON.stringify(metadata.Environment), "Context application rewrote source metadata");
   const deadline = performance.now() + 20000;
   while (!world.scene.getObjectByName("OpenBrushEnvironmentStandard") && performance.now() < deadline) await frames();
   check(!!world.scene.getObjectByName("OpenBrushEnvironmentStandard"), "Environment asset did not finish loading");
-  return { passed: true, initial, scale4ShaderDensity: 0.00035, scale4SceneDensity: 0.0035, zeroFogPreserved: true, lateMaterialSharesContext: true, resetRestoresStandard: true, metadataUnchanged: true,
+  return { passed: true, initial, scale4ShaderDensity: 0.00035, scale4SceneDensity: 0.0035, zeroFogPreserved: true, lateMaterialSharesContext: true, sharedDefaultClearsOverrides: true, resetRestoresStandard: true, metadataUnchanged: true,
     scope: "Production document context method, shader holders, per-frame scene pose and loaded geometry fog; synthetic native file data, no native pixels, presets/skyboxes or physical XR" };
 }

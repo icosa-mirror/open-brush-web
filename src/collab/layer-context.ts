@@ -1,11 +1,13 @@
 import { createSketchLayer, type SketchLayer } from "../sketch/document.js";
 import { readWebLayerTransform, sameLayerTransform } from "../sketch/layer-transform.js";
+import { parseSharedRenderMetadata, type SharedRenderMetadata } from "./render-context.js";
 
 // Even the worst JSON escaping of 1,000 UTF-16 units fits below PeerJS's
 // ~16 KB JSON frame limit. Splitting pairs is safe: frames decode back to the
 // same code units before the complete context JSON is parsed.
-export const LAYER_CONTEXT_CHARS_PER_MESSAGE = 1000;
-export interface LayerContextChunk { from: number; data: string }
+export const SKETCH_CONTEXT_CHARS_PER_MESSAGE = 1000;
+export interface SketchContextChunk { from: number; data: string }
+export interface SharedSketchContext { layers: SketchLayer[]; renderMetadata: SharedRenderMetadata }
 
 export function parseLayerContext(value: unknown): SketchLayer[] | undefined {
   if (!Array.isArray(value) || value.length === 0) return undefined;
@@ -20,17 +22,18 @@ export function parseLayerContext(value: unknown): SketchLayer[] | undefined {
   return result;
 }
 
-export function encodeLayerContext(layers: readonly SketchLayer[]): { length: number; chunks: LayerContextChunk[] } {
+export function encodeSketchContext(layers: readonly SketchLayer[], renderMetadata: SharedRenderMetadata = {}): { length: number; chunks: SketchContextChunk[] } {
   const parsed = parseLayerContext(layers);
-  if (!parsed) throw new Error("Invalid shared sketch layer definitions.");
-  const text = JSON.stringify(parsed), chunks: LayerContextChunk[] = [];
-  for (let from = 0; from < text.length; from += LAYER_CONTEXT_CHARS_PER_MESSAGE) {
-    chunks.push({ from, data: text.slice(from, from + LAYER_CONTEXT_CHARS_PER_MESSAGE) });
+  const render = parseSharedRenderMetadata(renderMetadata);
+  if (!parsed || !render) throw new Error("Invalid shared sketch definitions.");
+  const text = JSON.stringify({ layers: parsed, renderMetadata: render }), chunks: SketchContextChunk[] = [];
+  for (let from = 0; from < text.length; from += SKETCH_CONTEXT_CHARS_PER_MESSAGE) {
+    chunks.push({ from, data: text.slice(from, from + SKETCH_CONTEXT_CHARS_PER_MESSAGE) });
   }
   return { length: text.length, chunks };
 }
 
-export class LayerContextReceiver {
+export class SketchContextReceiver {
   private length: number | undefined;
   private offset = 0;
   private parts: string[] = [];
@@ -42,15 +45,17 @@ export class LayerContextReceiver {
     this.length = length; this.offset = 0; this.parts = [];
   }
 
-  push(chunk: LayerContextChunk): SketchLayer[] | undefined {
-    if (this.length === undefined || chunk.from !== this.offset || typeof chunk.data !== "string" || !chunk.data.length || chunk.data.length > LAYER_CONTEXT_CHARS_PER_MESSAGE || this.offset + chunk.data.length > this.length) throw new Error("Invalid or incomplete shared layer transfer.");
+  push(chunk: SketchContextChunk): SharedSketchContext | undefined {
+    if (this.length === undefined || chunk.from !== this.offset || typeof chunk.data !== "string" || !chunk.data.length || chunk.data.length > SKETCH_CONTEXT_CHARS_PER_MESSAGE || this.offset + chunk.data.length > this.length) throw new Error("Invalid or incomplete shared layer transfer.");
     this.parts.push(chunk.data); this.offset += chunk.data.length;
     if (this.offset !== this.length) return undefined;
     const text = this.parts.join(""); this.reset();
-    let layers: SketchLayer[] | undefined;
-    try { layers = parseLayerContext(JSON.parse(text)); } catch { /* Invalid JSON. */ }
-    if (!layers) throw new Error("Invalid shared layer definitions.");
-    return layers;
+    try {
+      const value = JSON.parse(text);
+      const layers = parseLayerContext(value?.layers), renderMetadata = parseSharedRenderMetadata(value?.renderMetadata);
+      if (layers && renderMetadata) return { layers, renderMetadata };
+    } catch { /* Invalid JSON. */ }
+    throw new Error("Invalid shared sketch definitions.");
   }
 }
 

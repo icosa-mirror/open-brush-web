@@ -1,0 +1,24 @@
+{
+  "applicationBaseline": "2bbfbeb",
+  "checks": {
+    ".tmp/collab-render-check.log": "2f242becf496bdbdecf9465dd8347f2fa9c2f117b60dc0e5c02900865dd2fd7f",
+    ".tmp/collab-render-build.log": "2b465c2ea16d766baf64414dae2943a6844d0b22c3ad7915e936caf219284a7f",
+    ".tmp/collab-render-typecheck-final.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/collab/render-context.test.ts": "698fa3ffcaa9df97a82c3a6680e5e0d3cc8cc8d2457d91133930b100606721f7"
+  },
+  "uncommittedSelectionSourcesPresentDuringLocalChecks": {
+    "src/app/group-selection-validation.ts": "7b1f4ce79bc9ebd65eb542bc107242564b58f4252f8feb7dd5513765e93ae084",
+    "src/systems/selection-system.ts": "b9496e66931a422f3fc95776976279944cfcc0091240ad728a085cd5e430c043",
+    "src/systems/layer-canvas-system.ts": "798f8581cd62abe13e1ed40219b3cf46763aacef1dbcab0492ad3a0bbc4593bc"
+  },
+  "artifacts": {
+    "two-peer-results.json": "9b70cb9b371525095184c203bedfeb758bdb09c80c442c34af73a7515cd8a5b0",
+    "default-reset-results.json": "794458cc07e5995156854bbf4367745eafd1911c3485d05321c63b4c3076b09f"
+  },
+  "priorBaselineCI": {
+    "commit": "2bbfbeb",
+    "url": "https://github.com/icosa-mirror/open-brush-web/actions/runs/39724394836",
+    "conclusion": "success",
+    "scope": "Prior loaded render-context change; not this protocol change"
+  }
+}
