@@ -1,6 +1,6 @@
 # Open Brush parity plan and brush fidelity review
 
-Current planning audit: 2026-10-22, application baseline `c517cf4`.
+Current planning audit: 2026-10-22, application baseline `e874db2`.
 
 Original review: 2026-08-31, application baseline `4579dbb`.
 
@@ -269,6 +269,19 @@ every intervening upstream change.
     pose fields also retain an unchanged native pose encoding. These deterministic
     checks do not close native images, actual gestures, connected collaboration,
     layer-editing UI, widget layers or physical-device/performance gates.
+
+
+23. The [connected layer-context run](docs/evidence/brush-fidelity/collab-layers-2026-10-22/README.md)
+    verifies two desktop browser peers using the actual PeerJS transport. Protocol
+    v3 transfers layer IDs, names, visibility, locks and poses before strokes;
+    initial guest authoring waits for that context. Existing offline strokes
+    require compatible layer poses before merging. Synthetic input verifies
+    simultaneous unique strokes, undo/redo, reconnect replay and ending a session
+    on document replacement while retaining the other peer's work. Browser/page/
+    graphics errors are zero. Full checks pass with 616 tests and four TODOs;
+    the mirror build passes. This closes the connected web layer-context check
+    in item 22, not native multiplayer interoperability, native pixels, real
+    gestures, layer-editing UI, media/environment transfer or physical XR.
 
 ## Executive assessment
 

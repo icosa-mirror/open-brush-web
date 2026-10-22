@@ -2,8 +2,8 @@
 
 The file/document contract and layer-parented rendering/tool paths are now
 implemented, with [deterministic browser evidence](evidence/brush-fidelity/layer-runtime-2026-10-22/README.md).
-Native image agreement, real controller gestures, collaboration context and
-layer-editing UI remain unverified. The full parity goal remains open.
+Connected web layer context has separate [two-peer evidence](evidence/brush-fidelity/collab-layers-2026-10-22/README.md).
+Native image agreement, real controller gestures and layer-editing UI remain unverified. The full parity goal remains open.
 
 1. **Keep generator inputs layer-local.** `SketchLayer.transform` describes the
    layer-local to scene-local pose in web metres/basis. The file adapter converts
@@ -41,9 +41,11 @@ flowchart TD
    layers, extraction/reinsertion, translated world hits and local saved offsets.
    Full eraser/picker UI and native behavior comparisons remain open.
 5. **Other output/transport paths: partial.** GLB layer nodes now carry TRS;
-   tests verify that mesh bytes/accessors remain layer-local. Collaboration
-   still must deliver layer IDs/poses before stroke
-   snapshots and define behavior for peers lacking that context. Native widget
+   tests verify that mesh bytes/accessors remain layer-local. Web collaboration protocol v3
+   delivers layer IDs/poses before stroke snapshots, gates initial guest input,
+   and rejects incompatible retained stroke poses or older peers. Two connected
+   desktop browsers verify initial sync, concurrent drawing and offline replay.
+   Replacing a shared document ends the session and retains peer work. Native widget
    layer references and room/canvas/media transforms require their own checks;
    retaining opaque fields is not runtime interpretation.
 6. **Required acceptance evidence.** Use translated, rotated and scaled layers,

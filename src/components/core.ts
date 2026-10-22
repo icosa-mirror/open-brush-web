@@ -166,6 +166,8 @@ export const PersistenceState = createComponent("PersistenceState", {
 });
 
 export const CollabState = createComponent("CollabState", {
+  /** Guest authoring waits until its host's layer frame is installed. */
+  contextReady: { type: Types.Boolean, default: true },
   // "idle" | "hosting" | "joining" | "connected" | "ended" | "error"
   status: { type: Types.String, default: "idle" },
   // "none" | "host" | "guest"

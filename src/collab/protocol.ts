@@ -1,4 +1,5 @@
 import type { ControlPoint, Quat, StrokeData, Vec3 } from "../types.js";
+import { LAYER_CONTEXT_CHARS_PER_MESSAGE, type LayerContextChunk } from "./layer-context.js";
 
 /**
  * Two-user collaboration protocol. Transport is a single reliable PeerJS
@@ -7,11 +8,12 @@ import type { ControlPoint, Quat, StrokeData, Vec3 } from "../types.js";
  * are immutable and keyed by author-unique GUIDs, and erase/undo/redo all
  * reduce to an idempotent per-stroke visibility boolean.
  *
- * All stroke data and tip poses travel in CANVAS space (the OpenBrushScenePose
- * frame), so each side's own world-grab pose never leaks into shared state.
+ * Stroke data stays layer-local; snapshots establish the shared layer poses
+ * before strokes. Tip/head poses use the scene frame. Each side's world grab
+ * remains local to that side.
  */
 
-export const COLLAB_PROTOCOL_VERSION = 2;
+export const COLLAB_PROTOCOL_VERSION = 3;
 /**
  * PeerJS JSON data channels refuse (and KILL the connection on) any message
  * over util.chunkedMTU (~16 KB), so strokes travel as a begin/points/end
@@ -59,7 +61,10 @@ export interface CollabSnapshotMessage {
   version: number;
   sketchName: string;
   strokeCount: number;
+  layerDataLength: number;
 }
+
+export interface CollabLayerDataMessage extends LayerContextChunk { t: "layer-data" }
 
 /**
  * Opens an incremental stroke transfer: carries the stroke metadata with an
@@ -135,6 +140,7 @@ export interface CollabByeMessage {
 export type CollabMessage =
   | CollabHelloMessage
   | CollabSnapshotMessage
+  | CollabLayerDataMessage
   | CollabStrokeBeginMessage
   | CollabStrokePointsMessage
   | CollabStrokeEndMessage
@@ -147,6 +153,7 @@ export type CollabMessage =
 const MESSAGE_TYPES = new Set([
   "hello",
   "snapshot",
+  "layer-data",
   "stroke-begin",
   "stroke-points",
   "stroke-end",
@@ -187,6 +194,7 @@ export function isValidStrokeData(value: unknown): value is StrokeData {
     typeof stroke.brushGuid === "string" &&
     Number.isFinite(stroke.brushSize) &&
     Number.isFinite(stroke.brushScale) &&
+    Number.isSafeInteger(stroke.layerIndex) && stroke.layerIndex >= 0 && stroke.layerIndex <= 0x7fffffff &&
     (stroke.lastControlPointIsKeeper === undefined || typeof stroke.lastControlPointIsKeeper === "boolean") &&
     isFiniteNumberArray(stroke.color, 4) &&
     Array.isArray(stroke.controlPoints) &&
@@ -224,9 +232,12 @@ export function parseCollabMessage(raw: unknown): CollabMessage | undefined {
     case "snapshot":
       return Number.isFinite(message.version) &&
         typeof message.sketchName === "string" &&
-        Number.isFinite(message.strokeCount)
+        Number.isSafeInteger(message.strokeCount) && message.strokeCount >= 0 &&
+        (message.version !== COLLAB_PROTOCOL_VERSION || (Number.isSafeInteger(message.layerDataLength) && message.layerDataLength > 0))
         ? message
         : undefined;
+    case "layer-data":
+      return Number.isSafeInteger(message.from) && message.from >= 0 && typeof message.data === "string" && message.data.length > 0 && message.data.length <= LAYER_CONTEXT_CHARS_PER_MESSAGE ? message : undefined;
     case "stroke-begin":
       return isValidStrokeData(message.stroke) &&
         typeof message.live === "boolean"

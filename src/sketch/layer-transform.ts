@@ -12,7 +12,9 @@ function tuple(value: unknown, length: number): number[] {
 function unitRotation(value: unknown): Quat {
   const q = tuple(value, 4), length = Math.hypot(...q);
   if (!Number.isFinite(length) || length === 0) throw new Error("Sketch layer rotation must have a finite nonzero length.");
-  return q.map(number => Math.abs(length - 1) <= Number.EPSILON * 4 ? number : number / length) as Quat;
+  // Preserve rotations already unit length at Float32 precision. Repeated
+  // normalization/quantization can otherwise move a peer's pose by one ULP.
+  return q.map(number => Math.abs(length - 1) <= 2 ** -21 ? number : number / length) as Quat;
 }
 
 export function readWebLayerTransform(value: unknown): SketchLayerTransform | undefined {

@@ -1,0 +1,29 @@
+{
+  "applicationBaseline": "e874db2",
+  "scope": "Two private desktop browser peers using application PeerJS transport, controlled layer poses and synthetic mouse input; no native pixels or physical XR",
+  "sourceHashes": {
+    "src/collab/protocol.ts": "436df430db603e344e2bd61f212a811c9834c9dbb6fe080c40d7b0162e4989c1",
+    "src/collab/layer-context.ts": "8541df948eae1283503cdf5478f383437568575dd8b66378c4bb1788017d6ce2",
+    "src/systems/collab-system.ts": "aba31a99df277a5c3f4db93f34ac7f6dd751b0a388fa22889915ca35e0a5dbc3",
+    "src/systems/sketch-library-system.ts": "fc3ea581231fda0dcc48d666dcc90b9f0457708b273f206dfe5fac4011e61ed4",
+    "src/systems/stroke-authoring-system.ts": "4d275bed8a939c9a8e113667950f7bff7d7ccabe82195830051eba1ee9d6333c",
+    "src/systems/layer-canvas-system.ts": "c17b0cd9b0f5250517a66ed48a76828e6a813a74fcbdbcf29f7bb0f38fe65b97",
+    "src/sketch/layer-transform.ts": "5d0673bb3fb1ce9c8e67a87b34dcbda72caeb189b897b469d6a923fb1ce1bb8d",
+    "src/components/core.ts": "ab85fde94cc77150188f68539f289eb1ec963fefbf67d2c36e31f242c3b824c4",
+    "scripts/browser-collab-layers.mjs": "436b8609503deb6690549429aea99c7af5ea39e4f7ac11da7e7a910167bbb143",
+    "package-lock.json": "f994e07d2de98eabdcd30394cd9be512ac6db3b62254301c8a130302ee4a1e04"
+  },
+  "artifacts": {
+    "browser-results.json": "97b30a5d44807a33f619e3991997bf65d8929d8d602fe79ea5a7056bb99b6393"
+  },
+  "checks": {
+    "check": {
+      "path": ".tmp\\collab-layer-check.log",
+      "sha256": "c13ec54f04c52e2a2f61a761f88b84875e36a02faf9e5c959cf62a071b2c6b79"
+    },
+    "build": {
+      "path": ".tmp\\collab-layer-build.log",
+      "sha256": "4ab802fc07117574e94fd9273715b870055754954717a28f722b0c8f139492e4"
+    }
+  }
+}

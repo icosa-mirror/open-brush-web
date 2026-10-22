@@ -14,6 +14,8 @@ import {
 import type { Entity, Object3D } from "@iwsdk/core";
 import { Peer } from "peerjs";
 import type { DataConnection } from "peerjs";
+import type { SketchLayer } from "../sketch/document.js";
+import { encodeLayerContext, LayerContextReceiver, layerPosesCompatible } from "../collab/layer-context.js";
 
 import {
   CollabState,
@@ -127,6 +129,12 @@ export class CollabSystem extends createSystem({
 
   // Snapshot streaming (guest side).
   private snapshotStrokesPending = 0;
+  private readonly layerReceiver = new LayerContextReceiver();
+  private remoteLayers: SketchLayer[] = [];
+  private remoteContextReady = false;
+  private layerContextReady = true;
+  private hasSharedLayerContext = false;
+  private incomingSketchName = "Shared Sketch";
   private recvCount = 0;
   private lastRecvClock = 0;
   private readonly recentOps: string[] = [];
@@ -156,6 +164,12 @@ export class CollabSystem extends createSystem({
   private readonly tempPoseQuaternion = new Quaternion();
 
   init() {
+    const library = this.world.getSystem(SketchLibrarySystem);
+    if (library) {
+      const replacing = () => { if (this.phase !== "idle") this.teardown("Left the sketch", "ended"); };
+      library.onDocumentReplacing = replacing;
+      this.cleanupFuncs.push(() => { if (library.onDocumentReplacing === replacing) library.onDocumentReplacing = undefined; });
+    }
     // Localhost-only handle so a plain 2D browser tab (no XR input) can
     // exercise the collab path end to end in tests.
     if (globalThis.location?.hostname === "localhost") {
@@ -224,7 +238,7 @@ export class CollabSystem extends createSystem({
       this.handleConnectionLost();
       return;
     }
-    this.broadcastStrokeProgress(delta);
+    if (this.layerContextReady) this.broadcastStrokeProgress(delta);
     this.broadcastTip(delta);
   }
 
@@ -274,6 +288,8 @@ export class CollabSystem extends createSystem({
     }
     this.world.getSystem(StrokeAuthoringSystem)?.clearRemoteActiveStrokes();
     this.assembling.clear();
+    this.layerReceiver.reset(); this.remoteLayers = []; this.remoteContextReady = false;
+    this.setLayerContextReady(this.role !== "guest" || this.hasSharedLayerContext);
     if (this.clock - this.connectedAtClock >= RECONNECT_INTERVAL_SECONDS) {
       // A fresh disruption gets a full retry budget; a connection that died
       // within seconds of opening is a recovery that isn't sticking — keep
@@ -387,6 +403,7 @@ export class CollabSystem extends createSystem({
     this.phase = "joining";
     this.role = "guest";
     this.reconnectAttemptsLeft = RECONNECT_ATTEMPTS;
+    this.setLayerContextReady(false);
     this.code = code;
     this.joinStartedClock = this.clock;
     this.setStatus("joining", `Joining ${code}...`);
@@ -477,18 +494,20 @@ export class CollabSystem extends createSystem({
       this.phase = "connected";
       this.lastRecvClock = this.clock;
       this.connectedAtClock = this.clock;
+      this.layerReceiver.reset(); this.remoteLayers = []; this.remoteContextReady = false;
+      this.lastProgressGuid = ""; this.lastProgressPointCount = 0;
       this.startKeepalive(conn);
       this.world.getSystem(AudioFeedbackSystem)?.playSound("connect");
       if (this.role === "guest") {
+        this.setLayerContextReady(false);
         conn.send({ t: "hello", version: COLLAB_PROTOCOL_VERSION });
         this.setStatus("connected", "Connected - syncing sketch");
       } else {
         this.setStatus("connected", `Connected - code ${this.code}`);
       }
-      // Both sides sync their visible strokes: on first join the guest has
-      // none, and after a reconnect this merges what either side drew while
-      // apart (stroke GUIDs dedup the replays).
-      this.sendSnapshot();
+      // The guest replies after installing the host's layer frame. Its reply
+      // merges retained offline strokes without racing ahead of shared poses.
+      if (this.role === "host") this.sendSnapshot();
     });
     conn.on("data", (data) => {
       if (this.conn === conn) {
@@ -664,6 +683,9 @@ export class CollabSystem extends createSystem({
     this.role = "none";
     this.code = "";
     this.snapshotStrokesPending = 0;
+    this.layerReceiver.reset(); this.remoteLayers = []; this.remoteContextReady = false;
+    this.hasSharedLayerContext = false;
+    this.setLayerContextReady(true);
     this.lastProgressGuid = "";
     this.committedGuids.clear();
     this.world.getSystem(StrokeAuthoringSystem)?.clearRemoteActiveStrokes();
@@ -682,6 +704,11 @@ export class CollabSystem extends createSystem({
     }
   }
 
+  private setLayerContextReady(ready: boolean): void {
+    this.layerContextReady = ready;
+    this.getAppState()?.setValue(CollabState, "contextReady", ready);
+  }
+
   private sendSnapshot(): void {
     const library = this.world.getSystem(SketchLibrarySystem);
     const appState = this.getAppState();
@@ -689,6 +716,9 @@ export class CollabSystem extends createSystem({
       return;
     }
     const strokes = library.collectVisibleStrokeData();
+    let context: ReturnType<typeof encodeLayerContext>;
+    try { context = encodeLayerContext(library.collectSharedLayers()); }
+    catch { this.teardown("Cannot share invalid layer definitions", "error"); return; }
     const sketchName = appState
       ? String(appState.getValue(PersistenceState, "activeSketchName"))
       : "Shared Sketch";
@@ -697,7 +727,9 @@ export class CollabSystem extends createSystem({
       version: COLLAB_PROTOCOL_VERSION,
       sketchName,
       strokeCount: strokes.length,
+      layerDataLength: context.length,
     });
+    for (const chunk of context.chunks) this.send({ t: "layer-data", ...chunk });
     for (const stroke of strokes) {
       this.sendCommittedStroke(stroke);
     }
@@ -731,17 +763,41 @@ export class CollabSystem extends createSystem({
           break;
         }
         this.snapshotStrokesPending = message.strokeCount;
-        if (this.role === "guest") {
-          // Only the guest adopts the sketch name; the host's snapshot of a
-          // reconnecting guest must not rename the host's sketch.
-          this.world
-            .getSystem(SketchLibrarySystem)
-            ?.adoptCollabSketchName(message.sketchName);
-        }
-        this.setStatus("connected", `Connected - code ${this.code}`);
+        this.incomingSketchName = message.sketchName;
+        this.remoteContextReady = false; this.remoteLayers = [];
+        try { this.layerReceiver.begin(message.layerDataLength); }
+        catch { this.teardown("Invalid shared layer transfer", "error"); break; }
+        if (this.role === "guest") this.setLayerContextReady(false);
+        this.setStatus("connected", "Connected - syncing sketch");
         break;
       }
-      case "stroke-begin":
+      case "layer-data": {
+        try {
+          const layers = this.layerReceiver.push(message);
+          if (!layers) break;
+          this.remoteLayers = layers;
+          const library = this.world.getSystem(SketchLibrarySystem);
+          if (!library) throw new Error("Missing sketch library");
+          if (this.role === "guest") {
+            library.applySharedLayers(layers);
+            library.adoptCollabSketchName(this.incomingSketchName);
+            this.hasSharedLayerContext = true;
+            this.setLayerContextReady(true);
+          }
+          this.remoteContextReady = true;
+          if (this.role === "guest") this.sendSnapshot();
+          this.setStatus("connected", `Connected - code ${this.code}`);
+        } catch {
+          this.teardown("Shared layers are invalid or differ from local strokes", "error");
+        }
+        break;
+      }
+      case "stroke-begin": {
+        const localLayers = this.world.getSystem(SketchLibrarySystem)?.collectSharedLayers() ?? [];
+        if (!this.remoteContextReady || !layerPosesCompatible(localLayers, this.remoteLayers, [message.stroke.layerIndex])) {
+          this.teardown("Stroke arrived without matching shared layers", "error");
+          break;
+        }
         // Re-announcing a guid resets its assembly: a committed stroke
         // replaces its own live preview this way.
         this.assembling.set(message.stroke.guid, {
@@ -749,6 +805,7 @@ export class CollabSystem extends createSystem({
           live: message.live,
         });
         break;
+      }
       case "stroke-points": {
         const entry = this.assembling.get(message.guid);
         if (!entry) {
@@ -885,6 +942,7 @@ export class CollabSystem extends createSystem({
 
   /** Streams a committed stroke as a begin/points/end sequence. */
   private sendCommittedStroke(stroke: StrokeData): void {
+    if (!this.layerContextReady) return;
     this.send({
       t: "stroke-begin",
       stroke: { ...stroke, controlPoints: [] },
@@ -1269,6 +1327,8 @@ export class CollabSystem extends createSystem({
       role: this.role,
       code: this.code,
       connected: Boolean(this.conn?.open),
+      layerContextReady: this.layerContextReady,
+      remoteContextReady: this.remoteContextReady,
       snapshotStrokesPending: this.snapshotStrokesPending,
       recvCount: this.recvCount,
       recentOps: [...this.recentOps],

@@ -49,6 +49,7 @@ import { IntroSketchSystem } from "./intro-sketch-system.js";
 import { StrokeAuthoringSystem } from "./stroke-authoring-system.js";
 import { StrokeBatchRenderSystem } from "./stroke-batch-render-system.js";
 import { LayerCanvasSystem } from "./layer-canvas-system.js";
+import { layerPosesCompatible } from "../collab/layer-context.js";
 import { assetUrl } from "../app/asset-url.js";
 
 const WELCOME_SKETCH_ID = "welcome-sketch";
@@ -113,6 +114,7 @@ export class SketchLibrarySystem extends createSystem({
   private transition?: Transition;
   private busy = false;
   private activeDocumentContext = createSketchDocument({ metadata: { source: "runtime" } });
+  onDocumentReplacing?: () => void;
   private thumbnailTarget?: WebGLRenderTarget;
   private thumbnailCamera?: PerspectiveCamera;
   private thumbnailPixels?: Uint8Array;
@@ -234,6 +236,14 @@ export class SketchLibrarySystem extends createSystem({
     return this.collectStrokeData();
   }
 
+  collectSharedLayers(): SketchLayer[] { return this.collectLayers(); }
+
+  applySharedLayers(layers: SketchLayer[]): void {
+    const used = [...this.queries.strokes.entities].map(entity => Number(entity.getValue(BrushStroke, "layerIndex")));
+    if (!layerPosesCompatible(this.collectLayers(), layers, used)) throw new Error("Shared layer poses differ from existing local strokes.");
+    this.setDocumentContext(createSketchDocument({ ...this.activeDocumentContext, layers, strokes: [] }));
+  }
+
   /** Entries currently offered on the gallery's visible page. */
   getGalleryPageEntries(): ReadonlyArray<Readonly<GalleryEntry>> {
     return this.entries.slice(this.page * CELLS_PER_PAGE, (this.page + 1) * CELLS_PER_PAGE);
@@ -306,6 +316,7 @@ export class SketchLibrarySystem extends createSystem({
     if (!appState || this.busy) {
       return;
     }
+    this.onDocumentReplacing?.();
     this.busy = true;
     this.transitionOutStrokes(() => {
       this.getIntroSketchSystem()?.setSketchVisible(false);
@@ -325,6 +336,7 @@ export class SketchLibrarySystem extends createSystem({
     }
     this.busy = true;
     if (entry.id === WELCOME_SKETCH_ID) {
+      this.onDocumentReplacing?.();
       this.transitionOutStrokes(() => {
         this.getIntroSketchSystem()?.setSketchVisible(true);
         this.setDocumentContext();
@@ -388,6 +400,7 @@ export class SketchLibrarySystem extends createSystem({
       this.busy = false;
       return;
     }
+    this.onDocumentReplacing?.();
     this.transitionOutStrokes(() => {
       this.getIntroSketchSystem()?.setSketchVisible(false);
       this.setDocumentContext(document);

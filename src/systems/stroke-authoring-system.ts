@@ -25,6 +25,7 @@ import {
   BrushSettings,
   BrushStroke,
   CanvasLayer,
+  CollabState,
   InputCommandState,
   OpenBrushAppState,
   OpenBrushEraserCursor,
@@ -216,6 +217,7 @@ export class StrokeAuthoringSystem extends createSystem({
   history: { required: [StrokeHistoryState] },
   settings: { required: [SettingsState] },
   layers: { required: [CanvasLayer] },
+  collabState: { required: [CollabState] },
   strokes: { required: [BrushStroke] },
   hoveredPanels: { required: [PanelUI, OpenBrushPanelAttachment, Hovered] },
   hoveredCustomPanels: {
@@ -783,6 +785,14 @@ export class StrokeAuthoringSystem extends createSystem({
 
     const commandEntity = this.getFirstEntity("commands");
     if (!commandEntity) {
+      return;
+    }
+    const sync = this.queries.collabState.entities.values().next().value;
+    if (sync && sync.getValue(CollabState, "contextReady") === false) {
+      this.suppressPaintUntilRelease = true;
+      this.resetPreviewTrailPoints();
+      const state = this.getFirstEntity("appState");
+      if (state) this.setToolStatus(state, "Syncing sketch");
       return;
     }
     this.updatePreviewTrail(_delta);
@@ -2780,6 +2790,7 @@ export class StrokeAuthoringSystem extends createSystem({
    */
   resetStrokeHistory(): void {
     this.strokeHistory.forgetAll();
+    this.activeStroke = undefined;
     this.disposePreviewTrail();
   }
 
