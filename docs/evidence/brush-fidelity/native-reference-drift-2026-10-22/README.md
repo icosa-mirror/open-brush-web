@@ -36,13 +36,12 @@
 6. Therefore the fresh 95/95 mesh comparisons remain evidence against
    **`5591ff1`** under their recorded fixture rules. They cannot be relabelled
    as measurements against `4786d55`. All 95 rows explicitly retain runtime
-   equivalence as unverified. The subsequent planning decision is to target
-   current upstream Open Brush and migrate the inherited July pin. Resolve and
-   record an exact current revision, align extraction/assets/dependencies, then
-   regenerate fixtures/captures and rerun affected checks. Generating a July
-   acceptance baseline is not the intended next step. This historical audit does
-   not identify today's latest upstream revision or perform that migration; no
-   pin update or visual-parity promotion follows from this documentation change.
+   equivalence as unverified. Current upstream Open Brush is the native
+   comparison target. Compare the existing web output against that target;
+   changing the comparison target does not authorize regenerating web textures,
+   assets or dependencies. Record the exact native revision and fixture hashes,
+   rerun comparisons and report differences separately. This historical audit
+   does not itself establish those results.
 
 Reproduce from the web repository root, with a new output directory:
 

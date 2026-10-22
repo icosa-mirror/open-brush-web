@@ -2,6 +2,10 @@
 
 The file/document contract and layer-parented rendering/tool paths are now
 implemented, with [deterministic browser evidence](evidence/brush-fidelity/layer-runtime-2026-10-22/README.md).
+[Selection-canvas parenting and visibility](evidence/brush-fidelity/selection-canvas-2026-10-22/README.md)
+are implemented with repeated parent-lifecycle acceptance. The application
+compatibility adapter preserves packed ECS references; upstream SDK correction
+remains separate.
 Connected web layer context has separate [two-peer evidence](evidence/brush-fidelity/collab-layers-2026-10-22/README.md).
 Native image agreement, real controller gestures and layer-editing UI remain unverified. The full parity goal remains open.
 
@@ -41,7 +45,7 @@ flowchart TD
    layers, extraction/reinsertion, translated world hits and local saved offsets.
    Full eraser/picker UI and native behavior comparisons remain open.
 5. **Other output/transport paths: partial.** GLB layer nodes now carry TRS;
-   tests verify that mesh bytes/accessors remain layer-local. Web collaboration protocol v3
+   tests verify that mesh bytes/accessors remain layer-local. Web collaboration protocol v4
    delivers layer IDs/poses before stroke snapshots, gates initial guest input,
    and rejects incompatible retained stroke poses or older peers. Two connected
    desktop browsers verify initial sync, concurrent drawing and offline replay.

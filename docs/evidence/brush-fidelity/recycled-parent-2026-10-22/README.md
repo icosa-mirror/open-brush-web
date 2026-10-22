@@ -28,7 +28,9 @@
    mesh probe remained beneath an unresolved recycled parent. Those failed
    application runs remain diagnostics under `.tmp/selection-canvas-*`; none is
    accepted as complete selection rendering evidence. The implementation stays
-   uncommitted pending the framework fix.
+   uncommitted at this diagnostic checkpoint. Subsequent
+   [selection acceptance](../selection-canvas-2026-10-22/README.md) uses an
+   application compatibility layer without editing installed dependency source.
 5. The framework fix must preserve packed references in both paths while
    retaining Object3D entity indices for APIs that use indices. Acceptance must
    verify immediate and post-frame ECS parent resolution, reparenting away from
@@ -51,3 +53,9 @@ node scripts/browser-layer-state.mjs --harness scripts/recycled-parent-harness.h
 The current diagnostic expects the failure and should stop matching after the
 framework is fixed. Add a positive lifecycle regression for the corrected
 behavior rather than treating successful reproduction as a passing feature.
+
+The later application adapter preserves the SDK parent setter and stores the
+parent through the public ECS setter after each assignment, with lifecycle
+replay/cleanup. Its positive regression covers repeated reuse and detach/reattach;
+selection acceptance is recorded separately. The original unadapted failure and
+this diagnostic's meaning are unchanged.

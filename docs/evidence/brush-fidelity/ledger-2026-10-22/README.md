@@ -42,8 +42,8 @@
    generated at `5591ff1...`. It retains that discrepancy explicitly; joining
    records does not reconcile revisions or image settings. The current plan
    targets current upstream Open Brush, with an exact revision to be recorded
-   during baseline migration. Align source/assets and regenerate affected
-   evidence before assigning results to that target. These historical records
+   for the comparison. Keep web assets/dependencies unchanged and rerun
+   comparisons against attributable current native output. These historical records
    remain attributed to the versions actually tested.
 7. Full checking passed: 85 Vitest files, 594 passed tests and four existing
    TODOs. Join regressions cover all 95 recorded identities, retained PBR paths,
