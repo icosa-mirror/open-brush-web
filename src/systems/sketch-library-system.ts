@@ -690,6 +690,7 @@ export class SketchLibrarySystem extends createSystem({
       layers.push(
         createSketchLayer({
           id: Number(entity.getValue(CanvasLayer, "layerIndex")),
+          transform: this.activeDocumentContext.layers.find(layer => layer.id === Number(entity.getValue(CanvasLayer, "layerIndex")))?.transform,
           name: String(entity.getValue(CanvasLayer, "layerName")),
           visible: Boolean(entity.getValue(CanvasLayer, "visible")),
           locked: Boolean(entity.getValue(CanvasLayer, "locked")),

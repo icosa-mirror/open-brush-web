@@ -1,0 +1,353 @@
+{
+  "recordedAt": "2026-10-22T01:44:36.159829+00:00",
+  "scope": "Bundled-file metadata inventory; checkout revision does not establish the producing revision of these sketches",
+  "checkoutRevision": "5591ff1aad5288903e718752c522d54420ae6d1e",
+  "sampleCount": 49,
+  "samplesWithLayerMetadata": 0,
+  "nonidentityTransformCount": 0,
+  "samples": [
+    {
+      "file": "Support/Sketches/Promoted/Van_Gogh_Wheatfield.tilt",
+      "bytes": 7326580,
+      "metadataSha256": "fcb0dfc71e801e550a8a0b1ae1de00ff4c9158b1ec0ce324a4b63c25e072556d",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/Promoted/TiltMech.tilt",
+      "bytes": 859563,
+      "metadataSha256": "5f878dc5d725f85f0928e4afd7502ac0c788efe61aa1162cb9659ea1e72da808",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/Promoted/Stay_Strong_Americans.tilt",
+      "bytes": 2456899,
+      "metadataSha256": "202db550f5a466094bd4cd6cf1bf0e7cf11cd36523af9243f7740c5df78f2758",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/Promoted/Liz_Edwards_Wonder_Woman.tilt",
+      "bytes": 5795925,
+      "metadataSha256": "c6cc4b81f8dcb65d4fc1357559bef9535bd919418036203a1844644886aff618",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/Promoted/Liz_Edwards_Spaceship.tilt",
+      "bytes": 5307947,
+      "metadataSha256": "47d937691ae0cd2c409d59331f8311777665315f361f3e98c37d5975f4f4f680",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/Promoted/Liz_Edwards_Portrait.tilt",
+      "bytes": 1468369,
+      "metadataSha256": "2a876b78bd21f12388e2c9ae589b4c4e1203d3086eaa7cc06b208f27069b9630",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/Promoted/Fox_Rabbit_and_Eyeball.tilt",
+      "bytes": 2656989,
+      "metadataSha256": "e83c85d75c855f2774030a32e89d3a514417585f0fb25967e746a8f2a4b203b5",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/Promoted/Estella_Tse_Butterfly.tilt",
+      "bytes": 4425522,
+      "metadataSha256": "5f61a685e3f02ccad1f16dc59a8f9a6dacb8952bf1fb3c32cf96cf0fe4dc3b17",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/Promoted/Chaman.tilt",
+      "bytes": 4243235,
+      "metadataSha256": "274f8dfb3fab5f4ae8e76227e4888f80102753c4275b9acddf3b2904f73de403",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/Promoted/Blue_Tit.tilt",
+      "bytes": 387192,
+      "metadataSha256": "60b3d00be858be7fb27e03902dc3fd79b5b599b4959f6325d73e5bc481572b48",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/Promoted/3Dominus_SpaceX.tilt",
+      "bytes": 4720654,
+      "metadataSha256": "41feb082ea90b7e6f5549b5ad2c81083cefe9358b0e5a6e3567d6130859c26fa",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/PerfTest/Disco.tilt",
+      "bytes": 135505,
+      "metadataSha256": "2b7417b1674f5fc5785eae51f1cb92679022a92840718196e945ef603ff8de3e",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/PerfTest/Chromatic.tilt",
+      "bytes": 111059,
+      "metadataSha256": "87d73f4c4d9f484ff220703f2839e622b89554747568a423eba0a636eebfe251",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/PerfTest/Bubbles.tilt",
+      "bytes": 119016,
+      "metadataSha256": "699e57c200763eff32d68a5a322409cc4c3943f231a74c75f9cb617dfd009078",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/PerfTest/Bristles.tilt",
+      "bytes": 94855,
+      "metadataSha256": "458a71106dbd04197d579a2745e3674fc625198309d9cb568abe12d2d73f75d2",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/PerfTest/Wire.tilt",
+      "bytes": 64924,
+      "metadataSha256": "563837d70b9473510d5d2cb95fd3c0fd4caada9124c3d393283bf74577bd5dd0",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/PerfTest/Waveform.tilt",
+      "bytes": 119088,
+      "metadataSha256": "26c9c8744b5d8d60f4d8aaff12983398ca551eba35e75816c3a5cf810a35ae86",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/PerfTest/Velvet.tilt",
+      "bytes": 115869,
+      "metadataSha256": "63d7a318a7796b84d91041f7a3c77cc29836777c17d7920bff805400e1796b5a",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/PerfTest/Toon.tilt",
+      "bytes": 113026,
+      "metadataSha256": "b651c08cd489f9f1a37dc489e47f72ce6c3bd3b00e461122a8de5c8deec369e2",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/PerfTest/ThickPaint.tilt",
+      "bytes": 167037,
+      "metadataSha256": "a905a2022b7b3664a843f282861125b75b56ba3514cd503a52b22c1c92f736e8",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/PerfTest/Streamers.tilt",
+      "bytes": 165704,
+      "metadataSha256": "3cdf8f58fe97f0a6aba723d081a5c3f019d4de3757018026f2132e89dba5b50c",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/PerfTest/Stars.tilt",
+      "bytes": 137594,
+      "metadataSha256": "ec80742392627bfa43acb361b3f0e737e0af2b53a00198b0ceecc2e88488a16f",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/PerfTest/Splatter.tilt",
+      "bytes": 87467,
+      "metadataSha256": "5577c099c2e4cf26ce20434da3d6729d091a8ca46145eefbc643df20b558f023",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/PerfTest/SoftHighlighter.tilt",
+      "bytes": 117452,
+      "metadataSha256": "2209d3fbf2cc33e96e83a3481d79b06f542b141efa0e784c97f42a65d693a5fd",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/PerfTest/Snow.tilt",
+      "bytes": 100360,
+      "metadataSha256": "6ec677048d44b013db470d3a7efe546dcfa25f03254507a0e487ffdb6c770b92",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/PerfTest/Smoke.tilt",
+      "bytes": 110148,
+      "metadataSha256": "b62df3e6cba843c5b0786c0a6dda051b1e77504d18044aaa50cb8a94497605cf",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/PerfTest/Simple.tilt",
+      "bytes": 47040,
+      "metadataSha256": "8754fc25cd8e66c1dd35e56715b28a36c2e3261ab64000768b7e75b8e938475e",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/PerfTest/Rainbow.tilt",
+      "bytes": 132041,
+      "metadataSha256": "31c2fe2d00c5b3d0806edcbefd0b6af90c2bb67116356679cf19f8e89de36087",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/PerfTest/Paper.tilt",
+      "bytes": 129563,
+      "metadataSha256": "c3b1e4d038cecc941778b2be1d2b53e8d20aba8b0660ceccdf70ab88c03d4fe0",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/PerfTest/OilPaint.tilt",
+      "bytes": 152445,
+      "metadataSha256": "9a3b3e481ccd97dd2d4dd286377bab49cc370541c7316dc4ebf5d3d452aac2bc",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/PerfTest/NeonPulseMed.tilt",
+      "bytes": 243024,
+      "metadataSha256": "2c19063b292e6e1ae706cf8ac9b951f23e792b2b1abcd2d8910a244cda5dda32",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/PerfTest/NeonPulseDense.tilt",
+      "bytes": 873172,
+      "metadataSha256": "656122cb69d853347c8ed62296796fc6948eedc7d61e4febd1b002a1a3b56dde",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/PerfTest/NeonPulse.tilt",
+      "bytes": 105585,
+      "metadataSha256": "064ecea27a01a94e24fb59e4e15046e4d2ff93b204e5d6c9dbf02856bfcd6823",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/PerfTest/Marker.tilt",
+      "bytes": 49780,
+      "metadataSha256": "3332a79ec94b9c5460451708e117663ffb76443fd6bb0f93bdce8d80dbce2bf4",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/PerfTest/LightWire.tilt",
+      "bytes": 109455,
+      "metadataSha256": "de7761468fa15dffcd904106f64cc23384eb1f4870d1d46460129b197b5c661b",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/PerfTest/Light.tilt",
+      "bytes": 131270,
+      "metadataSha256": "d7ee62e4555cacff8d72efc536c736424329f95a7f4194fc5ef81887e8e2a7f2",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/PerfTest/Ink.tilt",
+      "bytes": 135742,
+      "metadataSha256": "3603cadb43854bca9a688699a44759fb0521e5aa8ef2d48ed1381f01b39f410b",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/PerfTest/Hypergrid.tilt",
+      "bytes": 118571,
+      "metadataSha256": "87c873b69b6a4568303de96326aa026cf16e83f448dfc343976ff10926089149",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/PerfTest/Hypercolor.tilt",
+      "bytes": 195183,
+      "metadataSha256": "e789409f88103e5aac2dc22d4bb158dbd836ce09a5dcbb33e9b38f8167490072",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/PerfTest/Highlighter.tilt",
+      "bytes": 89506,
+      "metadataSha256": "03947defdc2063a94254b3ca579b74606bb1b4cc40c7a5336431882ba7c5850f",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/PerfTest/Flat.tilt",
+      "bytes": 49786,
+      "metadataSha256": "1f9d7796072e29c8768837cc65d2d3526a1311ffb3897a73a53638ebbcd83f7a",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/PerfTest/Fire.tilt",
+      "bytes": 159729,
+      "metadataSha256": "f9eb63554d91a23e69231e81672c8c4b71aaa83fb79139468e4c54a0b13eeb8b",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/PerfTest/Embers.tilt",
+      "bytes": 121071,
+      "metadataSha256": "79ada3ba758f416ce5c9cb39cc1e8df963265958299596b44eaf0db041a6c0be",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/PerfTest/Electricity.tilt",
+      "bytes": 123785,
+      "metadataSha256": "02649c86fc971c83fecd9dec78b28eb6d68da096e99430df7e476c4b5c009b74",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/PerfTest/Duct.tilt",
+      "bytes": 141774,
+      "metadataSha256": "389dd21a9b3e364b06a93d6180f25435bef627a5ab1fe60e540c215bf4df43d0",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/PerfTest/Dots.tilt",
+      "bytes": 131382,
+      "metadataSha256": "cb3d3ca797d96b06ef31193053951b6c5cb1db6ff1481ae6d020db5106a96d60",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/Intro/Intro_Sketch_Simple.tilt",
+      "bytes": 3107396,
+      "metadataSha256": "a09469b6fe53f248994e50b73be2c1aa6fb57177b5203a97445859b824978a8a",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Support/Sketches/Intro/Intro_Sketch_Full.tilt",
+      "bytes": 8274692,
+      "metadataSha256": "d88c56967e0f2af10b54ef33bb1be76963b9d5cf26d18edc66d701643fd6db3d",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    },
+    {
+      "file": "Assets/Scripts/Export/Tests/OneStroke.tilt",
+      "bytes": 25408,
+      "metadataSha256": "bb59919912cd17c4ae5bc64a5bb82aea5a5962d4e25379ea6719a5be7263ceed",
+      "layerCount": 0,
+      "nonidentityTransformCount": 0
+    }
+  ]
+}

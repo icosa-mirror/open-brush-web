@@ -9,6 +9,7 @@ import {
 import { normalizeGuid } from "./binary.js";
 import { readSketchMemory, writeSketchMemory } from "./sketch-memory.js";
 import { nativeTiltStrokeToWeb, webStrokeToNativeTilt } from "./tilt-brush-units.js";
+import { nativeLayerTransformToWeb, readWebLayerTransform, sameLayerTransform, webLayerTransformToNative } from "./layer-transform.js";
 
 export const TILT_SENTINEL = 0x546c6974;
 export const TILT_HEADER_SIZE = 16;
@@ -219,6 +220,9 @@ function prepareNativeLayers(layers: readonly SketchLayer[], strokeLayers: reado
   };
   for (const layer of layers) {
     const index = ensureSlot(layer.id);
+    if (layer.transform && !sameLayerTransform(layer.transform, nativeLayerTransformToWeb(result[index].Transform))) {
+      result[index].Transform = webLayerTransformToNative(layer.transform);
+    }
     result[index] = { ...result[index], Name: layer.name, Visible: layer.visible };
   }
   for (const id of strokeLayers) ensureSlot(id);
@@ -237,6 +241,7 @@ function readLayers(
         name: String(layer.name),
         visible: Boolean(layer.visible),
         locked: Boolean(layer.locked),
+        transform: readWebLayerTransform(layer.transform) ?? nativeLayerTransformToWeb(metadata.Layers?.[readNativeLayerIds(metadata)?.indexOf(Number(layer.id)) ?? Number(layer.id)]?.Transform),
       }),
     );
   }
@@ -247,6 +252,7 @@ function readLayers(
       id: ids?.[index] ?? index,
       name: typeof layer.Name === "string" ? layer.Name : `Layer ${index + 1}`,
       visible: layer.Visible === true,
+      transform: nativeLayerTransformToWeb(layer.Transform),
     }));
     for (const id of new Set(strokeLayerIndexes)) {
       if (!nativeLayers.some(layer => layer.id === id)) nativeLayers.push(createSketchLayer({ id, name: `Layer ${id + 1}` }));

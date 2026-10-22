@@ -5,6 +5,14 @@ export interface SketchLayer {
   name: string;
   visible: boolean;
   locked: boolean;
+  /** Layer-local to scene-local pose; stroke/generator inputs stay layer-local. */
+  transform?: SketchLayerTransform;
+}
+
+export interface SketchLayerTransform {
+  position: Vec3;
+  rotation: Quat;
+  scale: number;
 }
 
 export interface SketchMetadata {
@@ -79,7 +87,7 @@ export function createSketchDocument({
       source: "fixture",
       ...metadata,
     },
-    layers: layers ?? [createSketchLayer({ id: 0, name: "Layer 1" })],
+    layers: layers?.map(layer => createSketchLayer(layer)) ?? [createSketchLayer({ id: 0, name: "Layer 1" })],
     media: media?.map(cloneSketchMediaReference) ?? [],
     strokes: strokes ?? [],
     ...(tiltArchive ? { tiltArchive: cloneTiltArchive(tiltArchive) } : {}),
@@ -91,13 +99,17 @@ export function createSketchLayer({
   name,
   visible = true,
   locked = false,
+  transform,
 }: {
   id: number;
   name: string;
   visible?: boolean;
   locked?: boolean;
+  transform?: SketchLayerTransform;
 }): SketchLayer {
-  return { id, name, visible, locked };
+  return { id, name, visible, locked, ...(transform ? { transform: {
+    position: [...transform.position], rotation: [...transform.rotation], scale: transform.scale,
+  } } : {}) };
 }
 
 export function summarizeSketchDocument(

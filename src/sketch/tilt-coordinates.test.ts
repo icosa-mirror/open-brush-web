@@ -67,8 +67,9 @@ describe("tilt file coordinate boundary", () => {
     ]));
     expect(document.layers).toEqual([
       { id: 0, name: "Backdrop", visible: true, locked: false },
-      { id: 1, name: "Hidden", visible: false, locked: false },
+      { id: 1, name: "Hidden", visible: false, locked: false, transform: { position: [1, 2, -3], rotation: [0, 0, 0, 1], scale: 2 } },
     ]);
+    expect(document.strokes[0].controlPoints[0].position).toEqual([1, 2, -3]);
     document.layers[1].name = "Revised"; document.layers[1].visible = true;
     const zip = unzipSync(writeTiltFile(document).subarray(TILT_HEADER_SIZE));
     const metadata = JSON.parse(new TextDecoder().decode(zip["metadata.json"]));

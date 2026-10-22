@@ -71,15 +71,19 @@ describe("native archive preservation", () => {
 
   it("keeps imported native fields through edited persistence, save-as and reload", async () => {
     const controller = new SketchPersistenceController(new MemorySketchCatalogStore());
-    await controller.importTilt({ id: "native", name: "Native", tiltBytes: writeTiltFile(nativeDocument()) });
+    const original = nativeDocument();
+    original.layers[0].transform = { position: [1, 2, 3], rotation: [0, 0, 0, 1], scale: 2 };
+    await controller.importTilt({ id: "native", name: "Native", tiltBytes: writeTiltFile(original) });
     const edited = controller.document;
     edited.strokes[0].brushSize = 3;
     controller.markDirty(edited);
     edited.tiltArchive!.metadata.Environment = "outside mutation";
+    edited.layers[0].transform!.position[0] = 99;
     await controller.saveAs({ id: "copy", name: "Copy" });
     await controller.load("copy");
     const result = readTiltFile((await controller.exportTilt()).bytes);
     expect(result.strokes[0].brushSize).toBe(3);
+    expect(result.layers[0].transform).toEqual(original.layers[0].transform);
     expect(result.tiltArchive?.metadata.Environment).toEqual({ Preset: "native", Exposure: 0.5 });
     expect(result.tiltArchive?.metadata.FutureExtension).toEqual({ Nested: [false, null, 17] });
     expect(entry(result.tiltArchive, "thumbnail.png")).toEqual(new Uint8Array([1, 2, 3]));

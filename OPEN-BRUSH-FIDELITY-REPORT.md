@@ -1,6 +1,6 @@
 # Open Brush parity plan and brush fidelity review
 
-Current planning audit: 2026-10-22, application baseline `3a0b5b6`.
+Current planning audit: 2026-10-22, application baseline `650b6b3`.
 
 Original review: 2026-08-31, application baseline `4579dbb`.
 
@@ -243,6 +243,18 @@ every intervening upstream change.
     stroke values, metadata values and archive bytes. Native layer transforms
     remain unapplied, and batched/gallery UI interaction, native widget layers,
     connected collaboration and live native import remain separate open checks.
+
+21. The [layer pose contract](docs/evidence/brush-fidelity/layer-pose-contract-2026-10-22/README.md)
+    adds independent layer TRS to documents and file metadata while keeping
+    generator inputs layer-local. Pose edits serialize to native conventions;
+    unchanged native encodings and snapshot copy isolation are tested. Native
+    legacy zero/absolute/clamped scale behavior is source-grounded. Rendering
+    and tools do not yet apply these poses. The
+    [integration plan](docs/native-layer-transform-integration.md) identifies
+    required parent hierarchy, active-layer input conversion, selection/batching,
+    GLB and collaboration changes plus their acceptance evidence. The 49 bundled
+    samples lacked layer metadata; real posed-sample validation remains
+    open alongside live native import and image parity.
 
 ## Executive assessment
 
