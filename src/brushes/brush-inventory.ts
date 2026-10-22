@@ -1,4 +1,5 @@
 import { normalizeGuid } from "../sketch/binary.js";
+import { getBrushAudioReactivity, type BrushAudioReactivity } from "./brush-audio-support.js";
 import type { BrushSizeRange } from "./brush-size.js";
 import {
   getOpenBrushGeometryDefaults,
@@ -96,6 +97,7 @@ export interface BrushInventoryEntry extends OpenBrushExportBrush {
   catalogOrder?: number;
   supportStatus: BrushSupportStatus;
   fidelityConfidence: BrushFidelityConfidence;
+  audioReactivity: BrushAudioReactivity;
   geometryFamily: BrushGeometryFamily;
   materialFamily: BrushMaterialFamily;
   brushSizeRange: BrushSizeRange;
@@ -374,6 +376,7 @@ export function buildBrushInventoryFromExportManifest(
       generatorClass: geometryDefaults?.generatorClass,
       supersededByGuid: assetRecord?.supersededByGuid,
       tags,
+      audioReactivity: getBrushAudioReactivity(tags),
       buttonIconFile: assetRecord?.buttonIcon,
       catalogSection: assetRecord?.catalogSection,
       catalogOrder: assetRecord?.catalogOrder,

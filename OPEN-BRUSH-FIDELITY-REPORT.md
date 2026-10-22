@@ -1,6 +1,6 @@
 # Open Brush parity plan and brush fidelity review
 
-Current planning audit: 2026-10-22, application baseline `cfc2968`.
+Current planning audit: 2026-10-22, application baseline `1ae70ec`.
 
 Original review: 2026-08-31, application baseline `4579dbb`.
 
@@ -356,6 +356,20 @@ every intervening upstream change.
     A local SDK source checkout has been requested; installed/generated package
     files have not been edited. Both raw-index writes need a framework fix and
     repeated-reuse acceptance before the pending selection change can ship.
+
+
+29. [Audio-mode classification](docs/evidence/brush-fidelity/audio-classification-2026-10-22/README.md)
+    now separates native intent from current rendering in the brush inventory.
+    All 95 required brushes are classified non-reactive; 35 retain native
+    audio-reactive tags. The source audit checks the exact runtime asset pin,
+    its gitlink and clean checkout, scans all 226 GLSL files, and finds no known
+    native audio references or audio-named uniforms after removing comments.
+    It binds the six native visualizer inputs and per-file hashes. Positive and
+    comment-only controls test the scanner. CI now runs this source gate and
+    retains its report; remote execution of the new step is pending. Local
+    checks pass: 629 tests, four TODOs and the mirror build. This is an explicit
+    unsupported-mode classification, not audio-analysis or rendered-response
+    parity. The unrelated selection-canvas implementation remains uncommitted.
 
 ## Executive assessment
 
@@ -935,7 +949,10 @@ LightWire, remains open.
 7. Implemented: shared pass/group helpers are consumed for Electricity and the
    Toon brushes. Validate their actual-stroke images against Unity. Classify
    additional passes absent from maintained assets as upstream limitations.
-8. Implement real audio-analysis inputs or classify those variants as non-reactive.
+8. Classified: all required brushes currently render non-reactively, including
+   35 native audio-tagged variants. A typed inventory field and pinned-source
+   audit retain that limitation (validation item 29). Native audio analysis and
+   corresponding shader variants remain required for audio-mode parity.
 9. Remove the obsolete extracted shader corpus and duplicated binding tables only after all required brushes resolve through the trusted dependencies.
 10. Partial: per-GUID shader evidence and late material upgrades exist. Still
     combine them with mesh/image/device evidence and explicit revision provenance.

@@ -15,6 +15,15 @@ function loadReferenceManifest(): OpenBrushExportManifest {
 }
 
 describe("Open Brush brush inventory", () => {
+  it("separates advertised native audio variants from current non-reactive rendering", () => {
+    const inventory = buildBrushInventoryFromExportManifest(loadReferenceManifest(), generatedBrushAssets.brushes as unknown as Record<string, BrushAssetRecord>);
+    const light = inventory.find(brush => brush.name === "Light")!;
+    const oil = inventory.find(brush => brush.name === "OilPaint")!;
+    expect(light.audioReactivity).toEqual({ nativeTagged: true, mode: "non-reactive" });
+    expect(oil.audioReactivity).toEqual({ nativeTagged: false, mode: "non-reactive" });
+    expect(light.tags).toContain("audioreactive");
+    expect(inventory.every(brush => brush.audioReactivity.mode === "non-reactive")).toBe(true);
+  });
   it("builds an inventory from the real Open Brush export manifest", () => {
     const inventory = buildBrushInventoryFromExportManifest(
       loadReferenceManifest(),

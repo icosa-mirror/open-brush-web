@@ -1,0 +1,30 @@
+{
+  "applicationBaseline": "1ae70ec",
+  "sourceHashes": {
+    "src/brushes/generated/brush-assets.json": "cefbbe1379b3844ba8e5938d32abd1e299807999e37bfdfb654cf7f01210a9c2",
+    "src/brushes/generated/exportManifest.json": "ffb419e1863c6e1b89678b637dd0b57944ec6ac3ceaa7aec5b7e51bea6db300d",
+    "src/brushes/brush-asset-base-url.ts": "e21e3a98bf91864bc9bd7001038a51e2051b55fb47b03a80f0a8b3e0b474f8bc",
+    "src/brushes/brush-audio-support.ts": "3252fea4979e80973c5bb1b1cd71ee7ba5385eb287401f4ffb5a3de64718a16e",
+    "src/brushes/brush-inventory.ts": "91156d45ebdfb2000de84dc2a2b582fec2676e3091a6e542e728f05ba9d965ef",
+    "src/brushes/brush-shader-library.ts": "9cbf7b49c84fa210aff75560f798d6acaf6dcc7629d2ddff7f0f4f70f21940d1",
+    "scripts/audit-brush-audio-reactivity.mjs": "809b71394792cb82b9241c665f838f17bc67b7c42fa2a55b6490288f2f975dc9",
+    "package-lock.json": "f994e07d2de98eabdcd30394cd9be512ac6db3b62254301c8a130302ee4a1e04"
+  },
+  "validationHashes": {
+    "src/brushes/brush-audio-support.test.ts": "8e4d1d9e3325d737861acc28eb490039aea324eeb4c616eadb1291293abbb3c1",
+    "src/brushes/brush-inventory.test.ts": "e9f903efe047ceb36de42a5bef8eaa4d2ed935d4643a38da4806af8626b52b43",
+    "src/brushes/brush-material-warmup.test.ts": "a010d269b5a09fb638852b33de218798bd8b946d4fc230307d59be8c235d5ff8",
+    ".github/workflows/deploy.yml": "a6f0f973c2c6e02a172c4bccd705c81a5ac08df19bc96d0674b3c4cc30074dd4",
+    "package.json": "6c2e78efa83f95ba56be39ade3fb204497a9b9b193e77f1af080a379dd5da2fa",
+    ".tmp/brush-audio-check.log": "ec1cf9f275980aef13258380fcdafa8211c700b5316ec255bb3d23fa807fcbe9",
+    ".tmp/brush-audio-build.log": "ebce5e2d8d8bef68aeb14dd3ea08bfa06249f3c83849f29058f7cb2f3a2b66be"
+  },
+  "uncommittedSelectionSourcesPresentDuringLocalChecks": {
+    "src/app/group-selection-validation.ts": "7b1f4ce79bc9ebd65eb542bc107242564b58f4252f8feb7dd5513765e93ae084",
+    "src/systems/selection-system.ts": "b9496e66931a422f3fc95776976279944cfcc0091240ad728a085cd5e430c043",
+    "src/systems/layer-canvas-system.ts": "798f8581cd62abe13e1ed40219b3cf46763aacef1dbcab0492ad3a0bbc4593bc"
+  },
+  "artifacts": {
+    "source-audit.json": "b4de79ccbc79199820055ff844e12e45a2aa52be9ee0fe642cd913a2178b8197"
+  }
+}

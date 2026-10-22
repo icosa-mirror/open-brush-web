@@ -102,6 +102,7 @@ function createBrush(
     pickerEnabled: overrides.pickerEnabled ?? true,
     portRequired: overrides.portRequired ?? true,
     tags: overrides.tags ?? ["default"],
+    audioReactivity: overrides.audioReactivity ?? { nativeTagged: (overrides.tags ?? []).includes("audioreactive"), mode: "non-reactive" },
     geometryFamily: overrides.geometryFamily ?? "ribbon",
     materialFamily: overrides.materialFamily ?? "standard",
     brushSizeRange: overrides.brushSizeRange ?? [0.05, 3],
