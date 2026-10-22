@@ -1,0 +1,26 @@
+{
+  "recordedAt": "2026-10-22T04:13:16.797Z",
+  "browserVersion": "155.0.8059.85",
+  "result": {
+    "passed": true,
+    "reproduced": true,
+    "initialParentResolves": true,
+    "replacementIndex": 11,
+    "generation": 1,
+    "resolvesImmediately": true,
+    "beforeUpdate": 16777227,
+    "afterUpdate": 11,
+    "resolvesAfterUpdate": false,
+    "objectParentMatches": true,
+    "scope": "Minimal IWSDK/ECS diagnostic. Success records an existing dependency defect, not a passing parenting or fidelity gate."
+  },
+  "consoleErrors": 0,
+  "graphicsWarnings": 0,
+  "pageErrors": [],
+  "sourceHashes": {
+    "scripts/recycled-parent-harness.html": "cd1d5c49898564ae49fd6861848a05ff068c21b92eacab02b4fa54e32c9e4b8b",
+    "src/app/recycled-parent-validation.ts": "9d0fe2e24715cb196c3de2135a162518a53d68c1189ead9a930e64a94ac086a3",
+    "scripts/browser-layer-state.mjs": "5bce5b19c7131c2f26aac49c29c92ec3f8426c3ea2944dd50bec326e1ea9ef4d",
+    "package-lock.json": "f994e07d2de98eabdcd30394cd9be512ac6db3b62254301c8a130302ee4a1e04"
+  }
+}

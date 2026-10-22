@@ -1,6 +1,6 @@
 # Open Brush parity plan and brush fidelity review
 
-Current planning audit: 2026-10-22, application baseline `a6a6fb9`.
+Current planning audit: 2026-10-22, application baseline `cfc2968`.
 
 Original review: 2026-08-31, application baseline `4579dbb`.
 
@@ -339,6 +339,23 @@ every intervening upstream change.
     Native widget-group expansion, spatial selection input, group editing UI
     and native selection-canvas reparenting/hidden-layer rendering remain open;
     membership-state agreement is not rendering or complete grouping parity.
+    [CI for `cfc2968`](https://github.com/icosa-mirror/open-brush-web/actions/runs/39719378670)
+    subsequently succeeded.
+
+
+28. A [minimal recycled-parent diagnostic](docs/evidence/brush-fidelity/recycled-parent-2026-10-22/README.md)
+    reproduces a dependency defect independently of the application selection
+    code. IWSDK 0.4.2 writes raw parent indices into an ECS field whose installed
+    elics 3.4.2 expects generation-packed references. After slot 11 is reused at
+    generation 1, the public setter stores 16777227 correctly; a framework frame
+    changes it to 11, leaving the Object3D parent in place but making the ECS
+    parent reference unresolved. Fresh-parent control passes; no browser errors
+    occur. This is failure evidence, not a fidelity pass. The selection-canvas
+    implementation remains uncommitted: its posed batch/movement/save checks
+    progressed, but private-mesh return exposed this recycled-reference defect.
+    A local SDK source checkout has been requested; installed/generated package
+    files have not been edited. Both raw-index writes need a framework fix and
+    repeated-reuse acceptance before the pending selection change can ship.
 
 ## Executive assessment
 

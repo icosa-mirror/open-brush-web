@@ -38,6 +38,7 @@ async function main() {
     if (values.harness === "scripts/particle-replay-harness.html") sourceFiles.push("scripts/particle-replay-harness.html", "src/app/particle-replay-validation.ts", "src/brushes/particle-replay-time.ts");
     if (values.harness === "scripts/stroke-groups-harness.html") sourceFiles.push("scripts/stroke-groups-harness.html", "src/app/stroke-groups-validation.ts", "src/sketch/stroke-groups.ts", "src/sketch/sketch-memory.ts", "src/types.ts");
     if (values.harness === "scripts/group-selection-harness.html") sourceFiles.push("scripts/group-selection-harness.html", "src/app/group-selection-validation.ts", "src/systems/panel-system.ts", "src/strokes/selection.ts", "src/panels/ui-command-history.ts");
+    if (values.harness === "scripts/recycled-parent-harness.html") sourceFiles.splice(0, sourceFiles.length, "scripts/recycled-parent-harness.html", "src/app/recycled-parent-validation.ts", "scripts/browser-layer-state.mjs", "package-lock.json");
     const report = { recordedAt: new Date().toISOString(), browserVersion: browser.version(), ...result,
       consoleErrors: messages.filter(message => message.type === "error").length,
       graphicsWarnings: messages.filter(message => /WebGL.*(?:INVALID_|error)|GL_INVALID|framebuffer.*incomplete/i.test(message.text)).length,
@@ -46,7 +47,9 @@ async function main() {
     await writeFile(path.join(values.output, "results.json"), JSON.stringify(report, null, 2) + "\n");
     await writeFile(path.join(values.output, "browser-log.json"), JSON.stringify({ messages, pageErrors }, null, 2) + "\n");
     if (report.error || report.result?.passed !== true || report.consoleErrors || report.graphicsWarnings || pageErrors.length) throw new Error(report.error ?? "Browser layer audit contains failed assertions/errors/warnings");
-    console.log("Layer runtime audit passed; no console/page errors or graphics warnings.");
+    console.log(values.harness === "scripts/recycled-parent-harness.html"
+      ? "Recycled-parent dependency defect reproduced; this diagnostic is not a passing fidelity gate."
+      : "Layer runtime audit passed; no console/page errors or graphics warnings.");
   } finally {
     await browser?.close(); server?.kill();
     await writeFile(path.join(values.output, "server.txt"), serverLog);

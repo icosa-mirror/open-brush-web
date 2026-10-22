@@ -1,0 +1,27 @@
+{
+  "applicationBaseline": "cfc2968",
+  "classification": "reproduced dependency defect; not a fidelity pass",
+  "versions": {
+    "@iwsdk/core": "0.4.2",
+    "elics": "3.4.2",
+    "coreElicsRange": "^3.4.1"
+  },
+  "sourceHashes": {
+    "scripts/recycled-parent-harness.html": "cd1d5c49898564ae49fd6861848a05ff068c21b92eacab02b4fa54e32c9e4b8b",
+    "src/app/recycled-parent-validation.ts": "9d0fe2e24715cb196c3de2135a162518a53d68c1189ead9a930e64a94ac086a3",
+    "scripts/browser-layer-state.mjs": "5bce5b19c7131c2f26aac49c29c92ec3f8426c3ea2944dd50bec326e1ea9ef4d",
+    "package-lock.json": "f994e07d2de98eabdcd30394cd9be512ac6db3b62254301c8a130302ee4a1e04"
+  },
+  "dependencyAndCheckHashes": {
+    "node_modules/@iwsdk/core/package.json": "c98a84d5fae6d091efa100d011dab1af08c5ec6ec2ead3ac25a21d2f103557fa",
+    "node_modules/@iwsdk/core/dist/transform/transform.js": "ab42a93015346032da1f090dc0d5cbd224e2b02c248f3d9daa494713f5973124",
+    "node_modules/elics/package.json": "24a02e7f23e0e2bcc3465a22faa0eee4ea6b19f774e9ad8903b8f36c103ac631",
+    "node_modules/elics/lib/entity.js": "75803b6099b42fa6e627259019cd31f160ce771bcca82ba074d7d09b495db358",
+    "node_modules/elics/lib/entity-manager.js": "bc63190f7f34f2e4746e3094f67cc13befe3231e304d6625a349976e67de29c4",
+    ".tmp/elics-3.4.1.tgz": "c7b7ba37e49e78cdd294b4cb35a16c85ddc6ce85e16cb5fec28a462bd2161775",
+    ".tmp/recycled-parent-typecheck.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "artifacts": {
+    "browser-diagnostic.json": "dbe57fddd525d7bf761670728ad1ef83510cba0014dbbfa8e2a609eb2b2e2921"
+  }
+}
