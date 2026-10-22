@@ -1,0 +1,122 @@
+{
+  "recordedAt": "2026-10-22T03:31:31.108Z",
+  "browserVersion": "155.0.8059.85",
+  "result": {
+    "passed": true,
+    "rows": [
+      {
+        "guid": "02ffb866-7fb2-4d15-b761-1012cefb1360",
+        "name": "Embers",
+        "vertices": 788,
+        "replayOrigin": 0.13060000002384187,
+        "laterReplayOrigin": 0.20039999997615818,
+        "originalTimestampsPreserved": true,
+        "visibilityPreservesBirths": true
+      },
+      {
+        "guid": "70d79cca-b159-4f35-990c-f02193947fe8",
+        "name": "Smoke",
+        "vertices": 116,
+        "replayOrigin": 0.20039999997615818,
+        "laterReplayOrigin": 0.41470000004768376,
+        "originalTimestampsPreserved": true,
+        "visibilityPreservesBirths": true
+      },
+      {
+        "guid": "d902ed8b-d0d1-476c-a8de-878a79e3a34c",
+        "name": "Snow",
+        "vertices": 788,
+        "replayOrigin": 0.41470000004768376,
+        "laterReplayOrigin": 0.5518999999761582,
+        "originalTimestampsPreserved": true,
+        "visibilityPreservesBirths": true
+      },
+      {
+        "guid": "0eb4db27-3f82-408d-b5a1-19ebd7d5b711",
+        "name": "Stars",
+        "vertices": 676,
+        "replayOrigin": 0.5518999999761582,
+        "laterReplayOrigin": 0.6145000000000002,
+        "originalTimestampsPreserved": true,
+        "visibilityPreservesBirths": true
+      },
+      {
+        "guid": "89d104cd-d012-426b-b5b3-bbaee63ac43c",
+        "name": "Bubbles",
+        "vertices": 340,
+        "replayOrigin": 0.6145000000000002,
+        "laterReplayOrigin": 0.8042000000476838,
+        "originalTimestampsPreserved": true,
+        "visibilityPreservesBirths": true
+      },
+      {
+        "guid": "6a1cf9f9-032c-45ec-9b6e-a6680bee32e9",
+        "name": "HyperGrid",
+        "vertices": 68,
+        "replayOrigin": 0.8042000000476838,
+        "laterReplayOrigin": 0.908100000023842,
+        "originalTimestampsPreserved": true,
+        "visibilityPreservesBirths": true
+      },
+      {
+        "guid": "6a1cf9f9-032c-45ec-9b1d-a6680bee30f7",
+        "name": "Dots",
+        "vertices": 228,
+        "replayOrigin": 0.9143999999761583,
+        "laterReplayOrigin": 1.038,
+        "originalTimestampsPreserved": true,
+        "visibilityPreservesBirths": true
+      },
+      {
+        "guid": "a8147ce1-005e-abe4-88e8-09a1eaadcc89",
+        "name": "Rising Bubbles",
+        "vertices": 788,
+        "replayOrigin": 1.038,
+        "laterReplayOrigin": 1.0982000000476837,
+        "originalTimestampsPreserved": true,
+        "visibilityPreservesBirths": true
+      },
+      {
+        "guid": "6a1cf9f9-032c-45ec-9b6e-a6680bee30f7",
+        "name": "WaveformParticles",
+        "vertices": 420,
+        "replayOrigin": 1.0982000000476837,
+        "laterReplayOrigin": 1.1937999999523163,
+        "originalTimestampsPreserved": true,
+        "visibilityPreservesBirths": true
+      },
+      {
+        "guid": "6a1cf9f9-032c-45ec-311e-a6680bee32e9",
+        "name": "DanceFloor",
+        "vertices": 68,
+        "replayOrigin": 1.198100000023842,
+        "laterReplayOrigin": 1.3647999999523166,
+        "originalTimestampsPreserved": true,
+        "visibilityPreservesBirths": true
+      }
+    ],
+    "scope": "Actual production import, binding and visibility paths in an isolated desktop browser; no native pixels, real gestures or connected-peer phase comparison"
+  },
+  "consoleErrors": 0,
+  "graphicsWarnings": 0,
+  "pageErrors": [],
+  "sourceHashes": {
+    "src/app/layer-state-validation.ts": "03adcfdfbe5867344a98a45c6b0f0218f291fa0037c93979d7c349ab249122fa",
+    "src/app/layer-transform-validation.ts": "a7b3723307e43c0f74b2c953c4bdfc0632bc4b675d3a65dbffbaadb8a13b46b4",
+    "src/strokes/layer-space.ts": "32f02a0733a9d857d3a11a018807a6e022ca134f3c4c4e1a1f76721526877038",
+    "src/systems/layer-canvas-system.ts": "c17b0cd9b0f5250517a66ed48a76828e6a813a74fcbdbcf29f7bb0f38fe65b97",
+    "src/systems/sketch-library-system.ts": "fc3ea581231fda0dcc48d666dcc90b9f0457708b273f206dfe5fac4011e61ed4",
+    "src/systems/stroke-authoring-system.ts": "c4e11d7bb465ef6be700015b9e4deb5141831376592e2a378fb85bc7213af487",
+    "src/systems/stroke-batch-render-system.ts": "ee38d42c94c080ecb353d4667f29a508806753a6d2bd2cae85a68f142dff4d1a",
+    "src/systems/selection-system.ts": "d9b732b6462fd52e92f944793f5af9ba9f51905ee2ada3e17cf164237eb4f2ef",
+    "src/sketch/tilt-file.ts": "15f2d75dd6b5bac8ca2774e3c8fd44c9557fe12341a012e1daa7f87766f0204b",
+    "src/components/core.ts": "ab85fde94cc77150188f68539f289eb1ec963fefbf67d2c36e31f242c3b824c4",
+    "scripts/layer-state-harness.html": "5243e9fad61e2af96b69eb7219a8fdebfd86d52c58a7828b6db4c25762fe2702",
+    "scripts/layer-transform-harness.html": "6acce05b2fb6867ad868dc8e03c5a5baba0bc12f3d2fb0ee517ff63b92bfdac7",
+    "scripts/browser-layer-state.mjs": "6bf4ee89c33ea3a0dbdbba3faa5797464673ce9b7de7c21cc2c88335c618c0a2",
+    "package-lock.json": "f994e07d2de98eabdcd30394cd9be512ac6db3b62254301c8a130302ee4a1e04",
+    "scripts/particle-replay-harness.html": "4c800d41857469566bb2b73b8fe5512ae2d96f6e69b6c485b2bdd87774a3528c",
+    "src/app/particle-replay-validation.ts": "ae757d650ceff46649c644e26ea2ee0456e3db78c103599ca4263113b3943f9b",
+    "src/brushes/particle-replay-time.ts": "fcfc2ed0ff54982f6262006d958a3de1849a41f8139888476b0bfc7d5d203596"
+  }
+}

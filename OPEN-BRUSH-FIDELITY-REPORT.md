@@ -297,6 +297,19 @@ every intervening upstream change.
     476 generated hashes agree with Windows. Byte reproduction alone does not
     prove brush fidelity.
 
+
+25. The [particle replay timing correction](docs/evidence/brush-fidelity/particle-replay-2026-10-22/README.md)
+    follows native replay's current-time knot creation rather than interpreting
+    saved timestamps as runtime birth times. Imported timed particle channels
+    now receive the current local replay origin before GPU binding/batch copy;
+    saved control points remain unchanged. A production-system desktop browser
+    checks all 10 timed particle brushes and 4,280 vertices, later imports,
+    retained file timestamps and visibility changes, with zero browser errors.
+    Generator checks retain other packed channels and unused capacity. Full
+    checks pass with 618 tests and four TODOs; the mirror build passes. Native
+    pixel/animation agreement, connected-peer phase comparison and full playback
+    behavior remain open; the correction does not establish those results.
+
 ## Executive assessment
 
 Open Brush web is a functional WebXR painting application derived from Open Brush concepts and assets. It is not currently a faithful port of Open Brush's brush runtime.
@@ -887,8 +900,11 @@ The particle generators and tests live in `three-tiltloader` and Open Brush web 
 the shared API. Deterministic RNG/salts, distance spawning, generator-specific
 placement, source frame vectors, packed UVs, and birth data are represented in
 the current live-mesh fixtures; package tests cover preview behavior and
-finalization. Required particle brushes pass the fixture gate. Phase behavior
-after collaboration and undo/redo, plus browser-image and XR validation, remains
+finalization. Required particle brushes pass the fixture gate. Imported timed
+particles now use the local replay time without altering file timestamps; the
+10-brush production-system check also verifies birth channels survive visibility
+changes (validation item 25). Native animation agreement and phase behavior
+after collaboration and undo/redo, plus browser-image and XR validation, remain
 open.
 
 ### Phase 5: required special generators (implemented)

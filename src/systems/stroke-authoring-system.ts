@@ -52,6 +52,7 @@ import {
   generateBrushGeometryInto,
   type BrushGeometryArrays,
 } from "../brushes/brush-geometry.js";
+import { setReplayedParticleBirthTime } from "../brushes/particle-replay-time.js";
 import {
   assertBrushGeometryArrays,
   brushUv0Array,
@@ -1410,6 +1411,10 @@ export class StrokeAuthoringSystem extends createSystem({
       arrays,
     );
 
+    if (stroke.deterministicParticleBirthTime) {
+      setReplayedParticleBirthTime(arrays, stroke.generatorClass, stroke.particleBirthTimeOffsetSeconds);
+    }
+
     // Rebuilds run every sampled frame while drawing: reuse the GPU-bound
     // attributes and rebind only when storage grows or the UV layout changes.
     // Check standard UV1: Leaky Pen supplies a supplemental shader alias even
@@ -2589,7 +2594,7 @@ export class StrokeAuthoringSystem extends createSystem({
     strokeData: StrokeData,
     startVisible: boolean,
     finalized = true,
-    particleBirthTimeOffsetSeconds = 0,
+    particleBirthTimeOffsetSeconds = this.currentLevelTimeSeconds,
   ): RuntimeStroke {
     this.strokeCounter += 1;
     const brushEntry = findBrushByGuid(openBrushInventory, strokeData.brushGuid);
