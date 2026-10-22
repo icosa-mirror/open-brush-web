@@ -352,6 +352,8 @@ export const OPENBRUSH_AMBIENT_LIGHT_COLOR: readonly number[] = [
   0.3921569, 0.3921569, 0.3921569, 1,
 ];
 export const OPENBRUSH_FOG_COLOR: readonly number[] = [0.1647059, 0.1647059, 0.2078431];
+/** Standard.asset density in native decimetres; ApplyFog converts to metres. */
+export const OPENBRUSH_FOG_DENSITY = 0.0025;
 
 /**
  * Unity _Time convention consumed by the animated shaders: (t/20, t, 2t, 3t).

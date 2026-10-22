@@ -9,6 +9,8 @@ import {
   FrontSide,
   Group,
   Matrix4,
+  Quaternion,
+  type Object3D,
   Mesh,
   NormalBlending,
   OneFactor,
@@ -38,6 +40,7 @@ import {
   resolveLoadedTextureTexelSize,
   OPENBRUSH_AMBIENT_LIGHT_COLOR,
   OPENBRUSH_FOG_COLOR,
+  OPENBRUSH_FOG_DENSITY,
   OPENBRUSH_SCENE_LIGHT_0_COLOR,
   OPENBRUSH_SCENE_LIGHT_0_MATRIX,
   OPENBRUSH_SCENE_LIGHT_1_COLOR,
@@ -49,6 +52,8 @@ import {
 import { createIwsdkTiltMaterial } from "./iwsdk-tilt-material.js";
 import { applyBrushTextureImporterSettings } from "./brush-texture-settings.js";
 
+import { brushFogDensity, type SketchRenderContext } from "../sketch/render-context.js";
+import { uniformWorldScale } from "../strokes/layer-space.js";
 const AUTHORITATIVE_BRUSH_ASSET_URL = resolveBrushAssetBaseUrl();
 interface UniformHolder {
   value: unknown;
@@ -77,8 +82,15 @@ export class BrushShaderLibrary {
   private readonly materialLoadedListeners = new Set<
     (guid: string, material: ShaderMaterial) => void
   >();
-  private readonly lightWorld0 = new Matrix4().fromArray(OPENBRUSH_SCENE_LIGHT_0_MATRIX);
-  private readonly lightWorld1 = new Matrix4().fromArray(OPENBRUSH_SCENE_LIGHT_1_MATRIX);
+  private readonly lightLocal0 = new Matrix4().fromArray(OPENBRUSH_SCENE_LIGHT_0_MATRIX);
+  private readonly lightLocal1 = new Matrix4().fromArray(OPENBRUSH_SCENE_LIGHT_1_MATRIX);
+  private readonly lightWorld0 = new Matrix4();
+  private readonly lightWorld1 = new Matrix4();
+  private readonly sceneRotation = new Matrix4();
+  private readonly contextQuaternion = new Quaternion();
+  private readonly contextScale = new Vector3();
+  private nativeFogDensity = OPENBRUSH_FOG_DENSITY;
+  contextIssues: readonly string[] = [];
   private readonly viewMatrix = new Matrix4();
   private readonly tiltShaderLoader = new TiltShaderLoader(undefined, {
     materialFactory: createIwsdkTiltMaterial,
@@ -107,9 +119,7 @@ export class BrushShaderLibrary {
       value: new Vector4().fromArray(OPENBRUSH_AMBIENT_LIGHT_COLOR as number[]),
     },
     u_fogColor: { value: new Vector3().fromArray(OPENBRUSH_FOG_COLOR as number[]) },
-    // ENVIRONMENT_STANDARD fog. ApplyFog multiplies by 10 internally, so this
-    // lands at the same 0.0025/m the environment meshes use.
-    u_fogDensity: { value: 0.00025 },
+    u_fogDensity: { value: OPENBRUSH_FOG_DENSITY },
   };
 
   get(guid: string): ShaderMaterial | undefined {
@@ -166,8 +176,24 @@ export class BrushShaderLibrary {
     return promise;
   }
 
+  get fogDensityNative(): number { return this.nativeFogDensity; }
+
+  setSketchRenderContext(context: SketchRenderContext = { issues: [] }): void {
+    this.nativeFogDensity = context.fog?.density ?? OPENBRUSH_FOG_DENSITY;
+    this.frameUniforms.u_fogDensity.value = this.nativeFogDensity;
+    this.frameUniforms.u_fogColor.value.fromArray(context.fog?.color ?? OPENBRUSH_FOG_COLOR);
+    this.frameUniforms.u_ambient_light_color.value.fromArray(context.ambient ?? OPENBRUSH_AMBIENT_LIGHT_COLOR);
+    this.frameUniforms.u_SceneLight_0_color.value.fromArray(context.shadow?.color ?? OPENBRUSH_SCENE_LIGHT_0_COLOR);
+    this.frameUniforms.u_SceneLight_1_color.value.fromArray(context.noShadow?.color ?? OPENBRUSH_SCENE_LIGHT_1_COLOR);
+    if (context.shadow) this.lightLocal0.makeRotationFromQuaternion(this.contextQuaternion.fromArray(context.shadow.orientation));
+    else this.lightLocal0.fromArray(OPENBRUSH_SCENE_LIGHT_0_MATRIX);
+    if (context.noShadow) this.lightLocal1.makeRotationFromQuaternion(this.contextQuaternion.fromArray(context.noShadow.orientation));
+    else this.lightLocal1.fromArray(OPENBRUSH_SCENE_LIGHT_1_MATRIX);
+    this.contextIssues = context.issues.slice();
+  }
+
   /** Advance shared per-frame uniforms. Call once per frame before rendering. */
-  updateFrame(timeSeconds: number, camera: Camera): void {
+  updateFrame(timeSeconds: number, camera: Camera, scenePose?: Object3D): void {
     // Same packing as packBrushShaderTime (Unity _Time), written in place so
     // the per-frame call allocates nothing.
     (this.frameUniforms.u_time.value as Vector4).set(
@@ -176,6 +202,17 @@ export class BrushShaderLibrary {
       timeSeconds * 2,
       timeSeconds * 3,
     );
+    this.sceneRotation.identity();
+    let scale = 1;
+    if (scenePose) {
+      scenePose.updateWorldMatrix(true, false);
+      scenePose.getWorldQuaternion(this.contextQuaternion);
+      this.sceneRotation.makeRotationFromQuaternion(this.contextQuaternion);
+      scale = uniformWorldScale(scenePose, this.contextScale);
+    }
+    this.frameUniforms.u_fogDensity.value = brushFogDensity(this.nativeFogDensity, scale);
+    this.lightWorld0.multiplyMatrices(this.sceneRotation, this.lightLocal0);
+    this.lightWorld1.multiplyMatrices(this.sceneRotation, this.lightLocal1);
     this.viewMatrix.copy(camera.matrixWorld).invert();
     (this.frameUniforms.u_SceneLight_0_matrix.value as Matrix4).multiplyMatrices(
       this.viewMatrix,

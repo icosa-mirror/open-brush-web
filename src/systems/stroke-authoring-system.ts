@@ -783,7 +783,7 @@ export class StrokeAuthoringSystem extends createSystem({
   update(_delta: number, time: number) {
     const levelTime = this.toLevelTimeSeconds(time);
     this.currentLevelTimeSeconds = levelTime;
-    openBrushShaderLibrary.updateFrame(levelTime, this.camera);
+    openBrushShaderLibrary.updateFrame(levelTime, this.camera, this.getFirstEntity("scenePoses")?.object3D);
 
     const commandEntity = this.getFirstEntity("commands");
     if (!commandEntity) {

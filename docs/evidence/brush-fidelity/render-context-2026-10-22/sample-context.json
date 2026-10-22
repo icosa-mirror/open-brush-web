@@ -1,0 +1,61 @@
+{
+  "recordedAt": "2026-10-22T04:43:16.450Z",
+  "scope": "Real file adapter and custom light/fog interpretation; no native Editor rendering or preset/skybox parity",
+  "sample": "brush_cafe_experimental.tilt",
+  "sampleSha256": "b9ec56b3c713841c33a21124aea8e0646d25b4d5e0f84caa484a9a97c1c84651",
+  "nativeMetadataSha256": "915f2b5a3817a84ce3a973484922a9eda552c104b7715e417ead9c1906a493ca",
+  "context": {
+    "issues": [],
+    "preset": "9b89b0a4-c41e-4b78-82a1-22f10a238357",
+    "fog": {
+      "color": [
+        1,
+        1,
+        1
+      ],
+      "density": 0
+    },
+    "ambient": [
+      0.6745098039215687,
+      0.6745098039215687,
+      0.6784313725490196,
+      1
+    ],
+    "shadow": {
+      "orientation": [
+        0.004488237721307255,
+        -0.45605490521338815,
+        -0.002300030346292779,
+        -0.889937351173312
+      ],
+      "color": [
+        0.285497069,
+        0.186347485,
+        0.0754140541,
+        1
+      ]
+    },
+    "noShadow": {
+      "orientation": [
+        0.06785774606885239,
+        -0.9302872461064257,
+        -0.22264778710152686,
+        -0.283529414574521
+      ],
+      "color": [
+        0.4562024,
+        0.5791415,
+        0.666986644,
+        1
+      ]
+    }
+  },
+  "metadataUnchanged": true,
+  "sourceHashes": {
+    "src/sketch/render-context.ts": "eff3b1bb63ef044d4eda0839f9489953077fe017ac89465853b2e72817ce15e4",
+    "src/sketch/tilt-file.ts": "15f2d75dd6b5bac8ca2774e3c8fd44c9557fe12341a012e1daa7f87766f0204b",
+    "src/systems/sketch-library-system.ts": "66630dc243cc1afe239f2a51eedace0275e9b687e581f5a73d7393acddd91097",
+    "scripts/audit-sketch-render-context.mjs": "39916c3b2b26e6e46ea93e301ccc7044b28d0edb76f8f3a0389c3844eb22fa34",
+    "package-lock.json": "f994e07d2de98eabdcd30394cd9be512ac6db3b62254301c8a130302ee4a1e04"
+  }
+}

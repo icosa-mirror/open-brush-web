@@ -40,6 +40,8 @@ import {
 import { readTiltFile } from "../sketch/tilt-file.js";
 import type { StrokeData } from "../types.js";
 import { visibleStrokeSnapshots } from "../sketch/stroke-groups.js";
+import { readNativeSketchRenderContext } from "../sketch/render-context.js";
+import { openBrushShaderLibrary } from "../brushes/brush-shader-library.js";
 import { createTranslatedStrokeSnapshot } from "../strokes/selection.js";
 import {
   applyUIKitProperties,
@@ -693,6 +695,7 @@ export class SketchLibrarySystem extends createSystem({
 
   private setDocumentContext(document = createSketchDocument({ metadata: { source: "runtime" } })): void {
     this.activeDocumentContext = createSketchDocument({ ...document, strokes: [] });
+    openBrushShaderLibrary.setSketchRenderContext(readNativeSketchRenderContext(document.tiltArchive?.metadata));
     this.world.getSystem(LayerCanvasSystem)?.setLayers(document.layers);
   }
 

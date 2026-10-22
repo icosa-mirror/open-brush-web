@@ -39,6 +39,7 @@ async function main() {
     if (values.harness === "scripts/stroke-groups-harness.html") sourceFiles.push("scripts/stroke-groups-harness.html", "src/app/stroke-groups-validation.ts", "src/sketch/stroke-groups.ts", "src/sketch/sketch-memory.ts", "src/types.ts");
     if (values.harness === "scripts/group-selection-harness.html") sourceFiles.push("scripts/group-selection-harness.html", "src/app/group-selection-validation.ts", "src/systems/panel-system.ts", "src/strokes/selection.ts", "src/panels/ui-command-history.ts");
     if (values.harness === "scripts/recycled-parent-harness.html") sourceFiles.splice(0, sourceFiles.length, "scripts/recycled-parent-harness.html", "src/app/recycled-parent-validation.ts", "scripts/browser-layer-state.mjs", "package-lock.json");
+    if (values.harness === "scripts/render-context-harness.html") sourceFiles.push("scripts/render-context-harness.html", "src/app/render-context-validation.ts", "src/sketch/render-context.ts", "src/brushes/brush-shader-library.ts", "src/brushes/brush-shader-materials.ts", "src/systems/standard-environment-system.ts");
     const report = { recordedAt: new Date().toISOString(), browserVersion: browser.version(), ...result,
       consoleErrors: messages.filter(message => message.type === "error").length,
       graphicsWarnings: messages.filter(message => /WebGL.*(?:INVALID_|error)|GL_INVALID|framebuffer.*incomplete/i.test(message.text)).length,

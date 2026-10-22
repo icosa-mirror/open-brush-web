@@ -1,0 +1,29 @@
+{
+  "applicationBaseline": "2ea80ec",
+  "nativeReferenceCommit": "4786d55ad398bfc957d8e8eb26438920026aeaf6",
+  "runtimeAssetCommit": "df593c972751f7f28bc8d47bc4f4fd8cfad45fe5",
+  "sourceAuthorityHashes": {
+    "reference/Assets/Scripts/Save/SketchMetadata.cs": "4655b1ec385d7f339a6c5ab82f1752dd4e665da69509c5297a17f5a7fdb991b6",
+    "reference/Assets/Scripts/Save/SaveLoadScript.cs": "36edce6317c4ef7839450c639ca2f6590c5a5230a25e668e6eef4159c6e4ba31",
+    "reference/Assets/Scripts/LightsControlScript.cs": "efda4d01ca25d4982d340effc5b04ff7c4b3f723f77991160ac9fd83d02aa2d2",
+    "reference/Assets/Scripts/SceneSettings.cs": "9dcddadc884d3120a06084009a3e33efe25f597634eeb7b7aa91efb3045c21dc",
+    "reference/Assets/Resources/Environments/Standard/Standard.asset": "7dfcf1c0ce450a27be99732b95255e3f628e4a3521e51e5ec6a60e758c2a20e9",
+    "vendor/icosa-sketch-assets/brushes/includes/FogShaderIncludes.glsl": "ec7246fe2ba319464f295edc56a1b708c63cad34ffc65e2a6ed2ddc3a6321bd4"
+  },
+  "checks": {
+    ".tmp/render-context-check.log": "ae9a6154ef88381e878085dcc865b87855b74dfb63055b7610abdee06fd590c2",
+    ".tmp/render-context-build.log": "d030c8e2d45765d314c4432d26e1f397e506ae9d480b05092d5e47b0b6e4d639",
+    ".tmp/render-context-typecheck-final.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/sketch/render-context.test.ts": "e5811d625e91d0f83dba3ea9f56bbf9b790f6ccc79b33f29db7185b45dba56f0"
+  },
+  "uncommittedSelectionSourcesPresentDuringLocalChecks": {
+    "src/app/group-selection-validation.ts": "7b1f4ce79bc9ebd65eb542bc107242564b58f4252f8feb7dd5513765e93ae084",
+    "src/systems/selection-system.ts": "b9496e66931a422f3fc95776976279944cfcc0091240ad728a085cd5e430c043",
+    "src/systems/layer-canvas-system.ts": "798f8581cd62abe13e1ed40219b3cf46763aacef1dbcab0492ad3a0bbc4593bc"
+  },
+  "artifacts": {
+    "browser-results.json": "eae4351b3107c50af48223ce764dcac96271e42be827ad97b735227b67145206",
+    "sample-context.json": "cb8b9bec9523d2d53a90a37261e04e35e015496db0deb709f54ae1da0377a5bb",
+    "file-roundtrip.json": "71e9ba6afc20ce13cce1183c28464f15daccdbae2d67acf411b7ae570328ceff"
+  }
+}

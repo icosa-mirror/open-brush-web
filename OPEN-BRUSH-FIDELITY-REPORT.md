@@ -1,6 +1,6 @@
 # Open Brush parity plan and brush fidelity review
 
-Current planning audit: 2026-10-22, application baseline `2ea80ec`.
+Current planning audit: 2026-10-22, application baseline `7144991`.
 
 Original review: 2026-08-31, application baseline `4579dbb`.
 
@@ -371,6 +371,23 @@ every intervening upstream change.
     checks pass: 629 tests, four TODOs and the mirror build. This is an explicit
     unsupported-mode classification, not audio-analysis or rendered-response
     parity. The unrelated selection-canvas implementation remains uncommitted.
+
+
+30. [Loaded light/fog context](docs/evidence/brush-fidelity/render-context-2026-10-22/README.md)
+    now interprets valid native custom light and fog overrides without rewriting
+    archived metadata. Ambient byte colors, HDR directional colors and reflected
+    scene-local rotations update shared shader holders; lights follow scene
+    rotation without multiplying intensity by scene scale. Fog follows native
+    density/scale and decimeter-to-meter rules in both shader and environment
+    geometry paths, correcting the default Standard density's previous factor
+    of ten. Explicit zero fog survives, and new documents reset custom context.
+    A production-system browser checks those inputs and late materials without
+    browser errors. The real café sample yields zero fog, two custom lights and
+    no parse issues; its 557 strokes, 40,641 points, metadata and archive bytes
+    still survive rewrite. Full local checks pass: 632 tests, four TODOs and the
+    mirror build. Native pixel/color-space agreement, preset geometry/skyboxes,
+    reflection/gradient controls and connected-peer environment transfer remain
+    open; the SDK-blocked selection change is still uncommitted.
 
 ## Executive assessment
 
@@ -945,8 +962,11 @@ LightWire, remains open.
 5. Partial: blend/depth/culling defaults are mapped; complete render-state parity
    still needs per-brush reference validation. Do not add speculative alpha
    transparency sorting absent from the Open Brush contract.
-6. Open: derive lights, fog, time origin, canvas transform, and other globals
-   from the loaded sketch/environment rather than one Standard rig.
+6. Partial: native custom light/fog fields now drive shared shader context;
+   scene rotation and inverse-scale fog are applied, with explicit reset and
+   zero-fog behavior (validation item 30). Preset rigs/geometry, reflection and
+   gradient inputs, connected-peer context, remaining globals and native image
+   agreement remain open.
 7. Implemented: shared pass/group helpers are consumed for Electricity and the
    Toon brushes. Validate their actual-stroke images against Unity. Classify
    additional passes absent from maintained assets as upstream limitations.
