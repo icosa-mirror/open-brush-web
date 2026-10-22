@@ -1,6 +1,6 @@
 # Open Brush parity plan and brush fidelity review
 
-Current planning audit: 2026-10-22, application baseline `23e56c0`.
+Current planning audit: 2026-10-22, application baseline `a6a6fb9`.
 
 Original review: 2026-08-31, application baseline `4579dbb`.
 
@@ -243,6 +243,8 @@ every intervening upstream change.
     stroke values, metadata values and archive bytes. At that checkpoint layer
     transforms remained unapplied; gallery UI interaction, native widget layers,
     connected collaboration and live native import remain separate open checks.
+    [CI for `a6a6fb9`](https://github.com/icosa-mirror/open-brush-web/actions/runs/39718589988)
+    subsequently succeeded.
 
 21. The [layer pose contract](docs/evidence/brush-fidelity/layer-pose-contract-2026-10-22/README.md)
     adds independent layer TRS to documents and file metadata while keeping
@@ -324,6 +326,19 @@ every intervening upstream change.
     checks pass: 624 tests and four TODOs; the mirror build passes. Native
     Editor import/undo, group editing UI and connected-peer group workflows
     remain separate open checks.
+
+
+27. [Group-aware selection evidence](docs/evidence/brush-fidelity/group-selection-2026-10-22/README.md)
+    now covers the panel selection command expanding an explicit native tag to
+    all active stroke members, including other/hidden layers, while excluding
+    erased and unfinished members. Ungrouped targets remain independent.
+    Actual PanelSystem/history and selection/batch systems verify group
+    selection, undo/redo, clearing/restoring and ungrouped selection without
+    browser errors. Full checks pass: 626 tests and four TODOs; the mirror build
+    passes. The native eraser is individual-stroke based and remains so here.
+    Native widget-group expansion, spatial selection input, group editing UI
+    and native selection-canvas reparenting/hidden-layer rendering remain open;
+    membership-state agreement is not rendering or complete grouping parity.
 
 ## Executive assessment
 

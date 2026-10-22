@@ -1,6 +1,8 @@
 import type { StrokeData, Vec3 } from "../types.js";
 
 export interface RuntimeStrokeSelectionState {
+  /** Native explicit selection tag; absent/zero means ungrouped. */
+  groupId?: number;
   layerIndex: number;
   commandIndex: number;
   visible: boolean;
@@ -45,6 +47,17 @@ export function resolveLastSelectableStroke(
     }
   }
   return selectedStroke;
+}
+
+/** Native SelectCommand expands an explicit group across canvases. Rendered
+ * visibility/layer filtering chooses the initial hit, not its active members. */
+export function resolveStrokeSelectionGroup(
+  strokes: readonly RuntimeStrokeSelectionState[],
+  target: RuntimeStrokeSelectionState,
+): number[] {
+  if (!target.groupId) return [target.commandIndex];
+  return strokes.filter(stroke => stroke.groupId === target.groupId && stroke.visible && stroke.finalized)
+    .map(stroke => stroke.commandIndex).sort((a, b) => a - b);
 }
 
 export function summarizeStrokeSelection(

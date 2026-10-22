@@ -1,0 +1,39 @@
+{
+  "recordedAt": "2026-10-22T03:51:19.972Z",
+  "browserVersion": "155.0.8059.85",
+  "result": {
+    "passed": true,
+    "explicitTag": 4045620583,
+    "groupMembersSelected": 2,
+    "erasedMemberExcluded": true,
+    "otherGroupExcluded": true,
+    "groupSelectionUndoRedo": true,
+    "clearUndoRestoresGroup": true,
+    "ungroupedSelectsAlone": true,
+    "scope": "Actual PanelSystem commands/history and production selection/batch systems without panel UI entities; state membership only, no native pixels or physical XR"
+  },
+  "consoleErrors": 0,
+  "graphicsWarnings": 0,
+  "pageErrors": [],
+  "sourceHashes": {
+    "src/app/layer-state-validation.ts": "03adcfdfbe5867344a98a45c6b0f0218f291fa0037c93979d7c349ab249122fa",
+    "src/app/layer-transform-validation.ts": "a7b3723307e43c0f74b2c953c4bdfc0632bc4b675d3a65dbffbaadb8a13b46b4",
+    "src/strokes/layer-space.ts": "32f02a0733a9d857d3a11a018807a6e022ca134f3c4c4e1a1f76721526877038",
+    "src/systems/layer-canvas-system.ts": "c17b0cd9b0f5250517a66ed48a76828e6a813a74fcbdbcf29f7bb0f38fe65b97",
+    "src/systems/sketch-library-system.ts": "82362247acd904b42c039cc9fcc02136e010e25c644a08075a23f007d1414449",
+    "src/systems/stroke-authoring-system.ts": "33219738d45f0f48ab297b34a398cfff156050335baa30229c668fb85860a150",
+    "src/systems/stroke-batch-render-system.ts": "ee38d42c94c080ecb353d4667f29a508806753a6d2bd2cae85a68f142dff4d1a",
+    "src/systems/selection-system.ts": "d9b732b6462fd52e92f944793f5af9ba9f51905ee2ada3e17cf164237eb4f2ef",
+    "src/sketch/tilt-file.ts": "15f2d75dd6b5bac8ca2774e3c8fd44c9557fe12341a012e1daa7f87766f0204b",
+    "src/components/core.ts": "6e3e31beee0862170e881e09534e604420c2e14bc92f42c6f77ee6c65c3509b5",
+    "scripts/layer-state-harness.html": "5243e9fad61e2af96b69eb7219a8fdebfd86d52c58a7828b6db4c25762fe2702",
+    "scripts/layer-transform-harness.html": "6acce05b2fb6867ad868dc8e03c5a5baba0bc12f3d2fb0ee517ff63b92bfdac7",
+    "scripts/browser-layer-state.mjs": "69dfaaced150ceed5f2c670583ed46437ed53989084fd4134ba2188a00586c8c",
+    "package-lock.json": "f994e07d2de98eabdcd30394cd9be512ac6db3b62254301c8a130302ee4a1e04",
+    "scripts/group-selection-harness.html": "7a3f093474cb196c8c87997f1a3c87ba163fd4ec2e62287abc1f0bdbdf3f4f32",
+    "src/app/group-selection-validation.ts": "3e0954fdba4baee67c12e0065bae3ae3d47ee18f6c9b5f107fabdc6b1681bbda",
+    "src/systems/panel-system.ts": "5ac8c7e191815189024b4ab927e247a7bf2f8fc405495c0510708b2fc53ad7df",
+    "src/strokes/selection.ts": "c5a69c821f000ec9ec2f5f6d86a8201a994d7cbf5b30523f376fcf842c965267",
+    "src/panels/ui-command-history.ts": "8bcff70aaccbbe730b3e7cf02aebf637c0357354b492e2f5e9fe21642e8e8e4a"
+  }
+}

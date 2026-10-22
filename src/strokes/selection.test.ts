@@ -5,6 +5,7 @@ import {
   createTranslatedStrokeSnapshot,
   planSelectedStrokeTranslation,
   resolveLastSelectableStroke,
+  resolveStrokeSelectionGroup,
   summarizeStrokeSelection,
   translateStrokeDataControlPoints,
   type RuntimeStrokeSelectionState,
@@ -46,6 +47,18 @@ const strokes: RuntimeStrokeSelectionState[] = [
 ];
 
 describe("Open Brush stroke selection", () => {
+  it("expands explicit native groups across layers while excluding erased and unfinished members", () => {
+    const target = { ...strokes[0], groupId: 0xf1234567 };
+    const members = [target, { ...target, commandIndex: 2, layerIndex: 4, renderVisible: false },
+      { ...target, commandIndex: 3, visible: false }, { ...target, commandIndex: 4, finalized: false },
+      { ...target, commandIndex: 5, groupId: 0xf1234568 }];
+    expect(resolveStrokeSelectionGroup(members, target)).toEqual([1, 2]);
+  });
+
+  it("selects an ungrouped target alone even when other ungrouped strokes share zero or no tag", () => {
+    expect(resolveStrokeSelectionGroup(strokes, strokes[0])).toEqual([1]);
+    expect(resolveStrokeSelectionGroup(strokes.map(stroke => ({ ...stroke, groupId: 0 })), { ...strokes[0], groupId: 0 })).toEqual([1]);
+  });
   it("snapshots a private mesh translation once without mutating live points", () => {
     const stroke = {
       controlPoints: [{ position: [1, 2, 3], orientation: [0, 0, 0, 1] }],

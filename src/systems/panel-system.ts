@@ -52,6 +52,7 @@ import {
 import {
   planSelectedStrokeTranslation,
   resolveLastSelectableStroke,
+  resolveStrokeSelectionGroup,
   type RuntimeStrokeTransformState,
   type RuntimeStrokeSelectionState,
 } from "../strokes/selection.js";
@@ -1063,8 +1064,9 @@ export class PanelSystem extends createSystem({
     if (!appState) {
       return;
     }
+    const strokes = this.getStrokeSelectionStates();
     const target = resolveLastSelectableStroke(
-      this.getStrokeSelectionStates(),
+      strokes,
       this.getActiveLayerIndex(appState),
     );
     if (!target) {
@@ -1072,7 +1074,7 @@ export class PanelSystem extends createSystem({
     }
 
     const previousSelection = this.getSelectedCommandIndices();
-    const nextSelection = [target.commandIndex];
+    const nextSelection = resolveStrokeSelectionGroup(strokes, target);
     if (this.sameCommandIndexSet(previousSelection, nextSelection)) {
       return;
     }
@@ -1697,6 +1699,7 @@ export class PanelSystem extends createSystem({
     const strokes: RuntimeStrokeSelectionState[] = [];
     for (const stroke of this.queries.strokes.entities) {
       strokes.push({
+        groupId: Number(stroke.getValue(BrushStroke, "groupId")),
         layerIndex: Number(stroke.getValue(BrushStroke, "layerIndex")),
         commandIndex: Number(stroke.getValue(BrushStroke, "commandIndex")),
         visible: Boolean(stroke.getValue(BrushStroke, "visible")),
