@@ -38,7 +38,6 @@ import {
   type SketchLister,
 } from "../sketch/icosa-gallery.js";
 import { readTiltFile } from "../sketch/tilt-file.js";
-import { convertTiltBrushUnitsToMeters } from "../sketch/tilt-brush-units.js";
 import type { StrokeData } from "../types.js";
 import { createTranslatedStrokeSnapshot } from "../strokes/selection.js";
 import {
@@ -341,10 +340,8 @@ export class SketchLibrarySystem extends createSystem({
       appState.setValue(OpenBrushAppState, "toolStatus", `loading "${entry.name}"`);
       void downloadRemoteTiltBytes(entry.tiltUrl)
         .then((bytes) => {
-          // Native Tilt Brush files are authored in Tilt Brush units
-          // (decimetres); convert to Open Brush metres like Open Brush's canvas
-          // does, otherwise the sketch spawns 10x too large and reads as empty.
-          const document = convertTiltBrushUnitsToMeters(readTiltFile(bytes));
+          // The file reader returns web coordinates for native and legacy web files.
+          const document = readTiltFile(bytes);
           this.openDocument(document, "", entry.name);
         })
         .catch((error) => {

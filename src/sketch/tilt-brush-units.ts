@@ -3,17 +3,12 @@
  *
  * Open Brush / Tilt Brush author sketches in "Tilt Brush units", where one
  * unit is a decimetre — see App.cs: `METERS_TO_UNITS = 10`,
- * `UNITS_TO_METERS = 0.1`. Their engine keeps the whole scene (and the tracked
- * room) in those units, so it reads 1:1 to the artist. Open Brush instead
- * works in metres (WebXR tracking is metric), which is why the intro sketch
- * and baked geometry apply a 0.1 scale on the way in.
+ * `UNITS_TO_METERS = 0.1`. The web runtime uses metres and reflects native Z
+ * coordinates. The file reader/writer own the complete inverse transform.
  *
- * Sketches painted inside Open Brush are already captured in metres, but a
- * `.tilt` imported from Tilt Brush / Icosa Gallery arrives in decimetres and
- * must be converted the same way Open Brush's canvas would — a uniform scale
- * of both control-point positions and brush sizes, which leaves orientations
- * and proportions intact. Without it an imported sketch spawns ten times too
- * large and reads as an empty scene.
+ * Runtime strokes must not receive a second import conversion. Older web
+ * files wrote web coordinates directly; the file boundary recognizes those
+ * separately from native files and new explicitly marked native exports.
  */
 
 import { createSketchDocument, type SketchDocument } from "./document.js";
@@ -22,9 +17,32 @@ import type { ControlPoint, StrokeData } from "../types.js";
 /** Open Brush `App.UNITS_TO_METERS`: one Tilt Brush unit is a decimetre. */
 export const UNITS_TO_METERS = 0.1;
 
+/** Native Unity coordinates use decimetres and a reflected Z axis. */
+export function nativeTiltStrokeToWeb(stroke: StrokeData): StrokeData {
+  return reflectAndScaleStroke(stroke, UNITS_TO_METERS);
+}
+
+/** The file boundary is the inverse of the native-to-web coordinate transform. */
+export function webStrokeToNativeTilt(stroke: StrokeData): StrokeData {
+  return reflectAndScaleStroke(stroke, 1 / UNITS_TO_METERS);
+}
+
+function reflectAndScaleStroke(stroke: StrokeData, scale: number): StrokeData {
+  return {
+    ...stroke,
+    brushSize: stroke.brushSize * scale,
+    controlPoints: stroke.controlPoints.map(point => ({
+      ...point,
+      position: [point.position[0] * scale, point.position[1] * scale, -point.position[2] * scale],
+      // S * R * S for S = diag(1, 1, -1).
+      orientation: [-point.orientation[0], -point.orientation[1], point.orientation[2], point.orientation[3]],
+    })),
+  };
+}
+
 /**
- * Converts a sketch authored in Tilt Brush units (decimetres) into Open Brush
- * metres by uniformly scaling positions and brush sizes.
+ * Scale-only utility: preserves handedness/orientation. Native file import uses
+ * nativeTiltStrokeToWeb instead; readTiltFile already returns web coordinates.
  */
 export function convertTiltBrushUnitsToMeters(
   document: SketchDocument,

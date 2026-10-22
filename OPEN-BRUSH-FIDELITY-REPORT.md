@@ -1,6 +1,6 @@
 # Open Brush parity plan and brush fidelity review
 
-Current planning audit: 2026-10-22, application baseline `02d90e2`.
+Current planning audit: 2026-10-22, application baseline `155017b`.
 
 Original review: 2026-08-31, application baseline `4579dbb`.
 
@@ -217,6 +217,18 @@ every intervening upstream change.
     retaining native fields/assets. This is preservation evidence: native
     metadata interpretation, coordinate/layer reconciliation, unsupported binary
     extensions, browser interaction and live native import are still open.
+
+19. The [file coordinate boundary](docs/evidence/brush-fidelity/tilt-coordinate-boundary-2026-10-22/README.md)
+    now converts native decimetres/handedness to web metres on read and applies
+    the inverse on write. New exports explicitly mark native stroke coordinates;
+    older unmarked web exports retain their previous metre interpretation.
+    Local and remote loads share that reader, removing the gallery-only extra
+    scale. On the café sample, all 557 decoded native strokes match the original
+    after rewriting, while all web-memory values, original metadata values and
+    retained archive bytes survive. Independent archive tests check expected
+    transforms, raw exported values, legacy repeated saves and unknown markers.
+    This does not establish room/canvas/media transforms, native layer semantics,
+    live native import or calibrated visual equivalence.
 
 ## Executive assessment
 
@@ -983,8 +995,11 @@ actual scope; incomplete items remain open.
    writer. The earlier archive audit identified 15 dropped native metadata keys
    and default thumbnail replacement. Opaque retention now preserves all
    original metadata values and thumbnail bytes on that same sample, with
-   controller coverage through editing/save-as/reload. Still reconcile native
-   coordinate/layer semantics, unsupported extensions and interactive/native
+   controller coverage through editing/save-as/reload. Stroke coordinate
+   conversion is now inverse at the file boundary, with original decoded native
+   values retained on the sample and legacy web-file handling explicit. Still
+   reconcile native room/canvas/media transforms and layer semantics,
+   unsupported extensions and interactive/native
    import behavior. The local archive wrapper and writer remain; preservation
    does not establish a native all-fields semantic round-trip pass.
 10. **Turn the application inventory into feature plans.** Compare the workflows

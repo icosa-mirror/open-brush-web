@@ -8,6 +8,7 @@ import {
 } from "./document.js";
 import { normalizeGuid } from "./binary.js";
 import { readSketchMemory, writeSketchMemory } from "./sketch-memory.js";
+import { nativeTiltStrokeToWeb, webStrokeToNativeTilt } from "./tilt-brush-units.js";
 
 export const TILT_SENTINEL = 0x546c6974;
 export const TILT_HEADER_SIZE = 16;
@@ -31,6 +32,7 @@ export interface TiltFileWriteOptions {
 export interface TiltFileMetadata {
   BrushIndex: string[];
   OpenBrushIwSdk?: {
+    coordinateSpace?: "unity-decimeters" | "web-meters";
     appName: string;
     schemaVersion: number;
     source: SketchMetadata["source"];
@@ -51,12 +53,13 @@ export function writeTiltFile(
   options: TiltFileWriteOptions = {},
 ): Uint8Array {
   const preservedMetadata = structuredClone(document.tiltArchive?.metadata ?? {}) as Partial<TiltFileMetadata>;
-  const sketchPayload = writeSketchMemory(document.strokes, preservedMetadata.BrushIndex);
+  const sketchPayload = writeSketchMemory(document.strokes.map(webStrokeToNativeTilt), preservedMetadata.BrushIndex);
   const metadata: TiltFileMetadata = {
     ...preservedMetadata,
     BrushIndex: sketchPayload.brushGuids.map(normalizeGuid),
     OpenBrushIwSdk: {
       ...preservedMetadata.OpenBrushIwSdk,
+      coordinateSpace: "unity-decimeters",
       appName: document.metadata.appName,
       schemaVersion: document.metadata.schemaVersion,
       source: document.metadata.source,
@@ -103,7 +106,14 @@ export function readTiltFile(bytes: Uint8Array): SketchDocument {
 
   const metadata = decodeJson<TiltFileMetadata>(metadataBytes);
   const brushGuids = readBrushIndex(metadata);
-  const strokes = readSketchMemory(sketchBytes, brushGuids);
+  const coordinateSpace = metadata.OpenBrushIwSdk?.coordinateSpace;
+  if (coordinateSpace !== undefined && coordinateSpace !== "unity-decimeters" && coordinateSpace !== "web-meters") {
+    throw new Error(`Unsupported Open Brush .tilt coordinate space: ${coordinateSpace}`);
+  }
+  // Earlier web exports had no convention marker and wrote web metres directly.
+  const nativeCoordinates = !metadata.OpenBrushIwSdk || coordinateSpace === "unity-decimeters";
+  const rawStrokes = readSketchMemory(sketchBytes, brushGuids);
+  const strokes = nativeCoordinates ? rawStrokes.map(nativeTiltStrokeToWeb) : rawStrokes;
   const layers = readLayers(metadata, strokes.map((stroke) => stroke.layerIndex));
   const media = readMedia(metadata);
   return createSketchDocument({

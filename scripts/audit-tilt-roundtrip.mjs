@@ -5,6 +5,7 @@ import { isDeepStrictEqual, parseArgs } from "node:util";
 import { pathToFileURL } from "node:url";
 import path from "node:path";
 import { unzipSync } from "three/examples/jsm/libs/fflate.module.js";
+import { readTiltStrokeData } from "three-tiltloader";
 
 const hash = bytes => createHash("sha256").update(bytes).digest("hex");
 function archive(bytes) {
@@ -28,6 +29,10 @@ async function main() {
     if (!isDeepStrictEqual(document.layers, reparsed.layers) || !isDeepStrictEqual(document.media, reparsed.media)) throw new Error("App layer/media values changed on rewrite");
     const originalEntries = archive(bytes), newEntries = archive(rewritten);
     const originalMetadata = metadata(originalEntries), newMetadata = metadata(newEntries);
+    const sourceCoordinateSpace = originalMetadata.OpenBrushIwSdk?.coordinateSpace ?? (originalMetadata.OpenBrushIwSdk ? "legacy-web-meters" : "unity-decimeters");
+    const originalNativeStrokeValuesPreserved = sourceCoordinateSpace === "unity-decimeters"
+      ? isDeepStrictEqual(readTiltStrokeData(originalEntries["data.sketch"], originalMetadata.BrushIndex), readTiltStrokeData(newEntries["data.sketch"], newMetadata.BrushIndex))
+      : null;
     const droppedMetadataKeys = Object.keys(originalMetadata).filter(key => !(key in newMetadata)).sort();
     const changedMetadataKeys = Object.keys(originalMetadata).filter(key => key in newMetadata && !isDeepStrictEqual(originalMetadata[key], newMetadata[key])).sort();
     const changedRetainedEntries = Object.keys(originalEntries).filter(name => name !== "metadata.json" && name !== "data.sketch" && (!newEntries[name] || hash(originalEntries[name]) !== hash(newEntries[name]))).sort();
@@ -39,6 +44,8 @@ async function main() {
       strokeCount: document.strokes.length, controlPointCount: document.strokes.reduce((n, stroke) => n + stroke.controlPoints.length, 0),
       brushGuidCount: new Set(document.strokes.map(stroke => stroke.brushGuid)).size,
       knownStrokeValuesSurviveRewrite: true, appLayerAndMediaValuesSurviveRewrite: true,
+      sourceCoordinateSpace, outputCoordinateSpace: newMetadata.OpenBrushIwSdk?.coordinateSpace ?? "unmarked",
+      originalNativeStrokeValuesPreserved,
       originalMetadataKeys: Object.keys(originalMetadata).sort(), droppedMetadataKeys, changedMetadataKeys,
       originalMetadataValuesPreserved: !droppedMetadataKeys.length && !changedMetadataKeys.length,
       changedRetainedEntries, retainedArchiveEntryBytesPreserved: changedRetainedEntries.length === 0,
