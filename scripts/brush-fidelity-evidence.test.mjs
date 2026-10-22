@@ -16,6 +16,14 @@ const data = {
 const required = data.exports.brushes.map((row) => ({ guid: row.guid, name: row.name }));
 
 describe("per-GUID brush fidelity evidence join", () => {
+  it("records clean active emulator sessions separately from physical-device compilation and rejects graphics warnings", () => {
+    const changed = { ...data, emulatedXr: read(`${base}emulated-xr-shader-compile-2026-10-22/results.json`) };
+    const rows = joinBrushFidelityEvidence(required, changed);
+    expect(rows.filter(row => row.emulatedXrShaderCompile === "recorded-emulated-session-link")).toHaveLength(95);
+    expect(rows.every(row => row.actualXrShaderCompile === "unverified" && row.visualParity === "unverified")).toBe(true);
+    changed.emulatedXr.graphicsWarningCount = 1;
+    expect(() => joinBrushFidelityEvidence(required, changed)).toThrow("browser/graphics errors");
+  });
   it("keeps four controlled default-input probes separate from visual parity and requires a sensitivity control", () => {
     const changed = { ...data,
       attributeProbeCaptures: read(`${base}attribute-default-probe-2026-10-22/results.json`),

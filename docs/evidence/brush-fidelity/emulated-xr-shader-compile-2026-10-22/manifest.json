@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-22T00:42:17.143Z",
+  "scope": "IWER emulated immersive session shader compile/link; no physical headset, pixel-parity or performance pass",
+  "reportSha256": "9956b7d5ca7c54608ec45577062a16f05834745dbe5344a5eb9c13a96b816bf9",
+  "browserLogSha256": "f1d88d80ed022700a4231e2f4b49741a9cd1968ea584889111d7d4b56ee1757c",
+  "counts": {
+    "brushes": 95,
+    "linked": 95,
+    "programs": 99,
+    "viewPassObservations": 198,
+    "consoleErrors": 0,
+    "pageErrors": 0,
+    "graphicsWarnings": 0,
+    "projectionLayerMatches": 95,
+    "nativeLayersGrant": 0
+  },
+  "emulatorVersions": [
+    "2.2.1"
+  ],
+  "physicalDeviceResult": "unverified",
+  "earlierExperiments": "Rejected: initial startup failures, zero-IPD/two-identical-view samples, and a full run with disposal-related WebGL warnings. Only the clean final run is joined."
+}

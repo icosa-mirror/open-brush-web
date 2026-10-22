@@ -61,17 +61,10 @@ export interface BrushGeometryVisualConformanceResult {
   attributeDefaultProbe?: BrushDefaultProbe & { changedPixels: number; maxByteDifference: number };
 }
 
-export function runBrushGeometryVisualConformance(
-  renderer: WebGLRenderer,
-  sourceMaterial: ShaderMaterial,
+export function createBrushDiagnosticGeometry(
   generated: GeneratedBrushGeometry,
-  name = "Smoke",
-  kind = "particle",
-  camera?: Camera,
-  minimumCoveredPixelRatio = 0.005,
-  renderSize = BRUSH_VISUAL_CONFORMANCE_SIZE,
-  probeDefaults = false,
-): BrushGeometryVisualConformanceResult {
+  brushGuid: string,
+): BufferGeometry {
   const geometry = new BufferGeometry();
   geometry.setAttribute("position", new BufferAttribute(generated.positions, 3));
   geometry.setAttribute("normal", new BufferAttribute(generated.normals, 3));
@@ -100,11 +93,7 @@ export function runBrushGeometryVisualConformance(
   geometry.setIndex(new BufferAttribute(generated.indices, 1));
   applyBrushShaderSupplementalAttributes(
     geometry,
-    name === "DanceFloor"
-      ? DANCE_FLOOR_BRUSH_GUID
-      : name === "LeakyPen"
-        ? LEAKY_PEN_BRUSH_GUID
-        : "",
+    brushGuid,
     generated.positions.length / 3,
   );
   const shaderUv0Size = geometry.getAttribute("a_texcoord0")?.itemSize;
@@ -112,6 +101,23 @@ export function runBrushGeometryVisualConformance(
     geometry.dispose();
     throw new Error(`Brush capture UV0 layout mismatch: generated ${generated.uv0Size}, shader ${shaderUv0Size ?? "missing"}.`);
   }
+  return geometry;
+}
+
+export function runBrushGeometryVisualConformance(
+  renderer: WebGLRenderer,
+  sourceMaterial: ShaderMaterial,
+  generated: GeneratedBrushGeometry,
+  name = "Smoke",
+  kind = "particle",
+  camera?: Camera,
+  minimumCoveredPixelRatio = 0.005,
+  renderSize = BRUSH_VISUAL_CONFORMANCE_SIZE,
+  probeDefaults = false,
+): BrushGeometryVisualConformanceResult {
+  const geometry = createBrushDiagnosticGeometry(generated,
+    name === "DanceFloor" ? DANCE_FLOOR_BRUSH_GUID : name === "LeakyPen" ? LEAKY_PEN_BRUSH_GUID : "");
+  const shaderUv0Size = geometry.getAttribute("a_texcoord0").itemSize;
 
   const material = sourceMaterial.clone();
   const renderMaterial = createBrushRenderMaterial(

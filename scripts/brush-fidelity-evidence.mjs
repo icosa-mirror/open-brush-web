@@ -1,4 +1,5 @@
 import { validateShaderCompileAudit } from "./brush-capture-contract.mjs";
+import { validateXrBrushShaderAudit } from "./brush-xr-shader-contract.mjs";
 
 export function indexGuidRows(rows, key, label) {
   if (!Array.isArray(rows)) throw new Error(`Missing ${label} rows.`);
@@ -41,6 +42,8 @@ export function joinBrushFidelityEvidence(required, data) {
   const normalExports = data.postLoader.results.filter((row) => row.generator?.includes("Open Brush UnityGLTF Exporter"));
   const compileRows = data.compileCaptures ? indexGuidRows(data.compileCaptures.results, "guid", "browser shader compile") : null;
   const probeRows = data.attributeProbeCaptures ? indexGuidRows(data.attributeProbeCaptures.results, "guid", "attribute-default probe") : null;
+  const xrRows = data.emulatedXr ? indexGuidRows(data.emulatedXr.results, "guid", "emulated XR") : null;
+  if (xrRows && (!data.emulatedXr.completedAt || data.emulatedXr.sessionEnded !== true || data.emulatedXr.error || data.emulatedXr.consoleErrorCount !== 0 || data.emulatedXr.graphicsWarningCount !== 0 || !Array.isArray(data.emulatedXr.pageErrors) || data.emulatedXr.pageErrors.length)) throw new Error("Emulated XR run is incomplete or contains browser/graphics errors.");
   if (probeRows) {
     const control = data.attributeProbeControls?.attributeProbeControl;
     if (!control?.restored || control.compile?.status !== "linked" || !(control.difference?.changedPixels > 0) || data.attributeProbeControls.pageErrors?.length !== 0) throw new Error("Missing passing attribute-probe sensitivity/restoration control.");
@@ -73,6 +76,13 @@ export function joinBrushFidelityEvidence(required, data) {
       }
     }
     const probeCapture = probeRows?.get(guid);
+    const xr = xrRows?.get(guid);
+    if (xrRows) {
+      if (!xr) throw new Error(`Missing emulated XR evidence for ${guid}.`);
+      requireMatchingHash(xr.meshSha256, native.mesh.sha256, `${guid} XR native input`);
+      validateXrBrushShaderAudit(xr);
+      if (xr.status !== "emulated-xr-linked") throw new Error(`Failed emulated XR evidence for ${guid}.`);
+    }
     let attributeProbe = { source: null, status: "unverified" };
     if (probeCapture) {
       requireMatchingHash(probeCapture.referenceSha256, image.sha256, `${guid} attribute probe reference`);
@@ -111,6 +121,14 @@ export function joinBrushFidelityEvidence(required, data) {
         observedMaterialPasses: compile.shaderCompileAudit.observedMaterialPasses, boundPrograms: compile.shaderCompileAudit.programs.length,
         shaderSemantics: "unverified", coverageSmoke: compile.renderStatus } : null,
       actualXrShaderCompile: "unverified",
+      emulatedXrShaderCompile: xr ? "recorded-emulated-session-link" : "unverified",
+      emulatedXrShaderEvidence: xr ? { source: "emulatedXr", emulator: xr.emulator, runtimeVersion: xr.emulatorVersion,
+        programs: xr.audit.programs.length, passesByCamera: xr.materialPassesByCamera,
+        cameraPositions: xr.cameraPositions, viewerEyes: xr.viewerEyes,
+        projectionLayerMatches: xr.renderStateLayerMatches,
+        layerPolyfillEnabled: xr.emulatorLayerPolyfillEnabled,
+        nativeLayersFeatureGrant: xr.enabledFeatures.includes("layers"),
+        physicalDeviceResult: "unverified", visualParity: "unverified" } : null,
       unboundAttributeDefaultProbe: attributeProbe,
       physicalQuestInteraction: "unverified", devicePerformanceBudget: "unverified", animationParity: "unverified",
       visualParity: "unverified",

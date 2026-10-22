@@ -1,6 +1,6 @@
 /** Reject old/incompatible runtimes rather than accepting NaN or missing metadata as evidence. */
-export function validateShaderCompileAudit(audit) {
-  if (!audit || audit.context !== "nonimmersive" || !["linked", "failed", "unverified"].includes(audit.status) || !Number.isSafeInteger(audit.expectedMaterialPasses) || audit.expectedMaterialPasses < 1 || !Array.isArray(audit.programs) || !Array.isArray(audit.errors)) throw new Error("Browser shader compile audit is missing or incompatible.");
+export function validateShaderCompileAudit(audit, expectedContext = "nonimmersive") {
+  if (!audit || audit.context !== expectedContext || !["linked", "failed", "unverified"].includes(audit.status) || !Number.isSafeInteger(audit.expectedMaterialPasses) || audit.expectedMaterialPasses < 1 || !Array.isArray(audit.programs) || !Array.isArray(audit.errors)) throw new Error("Browser shader compile audit is missing or incompatible.");
   const observed = new Set();
   for (const program of audit.programs) {
     if (!Number.isSafeInteger(program.materialPass) || program.materialPass < 0 || program.materialPass >= audit.expectedMaterialPasses) throw new Error("Browser shader audit has an invalid material pass.");

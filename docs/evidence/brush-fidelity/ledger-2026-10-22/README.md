@@ -23,10 +23,14 @@
    likewise do not become native incremental-mesh or visual-equivalence passes.
 4. Every GUID now has a recorded desktop browser compile/link audit for the
    99 programs bound in the recorded capture context. Separate asset-load audits,
-   actual XR compilation, physical Quest interaction, device performance budgets
+   physical-device XR compilation, physical Quest interaction, device performance budgets
    and animation parity remain unverified. Capture output alone
    does not establish these stronger claims. Source reports retain their own
    bounded observations; the ledger does not overwrite historical evidence.
+   All 95 now also have separate active IWER-session link observations, with
+   99 programs and 198 view/pass callbacks under distinct eye transforms and
+   a polyfilled projection layer. Those emulator records do not promote the
+   `actualXrShaderCompile` field, explicitly defined as physical-device evidence.
 5. Generation rejects duplicate/missing GUID rows, mismatched native mesh/GLB
    or reference-image hashes, dependency-lock/inventory drift and unfinished
    browser runs. The ledger lists current package pins and the configured
@@ -37,7 +41,7 @@
 6. The declared native reference remains `4786d55...`, while the fresh fixture
    generator ran at `5591ff1...`. The ledger retains that discrepancy explicitly;
    joining records does not reconcile the native revisions or image settings.
-7. Full checking passed: 83 Vitest files, 583 passed tests and four existing
+7. Full checking passed: 85 Vitest files, 594 passed tests and four existing
    TODOs. Join regressions cover all 95 recorded identities, retained PBR paths,
    missing normal-export observations, captured/coverage-fail distinctions,
    duplicate/malformed/missing GUIDs and cross-report hash drift. No runtime
@@ -56,6 +60,7 @@ Source reports:
 | Existing native image corpus | [inventory](../native-2026-10-21/image-corpus-inventory.json) |
 | Desktop shader compile/link | [audit](../browser-shader-compile-2026-10-22/results.json) |
 | Live-input default-attribute probes | [observations](../attribute-default-probe-2026-10-22/results.json), [control](../attribute-default-probe-2026-10-22/gpu-controls.json) |
+| Active emulated XR compile/link | [session audit](../emulated-xr-shader-compile-2026-10-22/results.json) |
 
 Rebuild the index from the repository root:
 
@@ -64,5 +69,5 @@ npm run evidence:brush-fidelity -- --output docs/evidence/brush-fidelity/ledger-
 ```
 
 The generator replaces only `ledger.json` and `brushes.md`; this README is
-maintained separately. The ledger's producing application baseline is `aefe5d6`;
+maintained separately. The ledger's producing application baseline is `949236f`;
 runner/joiner hashes identify the generator in this change.

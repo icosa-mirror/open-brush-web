@@ -1,0 +1,5 @@
+<!doctype html><html><head><link rel="icon" href="data:,"></head><body><button id="enter-xr">Enter test XR</button><div id="scene" style="width:640px;height:480px"></div><script type="module">
+import {startBrushXrShaderAudit} from '/src/brushes/brush-xr-shader-audit.ts';
+window.xrBrushTest=await startBrushXrShaderAudit(document.getElementById('scene'),document.getElementById('enter-xr'));
+document.documentElement.dataset.xrShaderHarness='ready';
+</script></body></html>

@@ -1,6 +1,6 @@
 # Open Brush parity plan and brush fidelity review
 
-Current planning audit: 2026-10-22, application baseline `aefe5d6`.
+Current planning audit: 2026-10-22, application baseline `949236f`.
 
 Original review: 2026-08-31, application baseline `4579dbb`.
 
@@ -143,7 +143,7 @@ every intervening upstream change.
     accessors, post-loader inspection, corrected browser captures and buffer
     capacities. It binds source revisions/hashes and rejects duplicate/missing
     identities, fixture/image drift, dependency-lock/inventory drift and
-    incomplete browser runs. Unverified asset-load audits, actual XR,
+    incomplete browser runs. Unverified asset-load audits, physical-device XR,
     hardware/performance, animation and visual parity are explicit per GUID.
     These are joined historical observations under their recorded revisions,
     not new current-app rendering or native-image parity passes.
@@ -152,7 +152,7 @@ every intervening upstream change.
     passes/programs have successful vertex/fragment compile and link statuses
     in the recorded nonimmersive capture context. A valid/invalid real-GPU
     control checks failure detection and restoration. The ledger now distinguishes
-    these recorded desktop links from unverified actual-XR compilation and
+    these recorded desktop links from unverified physical-device XR compilation and
     visual parity. Six unbound user-attribute observations are reviewed in the
     live-input branch below; eight unbound `gl_VertexID` observations are built-ins.
     Coverage remains 94/95 and is not promoted to image parity.
@@ -165,6 +165,22 @@ every intervening upstream change.
     Together with the captured compiled source guards, this supports leaving
     those inputs unbound in the recorded live-input branch. Exported-input
     semantics, broader runtime variants and visual parity remain unverified.
+
+15. `npm run test:xr:brush-shaders` now audits freshly linked programs inside an
+    active IWER immersive-VR session. The
+    [emulated XR run](docs/evidence/brush-fidelity/emulated-xr-shader-compile-2026-10-22/README.md)
+    covers all 95 required brushes, 99 programs and 198 view/material-pass
+    observations. Each program has successful vertex/fragment compile and link
+    statuses; each material pass renders for both eyes with distinct positions
+    under a configured 63 mm IPD. Emulator, world and renderer session identities
+    match. The projection layer is present in the active render state through
+    IWER's layers polyfill; the underlying feature list does not report a native
+    layers grant. The session ends normally with no console/page errors or
+    graphics warnings. Native-input hashes and shared packed-UV bindings are
+    checked. The ledger records these emulator observations separately from
+    physical-device compilation. This isolated diagnostic world does not prove
+    physical input, application/gallery/history lifecycle, hardware layers,
+    multiview variants, visual parity or frame/memory budgets.
 
 ## Executive assessment
 
@@ -841,7 +857,7 @@ actual scope; incomplete items remain open.
    Existing PNG hashes/dimensions are recorded separately with provenance open. Exit:
    immutable input manifest and reproducible commands; no newly invented baseline.
 2. **Publish current per-GUID evidence.** Join required inventory with mesh,
-   asset-load, browser compile, actual-XR compile, Unity-image differences, and
+   asset-load, browser compile, emulated/physical-device XR compile, Unity-image differences, and
    performance/device observations, keyed by app/package/asset/Unity revisions.
    Keep missing, failed, and passed evidence distinct. Replace or qualify
    eligibility-derived confidence labels. The inventory/picker now explicitly
@@ -849,9 +865,10 @@ actual scope; incomplete items remain open.
    supported-path-derived confidence claim has been removed. The
    [ledger](docs/evidence/brush-fidelity/ledger-2026-10-22/README.md) now publishes
    all 95 identities with source-specific observations and explicit unverified
-   asset-load, XR/device, performance, animation and visual-parity states.
-   Desktop compile/link now has recorded observations for all 95 in the tested
-   context; runtime-variant breadth and actual XR compilation remain open.
+   asset-load, physical-device XR, performance, animation and visual-parity states.
+   Desktop and active emulated-XR compile/link now have recorded observations
+   for all 95 in their tested contexts; runtime-variant breadth and
+   physical-device XR compilation remain open.
    Still gather those missing observations and reconcile the native reference
    revisions/capture settings; joining evidence does not establish new passes.
    Exit: every one of the 95 GUIDs has

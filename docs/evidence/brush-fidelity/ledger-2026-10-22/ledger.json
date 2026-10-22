@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "recordedAt": "2026-10-22T00:00:06.739Z",
+  "recordedAt": "2026-10-22T00:45:49.802Z",
   "scope": "Joined recorded per-GUID evidence under each source revision; no aggregate parity score or new capture/compile/device result",
-  "producerAppRevision": "aefe5d63a6036b113226716bd829787a40ef7437",
-  "runnerSha256": "ea5fa5ce9e17fe6c502e0fd934911dff09720add80fb07a8fe35cee09b58a1cb",
-  "joinerSha256": "509b489f606457b4496ecfca2e47b43594e6e19e260b098102c4c320e1d7b4ff",
+  "producerAppRevision": "949236f97f4082c883cfa5afc4894d763cba4e14",
+  "runnerSha256": "b6b345145121b9699770e57ed763998b3c5606fc7eb7fe73911cdefc25a901a0",
+  "joinerSha256": "abf2de111f1ab384493eb7a81815a7441886907c90da536e273ed4da03696fbe",
   "inventorySha256": "cefbbe1379b3844ba8e5938d32abd1e299807999e37bfdfb654cf7f01210a9c2",
   "lockfileSha256": "f994e07d2de98eabdcd30394cd9be512ac6db3b62254301c8a130302ee4a1e04",
   "packagePins": {
@@ -97,9 +97,20 @@
       "appRevisionMeaning": "recorded revision; see source evidence for producing changes and source hashes",
       "nativeRevision": null,
       "scope": null
+    },
+    "emulatedXr": {
+      "file": "docs/evidence/brush-fidelity/emulated-xr-shader-compile-2026-10-22/results.json",
+      "sha256": "9956b7d5ca7c54608ec45577062a16f05834745dbe5344a5eb9c13a96b816bf9",
+      "appRevision": "949236f97f4082c883cfa5afc4894d763cba4e14",
+      "appRevisionMeaning": "recorded revision; see source evidence for producing changes and source hashes",
+      "nativeRevision": "5591ff1aad5288903e718752c522d54420ae6d1e",
+      "scope": "IWER emulated immersive session shader compile/link; no physical headset, pixel-parity or performance pass"
     }
   },
   "requiredCount": 95,
+  "evidenceDefinitions": {
+    "actualXrShaderCompile": "Physical-device XR compilation remains unverified; active IWER session results are recorded separately as emulatedXrShaderCompile."
+  },
   "counts": {
     "liveMeshRecordedMatches": 95,
     "exportAccessorRecordedMatches": 95,
@@ -111,6 +122,7 @@
     "layoutCapacityMatches": 95,
     "browserCompileRecordedLinks": 95,
     "attributeDefaultRgbInvariantBrushes": 4,
+    "emulatedXrCompileRecordedLinks": 95,
     "visualParityVerified": 0,
     "actualXrCompileVerified": 0,
     "devicePerformanceVerified": 0
@@ -201,6 +213,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -322,6 +370,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -416,6 +500,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -510,6 +630,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -604,6 +760,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -698,6 +890,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -792,6 +1020,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -891,6 +1155,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -985,6 +1285,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -1079,6 +1415,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -1173,6 +1545,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -1272,6 +1680,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -1366,6 +1810,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -1487,6 +1967,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -1581,6 +2097,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -1688,6 +2240,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -1799,6 +2387,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -1906,6 +2530,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -2000,6 +2660,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -2107,6 +2803,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -2201,6 +2933,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -2295,6 +3063,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -2389,6 +3193,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -2483,6 +3323,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -2595,6 +3471,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -2689,6 +3601,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -2783,6 +3731,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -2888,6 +3872,46 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 3,
+        "passesByCamera": [
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            0,
+            1,
+            2
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": "attributeProbeCaptures",
         "status": "recorded-rgb-invariant",
@@ -2995,6 +4019,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -3094,6 +4154,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -3201,6 +4297,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -3300,6 +4432,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -3394,6 +4562,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -3497,6 +4701,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -3596,6 +4836,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -3695,6 +4971,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -3802,6 +5114,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -3901,6 +5249,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -4000,6 +5384,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -4100,6 +5520,44 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 2,
+        "passesByCamera": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -4199,6 +5657,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -4298,6 +5792,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -4397,6 +5927,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -4504,6 +6070,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": "attributeProbeCaptures",
         "status": "recorded-rgb-invariant",
@@ -4612,6 +6214,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -4711,6 +6349,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -4828,6 +6502,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -4927,6 +6637,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -5026,6 +6772,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -5120,6 +6902,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -5214,6 +7032,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -5308,6 +7162,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -5407,6 +7297,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -5506,6 +7432,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -5600,6 +7562,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -5694,6 +7692,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -5793,6 +7827,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -5887,6 +7957,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -5994,6 +8100,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -6093,6 +8235,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -6187,6 +8365,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -6290,6 +8504,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -6384,6 +8634,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -6483,6 +8769,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -6582,6 +8904,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -6676,6 +9034,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -6776,6 +9170,44 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 2,
+        "passesByCamera": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -6875,6 +9307,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -6968,6 +9436,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -7075,6 +9579,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": "attributeProbeCaptures",
         "status": "recorded-rgb-invariant",
@@ -7187,6 +9727,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -7286,6 +9862,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -7370,6 +9982,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -7464,6 +10112,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -7558,6 +10242,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -7657,6 +10377,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -7751,6 +10507,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -7835,6 +10627,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -7929,6 +10757,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -8023,6 +10887,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -8117,6 +11017,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -8211,6 +11147,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -8318,6 +11290,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": "attributeProbeCaptures",
         "status": "recorded-rgb-invariant",
@@ -8426,6 +11434,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -8525,6 +11569,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -8619,6 +11699,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -8713,6 +11829,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -8807,6 +11959,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -8891,6 +12079,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -8975,6 +12199,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -9074,6 +12334,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -9168,6 +12464,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -9262,6 +12594,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -9356,6 +12724,42 @@
         "coverageSmoke": "fail"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
@@ -9450,6 +12854,42 @@
         "coverageSmoke": "pass"
       },
       "actualXrShaderCompile": "unverified",
+      "emulatedXrShaderCompile": "recorded-emulated-session-link",
+      "emulatedXrShaderEvidence": {
+        "source": "emulatedXr",
+        "emulator": "Meta Quest 3",
+        "runtimeVersion": "2.2.1",
+        "programs": 1,
+        "passesByCamera": [
+          [
+            0
+          ],
+          [
+            0
+          ]
+        ],
+        "cameraPositions": [
+          [
+            -0.03150000050663948,
+            1.600000023841858,
+            0
+          ],
+          [
+            0.03150000050663948,
+            1.600000023841858,
+            0
+          ]
+        ],
+        "viewerEyes": [
+          "left",
+          "right"
+        ],
+        "projectionLayerMatches": true,
+        "layerPolyfillEnabled": true,
+        "nativeLayersFeatureGrant": false,
+        "physicalDeviceResult": "unverified",
+        "visualParity": "unverified"
+      },
       "unboundAttributeDefaultProbe": {
         "source": null,
         "status": "unverified"
