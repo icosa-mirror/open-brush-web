@@ -10,6 +10,17 @@ const LIGHT_BRUSH_GUID = "2241cd32-8ba2-48a5-9ee7-2caef7e9ed62";
 const RADIUS_PACKED_TUBE_GUID = "4391aaaa-df81-4396-9e33-31e4e4930b27";
 
 describe("Open Brush GLB export", () => {
+  it("writes layer TRS on parent nodes while leaving mesh accessors layer-local", () => {
+    const source = createPhase1FixtureDocument();
+    const baseline = parseGlb(exportSketchDocumentToGlb(source).bytes);
+    source.layers[0].transform = { position: [1, 2, -3], rotation: [0, 0, 1, 0], scale: 2 };
+    const result = parseGlb(exportSketchDocumentToGlb(source).bytes);
+    const node = result.json.nodes.find((node: { extras?: { openBrushLayerId?: number } }) => node.extras?.openBrushLayerId === source.layers[0].id);
+    expect(node).toMatchObject({ translation: [1, 2, -3], rotation: [0, 0, 1, 0], scale: [2, 2, 2] });
+    expect(result.binBytes).toEqual(baseline.binBytes);
+    expect(result.json.accessors).toEqual(baseline.json.accessors);
+  });
+
   it("exports a valid binary GLB with stroke geometry and metadata extras", () => {
     const result = exportSketchDocumentToGlb(createPhase1FixtureDocument());
     const parsed = parseGlb(result.bytes);

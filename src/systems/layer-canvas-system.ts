@@ -1,4 +1,4 @@
-import { createSystem } from "@iwsdk/core";
+import { createSystem, Transform } from "@iwsdk/core";
 import type { Entity } from "@iwsdk/core";
 
 import {
@@ -6,33 +6,46 @@ import {
   BrushStroke,
   CanvasLayer,
   OpenBrushAppState,
+  OpenBrushScenePose,
 } from "../components/core.js";
 import { resolveStrokeRenderVisibility } from "../brushes/stroke-batch-feature.js";
 import { StrokeBatchRenderSystem } from "./stroke-batch-render-system.js";
 import type { SketchLayer } from "../sketch/document.js";
+import { readWebLayerTransform } from "../sketch/layer-transform.js";
 
 export class LayerCanvasSystem extends createSystem({
   appState: { required: [OpenBrushAppState] },
   layers: { required: [CanvasLayer] },
   strokes: { required: [BrushStroke] },
+  scenePoses: { required: [OpenBrushScenePose] },
 }) {
   /** Restores document layer state; selection canvases belong to the tools. */
   setLayers(layers: readonly SketchLayer[]): void {
     if (!layers.length || layers.some(layer => !Number.isSafeInteger(layer.id) || layer.id < 0 || layer.id > 0x7fffffff) || new Set(layers.map(layer => layer.id)).size !== layers.length) {
       throw new Error("Sketch layers require unique nonnegative integer IDs.");
     }
+    const poses = layers.map(layer => readWebLayerTransform(layer.transform));
+    const scenePose = this.queries.scenePoses.entities.values().next().value as Entity | undefined;
+    const parent = scenePose ?? this.world.sceneEntity;
     const existing = new Map([...this.queries.layers.entities]
       .filter(entity => !entity.getValue(CanvasLayer, "selectionCanvas"))
       .map(entity => [Number(entity.getValue(CanvasLayer, "layerIndex")), entity]));
     layers.forEach((layer, order) => {
-      const entity = existing.get(layer.id) ?? this.world.createTransformEntity().addComponent(CanvasLayer);
+      const entity = existing.get(layer.id) ?? this.world.createTransformEntity(undefined, parent).addComponent(CanvasLayer);
+      if (entity.getValue(Transform, "parent") !== parent) entity.setValue(Transform, "parent", parent);
       existing.delete(layer.id);
       entity.setValue(CanvasLayer, "layerIndex", layer.id);
       entity.setValue(CanvasLayer, "order", order);
       entity.setValue(CanvasLayer, "layerName", layer.name);
       entity.setValue(CanvasLayer, "visible", layer.visible);
       entity.setValue(CanvasLayer, "locked", layer.locked);
-      if (entity.object3D) entity.object3D.name = `OpenBrushLayer_${layer.id}`;
+      if (entity.object3D) {
+        const pose = poses[order];
+        entity.object3D.name = `OpenBrushLayer_${layer.id}`;
+        entity.object3D.position.set(...(pose?.position ?? [0, 0, 0] as const));
+        entity.object3D.quaternion.set(...(pose?.rotation ?? [0, 0, 0, 1] as const));
+        entity.object3D.scale.setScalar(pose?.scale ?? 1);
+      }
     });
     for (const entity of existing.values()) entity.dispose();
     const active = layers.find(layer => layer.visible && !layer.locked) ?? layers[0];

@@ -48,5 +48,8 @@ export function webLayerTransformToNative(value: SketchLayerTransform): [Vec3, Q
 export function sameLayerTransform(a: SketchLayerTransform | undefined, b: SketchLayerTransform | undefined): boolean {
   const identity = { position: [0, 0, 0], rotation: [0, 0, 0, 1], scale: 1 };
   const x = a ?? identity, y = b ?? identity;
-  return x.scale === y.scale && x.position.every((number, index) => number === y.position[index]) && x.rotation.every((number, index) => number === y.rotation[index]);
+  // Runtime Transform views and native Unity transforms store Float32 values.
+  // Merely passing through those views must not rewrite an unchanged native pose.
+  const same = (left: number, right: number) => Math.fround(left) === Math.fround(right);
+  return same(x.scale, y.scale) && x.position.every((number, index) => same(number, y.position[index])) && x.rotation.every((number, index) => same(number, y.rotation[index]));
 }

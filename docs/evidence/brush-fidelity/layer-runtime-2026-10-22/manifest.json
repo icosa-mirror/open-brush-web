@@ -1,0 +1,21 @@
+{
+  "recordedAt": "2026-10-22T02:17:36.487Z",
+  "appBaseline": "c517cf4",
+  "scope": "Deterministic IWSDK production-system layer transforms and file contracts; no live native pixels/controller gestures/connected peers/physical XR",
+  "browserReportSha256": "ce67ea4311ec6f2601e51aa836b8a7e49b42db23e5c18dc39a5821a40b46c7cd",
+  "fileReportSha256": "2b7b51816149ca430a5e4e76eadda40fd2713bcdde36b614b37958e1c9c02a01",
+  "sourceHashes": {
+    "src/sketch/glb-export.ts": "533976fb581a91245e0e13bd7c45328227af717ba3cdf098aa58ec42b278a059",
+    "src/sketch/glb-export.test.ts": "24a58070434fd5831b01f1d0b606a18bd48f0f15f0b77f970e0f8e0674cb0a9d",
+    "src/sketch/layer-transform.ts": "7e61f3f4a184a37a9d8803962505e98f2f066ff9dd8a4b75a928259a741bf7b3",
+    "src/sketch/layer-transform.test.ts": "32371a4c7ec5dfe91bb1c2fb643d86c4ac77e8d935e4d0c051a46a9c9624cb39"
+  },
+  "checks": {
+    "vitestFiles": 88,
+    "passedTests": 611,
+    "existingTodos": 4,
+    "buildPassed": true,
+    "checkLogSha256": "2b732e059cdd370de282b07c0e14b15382804b73caa27fd6942b5fe701e04e19",
+    "buildLogSha256": "1fa794cc4e1065390cea2fca9be0c63843a8dae422d6bebabaee089b04a308ac"
+  }
+}

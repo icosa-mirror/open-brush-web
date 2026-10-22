@@ -56,5 +56,10 @@ describe("native layer pose contract", () => {
     const copied = createSketchDocument({ layers: [layer] });
     copied.layers[0].transform!.position[0] = 99;
     expect(layer.transform!.position[0]).toBe(1);
+    const original = { position: [0.1, 0.2, 0.3] as [number, number, number], rotation: [0, Math.SQRT1_2, 0, Math.SQRT1_2] as [number, number, number, number], scale: 2 };
+    const stored = { position: Array.from(new Float32Array(original.position)) as [number, number, number], rotation: Array.from(new Float32Array(original.rotation)) as [number, number, number, number], scale: 2 };
+    expect(sameLayerTransform(original, stored)).toBe(true);
+    stored.position[0] += 0.001;
+    expect(sameLayerTransform(original, stored)).toBe(false);
   });
 });

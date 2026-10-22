@@ -1,6 +1,6 @@
 # Open Brush parity plan and brush fidelity review
 
-Current planning audit: 2026-10-22, application baseline `650b6b3`.
+Current planning audit: 2026-10-22, application baseline `c517cf4`.
 
 Original review: 2026-08-31, application baseline `4579dbb`.
 
@@ -240,21 +240,35 @@ every intervening upstream change.
     mapping. An isolated IWSDK browser run confirms hidden-stroke mesh visibility,
     active-layer selection, stale-layer removal and selection-canvas retention,
     without browser errors. The café audit still preserves original native
-    stroke values, metadata values and archive bytes. Native layer transforms
-    remain unapplied, and batched/gallery UI interaction, native widget layers,
+    stroke values, metadata values and archive bytes. At that checkpoint layer
+    transforms remained unapplied; gallery UI interaction, native widget layers,
     connected collaboration and live native import remain separate open checks.
 
 21. The [layer pose contract](docs/evidence/brush-fidelity/layer-pose-contract-2026-10-22/README.md)
     adds independent layer TRS to documents and file metadata while keeping
     generator inputs layer-local. Pose edits serialize to native conventions;
     unchanged native encodings and snapshot copy isolation are tested. Native
-    legacy zero/absolute/clamped scale behavior is source-grounded. Rendering
-    and tools do not yet apply these poses. The
+    legacy zero/absolute/clamped scale behavior is source-grounded. That change
+    established the data contract; subsequent rendering/tool evidence follows below. The
     [integration plan](docs/native-layer-transform-integration.md) identifies
     required parent hierarchy, active-layer input conversion, selection/batching,
     GLB and collaboration changes plus their acceptance evidence. The 49 bundled
     samples lacked layer metadata; real posed-sample validation remains
     open alongside live native import and image parity.
+
+22. The [layer runtime integration](docs/evidence/brush-fidelity/layer-runtime-2026-10-22/README.md)
+    now parents private, mirrored, preview and batch meshes through their paint
+    layer, with a separate scene pose. Authoring uses the full parent world pose;
+    tool bounds and picker size account for combined scale. Selection bounds
+    and translation convert between parent spaces, preserving layer-local data
+    through batch reinsertion. An isolated production-system browser run checks
+    composed poses, batch hits, synthetic authoring, undo/redo, multi-layer
+    selection and preview layer switching without browser errors. GLB tests
+    confirm parent TRS with unchanged mesh bytes/accessors. The café file audit
+    still preserves native decoded values and archive bytes; runtime Float32
+    pose fields also retain an unchanged native pose encoding. These deterministic
+    checks do not close native images, actual gestures, connected collaboration,
+    layer-editing UI, widget layers or physical-device/performance gates.
 
 ## Executive assessment
 

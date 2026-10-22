@@ -261,10 +261,10 @@ export class SketchLibrarySystem extends createSystem({
       return;
     }
     this.transition = undefined;
-    this.setDocumentContext();
     this.busy = false;
     this.getIntroSketchSystem()?.setSketchVisible(false, false);
     this.disposeAllStrokes();
+    this.setDocumentContext();
     appState.setValue(PersistenceState, "activeSketchId", "");
     appState.setValue(PersistenceState, "activeSketchName", "Shared Sketch");
     appState.setValue(OpenBrushAppState, "mode", "ready");
@@ -690,7 +690,11 @@ export class SketchLibrarySystem extends createSystem({
       layers.push(
         createSketchLayer({
           id: Number(entity.getValue(CanvasLayer, "layerIndex")),
-          transform: this.activeDocumentContext.layers.find(layer => layer.id === Number(entity.getValue(CanvasLayer, "layerIndex")))?.transform,
+          transform: entity.object3D ? {
+            position: [entity.object3D.position.x, entity.object3D.position.y, entity.object3D.position.z],
+            rotation: [entity.object3D.quaternion.x, entity.object3D.quaternion.y, entity.object3D.quaternion.z, entity.object3D.quaternion.w],
+            scale: entity.object3D.scale.x,
+          } : this.activeDocumentContext.layers.find(layer => layer.id === Number(entity.getValue(CanvasLayer, "layerIndex")))?.transform,
           name: String(entity.getValue(CanvasLayer, "layerName")),
           visible: Boolean(entity.getValue(CanvasLayer, "visible")),
           locked: Boolean(entity.getValue(CanvasLayer, "locked")),

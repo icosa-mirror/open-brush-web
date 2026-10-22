@@ -1,4 +1,4 @@
-import { createSystem, Vector3 } from "@iwsdk/core";
+import { createSystem, Vector3, Box3, Matrix3, Matrix4, type Object3D } from "@iwsdk/core";
 import type { Entity } from "@iwsdk/core";
 
 import {
@@ -12,6 +12,7 @@ import {
   resolveStrokeBatchExtractionTransition,
 } from "../brushes/stroke-batch-feature.js";
 import { StrokeBatchRenderSystem } from "./stroke-batch-render-system.js";
+import { writeParentSpaceTranslation } from "../strokes/layer-space.js";
 
 export class SelectionSystem extends createSystem({
   selectionState: { required: [SelectionState] },
@@ -21,6 +22,13 @@ export class SelectionSystem extends createSystem({
   private widgetPosition!: Vector3;
   private selectionCenter!: Vector3;
   private movementDelta!: Vector3;
+  private readonly selectionBounds = new Box3();
+  private readonly strokeBounds = new Box3();
+  private readonly parentInverse = new Matrix4();
+  private readonly spaceMatrix = new Matrix4();
+  private readonly translationMatrix = new Matrix4();
+  private readonly translationLinear = new Matrix3();
+  private readonly localDelta = new Vector3();
   private lastSelectionRevision = -1;
   private readonly summarizeWithBatches = () =>
     this.summarizeSelection(this.world.getSystem(StrokeBatchRenderSystem));
@@ -153,7 +161,7 @@ export class SelectionSystem extends createSystem({
     );
 
     if (!initialized || selectionRevision !== this.lastSelectionRevision) {
-      if (this.computeSelectedStrokeCenter(this.selectionCenter)) {
+      if (this.computeSelectedStrokeCenter(this.selectionCenter, widget.object3D.parent)) {
         widget.object3D.position.copy(this.selectionCenter);
         this.writeWidgetLastPosition(widget, this.selectionCenter);
       }
@@ -177,7 +185,7 @@ export class SelectionSystem extends createSystem({
     );
 
     if (this.movementDelta.lengthSq() > 0.0000001) {
-      this.applyDeltaToSelectedStrokes(this.movementDelta);
+      this.applyDeltaToSelectedStrokes(this.movementDelta, widget.object3D.parent);
       this.writeWidgetLastPosition(widget, this.widgetPosition);
     }
     this.setWidgetActive(widget, true);
@@ -185,20 +193,18 @@ export class SelectionSystem extends createSystem({
     widget.object3D.visible = true;
   }
 
-  private computeSelectedStrokeCenter(out: Vector3): boolean {
-    let selectedCount = 0;
-    let minX = Infinity;
-    let minY = Infinity;
-    let minZ = Infinity;
-    let maxX = -Infinity;
-    let maxY = -Infinity;
-    let maxZ = -Infinity;
+  private computeSelectedStrokeCenter(out: Vector3, parent: Object3D | null): boolean {
+    this.selectionBounds.makeEmpty();
+    this.parentInverse.identity();
+    if (parent) {
+      parent.updateWorldMatrix(true, false);
+      this.parentInverse.copy(parent.matrixWorld).invert();
+    }
 
     for (const stroke of this.queries.strokes.entities) {
-      if (!stroke.getValue(BrushStroke, "selected")) {
+      if (!stroke.getValue(BrushStroke, "selected") || !stroke.object3D) {
         continue;
       }
-      selectedCount += 1;
       const minBounds = stroke.getVectorView(
         BrushStroke,
         "minBounds",
@@ -207,28 +213,22 @@ export class SelectionSystem extends createSystem({
         BrushStroke,
         "maxBounds",
       ) as Float32Array;
-      const objectPosition = stroke.object3D?.position;
-      const offsetX = objectPosition?.x ?? 0;
-      const offsetY = objectPosition?.y ?? 0;
-      const offsetZ = objectPosition?.z ?? 0;
-
-      minX = Math.min(minX, minBounds[0] + offsetX);
-      minY = Math.min(minY, minBounds[1] + offsetY);
-      minZ = Math.min(minZ, minBounds[2] + offsetZ);
-      maxX = Math.max(maxX, maxBounds[0] + offsetX);
-      maxY = Math.max(maxY, maxBounds[1] + offsetY);
-      maxZ = Math.max(maxZ, maxBounds[2] + offsetZ);
+      stroke.object3D.updateWorldMatrix(true, false);
+      this.spaceMatrix.multiplyMatrices(this.parentInverse, stroke.object3D.matrixWorld);
+      this.strokeBounds.min.fromArray(minBounds);
+      this.strokeBounds.max.fromArray(maxBounds);
+      this.selectionBounds.union(this.strokeBounds.applyMatrix4(this.spaceMatrix));
     }
 
-    if (selectedCount === 0) {
+    if (this.selectionBounds.isEmpty()) {
       return false;
     }
 
-    out.set((minX + maxX) * 0.5, (minY + maxY) * 0.5, (minZ + maxZ) * 0.5);
+    this.selectionBounds.getCenter(out);
     return true;
   }
 
-  private applyDeltaToSelectedStrokes(delta: Vector3): void {
+  private applyDeltaToSelectedStrokes(delta: Vector3, parent: Object3D | null): void {
     for (const stroke of this.queries.strokes.entities) {
       if (!stroke.getValue(BrushStroke, "selected") || !stroke.object3D) {
         continue;
@@ -236,7 +236,8 @@ export class SelectionSystem extends createSystem({
       this.world
         .getSystem(StrokeBatchRenderSystem)
         ?.beginStrokeExtraction(stroke);
-      stroke.object3D.position.add(delta);
+      writeParentSpaceTranslation(this.localDelta, delta, parent, stroke.object3D.parent, this.translationMatrix, this.translationLinear);
+      stroke.object3D.position.add(this.localDelta);
     }
   }
 

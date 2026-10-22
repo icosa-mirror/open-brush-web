@@ -1,8 +1,9 @@
 # Native layer transform integration
 
-The file/document contract is implemented. Rendering and tools still use the
-shared scene pose and must be integrated before layer transforms can be called
-supported. The full parity goal remains open.
+The file/document contract and layer-parented rendering/tool paths are now
+implemented, with [deterministic browser evidence](evidence/brush-fidelity/layer-runtime-2026-10-22/README.md).
+Native image agreement, real controller gestures, collaboration context and
+layer-editing UI remain unverified. The full parity goal remains open.
 
 1. **Keep generator inputs layer-local.** `SketchLayer.transform` describes the
    layer-local to scene-local pose in web metres/basis. The file adapter converts
@@ -10,13 +11,12 @@ supported. The full parity goal remains open.
    It retains unchanged native encodings and serializes actual edits. It does
    not multiply control points or brush sizes by layer scale. Such baking could
    change generator thresholds, knot topology and shader attribute semantics.
-2. **Parent rendering through the layer.** `LayerCanvasSystem` must create
-   paint-layer entities under the scene pose and apply their local TRS.
-   `StrokeAuthoringSystem` private, mirrored and preview meshes and
-   `StrokeBatchRenderSystem` targets must use the matching paint-layer parent.
-   Batches already split by layer. Keep the selection canvas under the shared
-   scene pose. Verify the installed SDK's entity-parent API before implementing
-   preview reparenting; do not use raw Three.js scene parenting.
+2. **Parent rendering through the layer: implemented.** `LayerCanvasSystem`
+   creates paint-layer entities under the scene pose and applies their local
+   TRS. Private, mirrored and preview meshes and batch targets use their layer
+   parent. Batches already split by layer. The selection canvas stays under
+   the shared scene pose. Preview switching uses the installed SDK's
+   `Transform.parent` API and clears/hides the old trail for the reparent frame.
 
 ```mermaid
 flowchart TD
@@ -26,22 +26,23 @@ flowchart TD
   S --> W[Selection canvas and widget]
 ```
 
-3. **Convert input through the full parent chain.** Stroke start/sampling and
-   preview code currently obtain the scene pose directly. They need the active
-   layer's world position, inverse world rotation and uniform world scale.
-   Brush size and metre-based sampling thresholds must divide by that combined
-   scale, including world grab. Preview changes must follow the active layer.
-4. **Keep tool bounds and edits in a defined space.** Eraser/picker broadphase
-   must convert world tool positions/radii to the matching layer-local basis.
-   Existing precise mesh/batch hit tests use world matrices; verify them after
-   reparenting. Selection currently unions local bounds as if every mesh shares
-   one parent. Convert each bound into the selection widget parent's space, and
-   convert widget translation vectors into each stroke parent's local basis.
-   Preserve vector lengths; normalized direction helpers are insufficient for
-   scale. Batch extraction/reinsertion, serialization offsets and history must
-   keep layer-local deltas.
-5. **Carry poses through other output/transport paths.** GLB layer nodes need
-   corresponding TRS. Collaboration must deliver layer IDs/poses before stroke
+3. **Convert input through the full parent chain: implemented.** Stroke
+   start/sampling and preview use the active layer's world position, inverse
+   world rotation and uniform world scale. Size and metre-based thresholds
+   divide by that combined scale. Synthetic browser input checks local sample
+   positions/orientations and brush size, and actual frame updates check a
+   preview switch between differently scaled layers. Actual gestures remain open.
+4. **Keep tool bounds and edits in a defined space: implemented.** Tool
+   broadphase converts world centers/radii through the active layer. Picker
+   size uses the stroke parent's world scale. Precise batch hits use actual
+   world matrices. Selection bounds are transformed into the widget parent's
+   space, and widget displacements into each stroke parent's local basis,
+   preserving length. The browser run checks selection movement on two different
+   layers, extraction/reinsertion, translated world hits and local saved offsets.
+   Full eraser/picker UI and native behavior comparisons remain open.
+5. **Other output/transport paths: partial.** GLB layer nodes now carry TRS;
+   tests verify that mesh bytes/accessors remain layer-local. Collaboration
+   still must deliver layer IDs/poses before stroke
    snapshots and define behavior for peers lacking that context. Native widget
    layer references and room/canvas/media transforms require their own checks;
    retaining opaque fields is not runtime interpretation.

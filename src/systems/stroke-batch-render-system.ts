@@ -11,6 +11,7 @@ import {
   BrushStroke,
   ExtractedBatchedBrushStroke,
   OpenBrushScenePose,
+  CanvasLayer,
   StrokeBatchMesh,
 } from "../components/core.js";
 import { createBatchKey, stringifyBatchKey } from "../brushes/brush-batching.js";
@@ -33,6 +34,7 @@ import { createBrushRenderMaterial } from "../brushes/brush-render-material.js";
 import { openBrushShaderLibrary } from "../brushes/brush-shader-library.js";
 import type { StrokeData, Vec3 } from "../types.js";
 import { createTranslatedStrokeSnapshot, translateStrokeDataControlPoints } from "../strokes/selection.js";
+import { findPaintLayer } from "../strokes/layer-space.js";
 
 const LOG_PREFIX = "[StrokeBatchRender]";
 
@@ -65,6 +67,7 @@ export class StrokeBatchRenderSystem extends createSystem({
   strokes: { required: [BrushStroke] },
   batchedStrokes: { required: [BrushStroke, BatchedBrushStroke] },
   scenePoses: { required: [OpenBrushScenePose] },
+  layers: { required: [CanvasLayer] },
 }) {
   private readonly manager = new StrokeBatchManager();
   private readonly targets = new Map<StrokeBatch, BatchRenderTarget>();
@@ -572,7 +575,7 @@ export class StrokeBatchRenderSystem extends createSystem({
     const id = this.nextBatchId;
     this.nextBatchId += 1;
     mesh.name = `OpenBrushStrokeBatchMesh_${id}`;
-    const pose = this.getScenePose();
+    const pose = findPaintLayer(this.queries.layers.entities, key.layerIndex) ?? this.getScenePose();
     const entity = pose
       ? this.world.createTransformEntity(mesh, pose)
       : this.world.createTransformEntity(mesh);

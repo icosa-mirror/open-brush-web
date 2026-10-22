@@ -5,6 +5,7 @@ import { createBrushMaterialSpec } from "../brushes/brush-materials.js";
 import type { SketchDocument, SketchLayer } from "./document.js";
 import { isManagedMediaPath } from "./media-assets.js";
 import type { Rgba, StrokeData } from "../types.js";
+import { readWebLayerTransform } from "./layer-transform.js";
 
 const GLB_MAGIC = 0x46546c67;
 const GLB_VERSION = 2;
@@ -383,8 +384,14 @@ export function exportSketchDocumentToGlb(
 }
 
 function createLayerNode(layer: SketchLayer): GlbNode {
+  const pose = readWebLayerTransform(layer.transform);
   return {
     name: `Layer ${layer.id}: ${layer.name}`,
+    ...(pose ? {
+      translation: [...pose.position],
+      rotation: [...pose.rotation],
+      scale: [pose.scale, pose.scale, pose.scale],
+    } : {}),
     children: [],
     extras: {
       openBrushLayerId: layer.id,

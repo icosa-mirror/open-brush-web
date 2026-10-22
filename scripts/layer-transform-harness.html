@@ -1,0 +1,4 @@
+<!doctype html><html><head><link rel="icon" href="data:,"></head><body><div id="scene" style="width:128px;height:128px"></div><script type="module">
+import { validateLayerTransforms } from '/src/app/layer-transform-validation.ts';
+validateLayerTransforms(document.getElementById('scene')).then(result => { window.layerStateResult = result; }).catch(error => { window.layerStateResult = window.layerRuntimeProgress; window.layerStateError = error.stack ?? error.message; });
+</script></body></html>

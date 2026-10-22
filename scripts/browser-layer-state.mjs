@@ -6,7 +6,7 @@ import path from "node:path";
 import { chromium } from "playwright";
 
 async function main() {
-  const { values } = parseArgs({ options: { output: { type: "string" }, url: { type: "string" } } });
+  const { values } = parseArgs({ options: { output: { type: "string" }, url: { type: "string" }, harness: { type: "string" } } });
   if (!values.output) throw new Error("Usage: node scripts/browser-layer-state.mjs --output <new directory> [--url <existing Vite URL>]. Run type checking and npx iwsdk xr status first.");
   await mkdir(path.dirname(path.resolve(values.output)), { recursive: true });
   await mkdir(values.output);
@@ -31,10 +31,10 @@ async function main() {
     const page = await browser.newPage();
     page.on("console", message => messages.push({ type: message.type(), text: message.text().slice(0, 1000) }));
     page.on("pageerror", error => pageErrors.push(error.stack ?? error.message));
-    await page.goto(new URL("scripts/layer-state-harness.html", url).href, { timeout: 120000 });
+    await page.goto(new URL(values.harness ?? "scripts/layer-state-harness.html", url).href, { timeout: 120000 });
     await page.waitForFunction(() => window.layerStateResult || window.layerStateError, undefined, { timeout: 120000 });
     const result = await page.evaluate(() => ({ result: window.layerStateResult, error: window.layerStateError }));
-    const sourceFiles = ["src/app/layer-state-validation.ts", "src/systems/layer-canvas-system.ts", "src/systems/sketch-library-system.ts", "src/sketch/tilt-file.ts", "src/components/core.ts", "scripts/layer-state-harness.html", "scripts/browser-layer-state.mjs", "package-lock.json"];
+    const sourceFiles = ["src/app/layer-state-validation.ts", "src/app/layer-transform-validation.ts", "src/strokes/layer-space.ts", "src/systems/layer-canvas-system.ts", "src/systems/sketch-library-system.ts", "src/systems/stroke-authoring-system.ts", "src/systems/stroke-batch-render-system.ts", "src/systems/selection-system.ts", "src/sketch/tilt-file.ts", "src/components/core.ts", "scripts/layer-state-harness.html", "scripts/layer-transform-harness.html", "scripts/browser-layer-state.mjs", "package-lock.json"];
     const report = { recordedAt: new Date().toISOString(), browserVersion: browser.version(), ...result,
       consoleErrors: messages.filter(message => message.type === "error").length,
       graphicsWarnings: messages.filter(message => /WebGL.*(?:INVALID_|error)|GL_INVALID|framebuffer.*incomplete/i.test(message.text)).length,
@@ -43,7 +43,7 @@ async function main() {
     await writeFile(path.join(values.output, "results.json"), JSON.stringify(report, null, 2) + "\n");
     await writeFile(path.join(values.output, "browser-log.json"), JSON.stringify({ messages, pageErrors }, null, 2) + "\n");
     if (report.error || report.result?.passed !== true || report.consoleErrors || report.graphicsWarnings || pageErrors.length) throw new Error(report.error ?? "Browser layer audit contains failed assertions/errors/warnings");
-    console.log("Layer runtime audit passed: restored names/visibility, active layer, hidden-stroke visibility, reset, selection-canvas retention.");
+    console.log("Layer runtime audit passed; no console/page errors or graphics warnings.");
   } finally {
     await browser?.close(); server?.kill();
     await writeFile(path.join(values.output, "server.txt"), serverLog);

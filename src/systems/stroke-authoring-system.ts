@@ -140,6 +140,7 @@ import {
 } from "../types.js";
 import { StrokeEntityHistory } from "../strokes/stroke-entity-history.js";
 import { writeOpenBrushToolOffsetPosition } from "../tools/tool-pose.js";
+import { findPaintLayer, uniformWorldScale } from "../strokes/layer-space.js";
 import {
   resolveOpenBrushPickerBrushSettings,
   type OpenBrushBrushSettingsSnapshot,
@@ -237,6 +238,7 @@ export class StrokeAuthoringSystem extends createSystem({
   private readonly canvasQuaternion = new Quaternion();
   private readonly poseQuaternionInv = new Quaternion();
   private readonly poseOriginScratch = new Vector3();
+  private readonly poseScaleScratch = new Vector3();
   private readonly eraserCenter: Vec3 = [0, 0, 0];
   private readonly pickerCenter: Vec3 = [0, 0, 0];
   private readonly canvasToolCenter: Vec3 = [0, 0, 0];
@@ -1059,9 +1061,10 @@ export class StrokeAuthoringSystem extends createSystem({
     const groupId = this.strokeCounter;
     // Author in canvas space: sizes and positions divide out the scene pose,
     // like PointerScript converting room space to canvas space.
-    const poseEntity = this.getFirstEntity("scenePoses");
+    const poseEntity = this.getLayerParent(layerIndex);
     const poseObject = poseEntity?.object3D;
-    const poseScale = poseObject ? poseObject.scale.x || 1 : 1;
+    const poseScale = poseObject ? uniformWorldScale(poseObject, this.poseScaleScratch) : 1;
+    poseObject?.getWorldPosition(this.poseOriginScratch);
     const canvasBrushSize = brushSize / poseScale;
     const strokeData = createEmptyStrokeData({
       guid,
@@ -1144,11 +1147,11 @@ export class StrokeAuthoringSystem extends createSystem({
         }) / poseScale,
       geometryArrays: createBrushGeometryArrays(),
       posePosition: poseObject
-        ? [poseObject.position.x, poseObject.position.y, poseObject.position.z]
+        ? [this.poseOriginScratch.x, this.poseOriginScratch.y, this.poseOriginScratch.z]
         : [0, 0, 0],
       poseOrientationInv: poseObject
         ? (this.poseQuaternionInv
-            .copy(poseObject.quaternion)
+            .copy(poseObject.getWorldQuaternion(this.canvasQuaternion))
             .invert()
             .toArray() as [number, number, number, number])
         : [0, 0, 0, 1],
@@ -1631,11 +1634,12 @@ export class StrokeAuthoringSystem extends createSystem({
     const commandEntity = this.getFirstEntity("commands");
     const appStateEntity = this.getFirstEntity("appState");
     const settingsEntity = this.getFirstEntity("brushSettings");
-    const poseEntity = this.getFirstEntity("scenePoses");
+    const scenePoseEntity = this.getFirstEntity("scenePoses");
+    const poseEntity = this.getLayerParent();
     const poseObject = poseEntity?.object3D;
     const activeTool = this.getActiveTool();
     const worldGrabActive = Boolean(
-      poseEntity?.getValue(OpenBrushScenePose, "grabActive"),
+      scenePoseEntity?.getValue(OpenBrushScenePose, "grabActive"),
     );
     const commandSource = commandEntity
       ? String(commandEntity.getValue(InputCommandState, "source"))
@@ -1668,6 +1672,12 @@ export class StrokeAuthoringSystem extends createSystem({
     if (!trail) {
       return;
     }
+    if (poseEntity && trail.entity.getValue(Transform, "parent") !== poseEntity) {
+      trail.entity.setValue(Transform, "parent", poseEntity);
+      this.resetPreviewTrailPoints();
+      return;
+    }
+    trail.strokeData.layerIndex = Number(appStateEntity!.getValue(OpenBrushAppState, "activeLayerIndex"));
 
     // Tip pose in canvas space, like strokes themselves.
     anchor.getWorldPosition(this.previewWorldPosition);
@@ -1678,7 +1688,7 @@ export class StrokeAuthoringSystem extends createSystem({
     this.previewWorldQuaternion.premultiply(this.previewPoseQuaternion);
 
     const points = trail.strokeData.controlPoints;
-    const poseScale = poseObject.scale.x || 1;
+    const poseScale = uniformWorldScale(poseObject, this.poseScaleScratch);
     if (poseScale !== trail.poseScale) {
       trail.solidMinLengthMeters *= trail.poseScale / poseScale;
       trail.poseScale = poseScale;
@@ -1831,7 +1841,7 @@ export class StrokeAuthoringSystem extends createSystem({
     mesh.raycast = () => {};
     mesh.name = "OpenBrushPreviewTrail";
     mesh.visible = false;
-    const poseEntity = this.getFirstEntity("scenePoses");
+    const poseEntity = this.getLayerParent();
     const entity = poseEntity
       ? this.world.createTransformEntity(mesh, poseEntity)
       : this.world.createTransformEntity(mesh);
@@ -2332,20 +2342,17 @@ export class StrokeAuthoringSystem extends createSystem({
     target: Vec3,
     worldCenter: Vec3,
   ): { center: Vec3; scale: number } {
-    const poseObject = this.getFirstEntity("scenePoses")?.object3D;
+    const poseObject = this.getLayerParent()?.object3D;
     if (!poseObject) {
       target[0] = worldCenter[0];
       target[1] = worldCenter[1];
       target[2] = worldCenter[2];
       return { center: target, scale: 1 };
     }
-    const scale = poseObject.scale.x || 1;
-    this.poseQuaternionInv.copy(poseObject.quaternion).invert();
+    const scale = uniformWorldScale(poseObject, this.poseScaleScratch);
     this.canvasPosition
-      .set(worldCenter[0], worldCenter[1], worldCenter[2])
-      .sub(poseObject.position)
-      .applyQuaternion(this.poseQuaternionInv)
-      .divideScalar(scale);
+      .set(worldCenter[0], worldCenter[1], worldCenter[2]);
+    poseObject.worldToLocal(this.canvasPosition);
     target[0] = this.canvasPosition.x;
     target[1] = this.canvasPosition.y;
     target[2] = this.canvasPosition.z;
@@ -2376,7 +2383,8 @@ export class StrokeAuthoringSystem extends createSystem({
     ) as Float32Array;
     // Stroke sizes are stored in canvas units; the dropper adopts the room
     // size (DropperTool uses stroke.SizeInRoomSpace).
-    const poseScale = this.getFirstEntity("scenePoses")?.object3D?.scale.x || 1;
+    const parent = strokeEntity.object3D?.parent;
+    const poseScale = parent ? uniformWorldScale(parent, this.poseScaleScratch) : 1;
     return {
       brushGuid: String(strokeEntity.getValue(BrushStroke, "brushGuid")),
       brushSize:
@@ -2586,7 +2594,7 @@ export class StrokeAuthoringSystem extends createSystem({
     mesh.frustumCulled = false;
     mesh.name = `OpenBrushStrokeMesh_${this.strokeCounter}`;
 
-    const poseEntity = this.getFirstEntity("scenePoses");
+    const poseEntity = this.getLayerParent(strokeData.layerIndex);
     const entity = poseEntity
       ? this.world.createTransformEntity(mesh, poseEntity)
       : this.world.createTransformEntity(mesh);
@@ -2683,7 +2691,7 @@ export class StrokeAuthoringSystem extends createSystem({
     mesh.frustumCulled = false;
     mesh.name = `OpenBrushStrokeMesh_${this.strokeCounter}`;
 
-    const poseEntity = this.getFirstEntity("scenePoses");
+    const poseEntity = this.getLayerParent(strokeData.layerIndex);
     const entity = poseEntity
       ? this.world.createTransformEntity(mesh, poseEntity)
       : this.world.createTransformEntity(mesh);
@@ -2771,6 +2779,7 @@ export class StrokeAuthoringSystem extends createSystem({
    */
   resetStrokeHistory(): void {
     this.strokeHistory.forgetAll();
+    this.disposePreviewTrail();
   }
 
   private undoLastStroke(): void {
@@ -3140,6 +3149,11 @@ export class StrokeAuthoringSystem extends createSystem({
         this.activeStroke?.controlPoints.length ?? 0,
       );
     }
+  }
+
+  private getLayerParent(layerIndex?: number): Entity | undefined {
+    const id = layerIndex ?? Number(this.getFirstEntity("appState")?.getValue(OpenBrushAppState, "activeLayerIndex") ?? 0);
+    return findPaintLayer(this.queries.layers.entities, id) ?? this.getFirstEntity("scenePoses");
   }
 
   private getFirstEntity(
