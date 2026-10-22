@@ -1,6 +1,6 @@
 # Open Brush parity plan and brush fidelity review
 
-Current planning audit: 2026-10-22, application baseline `c0fa872`.
+Current planning audit: 2026-10-22, application baseline `f8cca75`.
 
 Original review: 2026-08-31, application baseline `4579dbb`.
 
@@ -292,9 +292,10 @@ every intervening upstream change.
     inventories, and retains per-file hashes and diagnostics. A regression
     checks changed binary bytes, missing outputs and extra generated files.
     The deployment workflow now runs the gate against a fresh pinned native
-    checkout. Local full checks passed: 617 tests and four TODOs. Remote CI
-    execution and cross-platform regeneration remain unverified until that
-    workflow completes; byte reproduction alone does not prove brush fidelity.
+    checkout. Local full checks passed: 617 tests and four TODOs. [Linux CI](https://github.com/icosa-mirror/open-brush-web/actions/runs/39716269556)
+    now passes regeneration, checks, build and browser material smoke tests; all
+    476 generated hashes agree with Windows. Byte reproduction alone does not
+    prove brush fidelity.
 
 ## Executive assessment
 
@@ -811,8 +812,8 @@ Suggested gates:
 4. Implemented and locally verified: extraction regenerates into a fresh temporary
    root and compares file inventories and SHA-256 bytes across all 476 generated
    outputs. The deployment workflow checks out the exact declared native pin
-   and runs this gate before application checks/build. Remote CI execution of
-   the new gate is not yet verified; see validation item 24.
+   and runs this gate before application checks/build. The gate also passed on Linux CI, with all 476 generated hashes matching
+   Windows; see validation item 24.
 5. Partial: descriptor and texture-importer metadata are extracted. Still audit
    required vertex layouts, keywords, render state, and environment/audio inputs
    against their consumers; presence in JSON is not proof of implementation.

@@ -14,8 +14,12 @@
 3. The deployment workflow checks out the exact native commit from the reference
    pin and runs this comparison before application checks/build. It retains
    comparison and extraction diagnostics as a CI artifact. Temporary generated
-   outputs and logs also remain locally for diagnosis. This evidence is from
-   Windows; Linux CI execution has not yet been verified.
+   outputs and logs also remain locally for diagnosis. The initial evidence is from
+   Windows. The [successful Linux CI run](https://github.com/icosa-mirror/open-brush-web/actions/runs/39716269556)
+   also passes regeneration, checks, build and browser material smoke tests.
+   [CI regeneration results](ci-regeneration-results.json) reproduce all 476
+   generated hashes exactly across both platforms; [CI verification](ci-verification.json)
+   binds the run and retained reports.
 4. A regression compares binary files and proves that a one-byte mutation,
    absent generated file and newly generated file produce distinct failures.
    Full application checks pass: 90 test files, 617 tests and four TODOs.

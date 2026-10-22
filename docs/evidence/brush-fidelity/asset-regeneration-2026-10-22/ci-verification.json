@@ -1,0 +1,18 @@
+{
+  "runId": 39716269556,
+  "url": "https://github.com/icosa-mirror/open-brush-web/actions/runs/39716269556",
+  "headSha": "f8cca756315b4e499ff74ce571b290a9d2cb1de0",
+  "conclusion": "success",
+  "runner": "ubuntu-latest",
+  "matchingWindowsAndLinuxFiles": 476,
+  "stepsPassed": [
+    "Verify brush asset regeneration",
+    "Run npm run check",
+    "Run npm run build",
+    "Run npm run test:browser:materials"
+  ],
+  "artifacts": {
+    "regeneration-results.json": "8c83e775938ebb4062ca06150a5819dc5e61bc2a3e91e4e830a31f6cc92946c1",
+    "ci-regeneration-results.json": "28bb485817115a26bfd4bd00a30259ff160e71b7c68965f96effd9a78f8246c5"
+  }
+}
