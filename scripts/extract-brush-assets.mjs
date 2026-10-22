@@ -18,10 +18,14 @@ import fs from "node:fs";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
+import { parseArgs } from "node:util";
 
 import sharp from "sharp";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const { values } = parseArgs({ options: { "output-root": { type: "string" } } });
+// CI supplies a fresh temporary root; normal extraction retains its destination.
+const outputRoot = values["output-root"] ? path.resolve(values["output-root"]) : repoRoot;
 const referenceRoot = path.join(repoRoot, "reference");
 const referenceMetadata = JSON.parse(
   fs.readFileSync(path.join(repoRoot, "open-brush-reference.json"), "utf8"),
@@ -58,11 +62,11 @@ const metaIndexRoots = [
   path.join(referenceRoot, "Assets", "Resources", "BrushPrefabs"),
 ];
 
-const outPublicDir = path.join(repoRoot, "public", "openbrush");
+const outPublicDir = path.join(outputRoot, "public", "openbrush");
 const outShaderDir = path.join(outPublicDir, "shaders");
 const outTextureDir = path.join(outPublicDir, "textures");
 const outIconDir = path.join(outPublicDir, "icons");
-const outGeneratedDir = path.join(repoRoot, "src", "brushes", "generated");
+const outGeneratedDir = path.join(outputRoot, "src", "brushes", "generated");
 
 // ---------------------------------------------------------------------------
 // GLSL preprocessing (port of preprocess_lite from gltf_export_shaders.py)
@@ -148,7 +152,7 @@ function walkFiles(root, visit) {
   if (!fs.existsSync(root)) {
     return;
   }
-  for (const entry of fs.readdirSync(root, { withFileTypes: true })) {
+  for (const entry of fs.readdirSync(root, { withFileTypes: true }).sort((a, b) => a.name < b.name ? -1 : a.name > b.name ? 1 : 0)) {
     const fullPath = path.join(root, entry.name);
     if (entry.isDirectory()) {
       walkFiles(fullPath, visit);

@@ -1,0 +1,13 @@
+{
+  "applicationBaseline": "c0fa872",
+  "sha256": {
+    "scripts/check-brush-asset-regeneration.mjs": "06462d5ff78355abc6d6410e9a73ad1b4baf2b8a16d72111ad84ffee8277093e",
+    "scripts/check-brush-asset-regeneration.test.mjs": "41c524a8334132721a3257857156cefe4420516b0308d5e564f4fc5c0e369f58",
+    "scripts/extract-brush-assets.mjs": "f2240f8f5200e81f8826e5223e28643c2ccdcaadb5afca8a2c15eb76f1b0ca34",
+    ".github/workflows/deploy.yml": "7f124799a50048c473e98baaef1fa7d3b2a0b160e79959b48a93560ca6c38636",
+    "package.json": "99c51e82b7f9517e1b05ddea65e16a1b5ed5a61e99c43f594eb38bbf36fa4407",
+    "open-brush-reference.json": "3e13763719e12a6ef30869a72793d0714f05ef3051f832e732b1e29125a2a977",
+    ".tmp/brush-regeneration-full-check.log": "3c3531d91cfc7c66fd58bf793962e976076d36f258136fad5676240675bd8bb1",
+    "docs/evidence/brush-fidelity/asset-regeneration-2026-10-22/regeneration-results.json": "8c83e775938ebb4062ca06150a5819dc5e61bc2a3e91e4e830a31f6cc92946c1"
+  }
+}

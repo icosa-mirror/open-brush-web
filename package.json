@@ -23,6 +23,7 @@
     "typecheck": "tsc --noEmit",
     "check:imports": "node scripts/check-imports.mjs",
     "extract:brush-assets": "node scripts/extract-brush-assets.mjs",
+    "check:brush-regeneration": "node scripts/check-brush-asset-regeneration.mjs",
     "check:features": "node scripts/check-feature-flags.mjs",
     "check": "npm run check:pins && npm run typecheck && npm run check:imports && npm run check:features && npm run test:brush-images && npm test",
     "check:pins": "node scripts/check-library-pins.mjs",

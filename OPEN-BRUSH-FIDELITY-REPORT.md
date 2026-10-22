@@ -1,6 +1,6 @@
 # Open Brush parity plan and brush fidelity review
 
-Current planning audit: 2026-10-22, application baseline `e874db2`.
+Current planning audit: 2026-10-22, application baseline `c0fa872`.
 
 Original review: 2026-08-31, application baseline `4579dbb`.
 
@@ -282,6 +282,19 @@ every intervening upstream change.
     the mirror build passes. This closes the connected web layer-context check
     in item 22, not native multiplayer interoperability, native pixels, real
     gestures, layer-editing UI, media/environment transfer or physical XR.
+
+
+24. [Asset regeneration evidence](docs/evidence/brush-fidelity/asset-regeneration-2026-10-22/README.md)
+    verifies 476 generated shader, texture, icon, notice and manifest files
+    against the checked-in outputs, with zero differences. Extraction supports
+    a separate output root and deterministic source traversal. The checker
+    refuses a wrong reference revision or tracked source edits, compares both
+    inventories, and retains per-file hashes and diagnostics. A regression
+    checks changed binary bytes, missing outputs and extra generated files.
+    The deployment workflow now runs the gate against a fresh pinned native
+    checkout. Local full checks passed: 617 tests and four TODOs. Remote CI
+    execution and cross-platform regeneration remain unverified until that
+    workflow completes; byte reproduction alone does not prove brush fidelity.
 
 ## Executive assessment
 
@@ -795,8 +808,11 @@ Suggested gates:
    coverage when advancing the asset revision.
 3. Implemented: `open-brush-reference.json` pins the audited upstream commit,
    and asset extraction rejects a checkout at any other revision.
-4. Open: gate extraction regeneration with a temporary-directory byte comparison
-   in CI. Existing generated-asset/interface tests do not perform that round trip.
+4. Implemented and locally verified: extraction regenerates into a fresh temporary
+   root and compares file inventories and SHA-256 bytes across all 476 generated
+   outputs. The deployment workflow checks out the exact declared native pin
+   and runs this gate before application checks/build. Remote CI execution of
+   the new gate is not yet verified; see validation item 24.
 5. Partial: descriptor and texture-importer metadata are extracted. Still audit
    required vertex layouts, keywords, render state, and environment/audio inputs
    against their consumers; presence in JSON is not proof of implementation.
