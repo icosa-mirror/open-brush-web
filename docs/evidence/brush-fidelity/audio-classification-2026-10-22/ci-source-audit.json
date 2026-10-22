@@ -1,0 +1,1965 @@
+{
+  "recordedAt": "2026-10-22T04:28:34.100Z",
+  "scope": "Native GUI tags and known native audio bindings versus maintained GLSL source; no audio-signal or rendered-response validation",
+  "nativeReferenceCommit": "4786d55ad398bfc957d8e8eb26438920026aeaf6",
+  "runtimeAssetCommit": "df593c972751f7f28bc8d47bc4f4fd8cfad45fe5",
+  "nativeInputs": [
+    "_AudioVolume",
+    "_BeatOutput",
+    "_BeatOutputAccum",
+    "_FFTTex",
+    "_PeakBandLevels",
+    "_WaveFormTex"
+  ],
+  "nativeSource": {
+    "file": "reference/Assets/Scripts/VisualizerManager.cs",
+    "sha256": "e0761fd8801f067623a2206e79fc9fe87d3d3d580fcf7ab8205d760a7eeb9297"
+  },
+  "counts": {
+    "required": 95,
+    "nativeTagged": 35,
+    "nonReactive": 95,
+    "shaderFiles": 226,
+    "audioInputShaderFiles": 0
+  },
+  "brushes": [
+    {
+      "guid": "f72ec0e7-a844-4e38-82e3-140c44772699",
+      "name": "OilPaint",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "f5c336cf-5108-4b40-ade9-c687504385ab",
+      "name": "Ink",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "75b32cf0-fdd6-4d89-a64b-e2a00b247b0f",
+      "name": "ThickPaint",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "b67c0e81-ce6d-40a8-aeb0-ef036b081aa3",
+      "name": "WetPaint",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "429ed64a-4e97-4466-84d3-145a861ef684",
+      "name": "Marker",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "d90c6ad8-af0f-4b54-b422-e0f92abe1b3c",
+      "name": "TaperedMarker",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "1a26b8c0-8a07-4f8a-9fac-d2ef36e0cad0",
+      "name": "TaperedMarker_Flat",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "0d3889f3-3ede-470c-8af4-de4813306126",
+      "name": "DoubleTaperedMarker",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "cf019139-d41c-4eb0-a1d0-5cf54b0a42f3",
+      "name": "Highlighter",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "2d35bcf0-e4d8-452c-97b1-3311be063130",
+      "name": "Flat",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "b468c1fb-f254-41ed-8ec9-57030bc5660c",
+      "name": "TaperedFlat",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "0d3889f3-3ede-470c-8af4-f44813306126",
+      "name": "DoubleTaperedFlat",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "accb32f5-4509-454f-93f8-1df3fd31df1b",
+      "name": "SoftHighlighter",
+      "nativeTagged": true,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "2241cd32-8ba2-48a5-9ee7-2caef7e9ed62",
+      "name": "Light",
+      "nativeTagged": true,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "cb92b597-94ca-4255-b017-0e3f42f12f9e",
+      "name": "Fire",
+      "nativeTagged": true,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "02ffb866-7fb2-4d15-b761-1012cefb1360",
+      "name": "Embers",
+      "nativeTagged": true,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "70d79cca-b159-4f35-990c-f02193947fe8",
+      "name": "Smoke",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "d902ed8b-d0d1-476c-a8de-878a79e3a34c",
+      "name": "Snow",
+      "nativeTagged": true,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "ad1ad437-76e2-450d-a23a-e17f8310b960",
+      "name": "Rainbow",
+      "nativeTagged": true,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "0eb4db27-3f82-408d-b5a1-19ebd7d5b711",
+      "name": "Stars",
+      "nativeTagged": true,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "d229d335-c334-495a-a801-660ac8a87360",
+      "name": "VelvetInk",
+      "nativeTagged": true,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "10201aa3-ebc2-42d8-84b7-2e63f6eeb8ab",
+      "name": "Waveform",
+      "nativeTagged": true,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "8dc4a70c-d558-4efd-a5ed-d4e860f40dc3",
+      "name": "Splatter",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "d0262945-853c-4481-9cbd-88586bed93cb",
+      "name": "DuctTape",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "f1114e2e-eb8d-4fde-915a-6e653b54e9f5",
+      "name": "Paper",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "1161af82-50cf-47db-9706-0c3576d43c43",
+      "name": "CoarseBristles",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "5347acf0-a8e2-47b6-8346-30c70719d763",
+      "name": "WigglyGraphite",
+      "nativeTagged": true,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "f6e85de3-6dcc-4e7f-87fd-cee8c3d25d51",
+      "name": "Electricity",
+      "nativeTagged": true,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "44bb800a-fbc3-4592-8426-94ecb05ddec3",
+      "name": "Streamers",
+      "nativeTagged": true,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "dce872c2-7b49-4684-b59b-c45387949c5c",
+      "name": "Hypercolor",
+      "nativeTagged": true,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "89d104cd-d012-426b-b5b3-bbaee63ac43c",
+      "name": "Bubbles",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "b2ffef01-eaaa-4ab5-aa64-95a2c4f5dbc6",
+      "name": "NeonPulse",
+      "nativeTagged": true,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "700f3aa8-9a7c-2384-8b8a-ea028905dd8c",
+      "name": "CelVinyl",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "6a1cf9f9-032c-45ec-9b6e-a6680bee32e9",
+      "name": "HyperGrid",
+      "nativeTagged": true,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "4391aaaa-df81-4396-9e33-31e4e4930b27",
+      "name": "LightWire",
+      "nativeTagged": true,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "0f0ff7b2-a677-45eb-a7d6-0cd7206f4816",
+      "name": "ChromaticWave",
+      "nativeTagged": true,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "6a1cf9f9-032c-45ec-9b1d-a6680bee30f7",
+      "name": "Dots",
+      "nativeTagged": true,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "e0abbc80-0f80-e854-4970-8924a0863dcc",
+      "name": "Petal",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "2f212815-f4d3-c1a4-681a-feeaf9c6dc37",
+      "name": "Icing",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "4391385a-df73-4396-9e33-31e4e4930b27",
+      "name": "Toon",
+      "nativeTagged": true,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "4391385a-cf83-4396-9e33-31e4e4930b27",
+      "name": "Wire",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "cf7f0059-7aeb-53a4-2b67-c83d863a9ffa",
+      "name": "Spikes",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "d381e0f5-3def-4a0d-8853-31e9200bcbda",
+      "name": "Lofted",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "4391aaaa-df73-4396-9e33-31e4e4930b27",
+      "name": "Disco",
+      "nativeTagged": true,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "1caa6d7d-f015-3f54-3a4b-8b5354d39f81",
+      "name": "Comet",
+      "nativeTagged": true,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "faaa4d44-fcfb-4177-96be-753ac0421ba3",
+      "name": "ShinyHull",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "79348357-432d-4746-8e29-0e25c112e3aa",
+      "name": "MatteHull",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "a8fea537-da7c-4d4b-817f-24f074725d6d",
+      "name": "UnlitHull",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "c8313697-2563-47fc-832e-290f4c04b901",
+      "name": "DiamondHull",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "d1d991f2-e7a0-4cf1-b328-f57e915e6260",
+      "name": "DotMarker",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "c33714d1-b2f9-412e-bd50-1884c9d46336",
+      "name": "Plasma",
+      "nativeTagged": true,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "1b897b7e-9b76-425a-b031-a867c48df409",
+      "name": "Gouache",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "8e58ceea-7830-49b4-aba9-6215104ab52a",
+      "name": "MylarTube",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "03a529e1-f519-3dd4-582d-2d5cd92c3f4f",
+      "name": "Rain",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "725f4c6a-6427-6524-29ab-da371924adab",
+      "name": "DryBrush",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "ddda8745-4bb5-ac54-88b6-d1480370583e",
+      "name": "LeakyPen",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "50e99447-3861-05f4-697d-a1b96e771b98",
+      "name": "Sparks",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "7136a729-1aab-bd24-f8b2-ca88b6adfb67",
+      "name": "Wind",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "a8147ce1-005e-abe4-88e8-09a1eaadcc89",
+      "name": "Rising Bubbles",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "9568870f-8594-60f4-1b20-dfbc8a5eac0e",
+      "name": "TaperedWire",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "2e03b1bf-3ebd-4609-9d7e-f4cafadc4dfa",
+      "name": "SquarePaper",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "39ee7377-7a9e-47a7-a0f8-0c77712f75d3",
+      "name": "ThickGeometry",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "2c1a6a63-6552-4d23-86d7-58f6fba8581b",
+      "name": "Wireframe",
+      "nativeTagged": true,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "f28c395c-a57d-464b-8f0b-558c59478fa3",
+      "name": "Muscle",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "99aafe96-1645-44cd-99bd-979bc6ef37c5",
+      "name": "Guts",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "53d753ef-083c-45e1-98e7-4459b4471219",
+      "name": "Fire2",
+      "nativeTagged": true,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "9871385a-df73-4396-9e33-31e4e4930b27",
+      "name": "TubeToonInverted",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "4391ffaa-df73-4396-9e33-31e4e4930b27",
+      "name": "FacetedTube",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "6a1cf9f9-032c-45ec-9b6e-a6680bee30f7",
+      "name": "WaveformParticles",
+      "nativeTagged": true,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "eba3f993-f9a1-4d35-b84e-bb08f48981a4",
+      "name": "BubbleWand",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "6a1cf9f9-032c-45ec-311e-a6680bee32e9",
+      "name": "DanceFloor",
+      "nativeTagged": true,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "0f5820df-cb6b-4a6c-960e-56e4c8000eda",
+      "name": "WaveformTube",
+      "nativeTagged": true,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "492b36ff-b337-436a-ba5f-1e87ee86747e",
+      "name": "Drafting",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "f0a2298a-be80-432c-9fee-a86dcc06f4f9",
+      "name": "SingleSided",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "f4a0550c-332a-4e1a-9793-b71508f4a454",
+      "name": "DoubleFlat",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "c1c9b26d-673a-4dc6-b373-51715654ab96",
+      "name": "TubeAdditive",
+      "nativeTagged": true,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "a555b809-2017-46cb-ac26-e63173d8f45e",
+      "name": "Feather",
+      "nativeTagged": true,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "84d5bbb2-6634-8434-f8a7-681b576b4664",
+      "name": "DuctTapeGeometry",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "3d9755da-56c7-7294-9b1d-5ec349975f52",
+      "name": "TaperedHueShift",
+      "nativeTagged": true,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "1cf94f63-f57a-4a1a-ad14-295af4f5ab5c",
+      "name": "Lacewing",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "c86c058d-1bda-2e94-08db-f3d6a96ac4a1",
+      "name": "Marbled Rainbow",
+      "nativeTagged": true,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "fde6e778-0f7a-e584-38d6-89d44cee59f6",
+      "name": "Charcoal",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "f8ba3d18-01fc-4d7b-b2d9-b99d10b8e7cf",
+      "name": "KeijiroTube",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "c5da2e70-a6e4-63a4-898c-5cfedef09c97",
+      "name": "Lofted (Hue Shift)",
+      "nativeTagged": true,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "62fef968-e842-3224-4a0e-1fdb7cfb745c",
+      "name": "Wire (Lit)",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "d120944d-772f-4062-99c6-46a6f219eeaf",
+      "name": "WaveformFFT",
+      "nativeTagged": true,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "d9cc5e99-ace1-4d12-96e0-4a7c18c99cfc",
+      "name": "Fairy",
+      "nativeTagged": true,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "bdf65db2-1fb7-4202-b5e0-c6b5e3ea851e",
+      "name": "Space",
+      "nativeTagged": true,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "30cb9af6-be41-4872-8f3e-cbff63fe3db8",
+      "name": "Digital",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "abfbb2aa-70b4-4a5c-8126-8eedda2b3628",
+      "name": "Race",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "355b3579-bf1d-4ff5-a200-704437fe684b",
+      "name": "SmoothHull",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "7259cce5-41c1-ec74-c885-78af28a31d95",
+      "name": "Leaves2",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "7c972c27-d3c2-8af4-7bf8-5d9db8f0b7bb",
+      "name": "InkGeometry",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "7ae1f880-a517-44a0-99f9-1cab654498c6",
+      "name": "ConcaveHull",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    },
+    {
+      "guid": "d3f3b18a-da03-f694-b838-28ba8e749a98",
+      "name": "3D Printing Brush",
+      "nativeTagged": false,
+      "mode": "non-reactive"
+    }
+  ],
+  "shaderFiles": [
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/3D Printing Brush-d3f3b18a-da03-f694-b838-28ba8e749a98/3D Printing Brush-d3f3b18a-da03-f694-b838-28ba8e749a98-v10.0-fragment.glsl",
+      "sha256": "374ced2fb46cd6e043bd2ada0ea492a8ea1bba7c6940a1a765b3f70185e658d8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/3D Printing Brush-d3f3b18a-da03-f694-b838-28ba8e749a98/3D Printing Brush-d3f3b18a-da03-f694-b838-28ba8e749a98-v10.0-vertex.glsl",
+      "sha256": "e6197431e88bb10c5150e0ef46d0826c78b5386b9c893472ccaf1ddc592aa5d2",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/BlocksBasic-0e87b49c-6546-3a34-3a44-8a556d7d6c3e/BlocksBasic-0e87b49c-6546-3a34-3a44-8a556d7d6c3e-v10.0-fragment.glsl",
+      "sha256": "d98e535158858c5735a22a45ba949f27f5fb36130e072bb85c4fa95f1f0e5266",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/BlocksBasic-0e87b49c-6546-3a34-3a44-8a556d7d6c3e/BlocksBasic-0e87b49c-6546-3a34-3a44-8a556d7d6c3e-v10.0-vertex.glsl",
+      "sha256": "0e7f17187b46c52f15af4b260cecb23c45f7783f2d58692571a49439a9eb07f8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/BlocksGem-232998f8-d357-47a2-993a-53415df9be10/BlocksGem-232998f8-d357-47a2-993a-53415df9be10-v10.0-fragment.glsl",
+      "sha256": "ccb4fe3cd98f5cfd7c66f89b0e5b42a83e937400cd41990c69b86fa19823f0b3",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/BlocksGem-232998f8-d357-47a2-993a-53415df9be10/BlocksGem-232998f8-d357-47a2-993a-53415df9be10-v10.0-vertex.glsl",
+      "sha256": "a5f62904e42c85f638cb89b4612769723104f69149c6556ced18d2df3e2ee0a1",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/BlocksGlass-3d813d82-5839-4450-8ddc-8e889ecd96c7/BlocksGlass-3d813d82-5839-4450-8ddc-8e889ecd96c7-v10.0-fragment.glsl",
+      "sha256": "540bd94f664342f9166b78c22492841f3359c674456276d583d5f6de9285e429",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/BlocksGlass-3d813d82-5839-4450-8ddc-8e889ecd96c7/BlocksGlass-3d813d82-5839-4450-8ddc-8e889ecd96c7-v10.0-vertex.glsl",
+      "sha256": "0e7f17187b46c52f15af4b260cecb23c45f7783f2d58692571a49439a9eb07f8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/BubbleWand-eba3f993-f9a1-4d35-b84e-bb08f48981a4/BubbleWand-eba3f993-f9a1-4d35-b84e-bb08f48981a4-v10.0-fragment.glsl",
+      "sha256": "86f774a8d602238593f639db2ef22a43cbdc71ac68acb338f732e280cbd7824d",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/BubbleWand-eba3f993-f9a1-4d35-b84e-bb08f48981a4/BubbleWand-eba3f993-f9a1-4d35-b84e-bb08f48981a4-v10.0-vertex.glsl",
+      "sha256": "ac73d2eee4b75b07f3424aacd786c1fea30a496ce7083c1c7ebbfe4fd052e39e",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Bubbles-89d104cd-d012-426b-b5b3-bbaee63ac43c/Bubbles-89d104cd-d012-426b-b5b3-bbaee63ac43c-v10.0-fragment.glsl",
+      "sha256": "c75f362fa108bf18b0d2263f6f7cec368eb9b465e09fe95af92bf5d2b406d38c",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Bubbles-89d104cd-d012-426b-b5b3-bbaee63ac43c/Bubbles-89d104cd-d012-426b-b5b3-bbaee63ac43c-v10.0-vertex.glsl",
+      "sha256": "38ebf7acafc6a8a263cc4c294d62212cfb73daaf013c4e58bc837afa3438cf0a",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/CelVinyl-700f3aa8-9a7c-2384-8b8a-ea028905dd8c/CelVinyl-700f3aa8-9a7c-2384-8b8a-ea028905dd8c-v10.0-fragment.glsl",
+      "sha256": "6595b7a968092655bc3cb436cfbdb91da0b88f7340ec4bb88a0836651a9ae7a8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/CelVinyl-700f3aa8-9a7c-2384-8b8a-ea028905dd8c/CelVinyl-700f3aa8-9a7c-2384-8b8a-ea028905dd8c-v10.0-vertex.glsl",
+      "sha256": "0e7f17187b46c52f15af4b260cecb23c45f7783f2d58692571a49439a9eb07f8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Charcoal-fde6e778-0f7a-e584-38d6-89d44cee59f6/Charcoal-fde6e778-0f7a-e584-38d6-89d44cee59f6-v10.0-fragment.glsl",
+      "sha256": "046f10dc6034bb626b4e903f62603029fdc43d9e6adf70dbfa2a06873cb63475",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Charcoal-fde6e778-0f7a-e584-38d6-89d44cee59f6/Charcoal-fde6e778-0f7a-e584-38d6-89d44cee59f6-v10.0-vertex.glsl",
+      "sha256": "e8e7de1d993dc35e0a9d3c87a923c035153f074a00b71469b41976f23b4884d8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/ChromaticWave-0f0ff7b2-a677-45eb-a7d6-0cd7206f4816/ChromaticWave-0f0ff7b2-a677-45eb-a7d6-0cd7206f4816-v10.0-fragment.glsl",
+      "sha256": "1cb733902e3f852e8b179d13361bb6ecb790fe71f799f28ba3fd6c56e19708e4",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/ChromaticWave-0f0ff7b2-a677-45eb-a7d6-0cd7206f4816/ChromaticWave-0f0ff7b2-a677-45eb-a7d6-0cd7206f4816-v10.0-vertex.glsl",
+      "sha256": "0e7f17187b46c52f15af4b260cecb23c45f7783f2d58692571a49439a9eb07f8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/CoarseBristles-1161af82-50cf-47db-9706-0c3576d43c43/CoarseBristles-1161af82-50cf-47db-9706-0c3576d43c43-v10.0-fragment.glsl",
+      "sha256": "35ed802c93a6012aaf00d180949670e45103f22f184d3389aeef42ec7a72ce03",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/CoarseBristles-1161af82-50cf-47db-9706-0c3576d43c43/CoarseBristles-1161af82-50cf-47db-9706-0c3576d43c43-v10.0-vertex.glsl",
+      "sha256": "0e7f17187b46c52f15af4b260cecb23c45f7783f2d58692571a49439a9eb07f8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Comet-1caa6d7d-f015-3f54-3a4b-8b5354d39f81/Comet-1caa6d7d-f015-3f54-3a4b-8b5354d39f81-v10.0-fragment.glsl",
+      "sha256": "07be30408f169ae6ba389ca978280b39c4ba5757ff3afbd99327b932e690e56a",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Comet-1caa6d7d-f015-3f54-3a4b-8b5354d39f81/Comet-1caa6d7d-f015-3f54-3a4b-8b5354d39f81-v10.0-vertex.glsl",
+      "sha256": "0e7f17187b46c52f15af4b260cecb23c45f7783f2d58692571a49439a9eb07f8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/ConcaveHull-7ae1f880-a517-44a0-99f9-1cab654498c6/ConcaveHull-7ae1f880-a517-44a0-99f9-1cab654498c6-v10.0-fragment.glsl",
+      "sha256": "25faf5e54cb118e4909c8d02b78d610aedcede9367149bcde6027b3f5a2de1af",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/ConcaveHull-7ae1f880-a517-44a0-99f9-1cab654498c6/ConcaveHull-7ae1f880-a517-44a0-99f9-1cab654498c6-v10.0-vertex.glsl",
+      "sha256": "fb07d27cdc695e1fad72b14f150bd9ca3e88d11c9cc404e14305560ae11007d3",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/DanceFloor-6a1cf9f9-032c-45ec-311e-a6680bee32e9/DanceFloor-6a1cf9f9-032c-45ec-311e-a6680bee32e9-v10.0-fragment.glsl",
+      "sha256": "9e3081c85bf884ddf011aebf3658a53ffe134e07901ff79b447e628c770b0aaa",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/DanceFloor-6a1cf9f9-032c-45ec-311e-a6680bee32e9/DanceFloor-6a1cf9f9-032c-45ec-311e-a6680bee32e9-v10.0-vertex.glsl",
+      "sha256": "bab8e0f4885faaa408b5e844744f83a01f8f5a8497614488c519005e636e8094",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/DiamondHull-c8313697-2563-47fc-832e-290f4c04b901/DiamondHull-c8313697-2563-47fc-832e-290f4c04b901-v10.0-fragment.glsl",
+      "sha256": "e5a33b8a2a989368ac1ada014cc0e4e2c320fa80a589a21d842ca5134174d9ca",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/DiamondHull-c8313697-2563-47fc-832e-290f4c04b901/DiamondHull-c8313697-2563-47fc-832e-290f4c04b901-v10.0-vertex.glsl",
+      "sha256": "022f5070ed8d6a476921d13c6a2d57e6627aa09b21450aae3d5e924f3b34aba1",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Digital-30cb9af6-be41-4872-8f3e-cbff63fe3db8/Digital-30cb9af6-be41-4872-8f3e-cbff63fe3db8-v10.0-fragment.glsl",
+      "sha256": "0b9ae64299edb81d58539cb62f4abd5cf14d4f407b371b78a6ade3e8c4902d41",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Digital-30cb9af6-be41-4872-8f3e-cbff63fe3db8/Digital-30cb9af6-be41-4872-8f3e-cbff63fe3db8-v10.0-vertex.glsl",
+      "sha256": "58bf1770b8c3a1a10d75ab3689ba1b78aa1f059d0b03b20a17d098bf8f1143a8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Disco-4391aaaa-df73-4396-9e33-31e4e4930b27/Disco-4391aaaa-df73-4396-9e33-31e4e4930b27-v10.0-fragment.glsl",
+      "sha256": "91517a25a617e4a0750a2b9ef9d44a94d987e3b52715f776e459576163b967dd",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Disco-4391aaaa-df73-4396-9e33-31e4e4930b27/Disco-4391aaaa-df73-4396-9e33-31e4e4930b27-v10.0-vertex.glsl",
+      "sha256": "cb687dbbe56fa5758b51595b5b5c6b84ad78742234b091f7f64bab0ecf4ccab1",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/DotMarker-d1d991f2-e7a0-4cf1-b328-f57e915e6260/DotMarker-d1d991f2-e7a0-4cf1-b328-f57e915e6260-v10.0-fragment.glsl",
+      "sha256": "4be872e1068770abd3894fdfe1b034916739ae8e5644c5b4d377144db8522562",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/DotMarker-d1d991f2-e7a0-4cf1-b328-f57e915e6260/DotMarker-d1d991f2-e7a0-4cf1-b328-f57e915e6260-v10.0-vertex.glsl",
+      "sha256": "0e7f17187b46c52f15af4b260cecb23c45f7783f2d58692571a49439a9eb07f8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Dots-6a1cf9f9-032c-45ec-9b1d-a6680bee30f7/Dots-6a1cf9f9-032c-45ec-9b1d-a6680bee30f7-v10.0-fragment.glsl",
+      "sha256": "ceda331f442fbb839dc30de5e46491982c55e0e11dc54dc39e29d57775de2289",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Dots-6a1cf9f9-032c-45ec-9b1d-a6680bee30f7/Dots-6a1cf9f9-032c-45ec-9b1d-a6680bee30f7-v10.0-vertex.glsl",
+      "sha256": "6d18088df6cc5ec0de958b9d7a7be2011e77dbe2f9d1384f347cb57a62e3d15b",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/DoubleFlat-f4a0550c-332a-4e1a-9793-b71508f4a454/DoubleFlat-f4a0550c-332a-4e1a-9793-b71508f4a454-v10.0-fragment.glsl",
+      "sha256": "cef3cb847195085412b40cfb5edbaba28acf8d19c812a8bf396545b946f691fa",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/DoubleFlat-f4a0550c-332a-4e1a-9793-b71508f4a454/DoubleFlat-f4a0550c-332a-4e1a-9793-b71508f4a454-v10.0-vertex.glsl",
+      "sha256": "e8e7de1d993dc35e0a9d3c87a923c035153f074a00b71469b41976f23b4884d8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/DoubleTaperedFlat-0d3889f3-3ede-470c-8af4-f44813306126/DoubleTaperedFlat-0d3889f3-3ede-470c-8af4-f44813306126-v10.0-fragment.glsl",
+      "sha256": "41c915c486141960b8199744ea74e9b7ddd35cff64e5efd62f1e778cfff0f78a",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/DoubleTaperedFlat-0d3889f3-3ede-470c-8af4-f44813306126/DoubleTaperedFlat-0d3889f3-3ede-470c-8af4-f44813306126-v10.0-vertex.glsl",
+      "sha256": "ad37cd008fd3f92ae5638a93fda023eee7088eb7716c068f2d34a9346988c8d7",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/DoubleTaperedMarker-0d3889f3-3ede-470c-8af4-de4813306126/DoubleTaperedMarker-0d3889f3-3ede-470c-8af4-de4813306126-v10.0-fragment.glsl",
+      "sha256": "e3301f3f536d669cdd7b1ce9803dbea831dc59aecc694b930b9a77fae75e724d",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/DoubleTaperedMarker-0d3889f3-3ede-470c-8af4-de4813306126/DoubleTaperedMarker-0d3889f3-3ede-470c-8af4-de4813306126-v10.0-vertex.glsl",
+      "sha256": "ad37cd008fd3f92ae5638a93fda023eee7088eb7716c068f2d34a9346988c8d7",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Drafting-492b36ff-b337-436a-ba5f-1e87ee86747e/Drafting-492b36ff-b337-436a-ba5f-1e87ee86747e-v10.0-fragment.glsl",
+      "sha256": "b072ab987b8fb719cc3d2f984a4d09c678560b86472666b5da6e41b0ed28dda6",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Drafting-492b36ff-b337-436a-ba5f-1e87ee86747e/Drafting-492b36ff-b337-436a-ba5f-1e87ee86747e-v10.0-vertex.glsl",
+      "sha256": "de95d434a47d465e189c9a4dcf1ed4891cfc0b8003f2ad9f6ff019b9f4811e86",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/DryBrush-725f4c6a-6427-6524-29ab-da371924adab/DryBrush-725f4c6a-6427-6524-29ab-da371924adab-v10.0-fragment.glsl",
+      "sha256": "046f10dc6034bb626b4e903f62603029fdc43d9e6adf70dbfa2a06873cb63475",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/DryBrush-725f4c6a-6427-6524-29ab-da371924adab/DryBrush-725f4c6a-6427-6524-29ab-da371924adab-v10.0-vertex.glsl",
+      "sha256": "e8e7de1d993dc35e0a9d3c87a923c035153f074a00b71469b41976f23b4884d8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/DuctTape-3ca16e2f-bdcd-4da2-8631-dcef342f40f1/DuctTape-3ca16e2f-bdcd-4da2-8631-dcef342f40f1-v10.0-fragment.glsl",
+      "sha256": "e6c6b22ca9151d72c3941f91ac7a611bd61f39bcbaf80049e8c58d61fc132702",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/DuctTape-3ca16e2f-bdcd-4da2-8631-dcef342f40f1/DuctTape-3ca16e2f-bdcd-4da2-8631-dcef342f40f1-v10.0-vertex.glsl",
+      "sha256": "0e7f17187b46c52f15af4b260cecb23c45f7783f2d58692571a49439a9eb07f8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/DuctTapeGeometry-84d5bbb2-6634-8434-f8a7-681b576b4664/DuctTapeGeometry-84d5bbb2-6634-8434-f8a7-681b576b4664-v10.0-fragment.glsl",
+      "sha256": "1f1042779db67a98cc33dee44e39b3c87c8cde00ac475b1a7cb39f9f8dcda391",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/DuctTapeGeometry-84d5bbb2-6634-8434-f8a7-681b576b4664/DuctTapeGeometry-84d5bbb2-6634-8434-f8a7-681b576b4664-v10.0-vertex.glsl",
+      "sha256": "331c67ec045c5d304f7c8e661de90e73040df4b025877758fa6c2e60a9a857a7",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Electricity-f6e85de3-6dcc-4e7f-87fd-cee8c3d25d51/Electricity-f6e85de3-6dcc-4e7f-87fd-cee8c3d25d51-v10.0-fragment.glsl",
+      "sha256": "b6510595c396313457e3e94f61e27fa06bd54c77d7cd6b375898da1ecbba17d1",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Electricity-f6e85de3-6dcc-4e7f-87fd-cee8c3d25d51/Electricity-f6e85de3-6dcc-4e7f-87fd-cee8c3d25d51-v10.0-vertex.glsl",
+      "sha256": "0c475c77d3d6c549cfa37b4419945c580b8ce489a65bc880acb1c9952b42094a",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Embers-02ffb866-7fb2-4d15-b761-1012cefb1360/Embers-02ffb866-7fb2-4d15-b761-1012cefb1360-v10.0-fragment.glsl",
+      "sha256": "76f69021c7b4205b8fd060ef5460af8cd9b657519059529d3cecced088d40f62",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Embers-02ffb866-7fb2-4d15-b761-1012cefb1360/Embers-02ffb866-7fb2-4d15-b761-1012cefb1360-v10.0-vertex.glsl",
+      "sha256": "d7e6d3ed0da294ad4a5ad2b144fd2d2403234bf03174529d3887090af4a599e6",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/EnvironmentDiffuse-0ad58bbd-42bc-484e-ad9a-b61036ff4ce7/EnvironmentDiffuse-0ad58bbd-42bc-484e-ad9a-b61036ff4ce7-v1.0-fragment.glsl",
+      "sha256": "15c90892fb81d7f01d1703e9b411066f8fbefcc41ac8fc539344113ad8d346b7",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/EnvironmentDiffuse-0ad58bbd-42bc-484e-ad9a-b61036ff4ce7/EnvironmentDiffuse-0ad58bbd-42bc-484e-ad9a-b61036ff4ce7-v1.0-vertex.glsl",
+      "sha256": "f1d7f7a63e6a83f50cb3c26be56cbf71fb05f2d4db1987f56af1a2e906f41e24",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/EnvironmentDiffuseLightMap-d01d9d6c-9a61-4aba-8146-5891fafb013b/EnvironmentDiffuseLightMap-d01d9d6c-9a61-4aba-8146-5891fafb013b-v1.0-fragment.glsl",
+      "sha256": "6f51f18c6c40dccda99676d31ff1a311c7d00d523b480e31c565f4101c4d03bd",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/EnvironmentDiffuseLightMap-d01d9d6c-9a61-4aba-8146-5891fafb013b/EnvironmentDiffuseLightMap-d01d9d6c-9a61-4aba-8146-5891fafb013b-v1.0-vertex.glsl",
+      "sha256": "f44f77e0bd08ee7348f8a56156a15079ed8175043a45e8979746a68558b870e6",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/FacetedTube-4391ffaa-df73-4396-9e33-31e4e4930b27/FacetedTube-4391ffaa-df73-4396-9e33-31e4e4930b27-v10.0-fragment.glsl",
+      "sha256": "f440a1461c2642781fd1dd5c95a6663b197b2fdba42c4532a76981ee706ee52b",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/FacetedTube-4391ffaa-df73-4396-9e33-31e4e4930b27/FacetedTube-4391ffaa-df73-4396-9e33-31e4e4930b27-v10.0-vertex.glsl",
+      "sha256": "9ea6d060be3530a30484055c3d488e02401e0c8bdc1622f2ae0be29a82c29fd1",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Fairy-d9cc5e99-ace1-4d12-96e0-4a7c18c99cfc/Fairy-d9cc5e99-ace1-4d12-96e0-4a7c18c99cfc-v10.0-fragment.glsl",
+      "sha256": "1cfaee9c37449caf8262ac7846930b799b537c3143a4537a7bdb000d670b499b",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Fairy-d9cc5e99-ace1-4d12-96e0-4a7c18c99cfc/Fairy-d9cc5e99-ace1-4d12-96e0-4a7c18c99cfc-v10.0-vertex.glsl",
+      "sha256": "c1935e6241879444344aa19542a0931839e08831e491b3a83ff5700c87991a23",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Feather-a555b809-2017-46cb-ac26-e63173d8f45e/Feather-a555b809-2017-46cb-ac26-e63173d8f45e-v10.0-fragment.glsl",
+      "sha256": "73e3394e64dd14a04d5a80833cf2eb5c6b80e03548cd855ffbe189afc3b25ad8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Feather-a555b809-2017-46cb-ac26-e63173d8f45e/Feather-a555b809-2017-46cb-ac26-e63173d8f45e-v10.0-vertex.glsl",
+      "sha256": "c6e547abf490a6a0a3bd672081a98bd5998ca652e923137993c213b3e28ae8a5",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Fire-cb92b597-94ca-4255-b017-0e3f42f12f9e/Fire-cb92b597-94ca-4255-b017-0e3f42f12f9e-v10.0-fragment.glsl",
+      "sha256": "ca46880e810a44ab08ae7e07719e4f726cb114f1e2ea489c7b207ffd7e093e1d",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Fire-cb92b597-94ca-4255-b017-0e3f42f12f9e/Fire-cb92b597-94ca-4255-b017-0e3f42f12f9e-v10.0-vertex.glsl",
+      "sha256": "0e7f17187b46c52f15af4b260cecb23c45f7783f2d58692571a49439a9eb07f8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Fire2-53d753ef-083c-45e1-98e7-4459b4471219/Fire2-53d753ef-083c-45e1-98e7-4459b4471219-v10.0-fragment.glsl",
+      "sha256": "919b5e284f8b766d8951c4edfbfd0e921f6c5ce47e54cd152d18945c8827c186",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Fire2-53d753ef-083c-45e1-98e7-4459b4471219/Fire2-53d753ef-083c-45e1-98e7-4459b4471219-v10.0-vertex.glsl",
+      "sha256": "4abad92eba441db44da3209c8fa2df063e4d45b65e9371e7a69fa6052fb8368f",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Flat-2d35bcf0-e4d8-452c-97b1-3311be063130/Flat-2d35bcf0-e4d8-452c-97b1-3311be063130-v10.0-fragment.glsl",
+      "sha256": "254ab3dee299e6c85dd3178500e4e0f6642532110b3935bde83dfa93906da678",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Flat-2d35bcf0-e4d8-452c-97b1-3311be063130/Flat-2d35bcf0-e4d8-452c-97b1-3311be063130-v10.0-vertex.glsl",
+      "sha256": "0e7f17187b46c52f15af4b260cecb23c45f7783f2d58692571a49439a9eb07f8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/FlatDeprecated-55303bc4-c749-4a72-98d9-d23e68e76e18/FlatDeprecated-55303bc4-c749-4a72-98d9-d23e68e76e18-v10.0-fragment.glsl",
+      "sha256": "9f43d37425292f796df83f77a8f0215f11dfd18d5cb3742edfd62d13d469b7ba",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/FlatDeprecated-55303bc4-c749-4a72-98d9-d23e68e76e18/FlatDeprecated-55303bc4-c749-4a72-98d9-d23e68e76e18-v10.0-vertex.glsl",
+      "sha256": "0e7f17187b46c52f15af4b260cecb23c45f7783f2d58692571a49439a9eb07f8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Gouache-4465b5ef-3605-bec4-2b3e-6b04508ddb6b/Gouache-4465b5ef-3605-bec4-2b3e-6b04508ddb6b-v10.0-fragment.glsl",
+      "sha256": "5460423064b0316ba9e962dada79f69f56cc666f7b640372ce24e9a61055e124",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Gouache-4465b5ef-3605-bec4-2b3e-6b04508ddb6b/Gouache-4465b5ef-3605-bec4-2b3e-6b04508ddb6b-v10.0-vertex.glsl",
+      "sha256": "e8e7de1d993dc35e0a9d3c87a923c035153f074a00b71469b41976f23b4884d8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Guts-99aafe96-1645-44cd-99bd-979bc6ef37c5/Guts-99aafe96-1645-44cd-99bd-979bc6ef37c5-v10.0-fragment.glsl",
+      "sha256": "7a2f51ba622edbe410aa71ed588f3edba4251be43df9bd4bde446c2051055f4b",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Guts-99aafe96-1645-44cd-99bd-979bc6ef37c5/Guts-99aafe96-1645-44cd-99bd-979bc6ef37c5-v10.0-vertex.glsl",
+      "sha256": "2da98a55c045b6cc6602edee0b55b3be8d7191c2880cc967b90a5c5747fa884b",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Highlighter-cf019139-d41c-4eb0-a1d0-5cf54b0a42f3/Highlighter-cf019139-d41c-4eb0-a1d0-5cf54b0a42f3-v10.0-fragment.glsl",
+      "sha256": "5f4d841f66d9e36587799f5f083b6db23f8b5e629f35259618981124e6a4d4b8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Highlighter-cf019139-d41c-4eb0-a1d0-5cf54b0a42f3/Highlighter-cf019139-d41c-4eb0-a1d0-5cf54b0a42f3-v10.0-vertex.glsl",
+      "sha256": "0e7f17187b46c52f15af4b260cecb23c45f7783f2d58692571a49439a9eb07f8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/HyperGrid-6a1cf9f9-032c-45ec-9b6e-a6680bee32e9/HyperGrid-6a1cf9f9-032c-45ec-9b6e-a6680bee32e9-v10.0-fragment.glsl",
+      "sha256": "512a3ca3a26a0816c425c9d18f6da9b991f7293cb92a74980853fa7b26d3c31d",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/HyperGrid-6a1cf9f9-032c-45ec-9b6e-a6680bee32e9/HyperGrid-6a1cf9f9-032c-45ec-9b6e-a6680bee32e9-v10.0-vertex.glsl",
+      "sha256": "d1128f1d6c39bda621be011c9b50f5209f14c568d6925d62297d959d5e6688ab",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Hypercolor-dce872c2-7b49-4684-b59b-c45387949c5c/Hypercolor-dce872c2-7b49-4684-b59b-c45387949c5c-v10.0-fragment.glsl",
+      "sha256": "431057813f790aa415142de369892d6c7c000684dfaaefb1e0d8d989d6f351c9",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Hypercolor-dce872c2-7b49-4684-b59b-c45387949c5c/Hypercolor-dce872c2-7b49-4684-b59b-c45387949c5c-v10.0-vertex.glsl",
+      "sha256": "0e7f17187b46c52f15af4b260cecb23c45f7783f2d58692571a49439a9eb07f8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Icing-2f212815-f4d3-c1a4-681a-feeaf9c6dc37/Icing-2f212815-f4d3-c1a4-681a-feeaf9c6dc37-v10.0-fragment.glsl",
+      "sha256": "7f822492bd8de7cdaa30380db7f7b96473744bba859d75f4533e127a248c7bc2",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Icing-2f212815-f4d3-c1a4-681a-feeaf9c6dc37/Icing-2f212815-f4d3-c1a4-681a-feeaf9c6dc37-v10.0-vertex.glsl",
+      "sha256": "0e7f17187b46c52f15af4b260cecb23c45f7783f2d58692571a49439a9eb07f8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Ink-c0012095-3ffd-4040-8ee1-fc180d346eaa/Ink-c0012095-3ffd-4040-8ee1-fc180d346eaa-v10.0-fragment.glsl",
+      "sha256": "f77ded3caf5d0d04e00254ae1c53d11bfa519ef743ad691d8a5da00932e912e4",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Ink-c0012095-3ffd-4040-8ee1-fc180d346eaa/Ink-c0012095-3ffd-4040-8ee1-fc180d346eaa-v10.0-vertex.glsl",
+      "sha256": "e8e7de1d993dc35e0a9d3c87a923c035153f074a00b71469b41976f23b4884d8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/InkGeometry-7c972c27-d3c2-8af4-7bf8-5d9db8f0b7bb/InkGeometry-7c972c27-d3c2-8af4-7bf8-5d9db8f0b7bb-v10.0-fragment.glsl",
+      "sha256": "3650f1b76b405da67200c52499acd6356e40441830788f8a553e31a7b03d3eaa",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/InkGeometry-7c972c27-d3c2-8af4-7bf8-5d9db8f0b7bb/InkGeometry-7c972c27-d3c2-8af4-7bf8-5d9db8f0b7bb-v10.0-vertex.glsl",
+      "sha256": "e8e7de1d993dc35e0a9d3c87a923c035153f074a00b71469b41976f23b4884d8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/KeijiroTube-f8ba3d18-01fc-4d7b-b2d9-b99d10b8e7cf/KeijiroTube-f8ba3d18-01fc-4d7b-b2d9-b99d10b8e7cf-v10.0-fragment.glsl",
+      "sha256": "cd43dccfca568e6e0a62db9893a2ad562afc2b886fa9092db0dd03724df0e9b2",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/KeijiroTube-f8ba3d18-01fc-4d7b-b2d9-b99d10b8e7cf/KeijiroTube-f8ba3d18-01fc-4d7b-b2d9-b99d10b8e7cf-v10.0-vertex.glsl",
+      "sha256": "f3a29c187f87b3dfb1f24c5025b9163584b779b0c4bd452efff4f15f7c267489",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Lacewing-1cf94f63-f57a-4a1a-ad14-295af4f5ab5c/Lacewing-1cf94f63-f57a-4a1a-ad14-295af4f5ab5c-v10.0-fragment.glsl",
+      "sha256": "8a2bdaf4e7de53d39f2dcddf7645f881e791e0feb4a105e0e5b79d1a29fc7b45",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Lacewing-1cf94f63-f57a-4a1a-ad14-295af4f5ab5c/Lacewing-1cf94f63-f57a-4a1a-ad14-295af4f5ab5c-v10.0-vertex.glsl",
+      "sha256": "8103400f1af368440b56532aa55bbbf44e4bfdb80a914a31049da40cbdacc051",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/LeakyPen-ddda8745-4bb5-ac54-88b6-d1480370583e/LeakyPen-ddda8745-4bb5-ac54-88b6-d1480370583e-v10.0-fragment.glsl",
+      "sha256": "1b859e45afbfc360c9cffa8b0ad8f6b56d0646caf7c224019024ee4b9dbcf31e",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/LeakyPen-ddda8745-4bb5-ac54-88b6-d1480370583e/LeakyPen-ddda8745-4bb5-ac54-88b6-d1480370583e-v10.0-vertex.glsl",
+      "sha256": "d810fecf973b7f397c355ab141d80687616b045e6584deb0e791311f63b7fab8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Leaves-ea19de07-d0c0-4484-9198-18489a3c1487/Leaves-ea19de07-d0c0-4484-9198-18489a3c1487-v10.0-fragment.glsl",
+      "sha256": "a51e38b1d60efbc5e11f45bc83041b7092fac17ab0185e73ce60485cc70b01ac",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Leaves-ea19de07-d0c0-4484-9198-18489a3c1487/Leaves-ea19de07-d0c0-4484-9198-18489a3c1487-v10.0-vertex.glsl",
+      "sha256": "0e7f17187b46c52f15af4b260cecb23c45f7783f2d58692571a49439a9eb07f8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Leaves2-7259cce5-41c1-ec74-c885-78af28a31d95/Leaves2-7259cce5-41c1-ec74-c885-78af28a31d95-v10.0-fragment.glsl",
+      "sha256": "3650f1b76b405da67200c52499acd6356e40441830788f8a553e31a7b03d3eaa",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Leaves2-7259cce5-41c1-ec74-c885-78af28a31d95/Leaves2-7259cce5-41c1-ec74-c885-78af28a31d95-v10.0-vertex.glsl",
+      "sha256": "e8e7de1d993dc35e0a9d3c87a923c035153f074a00b71469b41976f23b4884d8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Light-2241cd32-8ba2-48a5-9ee7-2caef7e9ed62/Light-2241cd32-8ba2-48a5-9ee7-2caef7e9ed62-v10.0-fragment.glsl",
+      "sha256": "e0940a685ec6b14daf9ba3fc92d52871ecc2665d6c8a79979421211fbf6b614e",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Light-2241cd32-8ba2-48a5-9ee7-2caef7e9ed62/Light-2241cd32-8ba2-48a5-9ee7-2caef7e9ed62-v10.0-vertex.glsl",
+      "sha256": "0e7f17187b46c52f15af4b260cecb23c45f7783f2d58692571a49439a9eb07f8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/LightWire-4391aaaa-df81-4396-9e33-31e4e4930b27/LightWire-4391aaaa-df81-4396-9e33-31e4e4930b27-v10.0-fragment.glsl",
+      "sha256": "43418a970df2ce5d44a21a14e72974e2163abbbd43ea560e6ad3b69ce07107fb",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/LightWire-4391aaaa-df81-4396-9e33-31e4e4930b27/LightWire-4391aaaa-df81-4396-9e33-31e4e4930b27-v10.0-vertex.glsl",
+      "sha256": "6db507839f447a4bb7eba31d5ef7d08116fca73e685c17e04246f2d6dbe889c8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Lofted (Hue Shift)-c5da2e70-a6e4-63a4-898c-5cfedef09c97/Lofted (Hue Shift)-c5da2e70-a6e4-63a4-898c-5cfedef09c97-v10.0-fragment.glsl",
+      "sha256": "96780819fa1a5e811674ecd1b45ea9539e3af388d991f75c11b9a297d18fdcad",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Lofted (Hue Shift)-c5da2e70-a6e4-63a4-898c-5cfedef09c97/Lofted (Hue Shift)-c5da2e70-a6e4-63a4-898c-5cfedef09c97-v10.0-vertex.glsl",
+      "sha256": "4f7af9a5189935131d02b1d3a1793e4bd84f9cee624a886776d9e8b45c818a35",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Lofted-d381e0f5-3def-4a0d-8853-31e9200bcbda/Lofted-d381e0f5-3def-4a0d-8853-31e9200bcbda-v10.0-fragment.glsl",
+      "sha256": "f8e82068c439e0ef9bcb9b230dc7f3a0cc5a44775d56f3336099a4d79769a8ec",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Lofted-d381e0f5-3def-4a0d-8853-31e9200bcbda/Lofted-d381e0f5-3def-4a0d-8853-31e9200bcbda-v10.0-vertex.glsl",
+      "sha256": "0e7f17187b46c52f15af4b260cecb23c45f7783f2d58692571a49439a9eb07f8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Marbled Rainbow-c86c058d-1bda-2e94-08db-f3d6a96ac4a1/Marbled Rainbow-c86c058d-1bda-2e94-08db-f3d6a96ac4a1-v10.0-fragment.glsl",
+      "sha256": "079e2defcfc4010eba0fef8a3d710fd32be5d59a8ab839ee7d71f097862003a5",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Marbled Rainbow-c86c058d-1bda-2e94-08db-f3d6a96ac4a1/Marbled Rainbow-c86c058d-1bda-2e94-08db-f3d6a96ac4a1-v10.0-vertex.glsl",
+      "sha256": "4655238528d34e888d72e473dacd36d1249a811e1cf24409af5be4f0ebf8c8d3",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Marker-429ed64a-4e97-4466-84d3-145a861ef684/Marker-429ed64a-4e97-4466-84d3-145a861ef684-v10.0-fragment.glsl",
+      "sha256": "f2c814c31f51c902af7d5253942603a351c237b175626a1542dbf8602597553f",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Marker-429ed64a-4e97-4466-84d3-145a861ef684/Marker-429ed64a-4e97-4466-84d3-145a861ef684-v10.0-vertex.glsl",
+      "sha256": "0e7f17187b46c52f15af4b260cecb23c45f7783f2d58692571a49439a9eb07f8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/MatteHull-79348357-432d-4746-8e29-0e25c112e3aa/MatteHull-79348357-432d-4746-8e29-0e25c112e3aa-v10.0-fragment.glsl",
+      "sha256": "398dbf4247206444cdeba540fbb04f68bb75e1c0b52f358fd616602aab32a7d3",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/MatteHull-79348357-432d-4746-8e29-0e25c112e3aa/MatteHull-79348357-432d-4746-8e29-0e25c112e3aa-v10.0-vertex.glsl",
+      "sha256": "0e7f17187b46c52f15af4b260cecb23c45f7783f2d58692571a49439a9eb07f8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Muscle-f28c395c-a57d-464b-8f0b-558c59478fa3/Muscle-f28c395c-a57d-464b-8f0b-558c59478fa3-v10.0-fragment.glsl",
+      "sha256": "cd43dccfca568e6e0a62db9893a2ad562afc2b886fa9092db0dd03724df0e9b2",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Muscle-f28c395c-a57d-464b-8f0b-558c59478fa3/Muscle-f28c395c-a57d-464b-8f0b-558c59478fa3-v10.0-vertex.glsl",
+      "sha256": "b4af44347052fa445b48cdf9671d546cf064469143509f4d640a1923512e8c8e",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/MylarTube-8e58ceea-7830-49b4-aba9-6215104ab52a/MylarTube-8e58ceea-7830-49b4-aba9-6215104ab52a-v10.0-fragment.glsl",
+      "sha256": "9afd5efbf4c39920d187e42198fc968cdb8af6ecf16890d7ffb1319139b1b8bc",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/MylarTube-8e58ceea-7830-49b4-aba9-6215104ab52a/MylarTube-8e58ceea-7830-49b4-aba9-6215104ab52a-v10.0-vertex.glsl",
+      "sha256": "7b86ebaf555739bc5a71005539ba23f197b0f306b61f28d3ad06b4ec40ca26b0",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/NeonPulse-b2ffef01-eaaa-4ab5-aa64-95a2c4f5dbc6/NeonPulse-b2ffef01-eaaa-4ab5-aa64-95a2c4f5dbc6-v10.0-fragment.glsl",
+      "sha256": "e64fb5483869bc3e123e3dcf6fe37e70e70b70b3d7079874a5d74c7a3fe2226a",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/NeonPulse-b2ffef01-eaaa-4ab5-aa64-95a2c4f5dbc6/NeonPulse-b2ffef01-eaaa-4ab5-aa64-95a2c4f5dbc6-v10.0-vertex.glsl",
+      "sha256": "5bd039d83ce9a81e1b272aca5dd0c0f99f6098136eaae82998c949446647a56f",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/OilPaint-f72ec0e7-a844-4e38-82e3-140c44772699/OilPaint-f72ec0e7-a844-4e38-82e3-140c44772699-v10.0-fragment.glsl",
+      "sha256": "8ec27f72201358c8e5032878fd50ca00f5c7ff34c685c4f7a5c96c14f8fa1856",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/OilPaint-f72ec0e7-a844-4e38-82e3-140c44772699/OilPaint-f72ec0e7-a844-4e38-82e3-140c44772699-v10.0-vertex.glsl",
+      "sha256": "0e7f17187b46c52f15af4b260cecb23c45f7783f2d58692571a49439a9eb07f8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Paper-759f1ebd-20cd-4720-8d41-234e0da63716/Paper-759f1ebd-20cd-4720-8d41-234e0da63716-v10.0-fragment.glsl",
+      "sha256": "8c0335ebfbed65f115e44496a31727830e2a398c0828e7f87f469faf8eeabb5b",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Paper-759f1ebd-20cd-4720-8d41-234e0da63716/Paper-759f1ebd-20cd-4720-8d41-234e0da63716-v10.0-vertex.glsl",
+      "sha256": "9225b883b7dcbeb9492dd8854378fc16ca76a8484ebe2f16b3bcc5707fff89f4",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/PassthroughHull-cc131ff8-0d17-4677-93e0-d7cd19fea9ac/PassthroughHull-cc131ff8-0d17-4677-93e0-d7cd19fea9ac-v10.0-fragment.glsl",
+      "sha256": "bda5ba76fffa09b5e870268340b76f8b9de2a0a59d6349374afd3438788967a8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/PassthroughHull-cc131ff8-0d17-4677-93e0-d7cd19fea9ac/PassthroughHull-cc131ff8-0d17-4677-93e0-d7cd19fea9ac-v10.0-vertex.glsl",
+      "sha256": "e8e7de1d993dc35e0a9d3c87a923c035153f074a00b71469b41976f23b4884d8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/PbrTemplate-f86a096c-2f4f-4f9d-ae19-81b99f2944e0/PbrTemplate-f86a096c-2f4f-4f9d-ae19-81b99f2944e0-v1.0-fragment.glsl",
+      "sha256": "d7aa55ebc4c60a91120016da9060b5770826638f0918ea23fb620a3e3869c5b4",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/PbrTemplate-f86a096c-2f4f-4f9d-ae19-81b99f2944e0/PbrTemplate-f86a096c-2f4f-4f9d-ae19-81b99f2944e0-v1.0-vertex.glsl",
+      "sha256": "1fee27760321892ceafe2361273a6beaaed063cb4525cd13e3ea4eddfd0d19a7",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/PbrTransparentTemplate-19826f62-42ac-4a9e-8b77-4231fbd0cfbf/PbrTransparentTemplate-19826f62-42ac-4a9e-8b77-4231fbd0cfbf-v1.0-fragment.glsl",
+      "sha256": "e66404679bb1660abcd32b7f8633f77f976b9566a375f7a95104b21e4b668ce6",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/PbrTransparentTemplate-19826f62-42ac-4a9e-8b77-4231fbd0cfbf/PbrTransparentTemplate-19826f62-42ac-4a9e-8b77-4231fbd0cfbf-v1.0-vertex.glsl",
+      "sha256": "1fee27760321892ceafe2361273a6beaaed063cb4525cd13e3ea4eddfd0d19a7",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Petal-e0abbc80-0f80-e854-4970-8924a0863dcc/Petal-e0abbc80-0f80-e854-4970-8924a0863dcc-v10.0-fragment.glsl",
+      "sha256": "f0a801ee39b9054e55230b4a4d6f965d89f3cbc14ef1773fb52e450743498530",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Petal-e0abbc80-0f80-e854-4970-8924a0863dcc/Petal-e0abbc80-0f80-e854-4970-8924a0863dcc-v10.0-vertex.glsl",
+      "sha256": "0e7f17187b46c52f15af4b260cecb23c45f7783f2d58692571a49439a9eb07f8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Plasma-c33714d1-b2f9-412e-bd50-1884c9d46336/Plasma-c33714d1-b2f9-412e-bd50-1884c9d46336-v10.0-fragment.glsl",
+      "sha256": "78931af2a7298ce3f445b8ac38c6d631150e667a61a1c44fb26254379ea2f694",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Plasma-c33714d1-b2f9-412e-bd50-1884c9d46336/Plasma-c33714d1-b2f9-412e-bd50-1884c9d46336-v10.0-vertex.glsl",
+      "sha256": "dea964c89c6550b08c772752a005f0d67ee1aa55496a831986d961e9ffe5f2a6",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/QuillCube-b3e7f8c2-4d5a-1e9b-6c8f-3a7d2f1e9c4b/QuillCube-b3e7f8c2-4d5a-1e9b-6c8f-3a7d2f1e9c4b-v10.0-fragment.glsl",
+      "sha256": "fe6436e6e980b1dfea0858311e633a880a83391af9033806a93c26c4adc0e2b3",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/QuillCube-b3e7f8c2-4d5a-1e9b-6c8f-3a7d2f1e9c4b/QuillCube-b3e7f8c2-4d5a-1e9b-6c8f-3a7d2f1e9c4b-v10.0-vertex.glsl",
+      "sha256": "6b19590ddfee216c14407ec993ac21e5472efe1abe87cb9a45d600cadfaef536",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/QuillCylinder-f1c4e3e7-2a9f-4b5d-8c3e-7d9a1f8e6b4c/QuillCylinder-f1c4e3e7-2a9f-4b5d-8c3e-7d9a1f8e6b4c-v10.0-fragment.glsl",
+      "sha256": "fe6436e6e980b1dfea0858311e633a880a83391af9033806a93c26c4adc0e2b3",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/QuillCylinder-f1c4e3e7-2a9f-4b5d-8c3e-7d9a1f8e6b4c/QuillCylinder-f1c4e3e7-2a9f-4b5d-8c3e-7d9a1f8e6b4c-v10.0-vertex.glsl",
+      "sha256": "6b19590ddfee216c14407ec993ac21e5472efe1abe87cb9a45d600cadfaef536",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/QuillEllipse-a2d5f6b8-9c1e-4f3a-7b8d-2e6c9f4a1d5b/QuillEllipse-a2d5f6b8-9c1e-4f3a-7b8d-2e6c9f4a1d5b-v10.0-fragment.glsl",
+      "sha256": "fe6436e6e980b1dfea0858311e633a880a83391af9033806a93c26c4adc0e2b3",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/QuillEllipse-a2d5f6b8-9c1e-4f3a-7b8d-2e6c9f4a1d5b/QuillEllipse-a2d5f6b8-9c1e-4f3a-7b8d-2e6c9f4a1d5b-v10.0-vertex.glsl",
+      "sha256": "6b19590ddfee216c14407ec993ac21e5472efe1abe87cb9a45d600cadfaef536",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/QuillRibbon-c4f8b3e2-9d1a-5e7f-4c3b-8a6d2f9e1c7b/QuillRibbon-c4f8b3e2-9d1a-5e7f-4c3b-8a6d2f9e1c7b-v10.0-fragment.glsl",
+      "sha256": "fe6436e6e980b1dfea0858311e633a880a83391af9033806a93c26c4adc0e2b3",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/QuillRibbon-c4f8b3e2-9d1a-5e7f-4c3b-8a6d2f9e1c7b/QuillRibbon-c4f8b3e2-9d1a-5e7f-4c3b-8a6d2f9e1c7b-v10.0-vertex.glsl",
+      "sha256": "6b19590ddfee216c14407ec993ac21e5472efe1abe87cb9a45d600cadfaef536",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Race-abfbb2aa-70b4-4a5c-8126-8eedda2b3628/Race-abfbb2aa-70b4-4a5c-8126-8eedda2b3628-v10.0-fragment.glsl",
+      "sha256": "e5fc0ce224cf016ec02e07186ab0258ecf775850a5c110ac8f79c0d91e8554e2",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Race-abfbb2aa-70b4-4a5c-8126-8eedda2b3628/Race-abfbb2aa-70b4-4a5c-8126-8eedda2b3628-v10.0-vertex.glsl",
+      "sha256": "58bf1770b8c3a1a10d75ab3689ba1b78aa1f059d0b03b20a17d098bf8f1143a8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Rain-03a529e1-f519-3dd4-582d-2d5cd92c3f4f/Rain-03a529e1-f519-3dd4-582d-2d5cd92c3f4f-v10.0-fragment.glsl",
+      "sha256": "c54958fda09cd31a434fce71773049219508336f84daefd9582f049df2f3f7a8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Rain-03a529e1-f519-3dd4-582d-2d5cd92c3f4f/Rain-03a529e1-f519-3dd4-582d-2d5cd92c3f4f-v10.0-vertex.glsl",
+      "sha256": "08ed596bc4cdb3f6b33ec50e8691f0a30e9997a9efd073e109883cc1fa31e4a0",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Rainbow-ad1ad437-76e2-450d-a23a-e17f8310b960/Rainbow-ad1ad437-76e2-450d-a23a-e17f8310b960-v10.0-fragment.glsl",
+      "sha256": "bb0be7d76db76be74fae30a57a255ff8cb5ced7f9c2fc77fb1875643b20f1751",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Rainbow-ad1ad437-76e2-450d-a23a-e17f8310b960/Rainbow-ad1ad437-76e2-450d-a23a-e17f8310b960-v10.0-vertex.glsl",
+      "sha256": "0e7f17187b46c52f15af4b260cecb23c45f7783f2d58692571a49439a9eb07f8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Rising Bubbles-a8147ce1-005e-abe4-88e8-09a1eaadcc89/Rising Bubbles-a8147ce1-005e-abe4-88e8-09a1eaadcc89-v10.0-fragment.glsl",
+      "sha256": "e4d285a7f8ccdf0d623df74a5fb39b04b78eeead8f9905589c63235a92b643e1",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Rising Bubbles-a8147ce1-005e-abe4-88e8-09a1eaadcc89/Rising Bubbles-a8147ce1-005e-abe4-88e8-09a1eaadcc89-v10.0-vertex.glsl",
+      "sha256": "c7220b9a6793074c86cf918c6b532883e4ce32ba26b3b248fbed4cf5d61e4e73",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/ShinyHull-faaa4d44-fcfb-4177-96be-753ac0421ba3/ShinyHull-faaa4d44-fcfb-4177-96be-753ac0421ba3-v10.0-fragment.glsl",
+      "sha256": "1334646d3aac789365e40016b8de586be3ff12e84ce3b66b2844c015a1a87d2f",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/ShinyHull-faaa4d44-fcfb-4177-96be-753ac0421ba3/ShinyHull-faaa4d44-fcfb-4177-96be-753ac0421ba3-v10.0-vertex.glsl",
+      "sha256": "0e7f17187b46c52f15af4b260cecb23c45f7783f2d58692571a49439a9eb07f8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/SingleSided-f0a2298a-be80-432c-9fee-a86dcc06f4f9/SingleSided-f0a2298a-be80-432c-9fee-a86dcc06f4f9-v10.0-fragment.glsl",
+      "sha256": "cef3cb847195085412b40cfb5edbaba28acf8d19c812a8bf396545b946f691fa",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/SingleSided-f0a2298a-be80-432c-9fee-a86dcc06f4f9/SingleSided-f0a2298a-be80-432c-9fee-a86dcc06f4f9-v10.0-vertex.glsl",
+      "sha256": "e8e7de1d993dc35e0a9d3c87a923c035153f074a00b71469b41976f23b4884d8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Slice-12345678-1234-1234-1234-123456789abc/Slice-12345678-1234-1234-1234-123456789abc-v10.0-fragment.glsl",
+      "sha256": "24199f04c4ea32023cd170d0248e1f4d39126c01ccae4e5365c7cd5cc00c6bec",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Slice-12345678-1234-1234-1234-123456789abc/Slice-12345678-1234-1234-1234-123456789abc-v10.0-vertex.glsl",
+      "sha256": "9619ada0f0e85cf9b8ad36de4c0985cacb55ad5c6e03d3bad098f67357755f03",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Smoke-70d79cca-b159-4f35-990c-f02193947fe8/Smoke-70d79cca-b159-4f35-990c-f02193947fe8-v10.0-fragment.glsl",
+      "sha256": "1587fc0a97b7feb54ebe32e0c704e6d789f4d9f7d5f3e90b529271f2aa107c33",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Smoke-70d79cca-b159-4f35-990c-f02193947fe8/Smoke-70d79cca-b159-4f35-990c-f02193947fe8-v10.0-vertex.glsl",
+      "sha256": "8e3fa96301daa19c31a2dafacbcbb812c47cab2aab48068bf9feaee8d9174adb",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/SmoothHull-355b3579-bf1d-4ff5-a200-704437fe684b/SmoothHull-355b3579-bf1d-4ff5-a200-704437fe684b-v10.0-fragment.glsl",
+      "sha256": "5b790233d17d18eb784853a001c0ee173c98e44075e074b6ad96624b3e22a8b1",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/SmoothHull-355b3579-bf1d-4ff5-a200-704437fe684b/SmoothHull-355b3579-bf1d-4ff5-a200-704437fe684b-v10.0-vertex.glsl",
+      "sha256": "fb07d27cdc695e1fad72b14f150bd9ca3e88d11c9cc404e14305560ae11007d3",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Snow-d902ed8b-d0d1-476c-a8de-878a79e3a34c/Snow-d902ed8b-d0d1-476c-a8de-878a79e3a34c-v10.0-fragment.glsl",
+      "sha256": "142d6b0a474790f53e74dbeab9e7af24deaea9e928ec7b5f1cacdf063ae8f105",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Snow-d902ed8b-d0d1-476c-a8de-878a79e3a34c/Snow-d902ed8b-d0d1-476c-a8de-878a79e3a34c-v10.0-vertex.glsl",
+      "sha256": "57cb764038d763185a2ba4bf98e1c67f812148a53cfca97f0e88d3f391dfdc1e",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/SoftHighlighter-accb32f5-4509-454f-93f8-1df3fd31df1b/SoftHighlighter-accb32f5-4509-454f-93f8-1df3fd31df1b-v10.0-fragment.glsl",
+      "sha256": "4d4c5d3c3e0caaf649b33a71fcbf7bb67eb7531d5cefc1f78dd3c129011181cc",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/SoftHighlighter-accb32f5-4509-454f-93f8-1df3fd31df1b/SoftHighlighter-accb32f5-4509-454f-93f8-1df3fd31df1b-v10.0-vertex.glsl",
+      "sha256": "0e7f17187b46c52f15af4b260cecb23c45f7783f2d58692571a49439a9eb07f8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Space-bdf65db2-1fb7-4202-b5e0-c6b5e3ea851e/Space-bdf65db2-1fb7-4202-b5e0-c6b5e3ea851e-v10.0-fragment.glsl",
+      "sha256": "4f46013cae6b94791e6d88b5bdb078edd5ab417abec710e15a4a2420e2865509",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Space-bdf65db2-1fb7-4202-b5e0-c6b5e3ea851e/Space-bdf65db2-1fb7-4202-b5e0-c6b5e3ea851e-v10.0-vertex.glsl",
+      "sha256": "114e4b4000777ba10a88bca41d23f4dd686c4d6b6ebf3ed81dd74f3872e85f01",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Sparks-50e99447-3861-05f4-697d-a1b96e771b98/Sparks-50e99447-3861-05f4-697d-a1b96e771b98-v10.0-fragment.glsl",
+      "sha256": "354da12e77a6b76fa4f983ac6e5005ee0ab0ab96b0542b819ed5135f87a362e9",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Sparks-50e99447-3861-05f4-697d-a1b96e771b98/Sparks-50e99447-3861-05f4-697d-a1b96e771b98-v10.0-vertex.glsl",
+      "sha256": "6d71108b1a87ec5b47dbb101d4a7884b763b021489a1182026346114d0497556",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Spikes-cf7f0059-7aeb-53a4-2b67-c83d863a9ffa/Spikes-cf7f0059-7aeb-53a4-2b67-c83d863a9ffa-v10.0-fragment.glsl",
+      "sha256": "f8e82068c439e0ef9bcb9b230dc7f3a0cc5a44775d56f3336099a4d79769a8ec",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Spikes-cf7f0059-7aeb-53a4-2b67-c83d863a9ffa/Spikes-cf7f0059-7aeb-53a4-2b67-c83d863a9ffa-v10.0-vertex.glsl",
+      "sha256": "0e7f17187b46c52f15af4b260cecb23c45f7783f2d58692571a49439a9eb07f8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Splatter-7a1c8107-50c5-4b70-9a39-421576d6617e/Splatter-7a1c8107-50c5-4b70-9a39-421576d6617e-v10.0-fragment.glsl",
+      "sha256": "9ea01df242ed8320708dbd3df6e644aa7b6f432eb3647dc82a4ff808a433baa3",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Splatter-7a1c8107-50c5-4b70-9a39-421576d6617e/Splatter-7a1c8107-50c5-4b70-9a39-421576d6617e-v10.0-vertex.glsl",
+      "sha256": "0e7f17187b46c52f15af4b260cecb23c45f7783f2d58692571a49439a9eb07f8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/SquarePaper-2e03b1bf-3ebd-4609-9d7e-f4cafadc4dfa/SquarePaper-2e03b1bf-3ebd-4609-9d7e-f4cafadc4dfa-v10.0-fragment.glsl",
+      "sha256": "1449fe050c0c842f5d45f3db2ecdb48aeeaafd7059a73faee7ad86cc6ec8a2b6",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/SquarePaper-2e03b1bf-3ebd-4609-9d7e-f4cafadc4dfa/SquarePaper-2e03b1bf-3ebd-4609-9d7e-f4cafadc4dfa-v10.0-vertex.glsl",
+      "sha256": "fb07d27cdc695e1fad72b14f150bd9ca3e88d11c9cc404e14305560ae11007d3",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Stars-0eb4db27-3f82-408d-b5a1-19ebd7d5b711/Stars-0eb4db27-3f82-408d-b5a1-19ebd7d5b711-v10.0-fragment.glsl",
+      "sha256": "0446dd5569a3b8642024ff8a994533f1493e847c78ed137a7ce6731754f9ca85",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Stars-0eb4db27-3f82-408d-b5a1-19ebd7d5b711/Stars-0eb4db27-3f82-408d-b5a1-19ebd7d5b711-v10.0-vertex.glsl",
+      "sha256": "12af2af40a380b6984d1b4d061b2345c587ffc94672f92d3ad588b01b9d27619",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Streamers-44bb800a-fbc3-4592-8426-94ecb05ddec3/Streamers-44bb800a-fbc3-4592-8426-94ecb05ddec3-v10.0-fragment.glsl",
+      "sha256": "5bf481de1599e4037a2e0084c869819926d48b5e85ec4b95002d6638f5b9b6e0",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Streamers-44bb800a-fbc3-4592-8426-94ecb05ddec3/Streamers-44bb800a-fbc3-4592-8426-94ecb05ddec3-v10.0-vertex.glsl",
+      "sha256": "0e7f17187b46c52f15af4b260cecb23c45f7783f2d58692571a49439a9eb07f8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/SvgTemplate-cf3401b3-4ada-4877-995a-1aa64e7b604a/SvgTemplate-cf3401b3-4ada-4877-995a-1aa64e7b604a-v1.0-fragment.glsl",
+      "sha256": "bda5ba76fffa09b5e870268340b76f8b9de2a0a59d6349374afd3438788967a8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/SvgTemplate-cf3401b3-4ada-4877-995a-1aa64e7b604a/SvgTemplate-cf3401b3-4ada-4877-995a-1aa64e7b604a-v1.0-vertex.glsl",
+      "sha256": "e8e7de1d993dc35e0a9d3c87a923c035153f074a00b71469b41976f23b4884d8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Taffy-0077f88c-d93a-42f3-b59b-b31c50cdb414/Taffy-0077f88c-d93a-42f3-b59b-b31c50cdb414-v10.0-fragment.glsl",
+      "sha256": "ae2f8fa8b350aef18cf100ae7a5dce31f2a82e3c96c8fe3dfec5c9a20bf199cb",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Taffy-0077f88c-d93a-42f3-b59b-b31c50cdb414/Taffy-0077f88c-d93a-42f3-b59b-b31c50cdb414-v10.0-vertex.glsl",
+      "sha256": "2f10948119dfb284b88959c46e7c9c91b00b8ea08c1ff7aae6e151b8b439a856",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/TaperedFlat-b468c1fb-f254-41ed-8ec9-57030bc5660c/TaperedFlat-b468c1fb-f254-41ed-8ec9-57030bc5660c-v10.0-fragment.glsl",
+      "sha256": "a258ef5f4f0c47d6cf4d65d5c55d8f006346f394ddf2c44409d9dd21fd4ad298",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/TaperedFlat-b468c1fb-f254-41ed-8ec9-57030bc5660c/TaperedFlat-b468c1fb-f254-41ed-8ec9-57030bc5660c-v10.0-vertex.glsl",
+      "sha256": "0e7f17187b46c52f15af4b260cecb23c45f7783f2d58692571a49439a9eb07f8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/TaperedHueShift-3d9755da-56c7-7294-9b1d-5ec349975f52/TaperedHueShift-3d9755da-56c7-7294-9b1d-5ec349975f52-v10.0-fragment.glsl",
+      "sha256": "046290d306d56fb396d9f302be3f20ccf88e5a5ef9d76cb9240af97ed014aafc",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/TaperedHueShift-3d9755da-56c7-7294-9b1d-5ec349975f52/TaperedHueShift-3d9755da-56c7-7294-9b1d-5ec349975f52-v10.0-vertex.glsl",
+      "sha256": "1ab0f1d7e2f3c214c4a7c89c53da4c576fa6e3f04f40db4488b3f9258f9ee244",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/TaperedMarker-d90c6ad8-af0f-4b54-b422-e0f92abe1b3c/TaperedMarker-d90c6ad8-af0f-4b54-b422-e0f92abe1b3c-v10.0-fragment.glsl",
+      "sha256": "85ce5467519047d0f11df2ea5ed9c576285b12bd8a05d18b0c0091cce0d2661a",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/TaperedMarker-d90c6ad8-af0f-4b54-b422-e0f92abe1b3c/TaperedMarker-d90c6ad8-af0f-4b54-b422-e0f92abe1b3c-v10.0-vertex.glsl",
+      "sha256": "0e7f17187b46c52f15af4b260cecb23c45f7783f2d58692571a49439a9eb07f8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/TaperedMarker_Flat-1a26b8c0-8a07-4f8a-9fac-d2ef36e0cad0/TaperedMarker_Flat-1a26b8c0-8a07-4f8a-9fac-d2ef36e0cad0-v10.0-fragment.glsl",
+      "sha256": "95e9bb1f08965722efe6520c655e441ddbc55a25c28cbb8aabc40150fb973019",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/TaperedMarker_Flat-1a26b8c0-8a07-4f8a-9fac-d2ef36e0cad0/TaperedMarker_Flat-1a26b8c0-8a07-4f8a-9fac-d2ef36e0cad0-v10.0-vertex.glsl",
+      "sha256": "0e7f17187b46c52f15af4b260cecb23c45f7783f2d58692571a49439a9eb07f8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/TaperedWire-9568870f-8594-60f4-1b20-dfbc8a5eac0e/TaperedWire-9568870f-8594-60f4-1b20-dfbc8a5eac0e-v10.0-fragment.glsl",
+      "sha256": "cd43dccfca568e6e0a62db9893a2ad562afc2b886fa9092db0dd03724df0e9b2",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/TaperedWire-9568870f-8594-60f4-1b20-dfbc8a5eac0e/TaperedWire-9568870f-8594-60f4-1b20-dfbc8a5eac0e-v10.0-vertex.glsl",
+      "sha256": "e8e7de1d993dc35e0a9d3c87a923c035153f074a00b71469b41976f23b4884d8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/ThickGeometry-39ee7377-7a9e-47a7-a0f8-0c77712f75d3/ThickGeometry-39ee7377-7a9e-47a7-a0f8-0c77712f75d3-v10.0-fragment.glsl",
+      "sha256": "1032fe4cba4f81d8aa6fb44d30c5e3d5d926115afc5272bbd3de96c0fd73c3ae",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/ThickGeometry-39ee7377-7a9e-47a7-a0f8-0c77712f75d3/ThickGeometry-39ee7377-7a9e-47a7-a0f8-0c77712f75d3-v10.0-vertex.glsl",
+      "sha256": "0c320a2dd7e2ddd2978174d0c4d3330aa2fc04f926143f79a720a24454d07bcc",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/ThickPaint-75b32cf0-fdd6-4d89-a64b-e2a00b247b0f/ThickPaint-75b32cf0-fdd6-4d89-a64b-e2a00b247b0f-v10.0-fragment.glsl",
+      "sha256": "f0c32f1d7550cddee157cf9914f617ddca0a7f7883326acc571462b7de991af0",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/ThickPaint-75b32cf0-fdd6-4d89-a64b-e2a00b247b0f/ThickPaint-75b32cf0-fdd6-4d89-a64b-e2a00b247b0f-v10.0-vertex.glsl",
+      "sha256": "0e7f17187b46c52f15af4b260cecb23c45f7783f2d58692571a49439a9eb07f8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Toon-4391385a-df73-4396-9e33-31e4e4930b27/Toon-4391385a-df73-4396-9e33-31e4e4930b27-v10.0-fragment.glsl",
+      "sha256": "f1ef05924a2900855e43206247ea96998ba4765783ca3d77ed507dbe3a2349c4",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Toon-4391385a-df73-4396-9e33-31e4e4930b27/Toon-4391385a-df73-4396-9e33-31e4e4930b27-v10.0-vertex.glsl",
+      "sha256": "0e7f17187b46c52f15af4b260cecb23c45f7783f2d58692571a49439a9eb07f8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/TubeAdditive-c1c9b26d-673a-4dc6-b373-51715654ab96/TubeAdditive-c1c9b26d-673a-4dc6-b373-51715654ab96-v10.0-fragment.glsl",
+      "sha256": "667e286ec0537086c4cffd758a8efb05dba87ac2cb8150534f4b70b1e1da550d",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/TubeAdditive-c1c9b26d-673a-4dc6-b373-51715654ab96/TubeAdditive-c1c9b26d-673a-4dc6-b373-51715654ab96-v10.0-vertex.glsl",
+      "sha256": "e8e7de1d993dc35e0a9d3c87a923c035153f074a00b71469b41976f23b4884d8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/TubeToonInverted-9871385a-df73-4396-9e33-31e4e4930b27/TubeToonInverted-9871385a-df73-4396-9e33-31e4e4930b27-v10.0-fragment.glsl",
+      "sha256": "96783d96077258750c34267d39481918bf27b68b06da20c2a8b958637bd45ed0",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/TubeToonInverted-9871385a-df73-4396-9e33-31e4e4930b27/TubeToonInverted-9871385a-df73-4396-9e33-31e4e4930b27-v10.0-vertex.glsl",
+      "sha256": "fca89547831444aafed60b277ec491bc9a8dbd4815c7be2210215c0824a78f39",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/UnlitHull-a8fea537-da7c-4d4b-817f-24f074725d6d/UnlitHull-a8fea537-da7c-4d4b-817f-24f074725d6d-v10.0-fragment.glsl",
+      "sha256": "9ee80a0727148a14d1a4fa31a014d59e145c7711d4e47d6e988499f23cc9554d",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/UnlitHull-a8fea537-da7c-4d4b-817f-24f074725d6d/UnlitHull-a8fea537-da7c-4d4b-817f-24f074725d6d-v10.0-vertex.glsl",
+      "sha256": "0e7f17187b46c52f15af4b260cecb23c45f7783f2d58692571a49439a9eb07f8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/VelvetInk-d229d335-c334-495a-a801-660ac8a87360/VelvetInk-d229d335-c334-495a-a801-660ac8a87360-v10.0-fragment.glsl",
+      "sha256": "cb220a9c617c1e7ddd54131dfa0d48eb8a22662e19f63080063ed613032c824c",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/VelvetInk-d229d335-c334-495a-a801-660ac8a87360/VelvetInk-d229d335-c334-495a-a801-660ac8a87360-v10.0-vertex.glsl",
+      "sha256": "0e7f17187b46c52f15af4b260cecb23c45f7783f2d58692571a49439a9eb07f8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Waveform-10201aa3-ebc2-42d8-84b7-2e63f6eeb8ab/Waveform-10201aa3-ebc2-42d8-84b7-2e63f6eeb8ab-v10.0-fragment.glsl",
+      "sha256": "48885ea2732c057bb29b69837548ae670f685393aec37af87463c78c79afc430",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Waveform-10201aa3-ebc2-42d8-84b7-2e63f6eeb8ab/Waveform-10201aa3-ebc2-42d8-84b7-2e63f6eeb8ab-v10.0-vertex.glsl",
+      "sha256": "703e61f09a430e227267f1d974cbcd4d6436802e28d2d1629a7646137e5ae8b2",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/WaveformFFT-d120944d-772f-4062-99c6-46a6f219eeaf/WaveformFFT-d120944d-772f-4062-99c6-46a6f219eeaf-v10.0-fragment.glsl",
+      "sha256": "b0922ec0e133afd0d67446997ed4b362d8cc5c5b818d63303efb003c62148277",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/WaveformFFT-d120944d-772f-4062-99c6-46a6f219eeaf/WaveformFFT-d120944d-772f-4062-99c6-46a6f219eeaf-v10.0-vertex.glsl",
+      "sha256": "89f4de697b178bf8e6e3221b894918c4663c739ff0cde57bb208867c502419b7",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/WaveformParticles-6a1cf9f9-032c-45ec-9b6e-a6680bee30f7/WaveformParticles-6a1cf9f9-032c-45ec-9b6e-a6680bee30f7-v10.0-fragment.glsl",
+      "sha256": "6edb02b7e11d2fa7f8ecfa99d51c81d0d90cbfb72109deac475cf406e744ad10",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/WaveformParticles-6a1cf9f9-032c-45ec-9b6e-a6680bee30f7/WaveformParticles-6a1cf9f9-032c-45ec-9b6e-a6680bee30f7-v10.0-vertex.glsl",
+      "sha256": "ace2df8c24feca73c6ad9e7af737cf7f32d1030c0bf7d6fa2a6c9a27316fda30",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/WaveformTube-0f5820df-cb6b-4a6c-960e-56e4c8000eda/WaveformTube-0f5820df-cb6b-4a6c-960e-56e4c8000eda-v10.0-fragment.glsl",
+      "sha256": "711558b5f2ffdc38266c610f61726e7c7226db28e284822226e995c7d07739b3",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/WaveformTube-0f5820df-cb6b-4a6c-960e-56e4c8000eda/WaveformTube-0f5820df-cb6b-4a6c-960e-56e4c8000eda-v10.0-vertex.glsl",
+      "sha256": "0634cab14e9d86310f5e875f428b98f7d50bd54b30c21a7228bfefedda86ce75",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/WetPaint-b67c0e81-ce6d-40a8-aeb0-ef036b081aa3/WetPaint-b67c0e81-ce6d-40a8-aeb0-ef036b081aa3-v10.0-fragment.glsl",
+      "sha256": "415776773a9f5b21827b3a2c56e0912590552fea5342b4c286105cad326464eb",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/WetPaint-b67c0e81-ce6d-40a8-aeb0-ef036b081aa3/WetPaint-b67c0e81-ce6d-40a8-aeb0-ef036b081aa3-v10.0-vertex.glsl",
+      "sha256": "e8e7de1d993dc35e0a9d3c87a923c035153f074a00b71469b41976f23b4884d8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/WigglyGraphite-5347acf0-a8e2-47b6-8346-30c70719d763/WigglyGraphite-5347acf0-a8e2-47b6-8346-30c70719d763-v10.0-fragment.glsl",
+      "sha256": "876a1de87fe42b4e8ee81df1a8b0744fe7d60ea5b95d4ee4dbcae4885a2efad9",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/WigglyGraphite-5347acf0-a8e2-47b6-8346-30c70719d763/WigglyGraphite-5347acf0-a8e2-47b6-8346-30c70719d763-v10.0-vertex.glsl",
+      "sha256": "0e7f17187b46c52f15af4b260cecb23c45f7783f2d58692571a49439a9eb07f8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Wind-7136a729-1aab-bd24-f8b2-ca88b6adfb67/Wind-7136a729-1aab-bd24-f8b2-ca88b6adfb67-v10.0-fragment.glsl",
+      "sha256": "695d047d0bff0601f634181e0f673853644c0c69970e9673e764e4b9452f20e7",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Wind-7136a729-1aab-bd24-f8b2-ca88b6adfb67/Wind-7136a729-1aab-bd24-f8b2-ca88b6adfb67-v10.0-vertex.glsl",
+      "sha256": "42365f2d482a3dcf68e8df79888e27a1970e17f3b9320cc065fc47f421b63fee",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Wire (Lit)-62fef968-e842-3224-4a0e-1fdb7cfb745c/Wire (Lit)-62fef968-e842-3224-4a0e-1fdb7cfb745c-v10.0-fragment.glsl",
+      "sha256": "1c81c2799be27cd94f40041535dee198b63f0dc4fab6f49d2783f1743e263d4a",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Wire (Lit)-62fef968-e842-3224-4a0e-1fdb7cfb745c/Wire (Lit)-62fef968-e842-3224-4a0e-1fdb7cfb745c-v10.0-vertex.glsl",
+      "sha256": "e8e7de1d993dc35e0a9d3c87a923c035153f074a00b71469b41976f23b4884d8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Wire-4391385a-cf83-4396-9e33-31e4e4930b27/Wire-4391385a-cf83-4396-9e33-31e4e4930b27-v10.0-fragment.glsl",
+      "sha256": "d5d99eead9d2b28c39cc62fb311f32082db4191434f580c768e709db0850f403",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Wire-4391385a-cf83-4396-9e33-31e4e4930b27/Wire-4391385a-cf83-4396-9e33-31e4e4930b27-v10.0-vertex.glsl",
+      "sha256": "0e7f17187b46c52f15af4b260cecb23c45f7783f2d58692571a49439a9eb07f8",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Wireframe-2c1a6a63-6552-4d23-86d7-58f6fba8581b/Wireframe-2c1a6a63-6552-4d23-86d7-58f6fba8581b-v10.0-fragment.glsl",
+      "sha256": "3fdb2136606ed414ee1418ef56306107a55ec0a84d35f0092cacfbd309bed378",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/Wireframe-2c1a6a63-6552-4d23-86d7-58f6fba8581b/Wireframe-2c1a6a63-6552-4d23-86d7-58f6fba8581b-v10.0-vertex.glsl",
+      "sha256": "a5aeeb7015e47e62e6c4886f56c06afd9b04ca0253f81d9c3d71fef1045cd22e",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/includes/FogShaderIncludes.glsl",
+      "sha256": "ec7246fe2ba319464f295edc56a1b708c63cad34ffc65e2a6ed2ddc3a6321bd4",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    },
+    {
+      "file": "vendor/icosa-sketch-assets/brushes/includes/SurfaceShaderIncludes.glsl",
+      "sha256": "64931e440433544e52456859fac017f02758c11c1258afe1a849bb262c282849",
+      "audioUniforms": [],
+      "nativeInputReferences": []
+    }
+  ],
+  "sourceHashes": {
+    "src/brushes/generated/brush-assets.json": "cefbbe1379b3844ba8e5938d32abd1e299807999e37bfdfb654cf7f01210a9c2",
+    "src/brushes/generated/exportManifest.json": "ffb419e1863c6e1b89678b637dd0b57944ec6ac3ceaa7aec5b7e51bea6db300d",
+    "src/brushes/brush-asset-base-url.ts": "e21e3a98bf91864bc9bd7001038a51e2051b55fb47b03a80f0a8b3e0b474f8bc",
+    "src/brushes/brush-audio-support.ts": "3252fea4979e80973c5bb1b1cd71ee7ba5385eb287401f4ffb5a3de64718a16e",
+    "src/brushes/brush-inventory.ts": "91156d45ebdfb2000de84dc2a2b582fec2676e3091a6e542e728f05ba9d965ef",
+    "src/brushes/brush-shader-library.ts": "9cbf7b49c84fa210aff75560f798d6acaf6dcc7629d2ddff7f0f4f70f21940d1",
+    "scripts/audit-brush-audio-reactivity.mjs": "809b71394792cb82b9241c665f838f17bc67b7c42fa2a55b6490288f2f975dc9",
+    "package-lock.json": "f994e07d2de98eabdcd30394cd9be512ac6db3b62254301c8a130302ee4a1e04"
+  }
+}

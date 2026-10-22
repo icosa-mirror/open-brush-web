@@ -23,7 +23,10 @@
    actual shader response are outside this source check.
 4. CI now runs `npm run audit:brush-audio` after pinned native checkout and asset
    regeneration. The JSON report is retained with the brush source diagnostics.
-   This new workflow step has not yet been verified remotely. Local checks pass:
+   [The Linux CI run](https://github.com/icosa-mirror/open-brush-web/actions/runs/39722513243)
+   now passes the audit and full workflow. [CI source results](ci-source-audit.json)
+   match the local classifications, counts and native inputs; [CI verification](ci-verification.json)
+   binds the run and report. Local checks pass:
    93 files, 629 tests and four TODOs; the mirror build passes.
 5. [manifest.json](manifest.json) binds the audit, classification module,
    inventory integration, tests, workflow, package manifest and local check

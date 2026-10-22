@@ -1,6 +1,6 @@
 # Open Brush parity plan and brush fidelity review
 
-Current planning audit: 2026-10-22, application baseline `1ae70ec`.
+Current planning audit: 2026-10-22, application baseline `2ea80ec`.
 
 Original review: 2026-08-31, application baseline `4579dbb`.
 
@@ -366,7 +366,8 @@ every intervening upstream change.
     native audio references or audio-named uniforms after removing comments.
     It binds the six native visualizer inputs and per-file hashes. Positive and
     comment-only controls test the scanner. CI now runs this source gate and
-    retains its report; remote execution of the new step is pending. Local
+    retains its report. [Linux CI](https://github.com/icosa-mirror/open-brush-web/actions/runs/39722513243)
+    now passes that step and the workflow, with matching classifications. Local
     checks pass: 629 tests, four TODOs and the mirror build. This is an explicit
     unsupported-mode classification, not audio-analysis or rendered-response
     parity. The unrelated selection-canvas implementation remains uncommitted.
