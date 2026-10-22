@@ -1,6 +1,6 @@
 # Open Brush parity plan and brush fidelity review
 
-Current planning audit: 2026-10-22, application baseline `b84d92f`.
+Current planning audit: 2026-10-22, application baseline `64de84e`.
 
 Original review: 2026-08-31, application baseline `4579dbb`.
 
@@ -38,7 +38,7 @@ every intervening upstream change.
 | Materials | Shared maintained assets and [render-pass helpers](src/brushes/brush-render-material.ts) are wired into the app; late material upgrades are registered. The [browser image collector](scripts/browser-brush-image-comparison.mjs) captures all 95 required brushes with per-GUID metrics. | The first image run is diagnostic with unmatched/unverified reference inputs; calibrated Unity image parity, loaded-environment context, audio analysis, and physical-Quest validation remain open. |
 | Labels and evidence | [Inventory](src/brushes/brush-inventory.ts) separates renderer support from unverified visual parity. The [ledger](docs/evidence/brush-fidelity/ledger-2026-10-22/README.md) joins revisioned per-GUID observations. [Shader evidence](src/brushes/brush-shader-compatibility.ts) also persists contexts locally. | Gather missing compile/image/device evidence and reconcile native provenance; a selectable brush or a local `ready` record is not a parity verdict. |
 | Production batching | [StrokeBatchRenderSystem](src/systems/stroke-batch-render-system.ts) is registered in [src/index.ts](src/index.ts); [batching is default-on](src/brushes/stroke-batch-feature.ts), with `?strokeBatches=0` or `false` as the opt-out. | Follow the [batching validation ledger](docs/stroke-batching-validation.md): broader brush/view coverage, context loss, latency/capacity budgets, and physical-headset evidence remain open. |
-| File handling | Local [tilt-file.ts](src/sketch/tilt-file.ts) and [sketch-memory.ts](src/sketch/sketch-memory.ts) still implement archive and stroke serialization; gallery imports use the local reader. | Shared geometry migration is complete in the adapter; parser consolidation and native Open Brush round-trip compatibility are separate unfinished work. |
+| File handling | [sketch-memory.ts](src/sketch/sketch-memory.ts) delegates persisted stroke reading to the shared package; the app retains its writer and [archive wrapper](src/sketch/tilt-file.ts). The [sample audit](docs/evidence/brush-fidelity/shared-stroke-reader-2026-10-22/README.md) preserves known stroke fields across rewrite. | Native metadata/thumbnail preservation fails in the existing wrapper. Complete that boundary and validate native round trips before removing more local code. |
 
 ## Validation boundaries
 
@@ -194,6 +194,17 @@ every intervening upstream change.
     interchangeable on metadata assumptions. They do not constitute a complete
     dependency audit or establish which revision produced the original PNGs.
     The reference pin stays unchanged and runtime equivalence remains unverified.
+
+17. Persisted stroke reading now delegates to the pinned public shared parser,
+    removing duplicate extension traversal. The
+    [file audit](docs/evidence/brush-fidelity/shared-stroke-reader-2026-10-22/README.md)
+    compares the previous/shared readers on an existing 557-stroke native sample
+    and checks the current reader/writer round trip. All known stroke fields
+    survive across 40,641 points and 91 brush GUIDs. The archive wrapper still
+    drops 15 native metadata keys and replaces the thumbnail by default; those
+    are recorded failures, not hidden by the stroke-level result. Unknown binary
+    extensions are skipped rather than retained. Native import, units/transforms,
+    metadata interpretation and interactive persistence remain separate checks.
 
 ## Executive assessment
 
@@ -955,6 +966,12 @@ actual scope; incomplete items remain open.
    units, layers, media, thumbnails and extensions. Current geometry delegation
    does not establish parser migration. Exit: native/web round trips and existing
    persistence/history behavior pass before redundant parsing is removed.
+   Persisted stroke reading now uses the public shared parser; the existing
+   sample's 557 strokes match the previous reader and survive the retained
+   writer. The archive audit identifies 15 dropped native metadata keys and
+   default thumbnail replacement. Preserve these through the document/editing/
+   persistence path next; do not treat the known-stroke result as a native
+   all-fields round-trip pass. The local archive wrapper and writer remain.
 10. **Turn the application inventory into feature plans.** Compare the workflows
     in the scope table with native Open Brush, record implementation and evidence
     gaps, and prioritize the next feature slice with the user. Exit: explicit

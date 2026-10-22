@@ -1,0 +1,33 @@
+{
+  "sample": "brush_cafe_experimental.tilt",
+  "sampleSha256": "b9ec56b3c713841c33a21124aea8e0646d25b4d5e0f84caa484a9a97c1c84651",
+  "strokeCount": 557,
+  "controlPointCount": 40641,
+  "brushGuidCount": 91,
+  "appSharedKnownFieldsEqual": true,
+  "knownFieldsSurviveRewrite": true,
+  "archiveEntries": [
+    "data.sketch",
+    "metadata.json",
+    "thumbnail.png"
+  ],
+  "metadataKeys": [
+    "ApplicationName",
+    "ApplicationVersion",
+    "BrushIndex",
+    "CameraPaths",
+    "Environment",
+    "EnvironmentPreset",
+    "GuideIndex",
+    "Layers",
+    "Lights",
+    "Mirror",
+    "Palette",
+    "SceneTransformInRoomSpace",
+    "SchemaVersion",
+    "TextWidgets",
+    "ThumbnailCameraTransformInRoomSpace",
+    "Videos"
+  ],
+  "appReaderBeforeSha256": "4220d16c5c630b90388d073099cc9526e3c028a2a0f243c7b82bb8b811ef712d"
+}
