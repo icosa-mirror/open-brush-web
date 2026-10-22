@@ -1,9 +1,10 @@
-import { createSystem, Vector3, Box3, Matrix3, Matrix4, type Object3D } from "@iwsdk/core";
+import { createSystem, createComponent, Types, Transform, Vector3, Box3, Matrix3, Matrix4, type Object3D } from "@iwsdk/core";
 import type { Entity } from "@iwsdk/core";
 
 import {
   BatchedBrushStroke,
   BrushStroke,
+  CanvasLayer,
   ExtractedBatchedBrushStroke,
   SelectionState,
   SelectionWidget,
@@ -12,12 +13,20 @@ import {
   resolveStrokeBatchExtractionTransition,
 } from "../brushes/stroke-batch-feature.js";
 import { StrokeBatchRenderSystem } from "./stroke-batch-render-system.js";
-import { writeParentSpaceTranslation } from "../strokes/layer-space.js";
+import { findPaintLayer, writeParentSpaceTranslation } from "../strokes/layer-space.js";
+
+// One frame per selected paint layer preserves the generator's layer-local
+// basis under the selection canvas, without rewriting every stroke's points.
+export const SelectionLayerFrame = createComponent("SelectionLayerFrame", {
+  layerIndex: { type: Types.Int32, default: 0 },
+});
 
 export class SelectionSystem extends createSystem({
   selectionState: { required: [SelectionState] },
   strokes: { required: [BrushStroke] },
   widgets: { required: [SelectionWidget] },
+  layers: { required: [CanvasLayer] },
+  frames: { required: [SelectionLayerFrame] },
 }) {
   private widgetPosition!: Vector3;
   private selectionCenter!: Vector3;
@@ -29,6 +38,7 @@ export class SelectionSystem extends createSystem({
   private readonly translationMatrix = new Matrix4();
   private readonly translationLinear = new Matrix3();
   private readonly localDelta = new Vector3();
+  private readonly selectedLayers = new Set<number>();
   private lastSelectionRevision = -1;
   private readonly summarizeWithBatches = () =>
     this.summarizeSelection(this.world.getSystem(StrokeBatchRenderSystem));
@@ -78,9 +88,12 @@ export class SelectionSystem extends createSystem({
     let activeSelectionLayerIndex = -1;
     let lastSelectedStrokeCommandIndex = 0;
     let hasMixedLayerSelection = false;
+    this.selectedLayers.clear();
 
     for (const stroke of this.queries.strokes.entities) {
       const selected = Boolean(stroke.getValue(BrushStroke, "selected"));
+      if (selected) this.selectedLayers.add(Number(stroke.getValue(BrushStroke, "layerIndex")));
+      this.syncSelectionParent(stroke, selected);
       if (batchRenderer) {
         const transition = resolveStrokeBatchExtractionTransition(
           selected,
@@ -111,6 +124,13 @@ export class SelectionSystem extends createSystem({
       }
     }
 
+    this.prepareSelectionFrames();
+    for (const frame of this.queries.frames.entities) {
+      // Transform parenting settles on the following ECS frame. Wait until
+      // children have actually left before destroying their old empty frame.
+      if (!this.selectedLayers.has(Number(frame.getValue(SelectionLayerFrame, "layerIndex"))) && !frame.object3D?.children.length) frame.destroy();
+    }
+
     return {
       selectedStrokeCount,
       activeSelectionLayerIndex: hasMixedLayerSelection
@@ -118,6 +138,47 @@ export class SelectionSystem extends createSystem({
         : activeSelectionLayerIndex,
       lastSelectedStrokeCommandIndex,
     };
+  }
+
+  private findSelectionFrame(id: number): Entity | undefined {
+    for (const frame of this.queries.frames.entities) {
+      if (Number(frame.getValue(SelectionLayerFrame, "layerIndex")) === id) return frame;
+    }
+    return undefined;
+  }
+
+  private prepareSelectionFrames(): void {
+    if (!this.selectedLayers.size) return;
+    let canvas: Entity | undefined;
+    for (const layer of this.queries.layers.entities) {
+      if (layer.getValue(CanvasLayer, "selectionCanvas")) { canvas = layer; break; }
+    }
+    if (!canvas?.object3D) return;
+    for (const id of this.selectedLayers) {
+      if (this.findSelectionFrame(id)) continue;
+      const home = findPaintLayer(this.queries.layers.entities, id);
+      if (!home?.object3D) continue;
+      canvas.object3D.updateWorldMatrix(true, false); home.object3D.updateWorldMatrix(true, false);
+      this.spaceMatrix.copy(canvas.object3D.matrixWorld).invert().multiply(home.object3D.matrixWorld);
+      const frame = this.world.createTransformEntity(undefined, canvas).addComponent(SelectionLayerFrame, { layerIndex: id });
+      frame.object3D!.name = `OpenBrushSelectionLayer_${id}`;
+      this.spaceMatrix.decompose(frame.object3D!.position, frame.object3D!.quaternion, frame.object3D!.scale);
+    }
+  }
+
+  private syncSelectionParent(stroke: Entity, selected: boolean): void {
+    const parent = stroke.getValue(Transform, "parent") as Entity | null;
+    if (selected) {
+      if (parent?.hasComponent(SelectionLayerFrame)) return;
+      const home = findPaintLayer(this.queries.layers.entities, Number(stroke.getValue(BrushStroke, "layerIndex")));
+      const frame = this.findSelectionFrame(Number(stroke.getValue(BrushStroke, "layerIndex")));
+      // Synthetic/foreign entities can use another basis. Only migrate known
+      // layer-local strokes, whose local TRS remains unchanged in this frame.
+      if (frame && home && parent === home) stroke.setValue(Transform, "parent", frame);
+    } else if (parent?.hasComponent(SelectionLayerFrame)) {
+      const home = findPaintLayer(this.queries.layers.entities, Number(stroke.getValue(BrushStroke, "layerIndex")));
+      if (home) stroke.setValue(Transform, "parent", home);
+    }
   }
 
   private setNumberIfChanged(

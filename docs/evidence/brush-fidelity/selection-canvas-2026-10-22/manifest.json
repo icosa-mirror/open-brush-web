@@ -1,0 +1,35 @@
+{
+  "applicationBaseline": "e1662ba0fc8bd922da4a7f45f3d07b71e0560428",
+  "scope": "Application selection-canvas parenting and SDK compatibility; existing native defect remains without the application adapter; no native pixels or physical XR",
+  "sourceHashes": {
+    "src/index.ts": "2a5406bf6b47db8e17ce27c0a3f917232e75961687b44f98d7277df30f11c7b3",
+    "src/systems/selection-system.ts": "b9496e66931a422f3fc95776976279944cfcc0091240ad728a085cd5e430c043",
+    "src/systems/layer-canvas-system.ts": "798f8581cd62abe13e1ed40219b3cf46763aacef1dbcab0492ad3a0bbc4593bc",
+    "src/systems/transform-parent-compatibility-system.ts": "1089f7224e22d0dea723a3f4325ea533347050a0acac322945d871f305caa5aa",
+    "src/app/transform-parent-validation.ts": "bdaf9a58fc6aefb22153c36d5ec4d225e639d25467fb967182334e6ceb49e494",
+    "src/app/group-selection-validation.ts": "9da89f80a26406b4d37caac9fedf8a7ba91ee31015a24b4df2ea92ef3e02773d",
+    "src/app/layer-transform-validation.ts": "dfac2aded5021788ae389f07880064644204dd83b48bc306ee34a2710aeaf6c2",
+    "scripts/browser-layer-state.mjs": "1fbb26d4168f14c897ddc8b95215f28f1c98a0f0e65eb1337deaae0c3eef4380",
+    "scripts/transform-parent-harness.html": "f056459f5ea334380ce308e93a1d52fd948c8bd30cc90d75e50af09eea3eac86",
+    "package-lock.json": "f994e07d2de98eabdcd30394cd9be512ac6db3b62254301c8a130302ee4a1e04"
+  },
+  "artifacts": {
+    "selection-results.json": "b92b91815f2a63b4643f1243e85a3125fb0c4cd29792c0b69584a5a1441acaa8",
+    "parent-lifecycle-results.json": "1c68a6ac8348bd8b1a360bbd8795f81a13606546a0eaea32a0f7daab8cc6e163",
+    "layer-runtime-results.json": "0a5778cfeb50ab1440a3489b28dc41b393646bb17d993703b86dfd02b49dddf2"
+  },
+  "checks": {
+    ".tmp/selection-canvas-check.log": "7d840c9c2c4f01fcc048bca5112f3190aeac5695eb2e59006ca426b984d99a9f",
+    ".tmp/selection-canvas-typecheck-final.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    ".tmp/selection-canvas-build-final.log": "12fd012428694aa164b5d6327bcbe538274a5cb0cc8226fc3e28ca853aec8d0a",
+    ".tmp/selection-canvas-material-smoke.log": "a404bc74d69c72524a0987a5e19403da138644dd65d66c8b4cb1e3252ca04518"
+  },
+  "dependencySourceUnmodified": true,
+  "unchangedDependencyHashes": {
+    "node_modules/@iwsdk/core/package.json": "c98a84d5fae6d091efa100d011dab1af08c5ec6ec2ead3ac25a21d2f103557fa",
+    "node_modules/@iwsdk/core/dist/transform/transform.js": "ab42a93015346032da1f090dc0d5cbd224e2b02c248f3d9daa494713f5973124",
+    "node_modules/elics/package.json": "24a02e7f23e0e2bcc3465a22faa0eee4ea6b19f774e9ad8903b8f36c103ac631",
+    "node_modules/elics/lib/entity.js": "75803b6099b42fa6e627259019cd31f160ce771bcca82ba074d7d09b495db358",
+    "node_modules/elics/lib/entity-manager.js": "bc63190f7f34f2e4746e3094f67cc13befe3231e304d6625a349976e67de29c4"
+  }
+}

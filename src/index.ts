@@ -1,4 +1,5 @@
 import "./three-workarounds.js";
+import { TransformParentCompatibilitySystem } from "./systems/transform-parent-compatibility-system.js";
 
 import { SessionMode, VisibilityState, World } from "@iwsdk/core";
 import { AnimatedController } from "@iwsdk/xr-input";
@@ -212,6 +213,7 @@ World.create(document.getElementById("scene-container") as HTMLDivElement, {
   debugEntity.addComponent(OpenBrushDebug);
 
   world
+    .registerSystem(TransformParentCompatibilitySystem)
     .registerSystem(PanelSystem)
     .registerSystem(PanelAttachmentSystem)
     .registerSystem(InputCommandSystem)

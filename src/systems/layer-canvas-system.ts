@@ -68,7 +68,9 @@ export class LayerCanvasSystem extends createSystem({
       appState.setValue(OpenBrushAppState, "activeLayerIndex", activeLayerIndex);
     }
 
+    let selectionVisible: boolean | undefined;
     for (const layer of this.queries.layers.entities) {
+      if (layer.getValue(CanvasLayer, "selectionCanvas")) selectionVisible = Boolean(layer.getValue(CanvasLayer, "visible"));
       const isActive =
         !layer.getValue(CanvasLayer, "selectionCanvas") &&
         Number(layer.getValue(CanvasLayer, "layerIndex")) === activeLayerIndex;
@@ -87,7 +89,7 @@ export class LayerCanvasSystem extends createSystem({
       const strokeVisible = Boolean(stroke.getValue(BrushStroke, "visible"));
       const renderVisible = resolveStrokeRenderVisibility(
         strokeVisible,
-        layerVisible,
+        stroke.getValue(BrushStroke, "selected") && selectionVisible !== undefined ? selectionVisible : layerVisible,
       );
       if (
         Boolean(stroke.getValue(BrushStroke, "renderVisible")) === renderVisible

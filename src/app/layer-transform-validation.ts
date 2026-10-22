@@ -1,3 +1,4 @@
+import { TransformParentCompatibilitySystem } from "../systems/transform-parent-compatibility-system.js";
 import { World, Group, Vector3, Quaternion, type Entity } from "@iwsdk/core";
 import { CanvasLayer, BrushStroke, BrushSettings, InputCommandState, OpenBrushAppState, OpenBrushScenePose, OpenBrushTipAnchor, SelectionState, SelectionWidget, StrokeBatchMesh } from "../components/core.js";
 import { LayerCanvasSystem } from "../systems/layer-canvas-system.js";
@@ -19,7 +20,7 @@ export async function validateLayerTransforms(container: HTMLDivElement) {
   const observations: Record<string, unknown> = { passed: false, stage: "create-world" };
   (window as unknown as { layerRuntimeProgress: Record<string, unknown> }).layerRuntimeProgress = observations;
   const world = await World.create(container, { xr: false, render: { defaultLighting: false }, features: { spatialUI: false, locomotion: false, grabbing: false, physics: false } });
-  world.registerSystem(LayerCanvasSystem).registerSystem(StrokeBatchRenderSystem).registerSystem(StrokeAuthoringSystem).registerSystem(SelectionSystem);
+  world.registerSystem(TransformParentCompatibilitySystem).registerSystem(LayerCanvasSystem).registerSystem(StrokeBatchRenderSystem).registerSystem(StrokeAuthoringSystem).registerSystem(SelectionSystem);
   const state = world.createTransformEntity().addComponent(OpenBrushAppState, { mode: "intro" });
   const selectionState = world.createTransformEntity().addComponent(SelectionState);
   const scene = world.createTransformEntity().addComponent(OpenBrushScenePose);
