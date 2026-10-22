@@ -212,7 +212,9 @@ every intervening upstream change.
     now rewrites with zero dropped/changed original metadata keys and preserves
     its thumbnail. Brush-index slots remain stable; new brush GUIDs append.
     Explicit preview options override retained images. Gallery saves carry the
-    imported context, and new sketches/collaboration joins clear it. Controller
+    imported context, and new sketches, welcome-sketch selection and collaboration
+    joins clear it. The welcome transition has also been source-reviewed and
+    type-checked; it is not an additional browser interaction result. Controller
     regressions cover import, stroke editing, save-as, reload and export while
     retaining native fields/assets. This is preservation evidence: native
     metadata interpretation, coordinate/layer reconciliation, unsupported binary

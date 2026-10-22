@@ -326,6 +326,7 @@ export class SketchLibrarySystem extends createSystem({
     if (entry.id === WELCOME_SKETCH_ID) {
       this.transitionOutStrokes(() => {
         this.getIntroSketchSystem()?.setSketchVisible(true);
+        this.activeDocumentContext = createSketchDocument({ metadata: { source: "runtime" } });
         appState.setValue(PersistenceState, "activeSketchId", WELCOME_SKETCH_ID);
         appState.setValue(PersistenceState, "activeSketchName", "Welcome Sketch");
         appState.setValue(OpenBrushAppState, "mode", "ready");
