@@ -1,0 +1,704 @@
+{
+  "schemaVersion": 1,
+  "startedAt": "2026-10-21T23:56:23.447Z",
+  "completedAt": "2026-10-21T23:56:41.755Z",
+  "appRevision": "aefe5d63a6036b113226716bd829787a40ef7437",
+  "runnerSha256": "854430fe9ba69b8f2d835e653c958bcc08911063986f953a0691b3714cc53990",
+  "inventorySha256": "cefbbe1379b3844ba8e5938d32abd1e299807999e37bfdfb654cf7f01210a9c2",
+  "packageLockSha256": "f994e07d2de98eabdcd30394cd9be512ac6db3b62254301c8a130302ee4a1e04",
+  "packages": {
+    "three-icosa": "https://github.com/icosa-foundation/three-icosa/archive/25fe4ca1f7e52174e7d9dca90c811e307216ba1f.tar.gz",
+    "three-tiltloader": "https://github.com/icosa-foundation/three-tiltloader/archive/6c92f0035911e8e61755fec3270beb7604d5dc81.tar.gz"
+  },
+  "scope": "legacy-fixture image diagnostics; reference capture provenance and fixture alignment unverified",
+  "requiredBrushCount": 95,
+  "selectedBrushCount": 4,
+  "imageParity": "unverified; no calibrated image-error thresholds or parity pass is assigned",
+  "referenceDirectory": "C:\\Users\\andyb\\Documents\\open-brush-fast\\Support\\Screenshots\\brushes-postfx-disabled",
+  "browserVersion": "155.0.8059.85",
+  "browserBackend": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+  "results": [
+    {
+      "guid": "f6e85de3-6dcc-4e7f-87fd-cee8c3d25d51",
+      "name": "Electricity",
+      "size": 2048,
+      "referenceSha256": "a9759617610e355867a76c20b8a73c58ff230c4b08d5e3a0dff2e8ba399e0b24",
+      "status": "captured",
+      "shaderCompileAudit": {
+        "status": "linked",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 3,
+        "observedMaterialPasses": 3,
+        "programs": [
+          {
+            "materialName": "OpenBrushShader_Electricity",
+            "materialPass": 0,
+            "materialSide": 2,
+            "linked": true,
+            "vertexCompiled": true,
+            "fragmentCompiled": true,
+            "activeAttributes": [
+              {
+                "name": "a_position",
+                "type": 35666,
+                "size": 1,
+                "boundItemSize": 3
+              },
+              {
+                "name": "a_normal",
+                "type": 35665,
+                "size": 1,
+                "boundItemSize": 3
+              },
+              {
+                "name": "a_color",
+                "type": 35666,
+                "size": 1,
+                "boundItemSize": 4
+              },
+              {
+                "name": "a_texcoord0",
+                "type": 35664,
+                "size": 1,
+                "boundItemSize": 2
+              },
+              {
+                "name": "a_tangent",
+                "type": 35666,
+                "size": 1,
+                "boundItemSize": 4
+              },
+              {
+                "name": "a_texcoord1",
+                "type": 35665,
+                "size": 1,
+                "boundItemSize": 3
+              },
+              {
+                "name": "a_texcoord2",
+                "type": 35664,
+                "size": 1,
+                "boundItemSize": null
+              }
+            ]
+          },
+          {
+            "materialName": "OpenBrushShader_Electricity",
+            "materialPass": 1,
+            "materialSide": 2,
+            "linked": true,
+            "vertexCompiled": true,
+            "fragmentCompiled": true,
+            "activeAttributes": [
+              {
+                "name": "a_position",
+                "type": 35666,
+                "size": 1,
+                "boundItemSize": 3
+              },
+              {
+                "name": "a_normal",
+                "type": 35665,
+                "size": 1,
+                "boundItemSize": 3
+              },
+              {
+                "name": "a_color",
+                "type": 35666,
+                "size": 1,
+                "boundItemSize": 4
+              },
+              {
+                "name": "a_texcoord0",
+                "type": 35664,
+                "size": 1,
+                "boundItemSize": 2
+              },
+              {
+                "name": "a_tangent",
+                "type": 35666,
+                "size": 1,
+                "boundItemSize": 4
+              },
+              {
+                "name": "a_texcoord1",
+                "type": 35665,
+                "size": 1,
+                "boundItemSize": 3
+              },
+              {
+                "name": "a_texcoord2",
+                "type": 35664,
+                "size": 1,
+                "boundItemSize": null
+              }
+            ]
+          },
+          {
+            "materialName": "OpenBrushShader_Electricity",
+            "materialPass": 2,
+            "materialSide": 2,
+            "linked": true,
+            "vertexCompiled": true,
+            "fragmentCompiled": true,
+            "activeAttributes": [
+              {
+                "name": "a_position",
+                "type": 35666,
+                "size": 1,
+                "boundItemSize": 3
+              },
+              {
+                "name": "a_normal",
+                "type": 35665,
+                "size": 1,
+                "boundItemSize": 3
+              },
+              {
+                "name": "a_color",
+                "type": 35666,
+                "size": 1,
+                "boundItemSize": 4
+              },
+              {
+                "name": "a_texcoord0",
+                "type": 35664,
+                "size": 1,
+                "boundItemSize": 2
+              },
+              {
+                "name": "a_tangent",
+                "type": 35666,
+                "size": 1,
+                "boundItemSize": 4
+              },
+              {
+                "name": "a_texcoord1",
+                "type": 35665,
+                "size": 1,
+                "boundItemSize": 3
+              },
+              {
+                "name": "a_texcoord2",
+                "type": 35664,
+                "size": 1,
+                "boundItemSize": null
+              }
+            ]
+          }
+        ],
+        "errors": []
+      },
+      "attributeDefaultProbe": {
+        "drawCalls": 3,
+        "changes": [
+          {
+            "materialName": "OpenBrushShader_Electricity",
+            "attribute": "a_texcoord2",
+            "original": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "supplied": [
+              8192.5,
+              -6144.25,
+              12345.75,
+              -3.5
+            ]
+          },
+          {
+            "materialName": "OpenBrushShader_Electricity",
+            "attribute": "a_texcoord2",
+            "original": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "supplied": [
+              8192.5,
+              -6144.25,
+              12345.75,
+              -3.5
+            ]
+          },
+          {
+            "materialName": "OpenBrushShader_Electricity",
+            "attribute": "a_texcoord2",
+            "original": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "supplied": [
+              8192.5,
+              -6144.25,
+              12345.75,
+              -3.5
+            ]
+          }
+        ],
+        "programs": [
+          {
+            "materialName": "OpenBrushShader_Electricity",
+            "newExporter": false,
+            "tiltInput": "not-active",
+            "vertexSource": "#version 300 es\n\n#define attribute in\n#define varying out\n#define texture2D texture\nprecision highp float;\n\tprecision highp int;\n\tprecision highp sampler2D;\n\tprecision highp samplerCube;\n\tprecision highp sampler3D;\n\tprecision highp sampler2DArray;\n\tprecision highp sampler2DShadow;\n\tprecision highp samplerCubeShadow;\n\tprecision highp sampler2DArrayShadow;\n\tprecision highp isampler2D;\n\tprecision highp isampler3D;\n\tprecision highp isamplerCube;\n\tprecision highp isampler2DArray;\n\tprecision highp usampler2D;\n\tprecision highp usampler3D;\n\tprecision highp usamplerCube;\n\tprecision highp usampler2DArray;\n\t\n#define HIGH_PRECISION\n#define SHADER_TYPE ShaderMaterial\n#define SHADER_NAME OpenBrushShader_Electricity\n#define DOUBLE_SIDED\nuniform mat4 modelMatrix;\nuniform mat4 modelViewMatrix;\nuniform mat4 projectionMatrix;\nuniform mat4 viewMatrix;\nuniform mat3 normalMatrix;\nuniform vec3 cameraPosition;\nuniform bool isOrthographic;\n#ifdef USE_INSTANCING\n\tattribute mat4 instanceMatrix;\n#endif\n#ifdef USE_INSTANCING_COLOR\n\tattribute vec3 instanceColor;\n#endif\n#ifdef USE_INSTANCING_MORPH\n\tuniform sampler2D morphTexture;\n#endif\nattribute vec3 position;\nattribute vec3 normal;\nattribute vec2 uv;\n#ifdef USE_UV1\n\tattribute vec2 uv1;\n#endif\n#ifdef USE_UV2\n\tattribute vec2 uv2;\n#endif\n#ifdef USE_UV3\n\tattribute vec2 uv3;\n#endif\n#ifdef USE_TANGENT\n\tattribute vec4 tangent;\n#endif\n#if defined( USE_COLOR_ALPHA )\n\tattribute vec4 color;\n#elif defined( USE_COLOR )\n\tattribute vec3 color;\n#endif\n#ifdef USE_SKINNING\n\tattribute vec4 skinIndex;\n\tattribute vec4 skinWeight;\n#endif\n\n// Copyright 2020 The Tilt Brush Authors\n// Updated to OpenGL ES 3.0 by the Icosa Gallery Authors\n//\n// Licensed under the Apache License, Version 2.0 (the \"License\");\n// you may not use this file except in compliance with the License.\n// You may obtain a copy of the License at\n//\n//      http://www.apache.org/licenses/LICENSE-2.0\n//\n// Unless required by applicable law or agreed to in writing, software\n// distributed under the License is distributed on an \"AS IS\" BASIS,\n// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n// See the License for the specific language governing permissions and\n// limitations under the License.\n\n// Default shader for GlTF web preview.\n//\n// This shader is used as a fall-back when a brush-specific shader is\n// unavailable.\n\nin vec4 a_position;\nin vec3 a_normal;\nin vec4 a_color;\nin vec2 a_texcoord0;\nin vec4 a_tangent;\nin vec3 a_texcoord1;\nin vec2 a_texcoord2;\n\nout vec4 v_color;\nout vec3 v_normal;  // Camera-space normal.\nout vec3 v_tangent;  // Camera-space tangent.\nout vec3 v_bitangent;  // Camera-space bitangent.\nout vec3 v_position;  // Camera-space position.\nout vec2 v_texcoord0;\n\nuniform bool u_isNewTiltExporter;\nuniform bool u_ElectricityHasBakedDisplacement;\n\nuniform vec4 u_time;\nuniform float u_ScrollRate;\nuniform vec3 u_ScrollDistance;\nuniform float u_ScrollJitterIntensity;\nuniform float u_ScrollJitterFrequency;\nuniform float u_DisplacementIntensity;\nuniform float u_DisplacementMod;\n\nfloat mod289(float x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\n\nvec2 mod289(vec2 x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\n\nvec3 mod289(vec3 x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\n\nvec4 mod289(vec4 x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\n\nvec3 permute(vec3 x) {\n  return mod289(((x * 34.0) + 1.0) * x);\n}\n\nfloat snoise(vec2 v) {\n  const vec4 C = vec4(0.211324865405187,\n                      0.366025403784439,\n                     -0.577350269189626,\n                      0.024390243902439);\n  vec2 i  = floor(v + dot(v, C.yy));\n  vec2 x0 = v - i + dot(i, C.xx);\n\n  vec2 i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);\n  vec4 x12 = x0.xyxy + C.xxzz;\n  x12.xy -= i1;\n\n  i = mod289(i);\n  vec3 p = permute(permute(i.y + vec3(0.0, i1.y, 1.0)) + i.x + vec3(0.0, i1.x, 1.0));\n\n  vec3 m = max(0.5 - vec3(dot(x0, x0), dot(x12.xy, x12.xy), dot(x12.zw, x12.zw)), 0.0);\n  m *= m;\n  m *= m;\n\n  vec3 x = 2.0 * fract(p * C.www) - 1.0;\n  vec3 h = abs(x) - 0.5;\n  vec3 ox = floor(x + 0.5);\n  vec3 a0 = x - ox;\n\n  m *= 1.79284291400159 - 0.85373472095314 * (a0 * a0 + h * h);\n\n  vec3 g;\n  g.x = a0.x * x0.x + h.x * x0.y;\n  g.yz = a0.yz * x12.xz + h.yz * x12.yw;\n  return 130.0 * dot(m, g);\n}\n\nvec3 snoise3D(vec3 v) {\n  return vec3(\n    snoise(vec2(v.x, v.y)),\n    snoise(vec2(v.y, v.z)),\n    snoise(vec2(v.z, v.x))\n  );\n}\n\nfloat curlX(vec3 v, float d) {\n  return (\n    (snoise3D(vec3(v.x, v.y + d, v.z)).z - snoise3D(vec3(v.x, v.y - d, v.z)).z) -\n    (snoise3D(vec3(v.x, v.y, v.z + d)).y - snoise3D(vec3(v.x, v.y, v.z - d)).y)\n  ) / (2.0 * d);\n}\n\nfloat curlY(vec3 v, float d) {\n  return (\n    (snoise3D(vec3(v.x, v.y, v.z + d)).x - snoise3D(vec3(v.x, v.y, v.z - d)).x) -\n    (snoise3D(vec3(v.x + d, v.y, v.z)).z - snoise3D(vec3(v.x - d, v.y, v.z)).z)\n  ) / (2.0 * d);\n}\n\nfloat curlZ(vec3 v, float d) {\n  return (\n    (snoise3D(vec3(v.x + d, v.y, v.z)).y - snoise3D(vec3(v.x - d, v.y, v.z)).y) -\n    (snoise3D(vec3(v.x, v.y + d, v.z)).x - snoise3D(vec3(v.x, v.y - d, v.z)).x)\n  ) / (2.0 * d);\n}\n\nvec3 displacement(vec3 pos, float mod, float time) {\n  float d = 30.0;\n  float freq = 0.1 + mod;\n  vec3 disp = vec3(1.0, 0.0, 0.0) * curlX(pos * freq + time, d);\n  disp += vec3(0.0, 1.0, 0.0) * curlY(pos * freq + time, d);\n  disp += vec3(0.0, 0.0, 1.0) * curlZ(pos * freq + time, d);\n\n  time *= 1.777;\n  d = 100.0;\n  freq = 0.2 + mod;\n  vec3 disp2 = vec3(1.0, 0.0, 0.0) * curlX(pos * freq + time, d);\n  disp2 += vec3(0.0, 1.0, 0.0) * curlY(pos * freq + time, d);\n  disp2 += vec3(0.0, 0.0, 1.0) * curlZ(pos * freq + time, d);\n\n  return disp * 3.0 + disp2 * 7.0;\n}\n\nvoid main() {\n  float envelope = sin(a_texcoord0.x * 3.14159);\n  float envelopePow = 1.0 - pow(1.0 - envelope, 10.0);\n  float mod = u_DisplacementMod;\n  float time = u_time.w;\n  vec3 worldPos = (modelMatrix * a_position).xyz;\n\n  if (!u_isNewTiltExporter) {\n    vec3 offsetFromMiddleToEdge_CS = a_texcoord1.xyz;\n    float widthiness_CS = length(offsetFromMiddleToEdge_CS) / 0.02;\n    vec3 midpointPos_CS = a_position.xyz - offsetFromMiddleToEdge_CS;\n\n    worldPos = midpointPos_CS + offsetFromMiddleToEdge_CS * envelopePow;\n    worldPos = vec4(modelMatrix * vec4(worldPos, 1.0)).xyz;\n\n    if (widthiness_CS > 0.0) {\n      vec3 dispVec = displacement(midpointPos_CS / widthiness_CS, mod, time);\n      dispVec = (modelMatrix * vec4(dispVec, 0.0)).xyz;\n      worldPos += widthiness_CS * dispVec * u_DisplacementIntensity * envelopePow;\n    }\n  } else {\n    vec3 midpointPos_CS = vec3(a_texcoord1.xy, a_texcoord2.x);\n    float widthiness_CS = a_texcoord2.y;\n\n    if (widthiness_CS > 0.0) {\n      vec3 currentDispVec = displacement(midpointPos_CS / widthiness_CS, mod, time);\n      currentDispVec = (modelMatrix * vec4(currentDispVec, 0.0)).xyz;\n      if (u_ElectricityHasBakedDisplacement) {\n        vec3 bakedDispVec = displacement(midpointPos_CS / widthiness_CS, 1.0, 0.0);\n        bakedDispVec = (modelMatrix * vec4(bakedDispVec, 0.0)).xyz;\n        worldPos -= widthiness_CS * bakedDispVec * 0.1 * envelopePow;\n      }\n      worldPos += widthiness_CS * currentDispVec * u_DisplacementIntensity * envelopePow;\n    }\n  }\n\n  gl_Position = projectionMatrix * viewMatrix * vec4(worldPos, 1.0);\n  v_position = (viewMatrix * vec4(worldPos, 1.0)).xyz;\n  v_color = a_color;\n  v_color += v_color * (1.0 - envelopePow);\n  v_texcoord0 = a_texcoord0;\n\n  vec3 normal = normalize(normalMatrix * a_normal);\n  vec3 tangent = normalize(normalMatrix * a_tangent.xyz);\n  vec3 bitangent = cross(normal, tangent) * a_tangent.w;\n\n  v_normal = normal;\n  v_tangent = tangent;\n  v_bitangent = bitangent;\n}\n"
+          },
+          {
+            "materialName": "OpenBrushShader_Electricity",
+            "newExporter": false,
+            "tiltInput": "not-active",
+            "vertexSource": "#version 300 es\n\n#define attribute in\n#define varying out\n#define texture2D texture\nprecision highp float;\n\tprecision highp int;\n\tprecision highp sampler2D;\n\tprecision highp samplerCube;\n\tprecision highp sampler3D;\n\tprecision highp sampler2DArray;\n\tprecision highp sampler2DShadow;\n\tprecision highp samplerCubeShadow;\n\tprecision highp sampler2DArrayShadow;\n\tprecision highp isampler2D;\n\tprecision highp isampler3D;\n\tprecision highp isamplerCube;\n\tprecision highp isampler2DArray;\n\tprecision highp usampler2D;\n\tprecision highp usampler3D;\n\tprecision highp usamplerCube;\n\tprecision highp usampler2DArray;\n\t\n#define HIGH_PRECISION\n#define SHADER_TYPE ShaderMaterial\n#define SHADER_NAME OpenBrushShader_Electricity\n#define DOUBLE_SIDED\nuniform mat4 modelMatrix;\nuniform mat4 modelViewMatrix;\nuniform mat4 projectionMatrix;\nuniform mat4 viewMatrix;\nuniform mat3 normalMatrix;\nuniform vec3 cameraPosition;\nuniform bool isOrthographic;\n#ifdef USE_INSTANCING\n\tattribute mat4 instanceMatrix;\n#endif\n#ifdef USE_INSTANCING_COLOR\n\tattribute vec3 instanceColor;\n#endif\n#ifdef USE_INSTANCING_MORPH\n\tuniform sampler2D morphTexture;\n#endif\nattribute vec3 position;\nattribute vec3 normal;\nattribute vec2 uv;\n#ifdef USE_UV1\n\tattribute vec2 uv1;\n#endif\n#ifdef USE_UV2\n\tattribute vec2 uv2;\n#endif\n#ifdef USE_UV3\n\tattribute vec2 uv3;\n#endif\n#ifdef USE_TANGENT\n\tattribute vec4 tangent;\n#endif\n#if defined( USE_COLOR_ALPHA )\n\tattribute vec4 color;\n#elif defined( USE_COLOR )\n\tattribute vec3 color;\n#endif\n#ifdef USE_SKINNING\n\tattribute vec4 skinIndex;\n\tattribute vec4 skinWeight;\n#endif\n\n// Copyright 2020 The Tilt Brush Authors\n// Updated to OpenGL ES 3.0 by the Icosa Gallery Authors\n//\n// Licensed under the Apache License, Version 2.0 (the \"License\");\n// you may not use this file except in compliance with the License.\n// You may obtain a copy of the License at\n//\n//      http://www.apache.org/licenses/LICENSE-2.0\n//\n// Unless required by applicable law or agreed to in writing, software\n// distributed under the License is distributed on an \"AS IS\" BASIS,\n// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n// See the License for the specific language governing permissions and\n// limitations under the License.\n\n// Default shader for GlTF web preview.\n//\n// This shader is used as a fall-back when a brush-specific shader is\n// unavailable.\n\nin vec4 a_position;\nin vec3 a_normal;\nin vec4 a_color;\nin vec2 a_texcoord0;\nin vec4 a_tangent;\nin vec3 a_texcoord1;\nin vec2 a_texcoord2;\n\nout vec4 v_color;\nout vec3 v_normal;  // Camera-space normal.\nout vec3 v_tangent;  // Camera-space tangent.\nout vec3 v_bitangent;  // Camera-space bitangent.\nout vec3 v_position;  // Camera-space position.\nout vec2 v_texcoord0;\n\nuniform bool u_isNewTiltExporter;\nuniform bool u_ElectricityHasBakedDisplacement;\n\nuniform vec4 u_time;\nuniform float u_ScrollRate;\nuniform vec3 u_ScrollDistance;\nuniform float u_ScrollJitterIntensity;\nuniform float u_ScrollJitterFrequency;\nuniform float u_DisplacementIntensity;\nuniform float u_DisplacementMod;\n\nfloat mod289(float x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\n\nvec2 mod289(vec2 x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\n\nvec3 mod289(vec3 x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\n\nvec4 mod289(vec4 x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\n\nvec3 permute(vec3 x) {\n  return mod289(((x * 34.0) + 1.0) * x);\n}\n\nfloat snoise(vec2 v) {\n  const vec4 C = vec4(0.211324865405187,\n                      0.366025403784439,\n                     -0.577350269189626,\n                      0.024390243902439);\n  vec2 i  = floor(v + dot(v, C.yy));\n  vec2 x0 = v - i + dot(i, C.xx);\n\n  vec2 i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);\n  vec4 x12 = x0.xyxy + C.xxzz;\n  x12.xy -= i1;\n\n  i = mod289(i);\n  vec3 p = permute(permute(i.y + vec3(0.0, i1.y, 1.0)) + i.x + vec3(0.0, i1.x, 1.0));\n\n  vec3 m = max(0.5 - vec3(dot(x0, x0), dot(x12.xy, x12.xy), dot(x12.zw, x12.zw)), 0.0);\n  m *= m;\n  m *= m;\n\n  vec3 x = 2.0 * fract(p * C.www) - 1.0;\n  vec3 h = abs(x) - 0.5;\n  vec3 ox = floor(x + 0.5);\n  vec3 a0 = x - ox;\n\n  m *= 1.79284291400159 - 0.85373472095314 * (a0 * a0 + h * h);\n\n  vec3 g;\n  g.x = a0.x * x0.x + h.x * x0.y;\n  g.yz = a0.yz * x12.xz + h.yz * x12.yw;\n  return 130.0 * dot(m, g);\n}\n\nvec3 snoise3D(vec3 v) {\n  return vec3(\n    snoise(vec2(v.x, v.y)),\n    snoise(vec2(v.y, v.z)),\n    snoise(vec2(v.z, v.x))\n  );\n}\n\nfloat curlX(vec3 v, float d) {\n  return (\n    (snoise3D(vec3(v.x, v.y + d, v.z)).z - snoise3D(vec3(v.x, v.y - d, v.z)).z) -\n    (snoise3D(vec3(v.x, v.y, v.z + d)).y - snoise3D(vec3(v.x, v.y, v.z - d)).y)\n  ) / (2.0 * d);\n}\n\nfloat curlY(vec3 v, float d) {\n  return (\n    (snoise3D(vec3(v.x, v.y, v.z + d)).x - snoise3D(vec3(v.x, v.y, v.z - d)).x) -\n    (snoise3D(vec3(v.x + d, v.y, v.z)).z - snoise3D(vec3(v.x - d, v.y, v.z)).z)\n  ) / (2.0 * d);\n}\n\nfloat curlZ(vec3 v, float d) {\n  return (\n    (snoise3D(vec3(v.x + d, v.y, v.z)).y - snoise3D(vec3(v.x - d, v.y, v.z)).y) -\n    (snoise3D(vec3(v.x, v.y + d, v.z)).x - snoise3D(vec3(v.x, v.y - d, v.z)).x)\n  ) / (2.0 * d);\n}\n\nvec3 displacement(vec3 pos, float mod, float time) {\n  float d = 30.0;\n  float freq = 0.1 + mod;\n  vec3 disp = vec3(1.0, 0.0, 0.0) * curlX(pos * freq + time, d);\n  disp += vec3(0.0, 1.0, 0.0) * curlY(pos * freq + time, d);\n  disp += vec3(0.0, 0.0, 1.0) * curlZ(pos * freq + time, d);\n\n  time *= 1.777;\n  d = 100.0;\n  freq = 0.2 + mod;\n  vec3 disp2 = vec3(1.0, 0.0, 0.0) * curlX(pos * freq + time, d);\n  disp2 += vec3(0.0, 1.0, 0.0) * curlY(pos * freq + time, d);\n  disp2 += vec3(0.0, 0.0, 1.0) * curlZ(pos * freq + time, d);\n\n  return disp * 3.0 + disp2 * 7.0;\n}\n\nvoid main() {\n  float envelope = sin(a_texcoord0.x * 3.14159);\n  float envelopePow = 1.0 - pow(1.0 - envelope, 10.0);\n  float mod = u_DisplacementMod;\n  float time = u_time.w;\n  vec3 worldPos = (modelMatrix * a_position).xyz;\n\n  if (!u_isNewTiltExporter) {\n    vec3 offsetFromMiddleToEdge_CS = a_texcoord1.xyz;\n    float widthiness_CS = length(offsetFromMiddleToEdge_CS) / 0.02;\n    vec3 midpointPos_CS = a_position.xyz - offsetFromMiddleToEdge_CS;\n\n    worldPos = midpointPos_CS + offsetFromMiddleToEdge_CS * envelopePow;\n    worldPos = vec4(modelMatrix * vec4(worldPos, 1.0)).xyz;\n\n    if (widthiness_CS > 0.0) {\n      vec3 dispVec = displacement(midpointPos_CS / widthiness_CS, mod, time);\n      dispVec = (modelMatrix * vec4(dispVec, 0.0)).xyz;\n      worldPos += widthiness_CS * dispVec * u_DisplacementIntensity * envelopePow;\n    }\n  } else {\n    vec3 midpointPos_CS = vec3(a_texcoord1.xy, a_texcoord2.x);\n    float widthiness_CS = a_texcoord2.y;\n\n    if (widthiness_CS > 0.0) {\n      vec3 currentDispVec = displacement(midpointPos_CS / widthiness_CS, mod, time);\n      currentDispVec = (modelMatrix * vec4(currentDispVec, 0.0)).xyz;\n      if (u_ElectricityHasBakedDisplacement) {\n        vec3 bakedDispVec = displacement(midpointPos_CS / widthiness_CS, 1.0, 0.0);\n        bakedDispVec = (modelMatrix * vec4(bakedDispVec, 0.0)).xyz;\n        worldPos -= widthiness_CS * bakedDispVec * 0.1 * envelopePow;\n      }\n      worldPos += widthiness_CS * currentDispVec * u_DisplacementIntensity * envelopePow;\n    }\n  }\n\n  gl_Position = projectionMatrix * viewMatrix * vec4(worldPos, 1.0);\n  v_position = (viewMatrix * vec4(worldPos, 1.0)).xyz;\n  v_color = a_color;\n  v_color += v_color * (1.0 - envelopePow);\n  v_texcoord0 = a_texcoord0;\n\n  vec3 normal = normalize(normalMatrix * a_normal);\n  vec3 tangent = normalize(normalMatrix * a_tangent.xyz);\n  vec3 bitangent = cross(normal, tangent) * a_tangent.w;\n\n  v_normal = normal;\n  v_tangent = tangent;\n  v_bitangent = bitangent;\n}\n"
+          },
+          {
+            "materialName": "OpenBrushShader_Electricity",
+            "newExporter": false,
+            "tiltInput": "not-active",
+            "vertexSource": "#version 300 es\n\n#define attribute in\n#define varying out\n#define texture2D texture\nprecision highp float;\n\tprecision highp int;\n\tprecision highp sampler2D;\n\tprecision highp samplerCube;\n\tprecision highp sampler3D;\n\tprecision highp sampler2DArray;\n\tprecision highp sampler2DShadow;\n\tprecision highp samplerCubeShadow;\n\tprecision highp sampler2DArrayShadow;\n\tprecision highp isampler2D;\n\tprecision highp isampler3D;\n\tprecision highp isamplerCube;\n\tprecision highp isampler2DArray;\n\tprecision highp usampler2D;\n\tprecision highp usampler3D;\n\tprecision highp usamplerCube;\n\tprecision highp usampler2DArray;\n\t\n#define HIGH_PRECISION\n#define SHADER_TYPE ShaderMaterial\n#define SHADER_NAME OpenBrushShader_Electricity\n#define DOUBLE_SIDED\nuniform mat4 modelMatrix;\nuniform mat4 modelViewMatrix;\nuniform mat4 projectionMatrix;\nuniform mat4 viewMatrix;\nuniform mat3 normalMatrix;\nuniform vec3 cameraPosition;\nuniform bool isOrthographic;\n#ifdef USE_INSTANCING\n\tattribute mat4 instanceMatrix;\n#endif\n#ifdef USE_INSTANCING_COLOR\n\tattribute vec3 instanceColor;\n#endif\n#ifdef USE_INSTANCING_MORPH\n\tuniform sampler2D morphTexture;\n#endif\nattribute vec3 position;\nattribute vec3 normal;\nattribute vec2 uv;\n#ifdef USE_UV1\n\tattribute vec2 uv1;\n#endif\n#ifdef USE_UV2\n\tattribute vec2 uv2;\n#endif\n#ifdef USE_UV3\n\tattribute vec2 uv3;\n#endif\n#ifdef USE_TANGENT\n\tattribute vec4 tangent;\n#endif\n#if defined( USE_COLOR_ALPHA )\n\tattribute vec4 color;\n#elif defined( USE_COLOR )\n\tattribute vec3 color;\n#endif\n#ifdef USE_SKINNING\n\tattribute vec4 skinIndex;\n\tattribute vec4 skinWeight;\n#endif\n\n// Copyright 2020 The Tilt Brush Authors\n// Updated to OpenGL ES 3.0 by the Icosa Gallery Authors\n//\n// Licensed under the Apache License, Version 2.0 (the \"License\");\n// you may not use this file except in compliance with the License.\n// You may obtain a copy of the License at\n//\n//      http://www.apache.org/licenses/LICENSE-2.0\n//\n// Unless required by applicable law or agreed to in writing, software\n// distributed under the License is distributed on an \"AS IS\" BASIS,\n// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n// See the License for the specific language governing permissions and\n// limitations under the License.\n\n// Default shader for GlTF web preview.\n//\n// This shader is used as a fall-back when a brush-specific shader is\n// unavailable.\n\nin vec4 a_position;\nin vec3 a_normal;\nin vec4 a_color;\nin vec2 a_texcoord0;\nin vec4 a_tangent;\nin vec3 a_texcoord1;\nin vec2 a_texcoord2;\n\nout vec4 v_color;\nout vec3 v_normal;  // Camera-space normal.\nout vec3 v_tangent;  // Camera-space tangent.\nout vec3 v_bitangent;  // Camera-space bitangent.\nout vec3 v_position;  // Camera-space position.\nout vec2 v_texcoord0;\n\nuniform bool u_isNewTiltExporter;\nuniform bool u_ElectricityHasBakedDisplacement;\n\nuniform vec4 u_time;\nuniform float u_ScrollRate;\nuniform vec3 u_ScrollDistance;\nuniform float u_ScrollJitterIntensity;\nuniform float u_ScrollJitterFrequency;\nuniform float u_DisplacementIntensity;\nuniform float u_DisplacementMod;\n\nfloat mod289(float x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\n\nvec2 mod289(vec2 x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\n\nvec3 mod289(vec3 x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\n\nvec4 mod289(vec4 x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\n\nvec3 permute(vec3 x) {\n  return mod289(((x * 34.0) + 1.0) * x);\n}\n\nfloat snoise(vec2 v) {\n  const vec4 C = vec4(0.211324865405187,\n                      0.366025403784439,\n                     -0.577350269189626,\n                      0.024390243902439);\n  vec2 i  = floor(v + dot(v, C.yy));\n  vec2 x0 = v - i + dot(i, C.xx);\n\n  vec2 i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);\n  vec4 x12 = x0.xyxy + C.xxzz;\n  x12.xy -= i1;\n\n  i = mod289(i);\n  vec3 p = permute(permute(i.y + vec3(0.0, i1.y, 1.0)) + i.x + vec3(0.0, i1.x, 1.0));\n\n  vec3 m = max(0.5 - vec3(dot(x0, x0), dot(x12.xy, x12.xy), dot(x12.zw, x12.zw)), 0.0);\n  m *= m;\n  m *= m;\n\n  vec3 x = 2.0 * fract(p * C.www) - 1.0;\n  vec3 h = abs(x) - 0.5;\n  vec3 ox = floor(x + 0.5);\n  vec3 a0 = x - ox;\n\n  m *= 1.79284291400159 - 0.85373472095314 * (a0 * a0 + h * h);\n\n  vec3 g;\n  g.x = a0.x * x0.x + h.x * x0.y;\n  g.yz = a0.yz * x12.xz + h.yz * x12.yw;\n  return 130.0 * dot(m, g);\n}\n\nvec3 snoise3D(vec3 v) {\n  return vec3(\n    snoise(vec2(v.x, v.y)),\n    snoise(vec2(v.y, v.z)),\n    snoise(vec2(v.z, v.x))\n  );\n}\n\nfloat curlX(vec3 v, float d) {\n  return (\n    (snoise3D(vec3(v.x, v.y + d, v.z)).z - snoise3D(vec3(v.x, v.y - d, v.z)).z) -\n    (snoise3D(vec3(v.x, v.y, v.z + d)).y - snoise3D(vec3(v.x, v.y, v.z - d)).y)\n  ) / (2.0 * d);\n}\n\nfloat curlY(vec3 v, float d) {\n  return (\n    (snoise3D(vec3(v.x, v.y, v.z + d)).x - snoise3D(vec3(v.x, v.y, v.z - d)).x) -\n    (snoise3D(vec3(v.x + d, v.y, v.z)).z - snoise3D(vec3(v.x - d, v.y, v.z)).z)\n  ) / (2.0 * d);\n}\n\nfloat curlZ(vec3 v, float d) {\n  return (\n    (snoise3D(vec3(v.x + d, v.y, v.z)).y - snoise3D(vec3(v.x - d, v.y, v.z)).y) -\n    (snoise3D(vec3(v.x, v.y + d, v.z)).x - snoise3D(vec3(v.x, v.y - d, v.z)).x)\n  ) / (2.0 * d);\n}\n\nvec3 displacement(vec3 pos, float mod, float time) {\n  float d = 30.0;\n  float freq = 0.1 + mod;\n  vec3 disp = vec3(1.0, 0.0, 0.0) * curlX(pos * freq + time, d);\n  disp += vec3(0.0, 1.0, 0.0) * curlY(pos * freq + time, d);\n  disp += vec3(0.0, 0.0, 1.0) * curlZ(pos * freq + time, d);\n\n  time *= 1.777;\n  d = 100.0;\n  freq = 0.2 + mod;\n  vec3 disp2 = vec3(1.0, 0.0, 0.0) * curlX(pos * freq + time, d);\n  disp2 += vec3(0.0, 1.0, 0.0) * curlY(pos * freq + time, d);\n  disp2 += vec3(0.0, 0.0, 1.0) * curlZ(pos * freq + time, d);\n\n  return disp * 3.0 + disp2 * 7.0;\n}\n\nvoid main() {\n  float envelope = sin(a_texcoord0.x * 3.14159);\n  float envelopePow = 1.0 - pow(1.0 - envelope, 10.0);\n  float mod = u_DisplacementMod;\n  float time = u_time.w;\n  vec3 worldPos = (modelMatrix * a_position).xyz;\n\n  if (!u_isNewTiltExporter) {\n    vec3 offsetFromMiddleToEdge_CS = a_texcoord1.xyz;\n    float widthiness_CS = length(offsetFromMiddleToEdge_CS) / 0.02;\n    vec3 midpointPos_CS = a_position.xyz - offsetFromMiddleToEdge_CS;\n\n    worldPos = midpointPos_CS + offsetFromMiddleToEdge_CS * envelopePow;\n    worldPos = vec4(modelMatrix * vec4(worldPos, 1.0)).xyz;\n\n    if (widthiness_CS > 0.0) {\n      vec3 dispVec = displacement(midpointPos_CS / widthiness_CS, mod, time);\n      dispVec = (modelMatrix * vec4(dispVec, 0.0)).xyz;\n      worldPos += widthiness_CS * dispVec * u_DisplacementIntensity * envelopePow;\n    }\n  } else {\n    vec3 midpointPos_CS = vec3(a_texcoord1.xy, a_texcoord2.x);\n    float widthiness_CS = a_texcoord2.y;\n\n    if (widthiness_CS > 0.0) {\n      vec3 currentDispVec = displacement(midpointPos_CS / widthiness_CS, mod, time);\n      currentDispVec = (modelMatrix * vec4(currentDispVec, 0.0)).xyz;\n      if (u_ElectricityHasBakedDisplacement) {\n        vec3 bakedDispVec = displacement(midpointPos_CS / widthiness_CS, 1.0, 0.0);\n        bakedDispVec = (modelMatrix * vec4(bakedDispVec, 0.0)).xyz;\n        worldPos -= widthiness_CS * bakedDispVec * 0.1 * envelopePow;\n      }\n      worldPos += widthiness_CS * currentDispVec * u_DisplacementIntensity * envelopePow;\n    }\n  }\n\n  gl_Position = projectionMatrix * viewMatrix * vec4(worldPos, 1.0);\n  v_position = (viewMatrix * vec4(worldPos, 1.0)).xyz;\n  v_color = a_color;\n  v_color += v_color * (1.0 - envelopePow);\n  v_texcoord0 = a_texcoord0;\n\n  vec3 normal = normalize(normalMatrix * a_normal);\n  vec3 tangent = normalize(normalMatrix * a_tangent.xyz);\n  vec3 bitangent = cross(normal, tangent) * a_tangent.w;\n\n  v_normal = normal;\n  v_tangent = tangent;\n  v_bitangent = bitangent;\n}\n"
+          }
+        ],
+        "changedPixels": 0,
+        "maxByteDifference": 0
+      },
+      "browserSha256": "e0f0e911e11a0506500ff2c62a43b756b848ba895c49060c2a75e2b110272363",
+      "inputProfile": "legacy-screenshot-fixture",
+      "generatedUv0Size": 2,
+      "shaderUv0Size": 2,
+      "renderStatus": "pass",
+      "gpuReadbackCoverage": 0.035368919372558594,
+      "metrics": {
+        "width": 2048,
+        "height": 2048,
+        "actual": {
+          "coveredPixelRatio": 0.035368919372558594,
+          "bounds": [
+            443,
+            567,
+            1754,
+            1390
+          ],
+          "centroid": [
+            998.7876412219915,
+            996.318150564888
+          ]
+        },
+        "reference": {
+          "coveredPixelRatio": 0.015434741973876953,
+          "bounds": [
+            471,
+            606,
+            1424,
+            1222
+          ],
+          "centroid": [
+            1068.7481540980568,
+            947.3311038339152
+          ]
+        },
+        "silhouetteIntersectionOverUnion": 0.0673191549041804,
+        "meanAbsoluteDifference": 10.823983192443848,
+        "rootMeanSquareDifference": 51.33452734342982
+      },
+      "consoleErrorCount": 0,
+      "pageErrorCount": 0
+    },
+    {
+      "guid": "4391aaaa-df73-4396-9e33-31e4e4930b27",
+      "name": "Disco",
+      "size": 2048,
+      "referenceSha256": "2241840dc7c199889593d6b6f630b6cba78f39210d3260a1532c5c4f923b8263",
+      "status": "captured",
+      "shaderCompileAudit": {
+        "status": "linked",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "programs": [
+          {
+            "materialName": "OpenBrushShader_Disco",
+            "materialPass": 0,
+            "materialSide": 0,
+            "linked": true,
+            "vertexCompiled": true,
+            "fragmentCompiled": true,
+            "activeAttributes": [
+              {
+                "name": "a_position",
+                "type": 35666,
+                "size": 1,
+                "boundItemSize": 3
+              },
+              {
+                "name": "a_normal",
+                "type": 35665,
+                "size": 1,
+                "boundItemSize": 3
+              },
+              {
+                "name": "a_color",
+                "type": 35666,
+                "size": 1,
+                "boundItemSize": 4
+              },
+              {
+                "name": "a_texcoord0",
+                "type": 35665,
+                "size": 1,
+                "boundItemSize": 3
+              },
+              {
+                "name": "a_texcoord1",
+                "type": 35666,
+                "size": 1,
+                "boundItemSize": null
+              }
+            ]
+          }
+        ],
+        "errors": []
+      },
+      "attributeDefaultProbe": {
+        "drawCalls": 1,
+        "changes": [
+          {
+            "materialName": "OpenBrushShader_Disco",
+            "attribute": "a_texcoord1",
+            "original": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "supplied": [
+              8192.5,
+              -6144.25,
+              12345.75,
+              -3.5
+            ]
+          }
+        ],
+        "programs": [
+          {
+            "materialName": "OpenBrushShader_Disco",
+            "newExporter": false,
+            "tiltInput": "not-active",
+            "vertexSource": "#version 300 es\n\n#define attribute in\n#define varying out\n#define texture2D texture\nprecision highp float;\n\tprecision highp int;\n\tprecision highp sampler2D;\n\tprecision highp samplerCube;\n\tprecision highp sampler3D;\n\tprecision highp sampler2DArray;\n\tprecision highp sampler2DShadow;\n\tprecision highp samplerCubeShadow;\n\tprecision highp sampler2DArrayShadow;\n\tprecision highp isampler2D;\n\tprecision highp isampler3D;\n\tprecision highp isamplerCube;\n\tprecision highp isampler2DArray;\n\tprecision highp usampler2D;\n\tprecision highp usampler3D;\n\tprecision highp usamplerCube;\n\tprecision highp usampler2DArray;\n\t\n#define HIGH_PRECISION\n#define SHADER_TYPE ShaderMaterial\n#define SHADER_NAME OpenBrushShader_Disco\nuniform mat4 modelMatrix;\nuniform mat4 modelViewMatrix;\nuniform mat4 projectionMatrix;\nuniform mat4 viewMatrix;\nuniform mat3 normalMatrix;\nuniform vec3 cameraPosition;\nuniform bool isOrthographic;\n#ifdef USE_INSTANCING\n\tattribute mat4 instanceMatrix;\n#endif\n#ifdef USE_INSTANCING_COLOR\n\tattribute vec3 instanceColor;\n#endif\n#ifdef USE_INSTANCING_MORPH\n\tuniform sampler2D morphTexture;\n#endif\nattribute vec3 position;\nattribute vec3 normal;\nattribute vec2 uv;\n#ifdef USE_UV1\n\tattribute vec2 uv1;\n#endif\n#ifdef USE_UV2\n\tattribute vec2 uv2;\n#endif\n#ifdef USE_UV3\n\tattribute vec2 uv3;\n#endif\n#ifdef USE_TANGENT\n\tattribute vec4 tangent;\n#endif\n#if defined( USE_COLOR_ALPHA )\n\tattribute vec4 color;\n#elif defined( USE_COLOR )\n\tattribute vec3 color;\n#endif\n#ifdef USE_SKINNING\n\tattribute vec4 skinIndex;\n\tattribute vec4 skinWeight;\n#endif\n\n// Copyright 2020 The Tilt Brush Authors\n// Updated to OpenGL ES 3.0 by the Icosa Gallery Authors\n//\n// Licensed under the Apache License, Version 2.0 (the \"License\");\n// you may not use this file except in compliance with the License.\n// You may obtain a copy of the License at\n//\n//      http://www.apache.org/licenses/LICENSE-2.0\n//\n// Unless required by applicable law or agreed to in writing, software\n// distributed under the License is distributed on an \"AS IS\" BASIS,\n// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n// See the License for the specific language governing permissions and\n// limitations under the License.\n\n// Default shader for GlTF web preview.\n//\n// This shader is used as a fall-back when a brush-specific shader is\n// unavailable.\n\nin vec4 a_position;\nin vec3 a_normal;\nin vec4 a_color;\nin vec3 a_texcoord0;\nin vec4 a_texcoord1;\n\nout vec4 v_color;\nout vec3 v_normal;  // Camera-space normal.\nout vec3 v_position;\nout vec2 v_texcoord0;\nout vec3 v_light_dir_0;  // Camera-space light direction, main light.\nout vec3 v_light_dir_1;  // Camera-space light direction, other light.\nout float f_fog_coord;\n\nuniform mat4 u_SceneLight_0_matrix;\nuniform mat4 u_SceneLight_1_matrix;\nuniform bool u_isNewTiltExporter;\n\nuniform vec4 u_time;\n\nvoid main() {\n\n  float t, uTileRate, waveIntensity;\n  float radius = a_texcoord0.z;\n  if (u_isNewTiltExporter) {\n    // New exporter can bake radius into UV1.x because UV0.z may be truncated.\n    float bakedRadius = a_texcoord1.x;\n    if (bakedRadius > 0.000001) {\n      radius = bakedRadius;\n    }\n  }\n\n  t = u_time.z;\n  uTileRate = 10.0;\n  waveIntensity = .6;\n\n  vec4 pos = a_position;\n  //Ensure the t parameter wraps (1.0 becomes 0.0) to avoid cracks at the seam.\n  float theta = mod(a_texcoord0.y, 1.0);\n\n  float pulseIntensity = 1.0 -(sin(t + a_texcoord0.x * uTileRate + theta * 10.0) + 1.0);\n  pulseIntensity *= pulseIntensity;\n  pos.xyz += pulseIntensity * a_normal.xyz * waveIntensity * radius;\n\n  gl_Position = projectionMatrix * modelViewMatrix * pos;\n  f_fog_coord = gl_Position.z;\n  v_position = pos.xyz;\n  // Transform normal and tangent to view space\n  vec3 normal = normalize(normalMatrix * a_normal);\n  v_normal = normal;\n  v_light_dir_0 = mat3(u_SceneLight_0_matrix) * vec3(0, 0, 1);\n  v_light_dir_1 = mat3(u_SceneLight_1_matrix) * vec3(0, 0, 1);\n  v_color = a_color;\n  v_texcoord0 = a_texcoord0.xy;\n}\n"
+          }
+        ],
+        "changedPixels": 0,
+        "maxByteDifference": 0
+      },
+      "browserSha256": "5e50489f84d2ef69e39fa3fe547d13fe3310163269e686e2ea3799d028ba114f",
+      "inputProfile": "legacy-screenshot-fixture",
+      "generatedUv0Size": 3,
+      "shaderUv0Size": 3,
+      "renderStatus": "pass",
+      "gpuReadbackCoverage": 0.009172677993774414,
+      "metrics": {
+        "width": 2048,
+        "height": 2048,
+        "actual": {
+          "coveredPixelRatio": 0.009172677993774414,
+          "bounds": [
+            457,
+            624,
+            1758,
+            1325
+          ],
+          "centroid": [
+            1207.3722610662023,
+            966.0108907545551
+          ]
+        },
+        "reference": {
+          "coveredPixelRatio": 0.008147001266479492,
+          "bounds": [
+            466,
+            642,
+            1372,
+            1193
+          ],
+          "centroid": [
+            1051.2557724386174,
+            888.4028562231132
+          ]
+        },
+        "silhouetteIntersectionOverUnion": 0.05250651984931904,
+        "meanAbsoluteDifference": 0.41056076685587567,
+        "rootMeanSquareDifference": 7.792145512056406
+      },
+      "consoleErrorCount": 0,
+      "pageErrorCount": 0
+    },
+    {
+      "guid": "eba3f993-f9a1-4d35-b84e-bb08f48981a4",
+      "name": "BubbleWand",
+      "size": 2048,
+      "referenceSha256": "f756987cc2fd406d4c04b122c1b9f079f75415b9ced832f3f08dfaa6116b3d7f",
+      "status": "captured",
+      "shaderCompileAudit": {
+        "status": "linked",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "programs": [
+          {
+            "materialName": "OpenBrushShader_BubbleWand",
+            "materialPass": 0,
+            "materialSide": 2,
+            "linked": true,
+            "vertexCompiled": true,
+            "fragmentCompiled": true,
+            "activeAttributes": [
+              {
+                "name": "a_position",
+                "type": 35666,
+                "size": 1,
+                "boundItemSize": 3
+              },
+              {
+                "name": "a_normal",
+                "type": 35665,
+                "size": 1,
+                "boundItemSize": 3
+              },
+              {
+                "name": "a_color",
+                "type": 35666,
+                "size": 1,
+                "boundItemSize": 4
+              },
+              {
+                "name": "a_texcoord0",
+                "type": 35665,
+                "size": 1,
+                "boundItemSize": 3
+              },
+              {
+                "name": "a_texcoord1",
+                "type": 35666,
+                "size": 1,
+                "boundItemSize": null
+              }
+            ]
+          }
+        ],
+        "errors": []
+      },
+      "attributeDefaultProbe": {
+        "drawCalls": 1,
+        "changes": [
+          {
+            "materialName": "OpenBrushShader_BubbleWand",
+            "attribute": "a_texcoord1",
+            "original": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "supplied": [
+              8192.5,
+              -6144.25,
+              12345.75,
+              -3.5
+            ]
+          }
+        ],
+        "programs": [
+          {
+            "materialName": "OpenBrushShader_BubbleWand",
+            "newExporter": false,
+            "tiltInput": true,
+            "vertexSource": "#version 300 es\n\n#define attribute in\n#define varying out\n#define texture2D texture\nprecision highp float;\n\tprecision highp int;\n\tprecision highp sampler2D;\n\tprecision highp samplerCube;\n\tprecision highp sampler3D;\n\tprecision highp sampler2DArray;\n\tprecision highp sampler2DShadow;\n\tprecision highp samplerCubeShadow;\n\tprecision highp sampler2DArrayShadow;\n\tprecision highp isampler2D;\n\tprecision highp isampler3D;\n\tprecision highp isamplerCube;\n\tprecision highp isampler2DArray;\n\tprecision highp usampler2D;\n\tprecision highp usampler3D;\n\tprecision highp usamplerCube;\n\tprecision highp usampler2DArray;\n\t\n#define HIGH_PRECISION\n#define SHADER_TYPE ShaderMaterial\n#define SHADER_NAME OpenBrushShader_BubbleWand\n#define DOUBLE_SIDED\nuniform mat4 modelMatrix;\nuniform mat4 modelViewMatrix;\nuniform mat4 projectionMatrix;\nuniform mat4 viewMatrix;\nuniform mat3 normalMatrix;\nuniform vec3 cameraPosition;\nuniform bool isOrthographic;\n#ifdef USE_INSTANCING\n\tattribute mat4 instanceMatrix;\n#endif\n#ifdef USE_INSTANCING_COLOR\n\tattribute vec3 instanceColor;\n#endif\n#ifdef USE_INSTANCING_MORPH\n\tuniform sampler2D morphTexture;\n#endif\nattribute vec3 position;\nattribute vec3 normal;\nattribute vec2 uv;\n#ifdef USE_UV1\n\tattribute vec2 uv1;\n#endif\n#ifdef USE_UV2\n\tattribute vec2 uv2;\n#endif\n#ifdef USE_UV3\n\tattribute vec2 uv3;\n#endif\n#ifdef USE_TANGENT\n\tattribute vec4 tangent;\n#endif\n#if defined( USE_COLOR_ALPHA )\n\tattribute vec4 color;\n#elif defined( USE_COLOR )\n\tattribute vec3 color;\n#endif\n#ifdef USE_SKINNING\n\tattribute vec4 skinIndex;\n\tattribute vec4 skinWeight;\n#endif\n\n// Copyright 2020 The Tilt Brush Authors\n// Updated to OpenGL ES 3.0 by the Icosa Gallery Authors\n//\n// Licensed under the Apache License, Version 2.0 (the \"License\");\n// you may not use this file except in compliance with the License.\n// You may obtain a copy of the License at\n//\n//      http://www.apache.org/licenses/LICENSE-2.0\n//\n// Unless required by applicable law or agreed to in writing, software\n// distributed under the License is distributed on an \"AS IS\" BASIS,\n// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n// See the License for the specific language governing permissions and\n// limitations under the License.\n\n// BubbleWand vertex shader with displacement and bulge effects\n\nprecision mediump float;\n\nin vec4 a_position;\nin vec3 a_normal;\nin vec4 a_color;\nin vec3 a_texcoord0;\nin vec4 a_texcoord1;\n\nout vec4 v_color;\nout vec3 v_normal;  // Camera-space normal.\nout vec3 v_tangent;  // Camera-space tangent.\nout vec3 v_bitangent;  // Camera-space bitangent.\nout vec3 v_position;  // Camera-space position.\nout vec2 v_texcoord0;\nout vec3 v_light_dir_0;  // Camera-space light direction, main light.\nout vec3 v_light_dir_1;  // Camera-space light direction, other light.\nout float f_fog_coord;\nout vec3 v_viewDir;\n\nuniform mat4 u_SceneLight_0_matrix;\nuniform mat4 u_SceneLight_1_matrix;\n\nuniform vec4 u_time;\nuniform float u_ScrollRate;\nuniform float u_ScrollJitterIntensity;\nuniform float u_ScrollJitterFrequency;\nuniform bool u_isNewTiltExporter;\nuniform bool u_isTiltInput;\n\n// Noise functions from Noise.cginc\nfloat mod289(float x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\n\nvec2 mod289(vec2 x) {\n    return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\n\nvec3 mod289(vec3 x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\n\nvec4 mod289(vec4 x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\n\nfloat permute(float x) {\n  return mod289(((x*34.0)+1.0)*x);\n}\n\nvec3 permute(vec3 x) {\n  return mod289(((x*34.0)+1.0)*x);\n}\n\nvec4 permute(vec4 x) {\n  return mod289(((x*34.0)+1.0)*x);\n}\n\nfloat snoise(vec2 v) {\n  const vec4 C = vec4(0.211324865405187,\n                      0.366025403784439,\n                     -0.577350269189626,\n                      0.024390243902439);\n  vec2 i  = floor(v + dot(v, C.yy) );\n  vec2 x0 = v -   i + dot(i, C.xx);\n\n  vec2 i1;\n  i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);\n  vec4 x12 = x0.xyxy + C.xxzz;\n  x12.xy -= i1;\n\n  i = mod289(i);\n  vec3 p = permute( permute( i.y + vec3(0.0, i1.y, 1.0 ))\n        + i.x + vec3(0.0, i1.x, 1.0 ));\n\n  vec3 m = max(0.5 - vec3(dot(x0,x0), dot(x12.xy,x12.xy), dot(x12.zw,x12.zw)), 0.0);\n  m = m*m ;\n  m = m*m ;\n\n  vec3 x = 2.0 * fract(p * C.www) - 1.0;\n  vec3 h = abs(x) - 0.5;\n  vec3 ox = floor(x + 0.5);\n  vec3 a0 = x - ox;\n\n  m *= 1.79284291400159 - 0.85373472095314 * ( a0*a0 + h*h );\n\n  vec3 g;\n  g.x  = a0.x  * x0.x  + h.x  * x0.y;\n  g.yz = a0.yz * x12.xz + h.yz * x12.yw;\n  return 130.0 * dot(m, g);\n}\n\nvec3 snoise3D(vec3 v){\n  vec3 n = vec3(\n    snoise(vec2(v.x, v.y)),\n    snoise(vec2(v.y, v.z)),\n    snoise(vec2(v.z, v.x))\n  );\n  return n;\n}\n\nfloat curlX(vec3 v, float d){\n  return (\n          (snoise3D(vec3(v.x,v.y+d,v.z)).z - snoise3D(vec3(v.x,v.y-d,v.z)).z)\n-(snoise3D(vec3(v.x,v.y,v.z+d)).y - snoise3D(vec3(v.x,v.y,v.z-d)).y)\n    ) /2.0/d;\n}\n\nfloat curlY(vec3 v, float d){\n  return (\n          (snoise3D(vec3(v.x,v.y,v.z+d)).x - snoise3D(vec3(v.x,v.y,v.z-d)).x)\n-(snoise3D(vec3(v.x+d,v.y,v.z)).z - snoise3D(vec3(v.x-d,v.y,v.z)).z)\n    ) /2.0/d;\n}\n\nfloat curlZ(vec3 v, float d){\n  return (\n          (snoise3D(vec3(v.x+d,v.y,v.z)).y - snoise3D(vec3(v.x-d,v.y,v.z)).y)\n-(snoise3D(vec3(v.x,v.y+d,v.z)).x - snoise3D(vec3(v.x,v.y-d,v.z)).x)\n    ) /2.0/d;\n}\n\nvec4 displace(vec4 pos, float timeOffset) {\n  if (u_isTiltInput) {\n    pos.xyz = vec3(pos.x, pos.y, -pos.z) * 10.0;\n  }\n\n  float t = u_time.y * u_ScrollRate + timeOffset;\n\n  pos.x += sin(t + u_time.y + pos.z * u_ScrollJitterFrequency) * u_ScrollJitterIntensity;\n  pos.z += cos(t + u_time.y + pos.x * u_ScrollJitterFrequency) * u_ScrollJitterIntensity;\n  pos.y += cos(t * 1.2 + u_time.y + pos.x * u_ScrollJitterFrequency) * u_ScrollJitterIntensity;\n\n  float time = u_time.x;\n  float d = 30.0;\n  float freq = 0.1;\n  vec3 disp = vec3(1,0,0) * curlX(pos.xyz * freq + time, d);\n  disp += vec3(0,1,0) * curlY(pos.xyz * freq + time, d);\n  disp += vec3(0,0,1) * curlZ(pos.xyz * freq + time, d);\n  vec3 displacement = u_ScrollJitterIntensity * disp;\n  pos.xyz = u_isTiltInput\n    ? vec3(displacement.x, displacement.y, -displacement.z) * 0.1\n    : displacement;\n  return pos;\n}\n\nvoid main() {\n  vec4 vertex = a_position;\n  vec3 normal = a_normal;\n  \n  float radius = a_texcoord0.z;\n  if (u_isNewTiltExporter && radius <= 0.000001) {\n    radius = a_texcoord1.x;\n  }\n\n  // Bulge displacement\n  float wave = sin(a_texcoord0.x * 3.14159);\n  vec3 wave_displacement = radius * normal * wave;\n  vertex.xyz += wave_displacement;\n  \n  // Noise displacement\n  vec4 displacement = displace(vertex, 0.0);\n  vertex.xyz += displacement.xyz;\n\n  // Perturb normal\n  normal = normalize(normal + displacement.xyz * 2.5 + wave_displacement * 2.5);\n\n  gl_Position = projectionMatrix * modelViewMatrix * vertex;\n  f_fog_coord = gl_Position.z;\n  v_normal = normalMatrix * normal;\n  v_position = (modelViewMatrix * vertex).xyz;\n  v_light_dir_0 = mat3(u_SceneLight_0_matrix) * vec3(0, 0, 1);\n  v_light_dir_1 = mat3(u_SceneLight_1_matrix) * vec3(0, 0, 1);\n  v_color = a_color;\n  v_texcoord0 = a_texcoord0.xy;\n  v_viewDir = normalize(v_position);\n}\n"
+          }
+        ],
+        "changedPixels": 0,
+        "maxByteDifference": 0
+      },
+      "browserSha256": "45579f616c7e81cd2c9738ef1d44ea3e788fd48cf72c29205e1eab97ad94315d",
+      "inputProfile": "legacy-screenshot-fixture",
+      "generatedUv0Size": 3,
+      "shaderUv0Size": 3,
+      "renderStatus": "pass",
+      "gpuReadbackCoverage": 0.04710578918457031,
+      "metrics": {
+        "width": 2048,
+        "height": 2048,
+        "actual": {
+          "coveredPixelRatio": 0.04710578918457031,
+          "bounds": [
+            444,
+            629,
+            1773,
+            1335
+          ],
+          "centroid": [
+            1011.2406516985868,
+            1002.2381918856541
+          ]
+        },
+        "reference": {
+          "coveredPixelRatio": 0.03191637992858887,
+          "bounds": [
+            459,
+            645,
+            1417,
+            1207
+          ],
+          "centroid": [
+            1078.0602687742312,
+            928.872246334048
+          ]
+        },
+        "silhouetteIntersectionOverUnion": 0.2685793677828768,
+        "meanAbsoluteDifference": 3.465421994527181,
+        "rootMeanSquareDifference": 19.624629201443494
+      },
+      "consoleErrorCount": 0,
+      "pageErrorCount": 0
+    },
+    {
+      "guid": "f8ba3d18-01fc-4d7b-b2d9-b99d10b8e7cf",
+      "name": "KeijiroTube",
+      "size": 2048,
+      "referenceSha256": "624601c74e4755017cfcee797ff2973af5f183cadf56956366d4aa652ecdffe1",
+      "status": "captured",
+      "shaderCompileAudit": {
+        "status": "linked",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "programs": [
+          {
+            "materialName": "OpenBrushShader_KeijiroTube",
+            "materialPass": 0,
+            "materialSide": 2,
+            "linked": true,
+            "vertexCompiled": true,
+            "fragmentCompiled": true,
+            "activeAttributes": [
+              {
+                "name": "a_position",
+                "type": 35666,
+                "size": 1,
+                "boundItemSize": 3
+              },
+              {
+                "name": "a_normal",
+                "type": 35665,
+                "size": 1,
+                "boundItemSize": 3
+              },
+              {
+                "name": "a_color",
+                "type": 35666,
+                "size": 1,
+                "boundItemSize": 4
+              },
+              {
+                "name": "a_texcoord0",
+                "type": 35665,
+                "size": 1,
+                "boundItemSize": 3
+              },
+              {
+                "name": "a_texcoord1",
+                "type": 35666,
+                "size": 1,
+                "boundItemSize": null
+              },
+              {
+                "name": "a_tangent",
+                "type": 35666,
+                "size": 1,
+                "boundItemSize": 4
+              }
+            ]
+          }
+        ],
+        "errors": []
+      },
+      "attributeDefaultProbe": {
+        "drawCalls": 1,
+        "changes": [
+          {
+            "materialName": "OpenBrushShader_KeijiroTube",
+            "attribute": "a_texcoord1",
+            "original": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "supplied": [
+              8192.5,
+              -6144.25,
+              12345.75,
+              -3.5
+            ]
+          }
+        ],
+        "programs": [
+          {
+            "materialName": "OpenBrushShader_KeijiroTube",
+            "newExporter": false,
+            "tiltInput": "not-active",
+            "vertexSource": "#version 300 es\n\n#define attribute in\n#define varying out\n#define texture2D texture\nprecision highp float;\n\tprecision highp int;\n\tprecision highp sampler2D;\n\tprecision highp samplerCube;\n\tprecision highp sampler3D;\n\tprecision highp sampler2DArray;\n\tprecision highp sampler2DShadow;\n\tprecision highp samplerCubeShadow;\n\tprecision highp sampler2DArrayShadow;\n\tprecision highp isampler2D;\n\tprecision highp isampler3D;\n\tprecision highp isamplerCube;\n\tprecision highp isampler2DArray;\n\tprecision highp usampler2D;\n\tprecision highp usampler3D;\n\tprecision highp usamplerCube;\n\tprecision highp usampler2DArray;\n\t\n#define HIGH_PRECISION\n#define SHADER_TYPE ShaderMaterial\n#define SHADER_NAME OpenBrushShader_KeijiroTube\n#define DOUBLE_SIDED\nuniform mat4 modelMatrix;\nuniform mat4 modelViewMatrix;\nuniform mat4 projectionMatrix;\nuniform mat4 viewMatrix;\nuniform mat3 normalMatrix;\nuniform vec3 cameraPosition;\nuniform bool isOrthographic;\n#ifdef USE_INSTANCING\n\tattribute mat4 instanceMatrix;\n#endif\n#ifdef USE_INSTANCING_COLOR\n\tattribute vec3 instanceColor;\n#endif\n#ifdef USE_INSTANCING_MORPH\n\tuniform sampler2D morphTexture;\n#endif\nattribute vec3 position;\nattribute vec3 normal;\nattribute vec2 uv;\n#ifdef USE_UV1\n\tattribute vec2 uv1;\n#endif\n#ifdef USE_UV2\n\tattribute vec2 uv2;\n#endif\n#ifdef USE_UV3\n\tattribute vec2 uv3;\n#endif\n#ifdef USE_TANGENT\n\tattribute vec4 tangent;\n#endif\n#if defined( USE_COLOR_ALPHA )\n\tattribute vec4 color;\n#elif defined( USE_COLOR )\n\tattribute vec3 color;\n#endif\n#ifdef USE_SKINNING\n\tattribute vec4 skinIndex;\n\tattribute vec4 skinWeight;\n#endif\n\n// Copyright 2020 The Tilt Brush Authors\n//\n// Licensed under the Apache License, Version 2.0 (the \"License\");\n// you may not use this file except in compliance with the License.\n// You may obtain a copy of the License at\n//\n//      http://www.apache.org/licenses/LICENSE-2.0\n//\n// Unless required by applicable law or agreed to in writing, software\n// distributed under the License is distributed on an \"AS IS\" BASIS,\n// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n// See the License for the specific language governing permissions and\n// limitations under the License.\n\n// KeijiroTube vertex shader with wave animation\nin vec4 a_position;\nin vec3 a_normal;\nin vec4 a_color;\nin vec3 a_texcoord0;  // Need z component for radius\nin vec4 a_texcoord1;\nin vec4 a_tangent;\n\nout vec4 v_color;\nout vec3 v_normal;\nout vec3 v_tangent;  // Camera-space tangent.\nout vec3 v_bitangent;  // Camera-space bitangent.\nout vec3 v_position;\nout vec2 v_texcoord0;\nout vec3 v_light_dir_0;\nout vec3 v_light_dir_1;\nout float f_fog_coord;\n\nuniform mat4 u_SceneLight_0_matrix;\nuniform mat4 u_SceneLight_1_matrix;\nuniform vec4 u_time;\nuniform bool u_isNewTiltExporter;\n\n\nvoid main() {\n  vec4 pos = a_position;\n  float radius = a_texcoord0.z;\n  if (u_isNewTiltExporter && radius <= 0.000001) {\n    radius = a_texcoord1.x;\n  }\n\n  float wave = sin(a_texcoord0.x - u_time.z);\n  float pulse = smoothstep(0.45, 0.5, clamp(wave, 0.0, 1.0));\n\n  if (u_isNewTiltExporter) {\n    // The baked mesh already contains the pose from bake time (_Time.z == 2).\n    float bakedWave = sin(a_texcoord0.x - 2.0);\n    float bakedPulse = smoothstep(0.45, 0.5, clamp(bakedWave, 0.0, 1.0));\n    pos.xyz -= (pulse - bakedPulse) * radius * a_normal;\n  } else {\n    pos.xyz -= pulse * radius * a_normal;\n  }\n  \n  gl_Position = projectionMatrix * modelViewMatrix * pos;\n  f_fog_coord = gl_Position.z;\n  // Transform normal and tangent to view space\n  vec3 normal = normalize(normalMatrix * a_normal);\n  vec3 tangent = normalize(normalMatrix * a_tangent.xyz);\n  \n  // Compute bitangent using cross product and handedness\n  vec3 bitangent = cross(normal, tangent) * a_tangent.w;\n  \n  v_normal = normal;\n  v_tangent = tangent;\n  v_bitangent = bitangent;\n  v_position = (modelViewMatrix * pos).xyz;\n  v_light_dir_0 = mat3(u_SceneLight_0_matrix) * vec3(0, 0, 1);\n  v_light_dir_1 = mat3(u_SceneLight_1_matrix) * vec3(0, 0, 1);\n  v_color = a_color;\n  v_texcoord0 = a_texcoord0.xy;\n}\n"
+          }
+        ],
+        "changedPixels": 0,
+        "maxByteDifference": 0
+      },
+      "browserSha256": "a25fcd71141edd41ccafdf472658fd000b8a3c267f8f326e38d82d0740af83c4",
+      "inputProfile": "legacy-screenshot-fixture",
+      "generatedUv0Size": 3,
+      "shaderUv0Size": 3,
+      "renderStatus": "pass",
+      "gpuReadbackCoverage": 0.01299285888671875,
+      "metrics": {
+        "width": 2048,
+        "height": 2048,
+        "actual": {
+          "coveredPixelRatio": 0.01299285888671875,
+          "bounds": [
+            446,
+            634,
+            911,
+            1321
+          ],
+          "centroid": [
+            659.4455189371697,
+            934.6401937756899
+          ]
+        },
+        "reference": {
+          "coveredPixelRatio": 0.008576154708862305,
+          "bounds": [
+            462,
+            649,
+            1402,
+            1127
+          ],
+          "centroid": [
+            1119.8928581357204,
+            874.9782324650413
+          ]
+        },
+        "silhouetteIntersectionOverUnion": 0.02655258887741555,
+        "meanAbsoluteDifference": 1.9248816967010498,
+        "rootMeanSquareDifference": 17.384456405343908
+      },
+      "consoleErrorCount": 0,
+      "pageErrorCount": 0
+    }
+  ],
+  "buildIndexSha256": "f43d3505ecee266471fb796e15a5db8e48a411c5c3f3792f6e35e0b87e4b49d2",
+  "runtimeUrl": "http://127.0.0.1:4186/",
+  "capturedBrushCount": 4,
+  "nonemptyBrushCount": 4
+}

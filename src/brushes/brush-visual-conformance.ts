@@ -16,6 +16,7 @@ import type { Camera } from "@iwsdk/core";
 import type { GeneratedBrushGeometry } from "./brush-geometry.js";
 import { DEFAULT_BRUSH_CAPTURE_SIZE, opaqueCapturePixels } from "./brush-visual-capture-input.js";
 import { auditBrushShaderCompile, type BrushShaderCompileAudit } from "./brush-shader-compile-audit.js";
+import { probeBrushAttributeDefaults, compareProbeRgb, type BrushDefaultProbe } from "./brush-attribute-default-probe.js";
 
 import {
   applyBrushShaderAttributeAliases,
@@ -57,6 +58,7 @@ export interface BrushGeometryVisualConformanceResult {
   generatedUv0Size: number;
   shaderUv0Size: number;
   shaderCompileAudit: BrushShaderCompileAudit;
+  attributeDefaultProbe?: BrushDefaultProbe & { changedPixels: number; maxByteDifference: number };
 }
 
 export function runBrushGeometryVisualConformance(
@@ -68,6 +70,7 @@ export function runBrushGeometryVisualConformance(
   camera?: Camera,
   minimumCoveredPixelRatio = 0.005,
   renderSize = BRUSH_VISUAL_CONFORMANCE_SIZE,
+  probeDefaults = false,
 ): BrushGeometryVisualConformanceResult {
   const geometry = new BufferGeometry();
   geometry.setAttribute("position", new BufferAttribute(generated.positions, 3));
@@ -136,11 +139,20 @@ export function runBrushGeometryVisualConformance(
   const previousClearColor = renderer.getClearColor(new Color());
   const previousClearAlpha = renderer.getClearAlpha();
   let shaderCompileAudit: BrushShaderCompileAudit;
+  let attributeDefaultProbe: BrushGeometryVisualConformanceResult["attributeDefaultProbe"];
   try {
     renderer.setClearColor(0x000000, 0);
     shaderCompileAudit = auditBrushShaderCompile(renderer, mesh,
       Array.isArray(renderMaterial) ? renderMaterial : [renderMaterial],
-      () => renderPixels(renderer, scene, renderCamera, target, pixels, renderSize));
+      () => {
+        renderPixels(renderer, scene, renderCamera, target, pixels, renderSize);
+        if (probeDefaults) {
+          const perturbed = new Uint8Array(pixels.length);
+          const probe = probeBrushAttributeDefaults(renderer, mesh,
+            () => renderPixels(renderer, scene, renderCamera, target, perturbed, renderSize));
+          attributeDefaultProbe = { ...probe, ...compareProbeRgb(pixels, perturbed) };
+        }
+      });
   } finally {
     renderer.setRenderTarget(previousTarget);
     renderer.setClearColor(previousClearColor, previousClearAlpha);
@@ -172,6 +184,7 @@ export function runBrushGeometryVisualConformance(
     generatedUv0Size: generated.uv0Size,
     shaderUv0Size,
     shaderCompileAudit,
+    attributeDefaultProbe,
   };
 }
 
@@ -214,6 +227,7 @@ export function showBrushGeometryVisualConformance(
   root.dataset.generatedUv0Size = String(result.generatedUv0Size);
   root.dataset.shaderUv0Size = String(result.shaderUv0Size);
   root.dataset.shaderCompileAudit = JSON.stringify(result.shaderCompileAudit);
+  if (result.attributeDefaultProbe) root.dataset.attributeDefaultProbe = JSON.stringify(result.attributeDefaultProbe);
   document.body.append(root);
 }
 

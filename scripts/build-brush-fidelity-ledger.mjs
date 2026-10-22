@@ -15,6 +15,8 @@ const paths = {
   captures: "browser-images-packed-uv-2026-10-21/results.json", layout: "vertex-layout-2026-10-22/results.json",
   images: "native-2026-10-21/image-corpus-inventory.json",
   compileCaptures: "browser-shader-compile-2026-10-22/results.json",
+  attributeProbeCaptures: "attribute-default-probe-2026-10-22/results.json",
+  attributeProbeControls: "attribute-default-probe-2026-10-22/gpu-controls.json",
 };
 const data = {}, sources = {};
 for (const [key, relative] of Object.entries(paths)) {
@@ -31,10 +33,10 @@ const packageJson = JSON.parse(await readFile("package.json"));
 const assetSource = await readFile("src/brushes/brush-asset-base-url.ts");
 const assetRevision = assetSource.toString().match(/ICOSA_SKETCH_ASSETS_REVISION\s*=\s*"([0-9a-f]{40})"/)?.[1];
 if (!assetRevision) throw new Error("Configured default asset revision is missing.");
-if (!data.captures.completedAt || !data.postLoader.completedAt || !data.compileCaptures.completedAt) throw new Error("Incomplete browser run cannot be published as finished evidence.");
+if (!data.captures.completedAt || !data.postLoader.completedAt || !data.compileCaptures.completedAt || !data.attributeProbeCaptures.completedAt) throw new Error("Incomplete browser run cannot be published as finished evidence.");
 const required = Object.entries(inventory.brushes).filter(([, brush]) => brush.catalogSection && !brush.tags?.includes("broken") && (brush.tags?.includes("default") || brush.tags?.includes("experimental"))).map(([guid, brush]) => ({ guid: guid.toLowerCase(), name: manifest.brushes[guid].name, catalogSection: brush.catalogSection }));
 if (!required.length) throw new Error("Required inventory is empty.");
-for (const key of ["mesh", "exports", "captures", "layout", "compileCaptures"]) {
+for (const key of ["mesh", "exports", "captures", "layout", "compileCaptures", "attributeProbeCaptures"]) {
   const report = data[key].evidence ?? data[key];
   requireMatchingHash(report.inventorySha256, hash(inventoryBytes), `${key} inventory`);
   requireMatchingHash(report.packageLockSha256 ?? report.lockfileSha256, hash(lockBytes), `${key} lockfile`);
@@ -66,6 +68,7 @@ const ledger = {
     coverageSmokePasses: rows.filter((r) => r.browserCapture.coverageSmoke === "pass").length,
     layoutCapacityMatches: rows.filter((r) => r.bufferLayout.status === "layout-capacity-match").length,
     browserCompileRecordedLinks: rows.filter((r) => r.browserShaderCompileAudit === "recorded-linked").length,
+    attributeDefaultRgbInvariantBrushes: rows.filter((r) => r.unboundAttributeDefaultProbe?.status === "recorded-rgb-invariant").length,
     visualParityVerified: 0, actualXrCompileVerified: 0, devicePerformanceVerified: 0,
   }, brushes: rows,
 };

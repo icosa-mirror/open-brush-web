@@ -17,6 +17,7 @@ async function main() {
     references: { type: "string" }, output: { type: "string" },
     url: { type: "string" }, paired: { type: "string" },
     brush: { type: "string", multiple: true }, visible: { type: "boolean", default: false },
+    "attribute-probe": { type: "boolean", default: false },
   } });
   if (!values.references || !values.output) throw new Error("Usage: node scripts/browser-brush-image-comparison.mjs --references <PNG directory> --output <new directory> [--url <runtime URL>] [--paired <native capture directory>] [--brush <GUID or name>]");
   const references = path.resolve(values.references);
@@ -118,6 +119,7 @@ async function main() {
         target.searchParams.set("visual-conformance", "brush");
         target.searchParams.set("brush-guid", input.guid);
         target.searchParams.set("conformance-size", String(input.size));
+        if (values["attribute-probe"]) target.searchParams.set("conformance-attribute-probe", "1");
         if (input.paired) {
           const inputUrl = new URL("__openbrush_native_capture_input__", target);
           await page.route(inputUrl.href, (route) => route.fulfill({ json: input.paired.payload }));
@@ -136,12 +138,15 @@ async function main() {
           const debug = gl?.getExtension("WEBGL_debug_renderer_info");
           return { png: canvas.toDataURL("image/png"), width: canvas.width, height: canvas.height,
             shaderCompileAudit: panel.dataset.shaderCompileAudit ? JSON.parse(panel.dataset.shaderCompileAudit) : null,
+            attributeDefaultProbe: panel.dataset.attributeDefaultProbe ? JSON.parse(panel.dataset.attributeDefaultProbe) : null,
             generatedUv0Size: Number(panel.dataset.generatedUv0Size), shaderUv0Size: Number(panel.dataset.shaderUv0Size),
             profile: panel.dataset.inputProfile, coverage: Number(panel.dataset.coveredPixelRatio),
             renderStatus: document.documentElement.dataset.brushVisualConformance,
             renderer: debug ? gl.getParameter(debug.UNMASKED_RENDERER_WEBGL) : null };
         });
         row.shaderCompileAudit = capture.shaderCompileAudit;
+        row.attributeDefaultProbe = capture.attributeDefaultProbe;
+        if (values["attribute-probe"] && !capture.attributeDefaultProbe) throw new Error("Requested attribute-default probe is missing; rebuild the runtime.");
         validateBrushCapture(capture, input.size, Boolean(input.paired));
         const png = Buffer.from(capture.png.split(",")[1], "base64");
         const actualFile = path.join(output, "browser", input.file);

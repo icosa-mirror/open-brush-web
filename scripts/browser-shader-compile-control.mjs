@@ -18,7 +18,8 @@ try{
  const harness=new URL('__compile_audit_gpu__',url).href;
  await page.route(harness,r=>r.fulfill({contentType:'text/html',body:'<!doctype html><html><body></body></html>'}));await page.goto(harness);
  const results=await page.evaluate(async()=>{const m=await import('/src/brushes/brush-shader-compile-control.ts');return await m.testCompileAudit()});
- await writeFile(`${output}/results.json`,JSON.stringify({browserVersion:browser.version(),results,pageErrors:errors},null,2));
+ const attributeProbeControl=await page.evaluate(async()=>{const m=await import('/src/brushes/brush-attribute-default-control.ts');return await m.testAttributeDefaultProbe()});
+ await writeFile(`${output}/results.json`,JSON.stringify({browserVersion:browser.version(),results,attributeProbeControl,pageErrors:errors},null,2));
  if(errors.length)throw Error('Unexpected page errors');
  console.log(JSON.stringify(results.map(r=>({broken:r.broken,status:r.result.status,restored:r.restored,programs:r.result.programs.length}))));
 }finally{await browser?.close();server.kill();await writeFile(`${output}/server.txt`,serverLog)}

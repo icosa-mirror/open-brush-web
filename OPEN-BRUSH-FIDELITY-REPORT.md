@@ -1,6 +1,6 @@
 # Open Brush parity plan and brush fidelity review
 
-Current planning audit: 2026-10-22, application baseline `f086d11`.
+Current planning audit: 2026-10-22, application baseline `aefe5d6`.
 
 Original review: 2026-08-31, application baseline `4579dbb`.
 
@@ -153,9 +153,18 @@ every intervening upstream change.
     in the recorded nonimmersive capture context. A valid/invalid real-GPU
     control checks failure detection and restoration. The ledger now distinguishes
     these recorded desktop links from unverified actual-XR compilation and
-    visual parity. Six unbound user-attribute observations remain for semantic
-    branch review; eight unbound `gl_VertexID` observations are built-ins.
+    visual parity. Six unbound user-attribute observations are reviewed in the
+    live-input branch below; eight unbound `gl_VertexID` observations are built-ins.
     Coverage remains 94/95 and is not promoted to image parity.
+14. The [default-attribute probe](docs/evidence/brush-fidelity/attribute-default-probe-2026-10-22/README.md)
+    records actual GPU exporter flags and counterfactual default values for
+    Electricity, Disco, BubbleWand and KeijiroTube. All six affected programs
+    report the new-exporter flag false; changing their unbound float defaults
+    changes zero RGB bytes. A shader intentionally consuming an unbound input
+    changes pixels under the same mechanism and verifies state restoration.
+    Together with the captured compiled source guards, this supports leaving
+    those inputs unbound in the recorded live-input branch. Exported-input
+    semantics, broader runtime variants and visual parity remain unverified.
 
 ## Executive assessment
 

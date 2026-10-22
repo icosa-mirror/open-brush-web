@@ -1,0 +1,126 @@
+{
+  "browserVersion": "155.0.8059.85",
+  "results": [
+    {
+      "broken": false,
+      "restored": true,
+      "result": {
+        "status": "linked",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "programs": [
+          {
+            "materialName": "valid-control",
+            "materialPass": 0,
+            "materialSide": 0,
+            "linked": true,
+            "vertexCompiled": true,
+            "fragmentCompiled": true,
+            "activeAttributes": [
+              {
+                "name": "position",
+                "type": 35665,
+                "size": 1,
+                "boundItemSize": 3
+              }
+            ]
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "broken": true,
+      "restored": true,
+      "result": {
+        "status": "failed",
+        "context": "nonimmersive",
+        "expectedMaterialPasses": 1,
+        "observedMaterialPasses": 1,
+        "programs": [
+          {
+            "materialName": "deliberately-invalid-fragment",
+            "materialPass": 0,
+            "materialSide": 0,
+            "linked": false,
+            "vertexCompiled": true,
+            "fragmentCompiled": false,
+            "activeAttributes": []
+          }
+        ],
+        "errors": [
+          "Fragment shader is not compiled.\n"
+        ]
+      }
+    }
+  ],
+  "attributeProbeControl": {
+    "compile": {
+      "status": "linked",
+      "context": "nonimmersive",
+      "expectedMaterialPasses": 1,
+      "observedMaterialPasses": 1,
+      "programs": [
+        {
+          "materialName": "active-unbound-attribute-control",
+          "materialPass": 0,
+          "materialSide": 0,
+          "linked": true,
+          "vertexCompiled": true,
+          "fragmentCompiled": true,
+          "activeAttributes": [
+            {
+              "name": "position",
+              "type": 35665,
+              "size": 1,
+              "boundItemSize": 3
+            },
+            {
+              "name": "a_probe",
+              "type": 35666,
+              "size": 1,
+              "boundItemSize": null
+            }
+          ]
+        }
+      ],
+      "errors": []
+    },
+    "probe": {
+      "drawCalls": 1,
+      "changes": [
+        {
+          "materialName": "active-unbound-attribute-control",
+          "attribute": "a_probe",
+          "original": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "supplied": [
+            8192.5,
+            -6144.25,
+            12345.75,
+            -3.5
+          ]
+        }
+      ],
+      "programs": [
+        {
+          "materialName": "active-unbound-attribute-control",
+          "newExporter": "not-active",
+          "tiltInput": "not-active",
+          "vertexSource": "#version 300 es\n\n#define attribute in\n#define varying out\n#define texture2D texture\nprecision highp float;\n\tprecision highp int;\n\tprecision highp sampler2D;\n\tprecision highp samplerCube;\n\tprecision highp sampler3D;\n\tprecision highp sampler2DArray;\n\tprecision highp sampler2DShadow;\n\tprecision highp samplerCubeShadow;\n\tprecision highp sampler2DArrayShadow;\n\tprecision highp isampler2D;\n\tprecision highp isampler3D;\n\tprecision highp isamplerCube;\n\tprecision highp isampler2DArray;\n\tprecision highp usampler2D;\n\tprecision highp usampler3D;\n\tprecision highp usamplerCube;\n\tprecision highp usampler2DArray;\n\t\n#define HIGH_PRECISION\n#define SHADER_TYPE ShaderMaterial\n#define SHADER_NAME active-unbound-attribute-control\nuniform mat4 modelMatrix;\nuniform mat4 modelViewMatrix;\nuniform mat4 projectionMatrix;\nuniform mat4 viewMatrix;\nuniform mat3 normalMatrix;\nuniform vec3 cameraPosition;\nuniform bool isOrthographic;\n#ifdef USE_INSTANCING\n\tattribute mat4 instanceMatrix;\n#endif\n#ifdef USE_INSTANCING_COLOR\n\tattribute vec3 instanceColor;\n#endif\n#ifdef USE_INSTANCING_MORPH\n\tuniform sampler2D morphTexture;\n#endif\nattribute vec3 position;\nattribute vec3 normal;\nattribute vec2 uv;\n#ifdef USE_UV1\n\tattribute vec2 uv1;\n#endif\n#ifdef USE_UV2\n\tattribute vec2 uv2;\n#endif\n#ifdef USE_UV3\n\tattribute vec2 uv3;\n#endif\n#ifdef USE_TANGENT\n\tattribute vec4 tangent;\n#endif\n#if defined( USE_COLOR_ALPHA )\n\tattribute vec4 color;\n#elif defined( USE_COLOR )\n\tattribute vec3 color;\n#endif\n#ifdef USE_SKINNING\n\tattribute vec4 skinIndex;\n\tattribute vec4 skinWeight;\n#endif\n\nattribute vec4 a_probe; varying vec4 v_probe; void main(){v_probe=a_probe;gl_Position=vec4(position,1.0);}"
+        }
+      ]
+    },
+    "difference": {
+      "changedPixels": 8,
+      "maxByteDifference": 255
+    },
+    "restored": true
+  },
+  "pageErrors": []
+}

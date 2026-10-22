@@ -16,6 +16,17 @@ const data = {
 const required = data.exports.brushes.map((row) => ({ guid: row.guid, name: row.name }));
 
 describe("per-GUID brush fidelity evidence join", () => {
+  it("keeps four controlled default-input probes separate from visual parity and requires a sensitivity control", () => {
+    const changed = { ...data,
+      attributeProbeCaptures: read(`${base}attribute-default-probe-2026-10-22/results.json`),
+      attributeProbeControls: read(`${base}attribute-default-probe-2026-10-22/gpu-controls.json`),
+    };
+    const rows = joinBrushFidelityEvidence(required, changed);
+    expect(rows.filter((row) => row.unboundAttributeDefaultProbe?.status === "recorded-rgb-invariant")).toHaveLength(4);
+    expect(rows.every((row) => row.visualParity === "unverified")).toBe(true);
+    changed.attributeProbeControls = null;
+    expect(() => joinBrushFidelityEvidence(required, changed)).toThrow("sensitivity/restoration control");
+  });
   it("records complete browser link audits without promoting XR or visual parity", () => {
     const changed = structuredClone(data);
     changed.compileCaptures = { results: changed.captures.results.map((row) => ({ ...row,

@@ -34,6 +34,9 @@
    used only by a uniform-controlled branch. These observations do not prove
    the live branch consumes missing data, and no fabricated buffers were added.
    Linking does not prove correct packing or shader branch inputs.
+   A [subsequent controlled probe](../attribute-default-probe-2026-10-22/README.md)
+   records the false exporter flags and zero RGB change when those six defaults
+   are perturbed in the live-input branch. Exported-branch semantics remain open.
 6. [manifest.json](manifest.json) binds the producing source, build bundles and
    per-brush logs to hashes. The raw report's app revision `f086d11` is the
    pre-change baseline; producing source hashes identify this change. Raw PNG

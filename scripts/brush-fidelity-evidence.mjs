@@ -40,6 +40,11 @@ export function joinBrushFidelityEvidence(required, data) {
   }
   const normalExports = data.postLoader.results.filter((row) => row.generator?.includes("Open Brush UnityGLTF Exporter"));
   const compileRows = data.compileCaptures ? indexGuidRows(data.compileCaptures.results, "guid", "browser shader compile") : null;
+  const probeRows = data.attributeProbeCaptures ? indexGuidRows(data.attributeProbeCaptures.results, "guid", "attribute-default probe") : null;
+  if (probeRows) {
+    const control = data.attributeProbeControls?.attributeProbeControl;
+    if (!control?.restored || control.compile?.status !== "linked" || !(control.difference?.changedPixels > 0) || data.attributeProbeControls.pageErrors?.length !== 0) throw new Error("Missing passing attribute-probe sensitivity/restoration control.");
+  }
   return required.map(({ guid, name, catalogSection }) => {
     const native = take("native", guid), mesh = take("mesh", guid), exported = take("exports", guid);
     const capture = take("captures", guid), layout = take("layout", guid), image = take("images", guid);
@@ -67,6 +72,20 @@ export function joinBrushFidelityEvidence(required, data) {
         if (compile.status === "captured" && compile.shaderCompileAudit.status === "linked" && compile.consoleErrorCount === 0 && compile.pageErrorCount === 0) compileStatus = "recorded-linked";
       }
     }
+    const probeCapture = probeRows?.get(guid);
+    let attributeProbe = { source: null, status: "unverified" };
+    if (probeCapture) {
+      requireMatchingHash(probeCapture.referenceSha256, image.sha256, `${guid} attribute probe reference`);
+      validateShaderCompileAudit(probeCapture.shaderCompileAudit);
+      const probe = probeCapture.attributeDefaultProbe;
+      if (!probe || !Number.isSafeInteger(probe.changedPixels) || probe.changedPixels < 0 || !Array.isArray(probe.changes) || !Array.isArray(probe.programs)) throw new Error(`Invalid attribute-probe data for ${guid}.`);
+      const observed = probeCapture.status === "captured" && probeCapture.renderStatus === "pass" && probeCapture.shaderCompileAudit.status === "linked" && probe.drawCalls > 0 && probe.changes.length > 0;
+      attributeProbe = { source: "attributeProbeCaptures", status: !observed ? "unverified" : probe.changedPixels > 0 ? "recorded-rgb-change" : "recorded-rgb-invariant",
+        changedPixels: probe.changedPixels, maxByteDifference: probe.maxByteDifference,
+        perturbedBindings: probe.changes.map((entry) => entry.attribute),
+        newExporterUniforms: probe.programs.map((program) => program.newExporter),
+        scope: "recorded live-input defaults only; exported branch and visual parity unverified" };
+    }
     return {
       guid, name, catalogSection,
       liveMesh: { source: "mesh", status: mesh.status, criteria: "recorded finalized-live-mesh rules; includes family-specific hull criteria", inputSha256: native.mesh.sha256 },
@@ -92,6 +111,7 @@ export function joinBrushFidelityEvidence(required, data) {
         observedMaterialPasses: compile.shaderCompileAudit.observedMaterialPasses, boundPrograms: compile.shaderCompileAudit.programs.length,
         shaderSemantics: "unverified", coverageSmoke: compile.renderStatus } : null,
       actualXrShaderCompile: "unverified",
+      unboundAttributeDefaultProbe: attributeProbe,
       physicalQuestInteraction: "unverified", devicePerformanceBudget: "unverified", animationParity: "unverified",
       visualParity: "unverified",
     };

@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "baseline": "aefe5d63a6036b113226716bd829787a40ef7437",
+  "recordedAt": "2026-10-21T23:58:21.949Z",
+  "scope": "Counterfactual generic attribute defaults in recorded nonimmersive live-input context, not exported-branch or visual parity",
+  "sourceHashes": {
+    "src/brushes/brush-attribute-default-probe.ts": "c522bd3497d70e539496eaa60dcb2a2ca1de92dbe5ad2d5ff31c785cec383179",
+    "src/brushes/brush-attribute-default-control.ts": "083d7bb72979911937854de12028c3fd90b93eb64d62d45a1bfea3d86dfe925d",
+    "src/brushes/brush-visual-conformance.ts": "1416de680f1bdd6b3b00ebb32175be48556309ea28139399240874c9442826bb",
+    "src/systems/stroke-authoring-system.ts": "b918b06d09f593cf293b26faf2a48629f4692d456cb6a36313c22e7ea6603d8a",
+    "scripts/browser-brush-image-comparison.mjs": "854430fe9ba69b8f2d835e653c958bcc08911063986f953a0691b3714cc53990",
+    "scripts/browser-shader-compile-control.mjs": "a6d0dc9a7ca857a8dd8ede3f2bc7a1b9da59424eb4bc5cde7111164a7f32b380",
+    "scripts/brush-capture-contract.mjs": "d470b08ff4f200ee9e27a2020d3f57adb0364f014d0e61b34d4c2b4ea7904643",
+    "package-lock.json": "f994e07d2de98eabdcd30394cd9be512ac6db3b62254301c8a130302ee4a1e04"
+  },
+  "bundles": {
+    "HavokPhysics_es-CV3-LB9r.js": "1077361d1183946f63506aedaf3c4a8292e4df06a192b0d16b8012037e31be52",
+    "index-Ci9SaOp0.js": "e6c59a4c264e7f958bed25d3a0076e8ac416c59822263dbac270604ad1eaa1e5",
+    "index-Ve6XDjtN.js": "89ae87e3de422278edce35093e6fdda239e3d1aa2c968e2b63eb8c9b74a40255",
+    "inter-BNVRAYFH.js": "9159b2ed54dfb23ebadd61a9b91deb26fc652b0a6b1748784e9c4b4315f1da31",
+    "worker-DNzgnIPb.js": "52fb5831a58dd8774e4636e6c31475992b31c7540eb7474fa0de8a1181d87777",
+    "worker-_Lh8Vt-i.js": "430e4c9e12f79a4c6c5fb3c410bcd85d4661151d098080713b5df3ac8b275001",
+    "world-initializer-CT6LKrCE.js": "3c2ed5aff0377bf333691f5cab53f95eb05030acfe9e71ecdf2af5a8320e2827"
+  },
+  "buildIndexSha256": "f43d3505ecee266471fb796e15a5db8e48a411c5c3f3792f6e35e0b87e4b49d2",
+  "brushes": [
+    {
+      "guid": "f6e85de3-6dcc-4e7f-87fd-cee8c3d25d51",
+      "name": "Electricity",
+      "changedPixels": 0,
+      "maxByteDifference": 0,
+      "drawCalls": 3,
+      "bindingsPerturbed": 3,
+      "programs": [
+        {
+          "newExporter": false,
+          "tiltInput": "not-active",
+          "compiledVertexSource": "Electricity-pass0.vert.glsl",
+          "sha256": "760bc1fc1a5cb234e709b9b81c00e7263a6b56c9d4672656a98c8618482c4f72"
+        },
+        {
+          "newExporter": false,
+          "tiltInput": "not-active",
+          "compiledVertexSource": "Electricity-pass1.vert.glsl",
+          "sha256": "760bc1fc1a5cb234e709b9b81c00e7263a6b56c9d4672656a98c8618482c4f72"
+        },
+        {
+          "newExporter": false,
+          "tiltInput": "not-active",
+          "compiledVertexSource": "Electricity-pass2.vert.glsl",
+          "sha256": "760bc1fc1a5cb234e709b9b81c00e7263a6b56c9d4672656a98c8618482c4f72"
+        }
+      ],
+      "logSha256": "b1f03176e0d092866a8c719b64df4753fbac6fbad5396666e4f41b6d07b30867",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "4391aaaa-df73-4396-9e33-31e4e4930b27",
+      "name": "Disco",
+      "changedPixels": 0,
+      "maxByteDifference": 0,
+      "drawCalls": 1,
+      "bindingsPerturbed": 1,
+      "programs": [
+        {
+          "newExporter": false,
+          "tiltInput": "not-active",
+          "compiledVertexSource": "Disco-pass0.vert.glsl",
+          "sha256": "bb6ad7fd4ca5fefa176d3d3389738e2f8c11481477976175fc65786d3fbe38e5"
+        }
+      ],
+      "logSha256": "eb8a790d46cc11f00a81e636bfe3c311f87111189067089cedea73fe860a90c8",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "eba3f993-f9a1-4d35-b84e-bb08f48981a4",
+      "name": "BubbleWand",
+      "changedPixels": 0,
+      "maxByteDifference": 0,
+      "drawCalls": 1,
+      "bindingsPerturbed": 1,
+      "programs": [
+        {
+          "newExporter": false,
+          "tiltInput": true,
+          "compiledVertexSource": "BubbleWand-pass0.vert.glsl",
+          "sha256": "9e73d38d24ec9c83340dd879b96a219aeef4d0f747bddcc1ca402ea8ee58360e"
+        }
+      ],
+      "logSha256": "7ec62b1e9d175159e78b967d4a1ff452e64c3b1b2035d79f00d5cc5b060a5dab",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    },
+    {
+      "guid": "f8ba3d18-01fc-4d7b-b2d9-b99d10b8e7cf",
+      "name": "KeijiroTube",
+      "changedPixels": 0,
+      "maxByteDifference": 0,
+      "drawCalls": 1,
+      "bindingsPerturbed": 1,
+      "programs": [
+        {
+          "newExporter": false,
+          "tiltInput": "not-active",
+          "compiledVertexSource": "KeijiroTube-pass0.vert.glsl",
+          "sha256": "71b621d04cd249e67c2ba7f446be8030993c8cddf6848a68882bfd6af57b3121"
+        }
+      ],
+      "logSha256": "1ac71cdf577361867a5f37991081ab7f270688607e772ad188e5ee431b8a8794",
+      "consoleErrors": 0,
+      "pageErrors": 0
+    }
+  ]
+}

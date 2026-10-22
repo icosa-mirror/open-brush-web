@@ -11,6 +11,10 @@
    90 required GUIDs. WaveformParticles, Drafting, DuctTapeGeometry, Digital and
    Race remain unverified on the normal-export path. Name-derived matches do
    not establish original per-stroke GUID provenance or the full plugin path.
+   Four brushes additionally have a controlled unbound-attribute default probe:
+   six perturbed bindings produce zero RGB change with false exporter flags.
+   The active-input sensitivity control changes pixels. The other 91 probes
+   are explicitly unverified; none of these observations promotes visual parity.
 3. All 95 corrected browser PNG captures are recorded with equal generated and
    bound UV0 widths (`UV0` in the table is generated/bound). Coverage is 94/95;
    ConcaveHull's legacy planar case remains a failed coverage smoke check.
@@ -51,6 +55,7 @@ Source reports:
 | Prefix/finalization buffer capacities | [checks](../vertex-layout-2026-10-22/results.json) |
 | Existing native image corpus | [inventory](../native-2026-10-21/image-corpus-inventory.json) |
 | Desktop shader compile/link | [audit](../browser-shader-compile-2026-10-22/results.json) |
+| Live-input default-attribute probes | [observations](../attribute-default-probe-2026-10-22/results.json), [control](../attribute-default-probe-2026-10-22/gpu-controls.json) |
 
 Rebuild the index from the repository root:
 
@@ -59,5 +64,5 @@ npm run evidence:brush-fidelity -- --output docs/evidence/brush-fidelity/ledger-
 ```
 
 The generator replaces only `ledger.json` and `brushes.md`; this README is
-maintained separately. The ledger's producing application baseline is `f086d11`;
+maintained separately. The ledger's producing application baseline is `aefe5d6`;
 runner/joiner hashes identify the generator in this change.

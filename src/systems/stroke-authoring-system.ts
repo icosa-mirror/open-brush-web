@@ -753,6 +753,7 @@ export class StrokeAuthoringSystem extends createSystem({
       mode === "brush" ? conformanceCamera : undefined,
       mode === "brush" ? 0.001 : 0.005,
       mode === "brush" ? (nativeCapture?.size ?? resolveBrushCaptureSize(captureParams.get("conformance-size"))) : undefined,
+      captureParams.get("conformance-attribute-probe") === "1",
     );
     openBrushShaderCompatibility.record({
       guid: brushGuid,
