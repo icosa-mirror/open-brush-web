@@ -1,14 +1,30 @@
 # Open Brush parity plan and brush fidelity review
 
-Current planning audit: 2026-10-22, application baseline `2bbfbeb`.
+Current planning audit: 2026-10-22, application baseline `ec92408`.
 
 Original review: 2026-08-31, application baseline `4579dbb`.
 
-Open Brush: [`4786d55ad398bfc957d8e8eb26438920026aeaf6`](https://github.com/icosa-foundation/open-brush/tree/4786d55ad398bfc957d8e8eb26438920026aeaf6)
+Inherited Open Brush extraction/source pin (not the intended parity target): [`4786d55ad398bfc957d8e8eb26438920026aeaf6`](https://github.com/icosa-foundation/open-brush/tree/4786d55ad398bfc957d8e8eb26438920026aeaf6)
 
 Open Brush mesh-fixture generator: `b05324dbd` on `feature/brush-fixtures`
 
 ## Current planning baseline
+
+The parity target is **current upstream Open Brush**, not the inherited July 10,
+2026 revision `4786d55`. That old pin has no special justification as the
+validation target. Resolve current upstream to an exact commit when updating the
+baseline, then record that immutable revision for reproducible extraction,
+fixtures and captures. `5591ff1` (October 18) identifies the existing fixture run;
+it is not a claim about today's latest upstream revision.
+
+**Baseline alignment is the first remaining task.** Update the configured native
+reference and review/regenerate affected assets and metadata against the chosen
+current revision, then regenerate native fixtures and calibrated image captures
+and rerun affected comparisons. Audit the maintained loader/shader dependencies
+against that same target. Do not spend further validation work reproducing July
+behavior as the acceptance target. Retain older runs as attributed historical
+evidence; neither changing a pin nor updating this document revalidates them.
+This documentation update does not change configuration, dependencies or assets.
 
 The planning update reconciled the report with application source and recorded
 batching validation. Subsequent work on 2026-10-21 provides fresh native live-mesh
@@ -21,7 +37,7 @@ unfinished or expand a live-mesh result into other kinds of parity.
 
 | Input | Current configured revision | Authority |
 | --- | --- | --- |
-| Open Brush reference | `4786d55ad398bfc957d8e8eb26438920026aeaf6` | [open-brush-reference.json](open-brush-reference.json); local `reference/` HEAD matches |
+| Inherited Open Brush extraction/source pin; migration pending | `4786d55ad398bfc957d8e8eb26438920026aeaf6` | [open-brush-reference.json](open-brush-reference.json); local `reference/` HEAD matches |
 | `three-tiltloader` | `6c92f0035911e8e61755fec3270beb7604d5dc81` | [package.json](package.json), [package-lock.json](package-lock.json) |
 | `three-icosa` | `25fe4ca1f7e52174e7d9dca90c811e307216ba1f` | [package.json](package.json), [package-lock.json](package-lock.json) |
 | `icosa-sketch-assets` | `df593c972751f7f28bc8d47bc4f4fd8cfad45fe5` | [brush-asset-base-url.ts](src/brushes/brush-asset-base-url.ts); immutable default URL, explicit environment override/mirror |
@@ -34,7 +50,7 @@ every intervening upstream change.
 | Area | Current implementation/evidence | Remaining parity requirement |
 | --- | --- | --- |
 | Target inventory | Generated metadata contains 48 standard and 47 non-broken experimental catalog brushes; [brush-catalog.ts](src/brushes/brush-catalog.ts) derives the required set. | Keep compatibility-only imports distinct from the 95-brush painting target. |
-| Geometry | [brush-geometry.ts](src/brushes/brush-geometry.ts) delegates to `three-tiltloader`. The [fresh native run](docs/evidence/brush-fidelity/native-2026-10-21/README.md) matches 95/95 required live meshes against current package pins, under family-specific rules. | The fresh native revision is `5591ff1`, distinct from the declared reference pin. Cover incremental rebuilds, animated deformation, and export paths separately; reconcile reference provenance explicitly. |
+| Geometry | [brush-geometry.ts](src/brushes/brush-geometry.ts) delegates to `three-tiltloader`. The [fresh native run](docs/evidence/brush-fidelity/native-2026-10-21/README.md) matches 95/95 required live meshes against current package pins, under family-specific rules. | The fresh native revision is `5591ff1`, distinct from the declared reference pin. Cover incremental rebuilds, animated deformation, and export paths separately; align extraction and fresh validation to the chosen current upstream revision. |
 | Materials | Shared maintained assets and [render-pass helpers](src/brushes/brush-render-material.ts) are wired into the app; late material upgrades are registered. The [browser image collector](scripts/browser-brush-image-comparison.mjs) captures all 95 required brushes with per-GUID metrics. | The first image run is diagnostic with unmatched/unverified reference inputs; calibrated Unity image parity, loaded-environment context, audio analysis, and physical-Quest validation remain open. |
 | Labels and evidence | [Inventory](src/brushes/brush-inventory.ts) separates renderer support from unverified visual parity. The [ledger](docs/evidence/brush-fidelity/ledger-2026-10-22/README.md) joins revisioned per-GUID observations. [Shader evidence](src/brushes/brush-shader-compatibility.ts) also persists contexts locally. | Gather missing compile/image/device evidence and reconcile native provenance; a selectable brush or a local `ready` record is not a parity verdict. |
 | Production batching | [StrokeBatchRenderSystem](src/systems/stroke-batch-render-system.ts) is registered in [src/index.ts](src/index.ts); [batching is default-on](src/brushes/stroke-batch-feature.ts), with `?strokeBatches=0` or `false` as the opt-out. | Follow the [batching validation ledger](docs/stroke-batching-validation.md): broader brush/view coverage, context loss, latency/capacity budgets, and physical-headset evidence remain open. |
@@ -193,7 +209,9 @@ every intervening upstream change.
     behavior change. These observations rule out treating the revisions as
     interchangeable on metadata assumptions. They do not constitute a complete
     dependency audit or establish which revision produced the original PNGs.
-    The reference pin stays unchanged and runtime equivalence remains unverified.
+    The audit left the inherited pin unchanged. The planning decision is now to
+    migrate to current upstream, not generate a July acceptance baseline; existing
+    runtime equivalence remains unverified until aligned checks are rerun.
 
 17. Persisted stroke reading now delegates to the pinned public shared parser,
     removing duplicate extension traversal. The
@@ -912,8 +930,10 @@ Suggested gates:
 2. Implemented: configurable immutable asset URL and explicit mirror commands;
    generated mirrors are ignored. Preserve byte verification and offline/mirror
    coverage when advancing the asset revision.
-3. Implemented: `open-brush-reference.json` pins the audited upstream commit,
-   and asset extraction rejects a checkout at any other revision.
+3. Partial: `open-brush-reference.json` still pins the inherited July revision,
+   and asset extraction rejects a checkout at any other revision. Advance it to
+   an exact current upstream revision, review/regenerate affected outputs and
+   rerun the gate. Reproducibility of the old pin does not make it the parity target.
 4. Implemented and locally verified: extraction regenerates into a fresh temporary
    root and compares file inventories and SHA-256 bytes across all 476 generated
    outputs. The deployment workflow checks out the exact declared native pin
@@ -1078,8 +1098,13 @@ The order below is the active plan. Each item separates implementation from the
 evidence needed to close it. Implementation/evidence updates are linked at their
 actual scope; incomplete items remain open.
 
-1. **Establish reference inputs and capture provenance.** Use the existing
-   95-image corpus at
+1. **Align to current upstream, then establish matched capture inputs.** Resolve
+   current Open Brush to an exact commit and record it. Update the inherited
+   source pin, review/regenerate affected assets/metadata and check maintained
+   dependencies against that target. Regenerate fixtures and rerun affected
+   geometry, export, shader and image checks against the aligned baseline. The
+   July revision is historical, not an alternative acceptance target. Retain the
+   existing 95-image corpus at
    `C:\Users\andyb\Documents\open-brush-fast\Support\Screenshots\brushes-postfx-disabled`.
    Record producing Unity revision, fixture/path/seed, environment, shader time,
    camera, color pipeline, antialiasing and capture size. Resolve the observed
@@ -1090,9 +1115,10 @@ actual scope; incomplete items remain open.
    Existing PNG hashes/dimensions are recorded separately with provenance open.
    The [source comparison](docs/evidence/brush-fidelity/native-reference-drift-2026-10-22/README.md)
    records actual shared-generator, material-reference and prefab-reference
-   changes between the declared and fixture-producing revisions; a matched
-   declared-revision baseline or an explicit reference decision is still needed. Exit:
-   immutable input manifest and reproducible commands; no newly invented baseline.
+   changes between the inherited and fixture-producing revisions. Do not relabel
+   the October 95/95 result or existing PNGs as measurements of the newly selected
+   target. Exit: aligned current-upstream source/assets/fixtures, attributable
+   capture settings, an immutable input manifest and reproducible commands.
 2. **Publish current per-GUID evidence.** Join required inventory with mesh,
    asset-load, browser compile, emulated/physical-device XR compile, Unity-image differences, and
    performance/device observations, keyed by app/package/asset/Unity revisions.

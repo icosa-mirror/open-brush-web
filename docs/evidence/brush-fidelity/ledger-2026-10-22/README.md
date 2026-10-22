@@ -38,9 +38,13 @@
    still unverified. Recorded source app revisions can be baselines preceding
    producing edits: follow each source artifact and its README/source hashes
    rather than treating the revision alone as the complete producing checkout.
-6. The declared native reference remains `4786d55...`, while the fresh fixture
-   generator ran at `5591ff1...`. The ledger retains that discrepancy explicitly;
-   joining records does not reconcile the native revisions or image settings.
+6. This ledger records the inherited native pin `4786d55...` and fixtures
+   generated at `5591ff1...`. It retains that discrepancy explicitly; joining
+   records does not reconcile revisions or image settings. The current plan
+   targets current upstream Open Brush, with an exact revision to be recorded
+   during baseline migration. Align source/assets and regenerate affected
+   evidence before assigning results to that target. These historical records
+   remain attributed to the versions actually tested.
 7. Full checking passed: 85 Vitest files, 594 passed tests and four existing
    TODOs. Join regressions cover all 95 recorded identities, retained PBR paths,
    missing normal-export observations, captured/coverage-fail distinctions,
