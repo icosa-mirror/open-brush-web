@@ -48,6 +48,7 @@ import { AudioFeedbackSystem } from "./audio-feedback-system.js";
 import { IntroSketchSystem } from "./intro-sketch-system.js";
 import { StrokeAuthoringSystem } from "./stroke-authoring-system.js";
 import { StrokeBatchRenderSystem } from "./stroke-batch-render-system.js";
+import { LayerCanvasSystem } from "./layer-canvas-system.js";
 import { assetUrl } from "../app/asset-url.js";
 
 const WELCOME_SKETCH_ID = "welcome-sketch";
@@ -260,7 +261,7 @@ export class SketchLibrarySystem extends createSystem({
       return;
     }
     this.transition = undefined;
-    this.activeDocumentContext = createSketchDocument({ metadata: { source: "runtime" } });
+    this.setDocumentContext();
     this.busy = false;
     this.getIntroSketchSystem()?.setSketchVisible(false, false);
     this.disposeAllStrokes();
@@ -308,7 +309,7 @@ export class SketchLibrarySystem extends createSystem({
     this.busy = true;
     this.transitionOutStrokes(() => {
       this.getIntroSketchSystem()?.setSketchVisible(false);
-      this.activeDocumentContext = createSketchDocument({ metadata: { source: "runtime" } });
+      this.setDocumentContext();
       appState.setValue(PersistenceState, "activeSketchId", "");
       appState.setValue(PersistenceState, "activeSketchName", "Untitled Sketch");
       appState.setValue(OpenBrushAppState, "mode", "ready");
@@ -326,7 +327,7 @@ export class SketchLibrarySystem extends createSystem({
     if (entry.id === WELCOME_SKETCH_ID) {
       this.transitionOutStrokes(() => {
         this.getIntroSketchSystem()?.setSketchVisible(true);
-        this.activeDocumentContext = createSketchDocument({ metadata: { source: "runtime" } });
+        this.setDocumentContext();
         appState.setValue(PersistenceState, "activeSketchId", WELCOME_SKETCH_ID);
         appState.setValue(PersistenceState, "activeSketchName", "Welcome Sketch");
         appState.setValue(OpenBrushAppState, "mode", "ready");
@@ -389,7 +390,7 @@ export class SketchLibrarySystem extends createSystem({
     }
     this.transitionOutStrokes(() => {
       this.getIntroSketchSystem()?.setSketchVisible(false);
-      this.activeDocumentContext = createSketchDocument({ ...document, strokes: [] });
+      this.setDocumentContext(document);
       const authoring = this.world.getSystem(StrokeAuthoringSystem);
       const spawned: Entity[] = [];
       const spawnStrokes = () => {
@@ -673,6 +674,11 @@ export class SketchLibrarySystem extends createSystem({
     }
     strokes.sort((a, b) => a.order - b.order);
     return strokes.map((stroke) => stroke.data);
+  }
+
+  private setDocumentContext(document = createSketchDocument({ metadata: { source: "runtime" } })): void {
+    this.activeDocumentContext = createSketchDocument({ ...document, strokes: [] });
+    this.world.getSystem(LayerCanvasSystem)?.setLayers(document.layers);
   }
 
   private collectLayers(): SketchLayer[] {

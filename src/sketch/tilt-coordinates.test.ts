@@ -13,9 +13,9 @@ const stroke = () => createEmptyStrokeData({
 });
 
 // Build the file independently of the production archive writer/converters.
-function inputFile(input: StrokeData, extension?: Record<string, unknown>): Uint8Array {
+function inputFile(input: StrokeData, extension?: Record<string, unknown>, layers?: unknown[]): Uint8Array {
   const payload = writeSketchMemory([input]);
-  const metadata = { BrushIndex: payload.brushGuids, ...(extension ? { OpenBrushIwSdk: extension } : {}) };
+  const metadata = { BrushIndex: payload.brushGuids, ...(extension ? { OpenBrushIwSdk: extension } : {}), ...(layers ? { Layers: layers } : {}) };
   const zip = zipSync({ "data.sketch": payload.bytes, "metadata.json": new TextEncoder().encode(JSON.stringify(metadata)) }, { level: 0 });
   const bytes = new Uint8Array(TILT_HEADER_SIZE + zip.length), view = new DataView(bytes.buffer);
   view.setUint32(0, TILT_SENTINEL, true);
@@ -56,5 +56,42 @@ describe("tilt file coordinate boundary", () => {
 
   it("rejects unknown coordinate markers instead of guessing a scale", () => {
     expect(() => readTiltFile(inputFile(stroke(), { coordinateSpace: "future-space" }))).toThrow("Unsupported Open Brush .tilt coordinate space");
+  });
+
+  it("reads native layer names/visibility and writes edits without discarding transforms", () => {
+    const input = stroke(); input.layerIndex = 1;
+    const transform = [[10, 20, 30], [0, 0, 0, 1], 2];
+    const document = readTiltFile(inputFile(input, undefined, [
+      { Name: "Backdrop", Visible: true },
+      { Name: "Hidden", Visible: false, Transform: transform, Future: { keep: true } },
+    ]));
+    expect(document.layers).toEqual([
+      { id: 0, name: "Backdrop", visible: true, locked: false },
+      { id: 1, name: "Hidden", visible: false, locked: false },
+    ]);
+    document.layers[1].name = "Revised"; document.layers[1].visible = true;
+    const zip = unzipSync(writeTiltFile(document).subarray(TILT_HEADER_SIZE));
+    const metadata = JSON.parse(new TextDecoder().decode(zip["metadata.json"]));
+    expect(metadata.Layers[1]).toEqual({ Name: "Revised", Visible: true, Transform: transform, Future: { keep: true } });
+  });
+
+  it("maps sparse app layer IDs to compact native slots and restores their IDs", () => {
+    const source = stroke(); source.layerIndex = 2_000_000_000;
+    const document = createSketchDocument({ layers: [
+      { id: 4, name: "Empty", visible: true, locked: false },
+      { id: source.layerIndex, name: "Ink", visible: false, locked: true },
+    ], strokes: [source] });
+    const bytes = writeTiltFile(document), zip = unzipSync(bytes.subarray(TILT_HEADER_SIZE));
+    const metadata = JSON.parse(new TextDecoder().decode(zip["metadata.json"]));
+    expect(metadata.Layers).toHaveLength(2);
+    expect(metadata.OpenBrushIwSdk.nativeLayerIds).toEqual([4, 2_000_000_000]);
+    expect(readTiltStrokeData(zip["data.sketch"], metadata.BrushIndex)[0].layerIndex).toBe(1);
+    const result = readTiltFile(bytes);
+    expect(result.layers).toEqual(document.layers);
+    expect(result.strokes[0].layerIndex).toBe(source.layerIndex);
+  });
+
+  it("rejects ambiguous native layer maps", () => {
+    expect(() => readTiltFile(inputFile(stroke(), { nativeLayerIds: [0, 0] }, [{}, {}]))).toThrow("Invalid native layer ID mapping");
   });
 });

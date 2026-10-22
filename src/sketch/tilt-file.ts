@@ -31,8 +31,10 @@ export interface TiltFileWriteOptions {
 
 export interface TiltFileMetadata {
   BrushIndex: string[];
+  Layers?: Array<{ Name?: string; Visible?: boolean; [key: string]: unknown }>;
   OpenBrushIwSdk?: {
     coordinateSpace?: "unity-decimeters" | "web-meters";
+    nativeLayerIds?: number[];
     appName: string;
     schemaVersion: number;
     source: SketchMetadata["source"];
@@ -53,13 +55,18 @@ export function writeTiltFile(
   options: TiltFileWriteOptions = {},
 ): Uint8Array {
   const preservedMetadata = structuredClone(document.tiltArchive?.metadata ?? {}) as Partial<TiltFileMetadata>;
-  const sketchPayload = writeSketchMemory(document.strokes.map(webStrokeToNativeTilt), preservedMetadata.BrushIndex);
+  const nativeLayers = prepareNativeLayers(document.layers, document.strokes.map(stroke => stroke.layerIndex), preservedMetadata);
+  const sketchPayload = writeSketchMemory(document.strokes.map(stroke => ({
+    ...webStrokeToNativeTilt(stroke), layerIndex: nativeLayers.indexById.get(stroke.layerIndex)!,
+  })), preservedMetadata.BrushIndex);
   const metadata: TiltFileMetadata = {
     ...preservedMetadata,
     BrushIndex: sketchPayload.brushGuids.map(normalizeGuid),
+    Layers: nativeLayers.layers,
     OpenBrushIwSdk: {
       ...preservedMetadata.OpenBrushIwSdk,
       coordinateSpace: "unity-decimeters",
+      nativeLayerIds: nativeLayers.ids,
       appName: document.metadata.appName,
       schemaVersion: document.metadata.schemaVersion,
       source: document.metadata.source,
@@ -113,6 +120,14 @@ export function readTiltFile(bytes: Uint8Array): SketchDocument {
   // Earlier web exports had no convention marker and wrote web metres directly.
   const nativeCoordinates = !metadata.OpenBrushIwSdk || coordinateSpace === "unity-decimeters";
   const rawStrokes = readSketchMemory(sketchBytes, brushGuids);
+  const nativeLayerIds = readNativeLayerIds(metadata);
+  if (nativeLayerIds) {
+    for (const stroke of rawStrokes) {
+      const layerId = nativeLayerIds[stroke.layerIndex];
+      if (layerId === undefined) throw new Error("Stroke refers to a missing native layer slot.");
+      stroke.layerIndex = layerId;
+    }
+  }
   const strokes = nativeCoordinates ? rawStrokes.map(nativeTiltStrokeToWeb) : rawStrokes;
   const layers = readLayers(metadata, strokes.map((stroke) => stroke.layerIndex));
   const media = readMedia(metadata);
@@ -178,6 +193,38 @@ function readNumberTuple<T extends number[]>(
   }) as T;
 }
 
+function readNativeLayerIds(metadata: Partial<TiltFileMetadata>): number[] | undefined {
+  const ids = metadata.OpenBrushIwSdk?.nativeLayerIds;
+  if (ids === undefined) return undefined;
+  if (!Array.isArray(ids) || ids.length !== metadata.Layers?.length || new Set(ids).size !== ids.length || ids.some(id => !Number.isSafeInteger(id) || id < 0 || id > 0x7fffffff)) {
+    throw new Error("Invalid native layer ID mapping.");
+  }
+  return ids;
+}
+
+function prepareNativeLayers(layers: readonly SketchLayer[], strokeLayers: readonly number[], metadata: Partial<TiltFileMetadata>) {
+  const result = structuredClone(metadata.Layers ?? []);
+  const ids = [...(readNativeLayerIds(metadata) ?? result.map((_, index) => index))];
+  const indexById = new Map(ids.map((id, index) => [id, index]));
+  const ensureSlot = (id: number) => {
+    if (!Number.isSafeInteger(id) || id < 0 || id > 0x7fffffff) throw new Error("Invalid sketch layer index.");
+    let index = indexById.get(id);
+    if (index === undefined) {
+      index = result.length;
+      indexById.set(id, index);
+      ids.push(id);
+      result.push({ Name: `Layer ${id + 1}`, Visible: true, Transform: [[0, 0, 0], [0, 0, 0, 1], 1] });
+    }
+    return index;
+  };
+  for (const layer of layers) {
+    const index = ensureSlot(layer.id);
+    result[index] = { ...result[index], Name: layer.name, Visible: layer.visible };
+  }
+  for (const id of strokeLayers) ensureSlot(id);
+  return { layers: result, ids, indexById };
+}
+
 function readLayers(
   metadata: TiltFileMetadata,
   strokeLayerIndexes: readonly number[],
@@ -192,6 +239,19 @@ function readLayers(
         locked: Boolean(layer.locked),
       }),
     );
+  }
+
+  if (Array.isArray(metadata.Layers) && metadata.Layers.length > 0) {
+    const ids = readNativeLayerIds(metadata);
+    const nativeLayers = metadata.Layers.map((layer, index) => createSketchLayer({
+      id: ids?.[index] ?? index,
+      name: typeof layer.Name === "string" ? layer.Name : `Layer ${index + 1}`,
+      visible: layer.Visible === true,
+    }));
+    for (const id of new Set(strokeLayerIndexes)) {
+      if (!nativeLayers.some(layer => layer.id === id)) nativeLayers.push(createSketchLayer({ id, name: `Layer ${id + 1}` }));
+    }
+    return nativeLayers;
   }
 
   const layerIds = Array.from(new Set(strokeLayerIndexes)).sort((a, b) => a - b);

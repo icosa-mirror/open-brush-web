@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { createSketchDocument, type TiltArchiveData } from "./document.js";
+import { createSketchDocument, createSketchLayer, type TiltArchiveData } from "./document.js";
 import { readTiltFile, writeTiltFile } from "./tilt-file.js";
 import { convertTiltBrushUnitsToMeters } from "./tilt-brush-units.js";
 import { createEmptyStrokeData } from "../types.js";
@@ -10,6 +10,7 @@ const brush = "429ed64a-4e97-4466-84d3-145a861ef684";
 const unusedBrush = "2241cd32-8ba2-48a5-9ee7-2caef7e9ed62";
 function nativeDocument() {
   return createSketchDocument({
+    layers: [createSketchLayer({ id: 0, name: "Native layer" })],
     strokes: [createEmptyStrokeData({ brushGuid: brush, brushSize: 2 })],
     tiltArchive: {
       metadata: {

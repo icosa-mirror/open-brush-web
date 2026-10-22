@@ -9,12 +9,36 @@ import {
 } from "../components/core.js";
 import { resolveStrokeRenderVisibility } from "../brushes/stroke-batch-feature.js";
 import { StrokeBatchRenderSystem } from "./stroke-batch-render-system.js";
+import type { SketchLayer } from "../sketch/document.js";
 
 export class LayerCanvasSystem extends createSystem({
   appState: { required: [OpenBrushAppState] },
   layers: { required: [CanvasLayer] },
   strokes: { required: [BrushStroke] },
 }) {
+  /** Restores document layer state; selection canvases belong to the tools. */
+  setLayers(layers: readonly SketchLayer[]): void {
+    if (!layers.length || layers.some(layer => !Number.isSafeInteger(layer.id) || layer.id < 0 || layer.id > 0x7fffffff) || new Set(layers.map(layer => layer.id)).size !== layers.length) {
+      throw new Error("Sketch layers require unique nonnegative integer IDs.");
+    }
+    const existing = new Map([...this.queries.layers.entities]
+      .filter(entity => !entity.getValue(CanvasLayer, "selectionCanvas"))
+      .map(entity => [Number(entity.getValue(CanvasLayer, "layerIndex")), entity]));
+    layers.forEach((layer, order) => {
+      const entity = existing.get(layer.id) ?? this.world.createTransformEntity().addComponent(CanvasLayer);
+      existing.delete(layer.id);
+      entity.setValue(CanvasLayer, "layerIndex", layer.id);
+      entity.setValue(CanvasLayer, "order", order);
+      entity.setValue(CanvasLayer, "layerName", layer.name);
+      entity.setValue(CanvasLayer, "visible", layer.visible);
+      entity.setValue(CanvasLayer, "locked", layer.locked);
+      if (entity.object3D) entity.object3D.name = `OpenBrushLayer_${layer.id}`;
+    });
+    for (const entity of existing.values()) entity.dispose();
+    const active = layers.find(layer => layer.visible && !layer.locked) ?? layers[0];
+    this.getAppStateEntity()?.setValue(OpenBrushAppState, "activeLayerIndex", active.id);
+  }
+
   update() {
     const appState = this.getAppStateEntity();
     if (!appState) {

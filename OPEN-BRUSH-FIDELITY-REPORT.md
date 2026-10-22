@@ -1,6 +1,6 @@
 # Open Brush parity plan and brush fidelity review
 
-Current planning audit: 2026-10-22, application baseline `155017b`.
+Current planning audit: 2026-10-22, application baseline `3a0b5b6`.
 
 Original review: 2026-08-31, application baseline `4579dbb`.
 
@@ -231,6 +231,18 @@ every intervening upstream change.
     transforms, raw exported values, legacy repeated saves and unknown markers.
     This does not establish room/canvas/media transforms, native layer semantics,
     live native import or calibrated visual equivalence.
+
+20. [Native layer state](docs/evidence/brush-fidelity/native-layer-state-2026-10-22/README.md)
+    now maps native array-indexed names/visibility into documents and restores
+    runtime paint-layer components through the shared gallery context path.
+    Exports update native names/visibility while retaining transforms and unknown
+    fields; sparse web IDs use compact native slots with an explicit reversible
+    mapping. An isolated IWSDK browser run confirms hidden-stroke mesh visibility,
+    active-layer selection, stale-layer removal and selection-canvas retention,
+    without browser errors. The café audit still preserves original native
+    stroke values, metadata values and archive bytes. Native layer transforms
+    remain unapplied, and batched/gallery UI interaction, native widget layers,
+    connected collaboration and live native import remain separate open checks.
 
 ## Executive assessment
 
@@ -1000,10 +1012,12 @@ actual scope; incomplete items remain open.
    controller coverage through editing/save-as/reload. Stroke coordinate
    conversion is now inverse at the file boundary, with original decoded native
    values retained on the sample and legacy web-file handling explicit. Still
-   reconcile native room/canvas/media transforms and layer semantics,
+   reconcile native room/canvas/media transforms and layer transforms,
    unsupported extensions and interactive/native
    import behavior. The local archive wrapper and writer remain; preservation
-   does not establish a native all-fields semantic round-trip pass.
+   does not establish a native all-fields semantic round-trip pass. Native layer
+   names/visibility and runtime layer restoration now have file and isolated
+   browser evidence; interactive gallery/batching/widget-layer coverage remains open.
 10. **Turn the application inventory into feature plans.** Compare the workflows
     in the scope table with native Open Brush, record implementation and evidence
     gaps, and prioritize the next feature slice with the user. Exit: explicit

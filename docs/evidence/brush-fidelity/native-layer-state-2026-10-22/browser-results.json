@@ -1,0 +1,58 @@
+{
+  "recordedAt": "2026-10-22T01:27:55.876Z",
+  "browserVersion": "155.0.8059.85",
+  "result": {
+    "passed": true,
+    "loaded": [
+      {
+        "id": 0,
+        "name": "Backdrop",
+        "visible": false,
+        "locked": false
+      },
+      {
+        "id": 1,
+        "name": "Ink",
+        "visible": true,
+        "locked": false
+      },
+      {
+        "id": 5,
+        "name": "Locked",
+        "visible": true,
+        "locked": true
+      }
+    ],
+    "activeLayer": 1,
+    "visibility": {
+      "hiddenLogical": true,
+      "hiddenRendered": false,
+      "hiddenObject": false,
+      "shownRendered": true,
+      "shownObject": true
+    },
+    "reset": [
+      {
+        "id": 0,
+        "name": "Fresh",
+        "visible": true,
+        "locked": false
+      }
+    ],
+    "selectionSurvives": true,
+    "scope": "Isolated IWSDK layer component/visibility lifecycle; no native transforms, UI interaction, batched strokes or hardware XR"
+  },
+  "consoleErrors": 0,
+  "graphicsWarnings": 0,
+  "pageErrors": [],
+  "sourceHashes": {
+    "src/app/layer-state-validation.ts": "03adcfdfbe5867344a98a45c6b0f0218f291fa0037c93979d7c349ab249122fa",
+    "src/systems/layer-canvas-system.ts": "d8569e9db272b4eab640b71b8c665586fc437077b003d0835f2beedc848b8ab2",
+    "src/systems/sketch-library-system.ts": "cea08ff924c5f8451dd069e9cabeb4f2de9e4837d481764147c56079d63bb5f7",
+    "src/sketch/tilt-file.ts": "8fab278e740d51e370ffa6b145eb582631d429c1a3bafeca53e06f2c34af5f03",
+    "src/components/core.ts": "e54bfbf73fa3bfee3232d03edf32c4368e653d83045fade5541ed3ce139727ef",
+    "scripts/layer-state-harness.html": "5243e9fad61e2af96b69eb7219a8fdebfd86d52c58a7828b6db4c25762fe2702",
+    "scripts/browser-layer-state.mjs": "d2418c67b3408162321aa8905220d156bd8b678f6e9493ccbd5493b30f6f3d87",
+    "package-lock.json": "f994e07d2de98eabdcd30394cd9be512ac6db3b62254301c8a130302ee4a1e04"
+  }
+}
